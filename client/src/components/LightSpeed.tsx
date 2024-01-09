@@ -11,8 +11,9 @@ import {
   Line,
 } from 'three';
 import { OrbitControls } from '@react-three/drei';
+import Stars from './Stars';
 
-extend({ PerspectiveCamera });
+// extend({ PerspectiveCamera });
 
 const Cone = () => {
   const meshRef = useRef<Mesh>(null);
@@ -82,6 +83,7 @@ const LightSpeed = () => {
   return (
     <>
       <Cone />
+      <Stars />
       {/* <CameraIndicator /> */}
       {/* Add OrbitControls for camera movement */}
       <OrbitControls />
