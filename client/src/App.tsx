@@ -1,5 +1,11 @@
+import LightSpeed from './components/LightSpeed';
+
 function App() {
-  return 'Hello World';
+  return (
+    <div>
+      <LightSpeed />
+    </div>
+  );
 }
 
 export default App;
