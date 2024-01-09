@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Canvas, useFrame, extend } from '@react-three/fiber';
 import { PerspectiveCamera } from 'three';
 import {
@@ -21,6 +21,9 @@ const Cone = () => {
   useFrame(() => {
     // Here you can add some animations or interactions with the cone
     if (meshRef.current) {
+      // Position the cone at [0, 0, 0]
+      meshRef.current.position.set(0, 0, -20);
+
       // Rotate the cone to face the camera
       meshRef.current.rotation.x = -Math.PI / 2;
     }
@@ -28,7 +31,7 @@ const Cone = () => {
 
   return (
     <mesh ref={meshRef}>
-      <coneGeometry args={[5, 20, 32]} />{' '}
+      <coneGeometry args={[5, 40, 32]} />{' '}
       {/* Cone parameters: radius, height, radial segments */}
       <meshBasicMaterial color={'blue'} wireframe />
     </mesh>
@@ -36,8 +39,8 @@ const Cone = () => {
 };
 
 const CameraIndicator = () => {
-  const startPosition = new Vector3(0, 0, 20);
-  const endPosition = new Vector3(0, 0, 0);
+  const startPosition = new Vector3(0, 0, -20);
+  const endPosition = new Vector3(0, 0, -20);
 
   // Geometry for the line indicating camera direction
   const points = [startPosition, endPosition];
@@ -60,25 +63,29 @@ const CameraIndicator = () => {
 };
 
 const LightSpeed = () => {
-  const cameraRef = useRef<PerspectiveCamera>(null);
+  //   const [moveCamera, setMoveCamera] = useState(false);
 
-  useEffect(() => {
-    if (cameraRef.current) {
-      // Set the camera's position to align with the cone's opening
-      cameraRef.current.position.set(0, 0, 20); // Adjust the position as needed
-      cameraRef.current.lookAt(0, 0, 0); // Pointing the camera towards the end of the cone
-    }
-  }, []);
+  //   useEffect(() => {
+  //     const timer = setTimeout(() => {
+  //       setMoveCamera(true);
+  //     }, 2000);
+
+  //     return () => clearTimeout(timer);
+  //   }, []);
+
+  //   useFrame(state => {
+  //     if (moveCamera) {
+  //       state.camera.position.z -= 0.01;
+  //     }
+  //   });
 
   return (
-    <div style={{ height: '100vh', width: '100vw' }}>
-      <Canvas>
-        <perspectiveCamera ref={cameraRef} fov={75} position={[0, 0, 20]} />
-        <Cone />
-        <CameraIndicator />
-        <OrbitControls /> {/* Add OrbitControls for camera movement */}
-      </Canvas>
-    </div>
+    <>
+      <Cone />
+      {/* <CameraIndicator /> */}
+      {/* Add OrbitControls for camera movement */}
+      <OrbitControls />
+    </>
   );
 };
 
