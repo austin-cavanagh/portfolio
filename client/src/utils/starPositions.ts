@@ -1,4 +1,4 @@
-const starPositions = (count = 500, coneHeight = 40, coneRadius = 5) => {
+const starPositions = (count = 3000, coneHeight = 60, coneRadius = 5) => {
   const positions: number[][] = [];
 
   for (let i = 0; i < count; i++) {

@@ -64,21 +64,21 @@ const CameraIndicator = () => {
 };
 
 const LightSpeed = () => {
-  //   const [moveCamera, setMoveCamera] = useState(false);
+  const [moveCamera, setMoveCamera] = useState(false);
 
-  //   useEffect(() => {
-  //     const timer = setTimeout(() => {
-  //       setMoveCamera(true);
-  //     }, 2000);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setMoveCamera(true);
+    }, 1800);
 
-  //     return () => clearTimeout(timer);
-  //   }, []);
+    return () => clearTimeout(timer);
+  }, []);
 
-  //   useFrame(state => {
-  //     if (moveCamera) {
-  //       state.camera.position.z -= 0.01;
-  //     }
-  //   });
+  useFrame(state => {
+    if (moveCamera) {
+      state.camera.position.z -= 0.4;
+    }
+  });
 
   return (
     <>
