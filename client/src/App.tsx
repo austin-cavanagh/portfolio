@@ -19,7 +19,7 @@ function App() {
   return (
     <div style={{ height: '100vh', width: '100vw' }}>
       <Canvas
-        camera={{ position: cameraPosition, far: 80 }}
+        camera={{ position: cameraPosition }}
         style={{ backgroundColor: 'black' }}
       >
         {currentScene === 'lightSpeed' && <LightSpeed />}

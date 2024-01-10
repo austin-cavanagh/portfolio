@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Mesh, MeshBasicMaterial, Color, BufferGeometry, Vector3 } from 'three';
 import { useFrame } from '@react-three/fiber';
 
@@ -14,23 +14,27 @@ const LightSpeedStar: React.FC<LightSpeedStarProps> = ({
   startLightspeed,
 }) => {
   const meshRef = useRef<Mesh>(null);
+  const [colorChanged, setColorChanged] = useState(false); // Track if color has been changed
 
   useFrame(({ clock }) => {
-    if (meshRef.current && startLightspeed) {
-      const elapsedTime =
-        clock.getElapsedTime() - (meshRef.current.userData.startTime ?? 0);
+    if (meshRef.current) {
+      if (startLightspeed) {
+        const elapsedTime =
+          clock.getElapsedTime() - (meshRef.current.userData.startTime ?? 0);
 
-      if (elapsedTime < 0.8) {
-        meshRef.current.scale.z += 2; // Scale z-axis for length
-        meshRef.current.scale.x += 0.02; // Scale x-axis for thickness
-        meshRef.current.scale.y += 0.02; // Scale y-axis for thickness
-        (meshRef.current.material as MeshBasicMaterial).color.lerp(
-          new Color('#4FC3FF'),
-          0.1
-        ); // Gradually change color to blue
+        if (elapsedTime < 1) {
+          meshRef.current.scale.z += 25; // Scale z-axis for length
+          meshRef.current.scale.x += 0.15; // Scale x-axis for thickness
+          meshRef.current.scale.y += 0.15; // Scale y-axis for thickness
+          (meshRef.current.material as MeshBasicMaterial).color.lerp(
+            new Color('#4FC3FF'),
+            0.1
+          ); // Gradually change color to blue
+          setColorChanged(true);
+        }
+      } else if (meshRef.current && !startLightspeed && !colorChanged) {
+        meshRef.current.userData.startTime = clock.getElapsedTime();
       }
-    } else if (meshRef.current && !startLightspeed) {
-      meshRef.current.userData.startTime = clock.getElapsedTime();
     }
   });
 
@@ -39,7 +43,9 @@ const LightSpeedStar: React.FC<LightSpeedStarProps> = ({
       ref={meshRef}
       position={position}
       geometry={geometry}
-      material={new MeshBasicMaterial({ color: 'white' })}
+      material={
+        new MeshBasicMaterial({ color: colorChanged ? '#4FC3FF' : 'white' })
+      }
     />
   );
 };

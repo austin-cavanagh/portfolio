@@ -1,37 +1,39 @@
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useRef, useState, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { SphereGeometry } from 'three';
 import starPositions from '../utils/starPositions';
 import LightSpeedStar from './LightSpeedStar';
+import { OrbitControls } from '@react-three/drei';
 
 const LightSpeed = () => {
-  const [startLightspeed, setLightspeed] = useState(false);
-  const [moveCamera, setMoveCamera] = useState(false);
-
-  // useMemo to ensure positions are generated only once
+  const [startHyperspace, setStartHyperspace] = useState(false);
+  const animationStartTimeRef = useRef(0);
   const positions = useMemo(() => starPositions(), []);
   const geometry = useMemo(() => new SphereGeometry(0.01, 32, 32), []);
 
   useEffect(() => {
-    // This timer will start the hyperspace effect
-    const hyperspaceTimer = setTimeout(() => {
-      setLightspeed(true);
+    // Start the hyperspace effect
+    const timer = setTimeout(() => {
+      setStartHyperspace(true);
     }, 1000); // Trigger after 1 second
 
-    // This timer will start the camera movement
-    const cameraTimer = setTimeout(() => {
-      setMoveCamera(true);
-    }, 1800); // Begin moving the camera after 1.8 seconds
-
-    return () => {
-      clearTimeout(hyperspaceTimer);
-      clearTimeout(cameraTimer);
-    };
+    return () => clearTimeout(timer);
   }, []);
 
-  useFrame(state => {
-    if (moveCamera) {
-      state.camera.position.z -= 0.4;
+  useFrame(({ clock, camera }) => {
+    if (startHyperspace) {
+      if (animationStartTimeRef.current === 0) {
+        animationStartTimeRef.current = clock.getElapsedTime();
+      }
+
+      const elapsedTime =
+        clock.getElapsedTime() - animationStartTimeRef.current;
+
+      // Start moving the camera slightly before the stars finish growing
+      if (elapsedTime > 0.8) {
+        // Adjust this value as needed
+        camera.position.z -= 1.2;
+      }
     }
   });
 
@@ -42,11 +44,16 @@ const LightSpeed = () => {
           key={index}
           position={position}
           geometry={geometry}
-          startLightspeed={startLightspeed}
+          startLightspeed={startHyperspace}
         />
       ))}
-      {/* Uncomment if you want to use OrbitControls */}
-      {/* <OrbitControls /> */}
+
+      {/* <mesh position={[0, 0, 0]}>
+        <sphereGeometry args={[0.5, 32, 32]} />
+        <meshBasicMaterial color="red" />
+      </mesh>
+
+      <OrbitControls /> */}
     </>
   );
 };
