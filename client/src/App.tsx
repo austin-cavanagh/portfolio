@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import LightSpeed from './components/LightSpeed';
-import MainPage from './components/MainPage';
+import HomePage from './components/HomePage';
 
 function App() {
   const [currentScene, setCurrentScene] = useState('lightSpeed');
@@ -33,7 +33,7 @@ function App() {
             height: '100%',
           }}
         >
-          <MainPage />
+          <HomePage />
         </div>
       )}
     </div>
