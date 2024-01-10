@@ -5,7 +5,12 @@ import starPositions from '../utils/starPositions';
 import LightSpeedStar from './LightSpeedStar';
 // import { OrbitControls } from '@react-three/drei';
 
-const LightSpeed = () => {
+// Define the props interface
+interface LightSpeedProps {
+  onTransition: () => void;
+}
+
+const LightSpeed = ({ onTransition }: LightSpeedProps) => {
   const [startHyperspace, setStartHyperspace] = useState(false);
   const animationStartTimeRef = useRef(0);
   const positions = useMemo(() => starPositions(), []);
@@ -33,6 +38,12 @@ const LightSpeed = () => {
       if (elapsedTime > 0.8) {
         camera.position.z -= 1.5; // speed of camera
       }
+
+      // Check if the camera has reached the desired position
+      if (camera.position.z < -175) {
+        console.log('transition');
+        onTransition(); // Call the callback to change the scene
+      }
     }
   });
 
@@ -46,15 +57,17 @@ const LightSpeed = () => {
           startLightspeed={startHyperspace}
         />
       ))}
-
-      {/* <mesh position={[0, 0, 0]}>
-        <sphereGeometry args={[0.5, 32, 32]} />
-        <meshBasicMaterial color="red" />
-      </mesh>
-
-      <OrbitControls /> */}
     </>
   );
 };
 
 export default LightSpeed;
+
+{
+  /* <mesh position={[0, 0, 0]}>
+        <sphereGeometry args={[0.5, 32, 32]} />
+        <meshBasicMaterial color="red" />
+      </mesh>
+
+      <OrbitControls /> */
+}

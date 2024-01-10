@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Mesh, MeshBasicMaterial, Color, BufferGeometry, Vector3 } from 'three';
 import { useFrame } from '@react-three/fiber';
 
@@ -8,11 +8,11 @@ type LightSpeedStarProps = {
   startLightspeed: boolean;
 };
 
-const LightSpeedStar: React.FC<LightSpeedStarProps> = ({
+const LightSpeedStar = ({
   position,
   geometry,
   startLightspeed,
-}) => {
+}: LightSpeedStarProps) => {
   const meshRef = useRef<Mesh>(null);
   const [colorChanged, setColorChanged] = useState(false); // Track if color has been changed
 
