@@ -1,11 +1,11 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { SphereGeometry } from 'three';
 import starPositions from '../utils/starPositions';
 import LightSpeedStar from './LightSpeedStar';
 
 const LightSpeed = () => {
-  const [startHyperspace, setStartHyperspace] = useState(false);
+  const [startLightspeed, setLightspeed] = useState(false);
   const [moveCamera, setMoveCamera] = useState(false);
 
   // useMemo to ensure positions are generated only once
@@ -15,7 +15,7 @@ const LightSpeed = () => {
   useEffect(() => {
     // This timer will start the hyperspace effect
     const hyperspaceTimer = setTimeout(() => {
-      setStartHyperspace(true);
+      setLightspeed(true);
     }, 1000); // Trigger after 1 second
 
     // This timer will start the camera movement
@@ -42,7 +42,7 @@ const LightSpeed = () => {
           key={index}
           position={position}
           geometry={geometry}
-          startHyperspace={startHyperspace}
+          startLightspeed={startLightspeed}
         />
       ))}
       {/* Uncomment if you want to use OrbitControls */}

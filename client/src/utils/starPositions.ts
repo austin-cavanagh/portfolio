@@ -1,5 +1,5 @@
-const starPositions = (count = 3000, coneHeight = 60, coneRadius = 5) => {
-  const positions: number[][] = [];
+const starPositions = (count = 4000, coneHeight = 60, coneRadius = 5) => {
+  const positions: [number, number, number][] = [];
 
   for (let i = 0; i < count; i++) {
     const height = (1 - Math.sqrt(Math.random())) * coneHeight;

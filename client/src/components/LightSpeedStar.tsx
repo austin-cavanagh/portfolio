@@ -5,18 +5,18 @@ import { useFrame } from '@react-three/fiber';
 type LightSpeedStarProps = {
   position: Vector3 | [number, number, number];
   geometry: BufferGeometry;
-  startHyperspace: boolean;
+  startLightspeed: boolean;
 };
 
 const LightSpeedStar: React.FC<LightSpeedStarProps> = ({
   position,
   geometry,
-  startHyperspace,
+  startLightspeed,
 }) => {
   const meshRef = useRef<Mesh>(null);
 
   useFrame(({ clock }) => {
-    if (meshRef.current && startHyperspace) {
+    if (meshRef.current && startLightspeed) {
       const elapsedTime =
         clock.getElapsedTime() - (meshRef.current.userData.startTime ?? 0);
 
@@ -29,7 +29,7 @@ const LightSpeedStar: React.FC<LightSpeedStarProps> = ({
           0.1
         ); // Gradually change color to blue
       }
-    } else if (meshRef.current && !startHyperspace) {
+    } else if (meshRef.current && !startLightspeed) {
       meshRef.current.userData.startTime = clock.getElapsedTime();
     }
   });
