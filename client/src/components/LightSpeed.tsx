@@ -1,77 +1,32 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { Canvas, useFrame, extend } from '@react-three/fiber';
-import { PerspectiveCamera } from 'three';
-import {
-  Mesh,
-  SphereGeometry,
-  MeshBasicMaterial,
-  Vector3,
-  BufferGeometry,
-  LineBasicMaterial,
-  Line,
-} from 'three';
-import { OrbitControls } from '@react-three/drei';
-import Stars from './Stars';
-
-// extend({ PerspectiveCamera });
-
-const Cone = () => {
-  const meshRef = useRef<Mesh>(null);
-
-  // This function will be called on every frame
-  useFrame(() => {
-    // Here you can add some animations or interactions with the cone
-    if (meshRef.current) {
-      // Position the cone at [0, 0, 0]
-      meshRef.current.position.set(0, 0, -20);
-
-      // Rotate the cone to face the camera
-      meshRef.current.rotation.x = -Math.PI / 2;
-    }
-  });
-
-  return (
-    <mesh ref={meshRef}>
-      <coneGeometry args={[5, 40, 32]} />{' '}
-      {/* Cone parameters: radius, height, radial segments */}
-      <meshBasicMaterial color={'blue'} wireframe />
-    </mesh>
-  );
-};
-
-const CameraIndicator = () => {
-  const startPosition = new Vector3(0, 0, -20);
-  const endPosition = new Vector3(0, 0, -20);
-
-  // Geometry for the line indicating camera direction
-  const points = [startPosition, endPosition];
-  const geometry = new BufferGeometry().setFromPoints(points);
-
-  return (
-    <>
-      {/* Sphere to represent the camera's starting position */}
-      <mesh position={startPosition}>
-        <sphereGeometry args={[0.5, 16, 16]} />
-        <meshBasicMaterial color={'red'} />
-      </mesh>
-
-      {/* Line to represent the direction the camera is initially facing */}
-      <line geometry={geometry}>
-        <lineBasicMaterial color={'green'} />
-      </line>
-    </>
-  );
-};
+import React, { useMemo, useState, useEffect } from 'react';
+import { useFrame } from '@react-three/fiber';
+import { SphereGeometry } from 'three';
+import starPositions from '../utils/starPositions';
+import LightSpeedStar from './LightSpeedStar';
 
 const LightSpeed = () => {
+  const [startHyperspace, setStartHyperspace] = useState(false);
   const [moveCamera, setMoveCamera] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setMoveCamera(true);
-    }, 1800);
+  // useMemo to ensure positions are generated only once
+  const positions = useMemo(() => starPositions(), []);
+  const geometry = useMemo(() => new SphereGeometry(0.01, 32, 32), []);
 
-    return () => clearTimeout(timer);
+  useEffect(() => {
+    // This timer will start the hyperspace effect
+    const hyperspaceTimer = setTimeout(() => {
+      setStartHyperspace(true);
+    }, 1000); // Trigger after 1 second
+
+    // This timer will start the camera movement
+    const cameraTimer = setTimeout(() => {
+      setMoveCamera(true);
+    }, 1800); // Begin moving the camera after 1.8 seconds
+
+    return () => {
+      clearTimeout(hyperspaceTimer);
+      clearTimeout(cameraTimer);
+    };
   }, []);
 
   useFrame(state => {
@@ -82,10 +37,15 @@ const LightSpeed = () => {
 
   return (
     <>
-      {/* <Cone /> */}
-      <Stars />
-      {/* <CameraIndicator /> */}
-      {/* Add OrbitControls for camera movement */}
+      {positions.map((position, index) => (
+        <LightSpeedStar
+          key={index}
+          position={position}
+          geometry={geometry}
+          startHyperspace={startHyperspace}
+        />
+      ))}
+      {/* Uncomment if you want to use OrbitControls */}
       {/* <OrbitControls /> */}
     </>
   );
