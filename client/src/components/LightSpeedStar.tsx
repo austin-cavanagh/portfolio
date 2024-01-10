@@ -23,13 +23,13 @@ const LightSpeedStar: React.FC<LightSpeedStarProps> = ({
           clock.getElapsedTime() - (meshRef.current.userData.startTime ?? 0);
 
         if (elapsedTime < 1) {
-          meshRef.current.scale.z += 25; // Scale z-axis for length
-          meshRef.current.scale.x += 0.15; // Scale x-axis for thickness
-          meshRef.current.scale.y += 0.15; // Scale y-axis for thickness
           (meshRef.current.material as MeshBasicMaterial).color.lerp(
-            new Color('#4FC3FF'),
+            new Color('#4A8CD9'),
             0.1
           ); // Gradually change color to blue
+          meshRef.current.scale.z += 12; // Scale z-axis for length
+          meshRef.current.scale.x += 0.04; // Scale x-axis for thickness
+          meshRef.current.scale.y += 0.04; // Scale y-axis for thickness
           setColorChanged(true);
         }
       } else if (meshRef.current && !startLightspeed && !colorChanged) {
@@ -44,7 +44,7 @@ const LightSpeedStar: React.FC<LightSpeedStarProps> = ({
       position={position}
       geometry={geometry}
       material={
-        new MeshBasicMaterial({ color: colorChanged ? '#4FC3FF' : 'white' })
+        new MeshBasicMaterial({ color: colorChanged ? '#4A8CD9' : 'white' })
       }
     />
   );

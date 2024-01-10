@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import { SphereGeometry } from 'three';
 import starPositions from '../utils/starPositions';
 import LightSpeedStar from './LightSpeedStar';
-import { OrbitControls } from '@react-three/drei';
+// import { OrbitControls } from '@react-three/drei';
 
 const LightSpeed = () => {
   const [startHyperspace, setStartHyperspace] = useState(false);
@@ -31,8 +31,7 @@ const LightSpeed = () => {
 
       // Start moving the camera slightly before the stars finish growing
       if (elapsedTime > 0.8) {
-        // Adjust this value as needed
-        camera.position.z -= 1.2;
+        camera.position.z -= 1.5; // speed of camera
       }
     }
   });
