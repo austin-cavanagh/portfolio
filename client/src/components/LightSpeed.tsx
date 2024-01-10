@@ -82,11 +82,11 @@ const LightSpeed = () => {
 
   return (
     <>
-      <Cone />
+      {/* <Cone /> */}
       <Stars />
       {/* <CameraIndicator /> */}
       {/* Add OrbitControls for camera movement */}
-      <OrbitControls />
+      {/* <OrbitControls /> */}
     </>
   );
 };

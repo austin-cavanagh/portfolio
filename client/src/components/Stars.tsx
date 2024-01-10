@@ -8,7 +8,7 @@ const Star = ({ position, geometry, material }) => {
 
 const Stars = () => {
   const positions = starPositions();
-  const geometry = useMemo(() => new SphereGeometry(1, 32, 32), []); // Sphere with radius 1 and 32 segments
+  const geometry = useMemo(() => new SphereGeometry(0.02, 32, 32), []); // Sphere with radius 1 and 32 segments
   const material = useMemo(() => new MeshBasicMaterial({ color: 'white' }), []);
 
   return (
