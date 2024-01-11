@@ -14,7 +14,7 @@ html {
   width: 100vw;
 }
 
-.typing-container {
+.temp-container {
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -23,10 +23,16 @@ html {
   background-color: black;
 }
 
+.typing-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
 .typing-effect {
   color: #4070f4;
   font-size: 34pt;
-  font-weight: 600;
 }
 
 .typing-effect {
@@ -49,6 +55,17 @@ html {
   background-color: #4070f4;
   margin-left: 2px;
   animation: blink 1.1s steps(1) infinite;
+}
+
+.textOne {
+  color: #f8f8f8;
+  font-weight: 400;
+  filter: brightness(0.85) contrast(0.9);
+}
+
+.textTwo {
+  color: #4070f4;
+  font-weight: 600;
 }
 
 @keyframes blink {
