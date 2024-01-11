@@ -73,7 +73,7 @@ const TypingEffect = ({
                         }
                       });
                     }, typingSpeed);
-                  }, 1200); // 1.2-second pause
+                  }, 1000); // 1.2-second pause
                   return currentText;
                 }
               });
@@ -82,7 +82,7 @@ const TypingEffect = ({
           }
         });
       }, typingSpeed);
-    }, 1200); // Initial delay before starting textOne
+    }, 1000); // Initial delay before starting textOne
 
     return () => {
       clearTimeout(typingDelayOne);
