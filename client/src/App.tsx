@@ -13,30 +13,31 @@ function App() {
   };
 
   return (
-    <div style={{ height: '100vh', width: '100vw', position: 'relative' }}>
-      <Canvas
-        camera={{ position: cameraPosition }}
-        style={{
-          backgroundColor: 'black',
-          display: currentScene === 'lightSpeed' ? 'block' : 'none',
-        }}
-      >
-        <LightSpeed onTransition={handleTransition} />
-      </Canvas>
-      {currentScene === 'mainPage' && (
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-          }}
-        >
-          <HomePage />
-        </div>
-      )}
-    </div>
+    // <div style={{ height: '100vh', width: '100vw', position: 'relative' }}>
+    //   <Canvas
+    //     camera={{ position: cameraPosition }}
+    //     style={{
+    //       backgroundColor: 'black',
+    //       display: currentScene === 'lightSpeed' ? 'block' : 'none',
+    //     }}
+    //   >
+    //     <LightSpeed onTransition={handleTransition} />
+    //   </Canvas>
+    //   {currentScene === 'mainPage' && (
+    //     <div
+    //       style={{
+    //         position: 'absolute',
+    //         top: 0,
+    //         left: 0,
+    //         width: '100%',
+    //         height: '100%',
+    //       }}
+    //     >
+    //       <HomePage />
+    //     </div>
+    //   )}
+    // </div>
+    <HomePage />
   );
 }
 

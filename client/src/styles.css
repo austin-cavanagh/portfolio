@@ -1,12 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 body,
 html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   overflow: hidden; /* Prevents scrolling */
+  font-family: 'Poppins', sans-serif;
 }
 
 .window {
   height: 100vh;
   width: 100vw;
+}
+
+.typing-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.typing-effect {
+  color: #4070f4;
+  font-size: 34pt;
+  font-weight: 600;
+}
+
+.typing-effect {
+  /* Additional styles for your typing effect container */
+  white-space: nowrap;
+}
+
+.typing-cursor.static {
+  display: inline-block;
+  width: 4px;
+  height: 1em; /* Adjust height to match your font size */
+  background-color: #4070f4; /* Cursor color */
+  margin-left: 2px;
+}
+
+.typing-cursor.blinking {
+  display: inline-block;
+  width: 4px;
+  height: 1em;
+  background-color: #4070f4;
+  margin-left: 2px;
+  animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    background-color: transparent;
+  }
 }

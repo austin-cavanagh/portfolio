@@ -1,7 +1,11 @@
-const Intro = () => (
-  <section className="intro">
-    <h1>Hi, I'm Austin</h1>
-  </section>
-);
+import TypingEffect from './TypingEffect';
+
+const Intro = () => {
+  return (
+    <div className="typing-container">
+      <TypingEffect text="Hi, my name is Austin" typingSpeed={140} />
+    </div>
+  );
+};
 
 export default Intro;
