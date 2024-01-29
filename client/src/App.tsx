@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import LightSpeed from './components/LightSpeed';
-import HomePage from './components/HomePage';
+import HomePage from './containers/HomePage';
 
 function App() {
   const [currentScene, setCurrentScene] = useState('lightSpeed');

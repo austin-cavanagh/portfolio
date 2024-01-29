@@ -1,8 +1,8 @@
-import TypingEffect from './TypingEffect';
+import TypingEffect from '../components/TypingEffect';
 
-const Intro = () => {
+function Intro() {
   return (
-    <div className="temp-container">
+    <div className="flex flex-col justify-center items-center bg-black h-full w-full">
       <TypingEffect
         textOne="Hi, I'm "
         textTwo="Austin"
@@ -12,6 +12,6 @@ const Intro = () => {
       />
     </div>
   );
-};
+}
 
 export default Intro;

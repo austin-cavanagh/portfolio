@@ -1,30 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body,
 html {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Prevents scrolling */
   font-family: 'Poppins', sans-serif;
+  /* box-sizing: border-box; */
+  /* overflow: hidden; */
 }
 
-.window {
+/* .window {
   height: 100vh;
   width: 100vw;
-}
+} */
 
-.temp-container {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-}
-
-.typing-container {
+/* .typing-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,13 +26,6 @@ html {
 }
 
 .typing-effect-container {
-  /* Additional styles for your typing effect container */
-  /* height: 18%;
-  width: 35%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: left; */
   white-space: nowrap;
   font-size: 34pt;
 }
@@ -46,8 +33,8 @@ html {
 .typing-cursor.static {
   display: inline-block;
   width: 4px;
-  height: 1em; /* Adjust height to match your font size */
-  background-color: #4070f4; /* Cursor color */
+  height: 1em;
+  background-color: #4070f4;
   margin-left: 2px;
 }
 
@@ -69,10 +56,14 @@ html {
 .textBlue {
   color: #4070f4;
   font-weight: 600;
-}
+} */
 
-@keyframes blink {
+@keyframes animate-blink {
   50% {
     background-color: transparent;
   }
+}
+
+.blink {
+  animation: animate-blink 1s steps(1) infinite;
 }

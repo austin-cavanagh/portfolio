@@ -95,24 +95,40 @@ const TypingEffect = ({
 
   return (
     <>
-      <div className="typing-effect-container">
+      <div className="text-6xl">
         <div>
-          <span className="textWhite">{displayedTextOne}</span>
-          <span className="textBlue">{displayedTextTwo}</span>
+          <span className="text-white text-opacity-85 contrast-90">
+            {displayedTextOne}
+          </span>
+          <span className="text-blue-600 font-semibold">
+            {displayedTextTwo}
+          </span>
           {currentLine === 1 && (
             <span
-              className={`typing-cursor ${isTyping ? 'static' : 'blinking'}`}
-            ></span>
+              className={`inline-block w-1 h-full bg-blue-600 ml-1 text-transparent ${
+                isTyping ? '' : 'animate-blink'
+              }`}
+            >
+              I
+            </span>
           )}
         </div>
         {currentLine >= 2 && (
           <div>
-            <span className="textWhite">{displayedTextThree}</span>
-            <span className="textBlue">{displayedTextFour}</span>
+            <span className="text-white text-opacity-85 contrast-90">
+              {displayedTextThree}
+            </span>
+            <span className="text-blue-600 font-semibold">
+              {displayedTextFour}
+            </span>
             {currentLine === 2 && (
               <span
-                className={`typing-cursor ${isTyping ? 'static' : 'blinking'}`}
-              ></span>
+                className={`inline-block w-1 h-full bg-blue-600 ml-1 text-transparent ${
+                  isTyping ? '' : 'blink'
+                }`}
+              >
+                I
+              </span>
             )}
           </div>
         )}
