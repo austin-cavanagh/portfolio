@@ -23,9 +23,7 @@ function App() {
     //   >
     //     <LightSpeed onTransition={handleTransition} />
     //   </Canvas>
-    //   {currentScene === 'mainPage' && (
-    //     <HomePage />
-    //   )}
+    //   {currentScene === 'mainPage' && <HomePage />}
     // </div>
     <HomePage />
   );

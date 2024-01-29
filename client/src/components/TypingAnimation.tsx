@@ -1,20 +1,22 @@
 import { useState, useEffect } from 'react';
 
-type TypingEffectProps = {
+type TypingAnimationProps = {
   textOne: string;
   textTwo: string;
   textThree: string;
   textFour: string;
   typingSpeed: number;
+  onComplete: () => void;
 };
 
-const TypingEffect = ({
+function TypingAnimation({
   textOne,
   textTwo,
   textThree,
   textFour,
   typingSpeed,
-}: TypingEffectProps) => {
+  onComplete,
+}: TypingAnimationProps) {
   const [displayedTextOne, setDisplayedTextOne] = useState('');
   const [displayedTextTwo, setDisplayedTextTwo] = useState('');
   const [displayedTextThree, setDisplayedTextThree] = useState('');
@@ -93,9 +95,16 @@ const TypingEffect = ({
     };
   }, [textOne, textTwo, textThree, textFour, typingSpeed]);
 
+  // Wait to update completion state until last word has rendered
+  useEffect(() => {
+    if (textFour === displayedTextFour) {
+      onComplete();
+    }
+  }, [displayedTextFour]);
+
   return (
     <>
-      <div className="text-6xl">
+      <div className="text-6xl h-136 w-750">
         <div>
           <span className="text-white text-opacity-85 contrast-90">
             {displayedTextOne}
@@ -105,16 +114,16 @@ const TypingEffect = ({
           </span>
           {currentLine === 1 && (
             <span
-              className={`inline-block w-1 h-full bg-blue-600 ml-1 text-transparent ${
-                isTyping ? '' : 'animate-blink'
+              className={`inline-block w-1 h-full bg-blue-600 ml-1 ${
+                isTyping ? '' : 'blink'
               }`}
             >
-              I
+              &#8203;
             </span>
           )}
         </div>
         {currentLine >= 2 && (
-          <div>
+          <div className="mt-4">
             <span className="text-white text-opacity-85 contrast-90">
               {displayedTextThree}
             </span>
@@ -123,11 +132,11 @@ const TypingEffect = ({
             </span>
             {currentLine === 2 && (
               <span
-                className={`inline-block w-1 h-full bg-blue-600 ml-1 text-transparent ${
+                className={`inline-block w-1 h-full bg-blue-600 ml-1 ${
                   isTyping ? '' : 'blink'
                 }`}
               >
-                I
+                &#8203;
               </span>
             )}
           </div>
@@ -135,6 +144,6 @@ const TypingEffect = ({
       </div>
     </>
   );
-};
+}
 
-export default TypingEffect;
+export default TypingAnimation;

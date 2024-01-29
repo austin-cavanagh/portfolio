@@ -6,7 +6,10 @@ export default {
       colors: {},
       fontFamily: {},
       height: {
-        // 0.5: '50%',
+        136: '136px',
+      },
+      width: {
+        750: '750px',
       },
     },
   },
