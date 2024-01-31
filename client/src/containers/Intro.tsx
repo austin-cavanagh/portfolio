@@ -10,7 +10,7 @@ function Intro() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-full w-full">
+    <div className="flex h-full w-full flex-col items-center justify-center">
       <TypingAnimation
         textOne="Hi, I'm "
         textTwo="Austin"

@@ -43,7 +43,9 @@ html {
 
 .bounce-and-fade-in {
   opacity: 0;
-  animation: bounce 1s infinite, fadeIn 1s ease-out forwards;
+  animation:
+    bounce 1s infinite,
+    fadeIn 1s ease-out forwards;
 }
 
 .fade-in-span {

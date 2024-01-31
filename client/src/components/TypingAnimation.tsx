@@ -62,7 +62,7 @@ function TypingAnimation({
                               if (currentText.length < textFour.length) {
                                 return textFour.slice(
                                   0,
-                                  currentText.length + 1
+                                  currentText.length + 1,
                                 );
                               } else {
                                 clearInterval(intervalFour); // Stop typing textFour
@@ -104,17 +104,17 @@ function TypingAnimation({
 
   return (
     <>
-      <div className="text-6xl h-136 w-750">
+      <div className="h-136 w-750 text-6xl">
         <div>
-          <span className="text-white text-opacity-85 contrast-90">
+          <span className="contrast-90 text-white text-opacity-85">
             {displayedTextOne}
           </span>
-          <span className="text-blue-600 font-semibold">
+          <span className="font-semibold text-blue-600">
             {displayedTextTwo}
           </span>
           {currentLine === 1 && (
             <span
-              className={`inline-block w-1 h-full bg-blue-600 ml-1 ${
+              className={`ml-1 inline-block h-full w-1 bg-blue-600 ${
                 isTyping ? '' : 'blink'
               }`}
             >
@@ -124,15 +124,15 @@ function TypingAnimation({
         </div>
         {currentLine >= 2 && (
           <div className="mt-4">
-            <span className="text-white text-opacity-85 contrast-90">
+            <span className="contrast-90 text-white text-opacity-85">
               {displayedTextThree}
             </span>
-            <span className="text-blue-600 font-semibold">
+            <span className="font-semibold text-blue-600">
               {displayedTextFour}
             </span>
             {currentLine === 2 && (
               <span
-                className={`inline-block w-1 h-full bg-blue-600 ml-1 ${
+                className={`ml-1 inline-block h-full w-1 bg-blue-600 ${
                   isTyping ? '' : 'blink'
                 }`}
               >

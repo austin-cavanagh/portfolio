@@ -25,7 +25,7 @@ const LightSpeedStar = ({
         if (elapsedTime < 1) {
           (meshRef.current.material as MeshBasicMaterial).color.lerp(
             new Color('#4A8CD9'),
-            0.1
+            0.1,
           ); // Gradually change color to blue
           meshRef.current.scale.z += 12; // Scale z-axis for length
           meshRef.current.scale.x += 0.04; // Scale x-axis for thickness

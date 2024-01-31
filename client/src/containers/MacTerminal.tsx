@@ -1,12 +1,12 @@
 function MacTerminal() {
   return (
-    <div className="w-900 text-lg font-mac-terminal">
-      <div className="h-8 w-full bg-mac-header rounded-t-2xl flex justify-start items-center px-3">
-        <span className="block w-4 h-4 bg-mac-btn-red rounded-full mr-2"></span>
-        <span className="block w-4 h-4 bg-mac-btn-yellow rounded-full mr-2"></span>
-        <span className="block w-4 h-4 bg-mac-btn-green rounded-full"></span>
+    <div className="w-900 font-mac-terminal text-lg">
+      <div className="flex h-8 w-full items-center justify-start rounded-t-2xl bg-mac-header px-3">
+        <span className="mr-2 block h-4 w-4 rounded-full bg-mac-btn-red"></span>
+        <span className="mr-2 block h-4 w-4 rounded-full bg-mac-btn-yellow"></span>
+        <span className="block h-4 w-4 rounded-full bg-mac-btn-green"></span>
       </div>
-      <div className="w-full bg-mac-body py-10 px-12 rounded-b-2xl space-y-6">
+      <div className="w-full space-y-6 rounded-b-2xl bg-mac-body px-12 py-10">
         <div className="">
           <div className="text-mac-text-white">{`> Austin.currentLocation`}</div>
           <div className="text-mac-text-yellow">
@@ -45,7 +45,7 @@ function MacTerminal() {
           <span className="text-mac-text-white">{'>'}</span>
           <span
             className={
-              'inline-block w-3 h-full bg-mac-text-blink ml-1 blink ml-2'
+              'blink ml-1 ml-2 inline-block h-full w-3 bg-mac-text-blink'
             }
           >
             &#8203;

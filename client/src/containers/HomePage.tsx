@@ -1,5 +1,6 @@
 import Intro from './Intro';
 import AboutMe from '../sections/AboutMe';
+import Projects from '../sections/Projects';
 
 function HomePage() {
   return (
@@ -10,8 +11,11 @@ function HomePage() {
       {/* <section className="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <AboutMe />
       </section> */}
-      <section className="h-screen w-screen flex flex-col justify-center items-center">
+      {/* <section className="h-screen w-screen flex flex-col justify-center items-center">
         <AboutMe />
+      </section> */}
+      <section className="flex h-screen w-screen flex-col items-center justify-center">
+        <Projects />
       </section>
     </main>
   );
