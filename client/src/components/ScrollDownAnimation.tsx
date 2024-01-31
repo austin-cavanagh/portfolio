@@ -1,7 +1,7 @@
 function ScrollDownAnimation() {
   return (
     <div className="absolute bottom-0 flex flex-col items-center justify-center mb-3">
-      <span className="text-gray-500 text-2xl font-medium mb-1 fade-in-span">
+      <span className="text-gray-500 text-2xl font-normal mb-1 fade-in-span">
         Explore
       </span>
       <svg
