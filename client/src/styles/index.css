@@ -50,3 +50,19 @@ html {
   opacity: 0;
   animation: fadeIn 1s ease-out 0.5s forwards;
 }
+
+/* Adding Monaco Font */
+
+@font-face {
+  font-family: 'MonacoWeb';
+  src: url('./fonts/monaco-webfont.woff') format('woff');
+  /* font-weight: 100; */
+  /* font-style: normal; */
+}
+
+/* @font-face {
+  font-family: 'MonacoWeb';
+  src: url('./fonts/monaco-webfont.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+} */

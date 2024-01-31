@@ -15,7 +15,13 @@ export default {
         'mac-body': '#5b5d7a',
       },
       fontFamily: {
-        'mac-terminal': ['Monaco', 'Consolas', 'Lucida Console', 'monospace'],
+        'mac-terminal': [
+          // 'MonacoWeb',
+          'Monaco',
+          'Consolas',
+          'Lucida Console',
+          'monospace',
+        ],
       },
       height: {
         136: '136px',
