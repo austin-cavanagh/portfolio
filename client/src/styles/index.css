@@ -98,3 +98,20 @@ html {
     opacity: 0;
   }
 }
+
+/* Pause Button */
+
+.grow-and-fade {
+  animation: growAndFade 1s ease forwards;
+}
+
+@keyframes growAndFade {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
