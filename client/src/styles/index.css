@@ -68,3 +68,33 @@ html {
   font-weight: 300;
   font-style: normal;
 } */
+
+.enter-animation {
+  animation: slideInFromRight 0.5s forwards;
+}
+
+.leave-animation {
+  animation: slideOutToLeft 0.5s forwards;
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}

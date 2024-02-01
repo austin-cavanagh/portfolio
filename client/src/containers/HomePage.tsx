@@ -1,6 +1,6 @@
 import Intro from './Intro';
-import AboutMe from '../sections/AboutMe';
-import Projects from '../sections/Projects';
+import AboutMe from './AboutMe';
+import Projects from './Projects';
 
 function HomePage() {
   return (

@@ -1,4 +1,4 @@
-import MacTerminal from '../containers/MacTerminal';
+import MacTerminal from './MacTerminal';
 
 function AboutMe() {
   return (
