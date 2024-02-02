@@ -17,7 +17,7 @@ const images = [
 function Project() {
   return (
     <div className="flex">
-      <div className="font-roboto mr-5 flex h-full w-96 flex-col justify-center space-y-3">
+      <div className="font-poppins mr-5 flex h-full w-96 flex-col justify-center space-y-3">
         <h2 className="text-3xl font-semibold">React Query Rewind</h2>
         <p className="text-lg">
           Description of my project and many other words that I should have in

@@ -8,29 +8,29 @@ function MacTerminal() {
       </div>
       <div className="w-full space-y-6 rounded-b-2xl bg-mac-body px-12 py-10">
         <div className="">
-          <div className="text-mac-text-white">{`> Austin.currentLocation`}</div>
+          <div className="text-mac-text-white">{`> austin.currentLocation`}</div>
           <div className="text-mac-text-yellow">
             "San Francisco, California"
           </div>
         </div>
         <div className="">
-          <div className="text-mac-text-white">{`> Austin.contactInfo`}</div>
+          <div className="text-mac-text-white">{`> austin.contactInfo`}</div>
           <div className="text-mac-text-yellow">
             ["austin.cavanagh.cs@gmail.com, LinkedIn, GitHub"]
           </div>
         </div>
         <div className="">
-          <div className="text-mac-text-white">{`> Austin.resume`}</div>
+          <div className="text-mac-text-white">{`> austin.resume`}</div>
           <div className="text-mac-text-yellow">"austin.cavanagh.pdf"</div>
         </div>
         <div className="">
-          <div className="text-mac-text-white">{`> Austin.education`}</div>
+          <div className="text-mac-text-white">{`> austin.education`}</div>
           <div className="text-mac-text-yellow">
             "B.S. Business Administration - University of California, Berkeley"
           </div>
         </div>
         <div className="">
-          <div className="text-mac-text-white">{`> Austin.interests`}</div>
+          <div className="text-mac-text-white">{`> austin.interests`}</div>
           <div className="text-mac-text-yellow">
             ["training my dog", "riding motorcylces", "snowboarding","chess"]
           </div>

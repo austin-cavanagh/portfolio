@@ -1,7 +1,7 @@
-// import Intro from './Intro';
-// import AboutMe from './AboutMe';
+import Intro from './Intro';
+import AboutMe from './AboutMe';
 // import Projects from './Projects';
-import ContactMe from './ContactMe';
+// import ContactMe from './ContactMe';
 
 function HomePage() {
   return (
@@ -19,9 +19,9 @@ function HomePage() {
         <Projects />
       </section> */}
 
-      <section className="flex h-screen w-screen flex-col items-center justify-center">
+      {/* <section className="flex h-screen w-screen flex-col items-center justify-center">
         <ContactMe />
-      </section>
+      </section> */}
     </main>
   );
 }

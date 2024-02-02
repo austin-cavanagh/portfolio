@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import LightSpeed from './components/LightSpeed';
 import HomePage from './containers/HomePage';
+import SolarSystem from './components/solar-system/SolarSystem';
 
 function App() {
   const [currentScene, setCurrentScene] = useState('lightSpeed');
@@ -25,7 +26,8 @@ function App() {
     //   </Canvas>
     //   {currentScene === 'mainPage' && <HomePage />}
     // </div>
-    <HomePage />
+    // <HomePage />
+    <SolarSystem />
   );
 }
 
