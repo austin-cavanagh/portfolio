@@ -6,9 +6,6 @@ import screenshotThree from '../../assets/project1/screenshotThree.png';
 import screenshotFour from '../../assets/project1/screenshotFour.png';
 import screenshotFive from '../../assets/project1/screenshotFive.png';
 
-import githubIcon from '../../assets/icons/github-icon.svg';
-import rocketIcon from '../../assets/icons/rocket-icon.svg';
-
 const images = [
   screenshotOne,
   screenshotTwo,
