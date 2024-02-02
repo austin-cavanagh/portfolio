@@ -20,7 +20,7 @@ const images = [
 function Project() {
   return (
     <div className="flex">
-      <div className="font-roboto mr-5 flex h-full w-96 flex-col justify-center space-y-4">
+      <div className="font-roboto mr-5 flex h-full w-96 flex-col justify-center space-y-3">
         <h2 className="text-3xl font-semibold">React Query Rewind</h2>
         <p className="text-lg">
           Description of my project and many other words that I should have in
@@ -43,26 +43,43 @@ function Project() {
         </div>
         <div className="flex space-x-4">
           <a
-            href="https://github.com/yourgithublink"
+            href="https://github.com/your-username/your-repo"
             target="_blank"
             rel="noopener noreferrer"
+            className="text-gray-700 hover:text-black"
           >
-            <img
-              src={githubIcon}
-              alt="GitHub"
-              className="h-8 w-8 cursor-pointer"
-            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              className="h-6 w-6 fill-current"
+              style={{ cursor: 'pointer' }}
+            >
+              <title>GitHub</title>
+              <path d="M16.24,22a1,1,0,0,1-1-1V18.4a2.15,2.15,0,0,0-.54-1.66,1,1,0,0,1,.61-1.67C17.75,14.78,20,14,20,9.77a4,4,0,0,0-.67-2.22,2.75,2.75,0,0,1-.41-2.06,3.71,3.71,0,0,0,0-1.41,7.65,7.65,0,0,0-2.09,1.09,1,1,0,0,1-.84.15,10.15,10.15,0,0,0-5.52,0,1,1,0,0,1-.84-.15A7.4,7.4,0,0,0,7.52,4.08a3.52,3.52,0,0,0,0,1.41,2.84,2.84,0,0,1-.43,2.08A4.07,4.07,0,0,0,6.42,9.8c0,3.89,1.88,4.93,4.7,5.29a1,1,0,0,1,.82.66,1,1,0,0,1-.21,1,2.06,2.06,0,0,0-.55,1.56V21a1,1,0,0,1-2,0v-.57a6,6,0,0,1-5.27-2.09,3.9,3.9,0,0,0-1.16-.88,1,1,0,1,1,.5-1.94,4.93,4.93,0,0,1,2,1.36c1,1,2,1.88,3.9,1.52h0a3.89,3.89,0,0,1,.23-1.58c-2.06-.52-5-2-5-7a6,6,0,0,1,1-3.33.85.85,0,0,0,.13-.62,5.69,5.69,0,0,1,.33-3.21,1,1,0,0,1,.63-.57c.34-.1,1.56-.3,3.87,1.2a12.16,12.16,0,0,1,5.69,0c2.31-1.5,3.53-1.31,3.86-1.2a1,1,0,0,1,.63.57,5.71,5.71,0,0,1,.33,3.22.75.75,0,0,0,.11.57,6,6,0,0,1,1,3.34c0,5.07-2.92,6.54-5,7a4.28,4.28,0,0,1,.22,1.67V21A1,1,0,0,1,16.24,22Z" />
+            </svg>
           </a>
           <a
-            href="https://yourlivedemolink"
+            href="https://example.com/live-demo"
             target="_blank"
             rel="noopener noreferrer"
+            className="text-gray-700 hover:text-black"
           >
-            <img
-              src={rocketIcon}
-              alt="Live Demo"
-              className="h-8 w-8 cursor-pointer"
-            />
+            <svg
+              id="icon"
+              viewBox="0 0 32 32"
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 fill-current"
+              style={{ cursor: 'pointer' }}
+            >
+              <rect
+                height="2"
+                transform="translate(-10.63 14.34) rotate(-45)"
+                width="11.31"
+                x="6.34"
+                y="19"
+              />
+              <path d="M17,30a1,1,0,0,1-.37-.07,1,1,0,0,1-.62-.79l-1-7,2-.28.75,5.27L21,24.52V17a1,1,0,0,1,.29-.71l4.07-4.07A8.94,8.94,0,0,0,28,5.86V4H26.14a8.94,8.94,0,0,0-6.36,2.64l-4.07,4.07A1,1,0,0,1,15,11H7.48L4.87,14.26l5.27.75-.28,2-7-1a1,1,0,0,1-.79-.62,1,1,0,0,1,.15-1l4-5A1,1,0,0,1,7,9h7.59l3.77-3.78A10.92,10.92,0,0,1,26.14,2H28a2,2,0,0,1,2,2V5.86a10.92,10.92,0,0,1-3.22,7.78L23,17.41V25a1,1,0,0,1-.38.78l-5,4A1,1,0,0,1,17,30Z" />
+            </svg>
           </a>
         </div>
       </div>
