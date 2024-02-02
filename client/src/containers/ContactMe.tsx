@@ -2,6 +2,15 @@ function ContactMe() {
   return (
     <footer className="">
       <div className="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
+        <a
+          href="mailto:austin.cavanagh.cs@gmail.com"
+          className="inline-block rounded border-2 border-blue-500 px-4 py-2 text-blue-500 hover:border-blue-700 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+          role="button"
+          aria-label="Contact Me"
+        >
+          Contact Me
+        </a>
+
         <div className="mt-10 flex justify-center space-x-10">
           {/* Mail Icon */}
           {/* <a
