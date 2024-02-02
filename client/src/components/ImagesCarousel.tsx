@@ -19,12 +19,10 @@ function ImagesCarousel({ images }: ImagesCarouselProps) {
   };
 
   const handleMouseEnter = () => {
-    console.log('entered');
     setIsPaused(true);
   };
 
   const handleMouseLeave = () => {
-    console.log('left');
     setIsPaused(false);
   };
 
@@ -42,7 +40,7 @@ function ImagesCarousel({ images }: ImagesCarouselProps) {
           }
           return prevIndex + 1;
         });
-      }, 2000);
+      }, 5000);
     };
 
     if (!isPaused) {

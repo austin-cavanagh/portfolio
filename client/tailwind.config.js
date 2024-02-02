@@ -22,6 +22,8 @@ export default {
           'Lucida Console',
           'monospace',
         ],
+        poppins: ['Poppins', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
       },
       height: {
         136: '136px',
