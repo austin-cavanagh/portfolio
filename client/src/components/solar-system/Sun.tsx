@@ -1,7 +1,7 @@
 import { useFrame, useLoader } from '@react-three/fiber';
 import { Mesh, TextureLoader } from 'three';
-import sunColor from '../../assets/planets/sun/sun-color.jpg';
 import { useRef } from 'react';
+// import sunColor from '../../assets/planets/sun/sun-color.jpg';
 
 // color of light, intensity, max distance the light can reach
 // const pointLight = new THREE.PointLight(0xffffff, 2, 300);
@@ -9,7 +9,7 @@ import { useRef } from 'react';
 
 function Sun() {
   const sunRef = useRef<Mesh>(null!);
-  const sunTexture = useLoader(TextureLoader, sunColor);
+  // const sunTexture = useLoader(TextureLoader, sunColor);
 
   useFrame(() => {
     if (sunRef.current) {
@@ -19,8 +19,8 @@ function Sun() {
 
   return (
     <mesh ref={sunRef}>
-      <sphereGeometry args={[16, 30, 30]} />
-      <meshBasicMaterial map={sunTexture} />
+      <sphereGeometry args={[16, 50, 50]} />
+      <meshBasicMaterial />
     </mesh>
   );
 }

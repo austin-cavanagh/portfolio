@@ -1,26 +1,18 @@
 import { useFrame, useLoader } from '@react-three/fiber';
-import {
-  AdditiveBlending,
-  Color,
-  DoubleSide,
-  Mesh,
-  TextureLoader,
-} from 'three';
+import { Color, DoubleSide, Mesh, TextureLoader } from 'three';
 import { useRef } from 'react';
-
-// import earthColor from '../../assets/planets/earth/earth-color.jpg';
-// import earthBump from '../../assets/planets/earth/earth-bump.jpg';
 
 import earthColor from '../../assets/planets/earth/earth-color-4k.jpg';
 import earthBump from '../../assets/planets/earth/earth-bump-4k.jpg';
 import earthLights from '../../assets/planets/earth/earth-lights-4k.jpg';
 import earthClouds from '../../assets/planets/earth/earth-clouds.jpg';
-// import earthCloudsTransparency from '../../assets/planets/earth/earth-clouds-transparancy.jpg';
 import earthCloudsTransparency from '../../assets/planets/earth/earth-clouds-transparency-inverted.jpg';
+import getFresnelMat from '../../functions/getFresnelMat';
 
 function Earth() {
   const planetRef = useRef<Mesh>(null!);
-  const cloudsRef = useRef<Mesh>(null);
+  const cloudsRef = useRef<Mesh>(null!);
+  const glowRef = useRef<Mesh>(null!);
 
   const sunTexture = useLoader(TextureLoader, earthColor);
   const bumpTexture = useLoader(TextureLoader, earthBump);
@@ -30,6 +22,11 @@ function Earth() {
     TextureLoader,
     earthCloudsTransparency,
   );
+
+  const fresnelMaterialProps = getFresnelMat({
+    // rimHex: 0x93c5fd, // Customize glow color
+    // facingHex: 0x000000, // Center color
+  });
 
   useFrame(() => {
     if (planetRef.current) {
@@ -45,16 +42,16 @@ function Earth() {
     <>
       <mesh ref={planetRef}>
         <sphereGeometry args={[16, 50, 50]} />
-        <meshStandardMaterial
+        <meshPhongMaterial
           map={sunTexture}
           bumpMap={bumpTexture}
           bumpScale={3}
           emissiveMap={lightsTexture} // Use the city lights texture as an emissive map
-          emissive={new Color(0xffffff)} // The color of the emitted light, typically white
-          emissiveIntensity={0.4}
+          emissive={new Color(0xffffff)} // Color of the emitted light, typically white
+          emissiveIntensity={0.6}
         />
       </mesh>
-      <mesh ref={cloudsRef} scale={[1.01, 1.01, 1.01]}>
+      <mesh ref={cloudsRef} scale={[1.005, 1.005, 1.005]}>
         <sphereGeometry args={[16, 50, 50]} />
         <meshStandardMaterial
           map={cloudsTexture}
@@ -63,8 +60,14 @@ function Earth() {
           depthWrite={false}
           transparent={true}
           side={DoubleSide}
-          // emissive={new Color(0xffffff)} // Makes clouds slightly emissive
-          // emissiveIntensity={0} // Subtle glow to enhance whiteness
+        />
+      </mesh>
+      <mesh ref={glowRef} scale={[1.01, 1.01, 1.01]} position={[0, 0, 0]}>
+        <icosahedronGeometry args={[16, 16]} />
+        <shaderMaterial
+          attach="material"
+          {...fresnelMaterialProps}
+          transparent
         />
       </mesh>
     </>

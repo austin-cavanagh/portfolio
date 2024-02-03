@@ -18,17 +18,17 @@ function SceneContents() {
       <OrbitControls />
 
       <pointLight
-        position={[0, 0, 80]}
+        position={[0, 10, 80]}
         color={0xffffff}
         intensity={20000}
         distance={300}
       />
 
-      {/* <Sun /> */}
+      {/* <Jupiter /> */}
 
-      <Saturn />
+      {/* <Saturn /> */}
 
-      {/* <Earth /> */}
+      <Sun />
 
       {/* <Stars
         radius={100} // Radius of the sphere that contains the stars
