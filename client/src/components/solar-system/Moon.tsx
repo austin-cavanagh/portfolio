@@ -1,13 +1,14 @@
 import { useRef } from 'react';
 import { useFrame, useLoader } from '@react-three/fiber';
 import { TextureLoader, Mesh } from 'three';
-import mercuryColor from '../../assets/planets/mercury/mercury-color.jpg';
-import mercuryBump from '../../assets/planets/mercury/mercury-bump.jpg';
 
-function Mercury() {
+import moonColor from '../../assets/planets/moon/moon-color-4k.jpg';
+import moonBump from '../../assets/planets/moon/moon-bump-4k.jpg';
+
+function Moon() {
   const planetRef = useRef<Mesh>(null!);
-  const colorTexture = useLoader(TextureLoader, mercuryColor);
-  const bumpTexture = useLoader(TextureLoader, mercuryBump);
+  const colorTexture = useLoader(TextureLoader, moonColor);
+  const bumpTexture = useLoader(TextureLoader, moonBump);
 
   const orbitRadius = 0;
   const orbitSpeed = 0;
@@ -17,6 +18,8 @@ function Mercury() {
     const elapsedTime = clock.getElapsedTime();
 
     if (planetRef.current) {
+      planetRef.current.rotation.y += 0.003;
+
       planetRef.current.position.x =
         Math.cos(elapsedTime * orbitSpeed) * orbitRadius;
       planetRef.current.position.z =
@@ -36,4 +39,4 @@ function Mercury() {
   );
 }
 
-export default Mercury;
+export default Moon;

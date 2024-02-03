@@ -2,6 +2,14 @@ import { OrbitControls, Stars } from '@react-three/drei';
 import Sun from './Sun';
 import Mercury from './Mercury';
 import Saturn from './Saturn';
+import Uranus from './Uranus';
+import Earth from './Earth';
+import Jupiter from './Jupiter';
+import Neptune from './Neptune';
+import Pluto from './Pluto';
+import Mars from './Mars';
+import Venus from './Venus';
+import Moon from './Moon';
 
 function SceneContents() {
   return (
@@ -9,18 +17,18 @@ function SceneContents() {
       <ambientLight intensity={0.3} />
       <OrbitControls />
 
-      {/* <pointLight
-        position={[0, 0, 0]}
+      <pointLight
+        position={[0, 20, 80]}
         color={0xffffff}
         intensity={20000}
         distance={300}
-      /> */}
+      />
 
       {/* <Sun /> */}
 
       {/* <Mercury /> */}
 
-      <Saturn />
+      <Moon />
 
       {/* <Stars
         radius={100} // Radius of the sphere that contains the stars
