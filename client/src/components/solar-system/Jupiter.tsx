@@ -22,7 +22,7 @@ function Jupiter() {
   return (
     <mesh ref={jupiterRef}>
       <sphereGeometry args={[16, 50, 50]} />
-      <meshBasicMaterial map={sunTexture} />
+      <meshStandardMaterial map={sunTexture} />
     </mesh>
   );
 }

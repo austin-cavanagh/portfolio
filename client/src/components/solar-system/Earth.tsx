@@ -15,7 +15,8 @@ import earthColor from '../../assets/planets/earth/earth-color-4k.jpg';
 import earthBump from '../../assets/planets/earth/earth-bump-4k.jpg';
 import earthLights from '../../assets/planets/earth/earth-lights-4k.jpg';
 import earthClouds from '../../assets/planets/earth/earth-clouds.jpg';
-import earthCloudsTransparency from '../../assets/planets/earth/earth-clouds-transparancy.jpg';
+// import earthCloudsTransparency from '../../assets/planets/earth/earth-clouds-transparancy.jpg';
+import earthCloudsTransparency from '../../assets/planets/earth/earth-clouds-transparency-inverted.jpg';
 
 function Earth() {
   const planetRef = useRef<Mesh>(null!);
@@ -36,7 +37,7 @@ function Earth() {
     }
 
     if (cloudsRef.current) {
-      cloudsRef.current.rotation.y += 0.001;
+      cloudsRef.current.rotation.y += 0.0011;
     }
   });
 
@@ -53,18 +54,19 @@ function Earth() {
           emissiveIntensity={0.4}
         />
       </mesh>
-      {/* <mesh ref={cloudsRef} scale={[1.01, 1.01, 1.01]}>
+      <mesh ref={cloudsRef} scale={[1.01, 1.01, 1.01]}>
         <sphereGeometry args={[16, 50, 50]} />
         <meshStandardMaterial
           map={cloudsTexture}
-          // alphaMap={cloudsTransparencyTexture}
-          opacity={0.8} // Adjust for desired cloud transparency
-          depthWrite={false} // Helps prevent rendering artifacts
+          alphaMap={cloudsTransparencyTexture}
+          opacity={0.5}
+          depthWrite={false}
           transparent={true}
-          side={DoubleSide} // Render both sides of the geometry
-          blending={AdditiveBlending}
+          side={DoubleSide}
+          // emissive={new Color(0xffffff)} // Makes clouds slightly emissive
+          // emissiveIntensity={0} // Subtle glow to enhance whiteness
         />
-      </mesh> */}
+      </mesh>
     </>
   );
 }

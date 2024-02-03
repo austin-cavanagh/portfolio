@@ -2,8 +2,8 @@ import { useEffect, useRef } from 'react';
 import { useFrame, useLoader } from '@react-three/fiber';
 import { TextureLoader, Mesh, DoubleSide } from 'three';
 
-import saturnColor from '../../assets/planets/saturn/saturn-new.jpeg';
 // import saturnColor from '../../assets/planets/saturn/saturn-color.jpg';
+import saturnColor from '../../assets/planets/saturn/saturn-new.jpeg';
 
 import saturnRingColor from '../../assets/planets/saturn/saturn-ring-color.jpg';
 import saturnRingPattern from '../../assets/planets/saturn/saturn-ring-pattern.gif';
@@ -49,7 +49,7 @@ function Saturn() {
     <>
       <mesh ref={saturnRef}>
         <sphereGeometry args={[2, 50, 50]} />
-        <meshBasicMaterial map={planetColor} />
+        <meshStandardMaterial map={planetColor} />
       </mesh>
       <mesh ref={ringRef} rotation-x={Math.PI / 2}>
         <torusGeometry args={[3.5, 0.8, 2.0, 100]} />
