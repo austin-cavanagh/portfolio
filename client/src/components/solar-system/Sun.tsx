@@ -20,7 +20,7 @@ function Sun() {
   return (
     <mesh ref={sunRef}>
       <sphereGeometry args={[16, 30, 30]} />
-      <meshStandardMaterial map={sunTexture} />
+      <meshBasicMaterial map={sunTexture} />
     </mesh>
   );
 }
