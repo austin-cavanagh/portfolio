@@ -2,7 +2,7 @@ import { useFrame, useLoader } from '@react-three/fiber';
 import { Mesh, TextureLoader } from 'three';
 import { useRef } from 'react';
 
-import marsColor from '../../assets/planets/mars/mars-color.jpg';
+import marsColor from '../../assets/planets/mars/mars-color-4k.jpg';
 import marsBump from '../../assets/planets/mars/mars-bump.jpg';
 
 function Mars() {
@@ -22,7 +22,7 @@ function Mars() {
       <meshStandardMaterial
         map={colorTexture}
         bumpMap={bumpTexture}
-        bumpScale={50}
+        bumpScale={5}
       />
     </mesh>
   );

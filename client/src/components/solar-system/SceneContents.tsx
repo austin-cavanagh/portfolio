@@ -14,7 +14,7 @@ import Moon from './Moon';
 function SceneContents() {
   return (
     <>
-      <ambientLight intensity={0.3} />
+      <ambientLight intensity={0.1} />
       <OrbitControls />
 
       <pointLight
@@ -26,9 +26,9 @@ function SceneContents() {
 
       {/* <Sun /> */}
 
-      {/* <Mercury /> */}
+      {/* <Mars /> */}
 
-      <Moon />
+      <Jupiter />
 
       {/* <Stars
         radius={100} // Radius of the sphere that contains the stars
