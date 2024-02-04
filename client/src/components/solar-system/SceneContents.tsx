@@ -1,15 +1,15 @@
 import { OrbitControls, Stars } from '@react-three/drei';
 import Sun from './Sun';
 import Mercury from './Mercury';
+import Venus from './Venus';
+import Earth from './Earth';
+import Moon from './Moon';
+import Mars from './Mars';
+import Jupiter from './Jupiter';
 import Saturn from './Saturn';
 import Uranus from './Uranus';
-import Earth from './Earth';
-import Jupiter from './Jupiter';
 import Neptune from './Neptune';
 import Pluto from './Pluto';
-import Mars from './Mars';
-import Venus from './Venus';
-import Moon from './Moon';
 
 function SceneContents() {
   return (
