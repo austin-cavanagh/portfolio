@@ -1,14 +1,12 @@
-//
-// Description : Array and textureless GLSL 2D/3D/4D simplex 
-//               noise functions.
-//      Author : Ian McEwan, Ashima Arts.
-//  Maintainer : stegu
-//     Lastmod : 20110822 (ijm)
-//     License : Copyright (C) 2011 Ashima Arts. All rights reserved.
-//               Distributed under the MIT License. See LICENSE file.
-//               https://github.com/ashima/webgl-noise
-//               https://github.com/stegu/webgl-noise
-// 
+uniform float time;
+uniform float progress;
+uniform sampler2D texture1;
+uniform vec4 resolution;
+varying vec2 vUv;
+varying vec3 Position;
+float PI = 3.141592653589793238;
+
+
 
 vec4 mod289(vec4 x) {
   return x - floor(x * (1.0 / 289.0)) * 289.0; }
@@ -130,18 +128,8 @@ float snoise(vec4 v)
 
 
 
-
-float fbm(vec4 p) {
-    float sum = 0.0;
-    float amp = 1.0;
-    float scale = 1.0;
-
-    for (int i = 0; i < 6; i++) {
-        sum += snoise(p * scale) * amp;
-        p.w += 100.0;
-        amp *= 0.8;
-        scale *= 2.5;
-    }
-
-    return sum;
+void main() {
+    float noisy = snoise(vec4(vUv*10.,1.,time));
+    gl_FragColor = vec4(vUv,0.0,1.);
+    gl_FragColor = vec4(noisy);
 }

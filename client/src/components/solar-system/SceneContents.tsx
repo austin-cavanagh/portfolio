@@ -14,7 +14,7 @@ import Moon from './Moon';
 function SceneContents() {
   return (
     <>
-      <ambientLight intensity={0.1} />
+      {/* <ambientLight intensity={1} /> */}
       <OrbitControls />
 
       <pointLight
@@ -26,7 +26,7 @@ function SceneContents() {
 
       {/* <Jupiter /> */}
 
-      {/* <Saturn /> */}
+      {/* <Earth /> */}
 
       <Sun />
 
