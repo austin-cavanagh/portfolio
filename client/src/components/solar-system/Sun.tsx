@@ -49,7 +49,7 @@ function Sun() {
                 ${sunShader}
 
                 void main() {
-                  vec4 p = vec4(vPosition*3.,time * 0.05);
+                  vec4 p = vec4(vPosition*3.,time * 3.0) / 50.0;
                   float noisy = fbm(p);
 
                   vec4 p1 = vec4(vPosition * 2.0, time * 0.09);
@@ -72,16 +72,18 @@ function Sun() {
     if (planetRef.current) {
       const material = planetRef.current.material as ShaderMaterial;
       material.uniforms.time.value = clock.getElapsedTime();
+
+      planetRef.current.rotation.y += 0.0005;
     }
   });
 
   return (
     <>
       <mesh ref={planetRef}>
-        <sphereGeometry args={[1, 50, 50]} />
+        <sphereGeometry args={[50, 50, 50]} />
       </mesh>
       <mesh ref={glowRef} scale={[1.005, 1.005, 1.005]} position={[0, 0, 0]}>
-        <icosahedronGeometry args={[1.005, 16]} />
+        <icosahedronGeometry args={[50, 50]} />
         <shaderMaterial
           attach="material"
           {...fresnelMaterialProps}

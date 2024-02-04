@@ -23,19 +23,29 @@ function Earth() {
     earthCloudsTransparency,
   );
 
-  const fresnelMaterialProps = getFresnelMat({
-    // rimHex: 0x93c5fd, // Customize glow color
-    // facingHex: 0x000000, // Center color
-  });
+  const orbitRadius = 0;
+  const orbitSpeed = 0;
 
-  useFrame(() => {
+  useFrame(({ clock }) => {
+    const elapsedTime = clock.getElapsedTime();
+
     if (planetRef.current) {
       planetRef.current.rotation.y += 0.001;
+
+      planetRef.current.position.x =
+        Math.cos(elapsedTime * orbitSpeed) * orbitRadius;
+      planetRef.current.position.z =
+        Math.sin(elapsedTime * orbitSpeed) * orbitRadius;
     }
 
     if (cloudsRef.current) {
       cloudsRef.current.rotation.y += 0.0011;
     }
+  });
+
+  const fresnelMaterialProps = getFresnelMat({
+    // rimHex: 0x93c5fd, // Customize glow color
+    facingHex: 0x000000, // Center color
   });
 
   return (
@@ -62,7 +72,7 @@ function Earth() {
           side={DoubleSide}
         />
       </mesh>
-      <mesh ref={glowRef} scale={[1.01, 1.01, 1.01]} position={[0, 0, 0]}>
+      <mesh ref={glowRef} scale={[1.005, 1.005, 1.005]} position={[0, 0, 0]}>
         <icosahedronGeometry args={[16, 16]} />
         <shaderMaterial
           attach="material"

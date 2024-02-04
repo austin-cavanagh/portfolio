@@ -14,7 +14,7 @@ import Pluto from './Pluto';
 function SceneContents() {
   return (
     <>
-      {/* <ambientLight intensity={1} /> */}
+      <ambientLight intensity={0.2} />
       <OrbitControls />
 
       <pointLight
@@ -24,11 +24,12 @@ function SceneContents() {
         distance={300}
       />
 
-      {/* <Jupiter /> */}
-
+      {/* <Sun /> */}
+      {/* <Mercury /> */}
+      {/* <Venus /> */}
       {/* <Earth /> */}
-
-      <Sun />
+      <Mars />
+      {/* <Jupiter /> */}
 
       {/* <Stars
         radius={100} // Radius of the sphere that contains the stars
