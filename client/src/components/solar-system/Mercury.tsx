@@ -38,7 +38,7 @@ function Mercury() {
     <>
       <mesh ref={planetRef} position={[0, 0, 0]}>
         <sphereGeometry args={[10, 50, 50]} />
-        <meshStandardMaterial map={colorTexture} />
+        <meshPhongMaterial map={colorTexture} />
       </mesh>
       <mesh ref={glowRef} scale={[1.01, 1.01, 1.01]} position={[0, 0, 0]}>
         <icosahedronGeometry args={[10, 16]} />

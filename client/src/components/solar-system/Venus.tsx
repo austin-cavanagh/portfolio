@@ -2,10 +2,8 @@ import { useRef } from 'react';
 import { useFrame, useLoader } from '@react-three/fiber';
 import { Mesh, TextureLoader } from 'three';
 
-// import venusColor from '../../assets/planets/venus/venus-color-2k.jpg';
-import venusColor from '../../assets/planets/venus/2k_venus_atmosphere (1).jpg';
+import venusColor from '../../assets/planets/venus/vanus-color-2k.jpg';
 
-import venusBump from '../../assets/planets/venus/venus-bump-2k.jpg';
 import getFresnelMat from '../../functions/getFresnelMat';
 
 function Venus() {
@@ -13,7 +11,6 @@ function Venus() {
   const glowRef = useRef<Mesh>(null!);
 
   const colorTexture = useLoader(TextureLoader, venusColor);
-  const bumpTexture = useLoader(TextureLoader, venusBump);
 
   const orbitRadius = 0;
   const orbitSpeed = 0;
@@ -40,11 +37,7 @@ function Venus() {
     <>
       <mesh ref={planetRef} position={[0, 0, 0]}>
         <sphereGeometry args={[16, 50, 50]} />
-        <meshStandardMaterial
-          map={colorTexture}
-          // bumpMap={bumpTexture}
-          // bumpScale={1}
-        />
+        <meshPhongMaterial map={colorTexture} />
       </mesh>
       <mesh ref={glowRef} scale={[1.005, 1.005, 1.005]} position={[0, 0, 0]}>
         <icosahedronGeometry args={[16, 16]} />

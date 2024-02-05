@@ -38,7 +38,7 @@ function Mars() {
     <>
       <mesh ref={planetRef}>
         <sphereGeometry args={[16, 50, 50]} />
-        <meshStandardMaterial
+        <meshPhongMaterial
           map={colorTexture}
           bumpMap={bumpTexture}
           bumpScale={3}

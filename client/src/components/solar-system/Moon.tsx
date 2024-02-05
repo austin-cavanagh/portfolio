@@ -39,7 +39,7 @@ function Moon() {
     <>
       <mesh ref={planetRef} position={position}>
         <sphereGeometry args={[10, 50, 50]} />
-        <meshStandardMaterial
+        <meshPhongMaterial
           map={colorTexture}
           bumpMap={bumpTexture}
           bumpScale={1}

@@ -60,7 +60,7 @@ function Uranus() {
     <>
       <mesh ref={planetRef}>
         <sphereGeometry args={[10, 50, 50]} />
-        <meshStandardMaterial map={planetColor} />
+        <meshPhongMaterial map={planetColor} />
       </mesh>
       <mesh ref={glowRef} scale={[1.005, 1.005, 1.005]} position={[0, 0, 0]}>
         <icosahedronGeometry args={[10, 16]} />

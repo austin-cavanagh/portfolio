@@ -45,7 +45,7 @@ function Jupiter() {
     <>
       <mesh ref={planetRef}>
         <sphereGeometry args={[16, 50, 50]} />
-        <meshStandardMaterial map={colorTexture} />
+        <meshPhongMaterial map={colorTexture} />
       </mesh>
       <mesh ref={glowRef} scale={[1.005, 1.005, 1.005]} position={[0, 0, 0]}>
         <icosahedronGeometry args={[16, 16]} />
