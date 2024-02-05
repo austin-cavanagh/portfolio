@@ -15,6 +15,7 @@ function Mars() {
 
   const orbitRadius = 0;
   const orbitSpeed = 0;
+  const oblateness = 0.996;
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
@@ -36,7 +37,7 @@ function Mars() {
 
   return (
     <>
-      <mesh ref={planetRef}>
+      <mesh ref={planetRef} scale={[1, oblateness, 1]}>
         <sphereGeometry args={[16, 50, 50]} />
         <meshPhongMaterial
           map={colorTexture}
@@ -44,7 +45,11 @@ function Mars() {
           bumpScale={3}
         />
       </mesh>
-      <mesh ref={glowRef} scale={[1.005, 1.005, 1.005]} position={[0, 0, 0]}>
+      <mesh
+        ref={glowRef}
+        scale={[1.005, 1.005 * oblateness, 1.005]}
+        position={[0, 0, 0]}
+      >
         <icosahedronGeometry args={[16, 16]} />
         <shaderMaterial
           attach="material"

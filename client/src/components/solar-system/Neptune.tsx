@@ -34,11 +34,15 @@ function Neptune() {
 
   return (
     <>
-      <mesh ref={planetRef}>
+      <mesh ref={planetRef} scale={[1, 0.983, 1]}>
         <sphereGeometry args={[16, 50, 50]} />
         <meshPhongMaterial map={planetColor} />
       </mesh>
-      <mesh ref={glowRef} scale={[1.005, 1.005, 1.005]} position={[0, 0, 0]}>
+      <mesh
+        ref={glowRef}
+        scale={[1.005, 1.005 * 0.983, 1.005]}
+        position={[0, 0, 0]}
+      >
         <icosahedronGeometry args={[16, 16]} />
         <shaderMaterial
           attach="material"

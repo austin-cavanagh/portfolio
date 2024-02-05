@@ -21,6 +21,7 @@ function Uranus() {
 
   const orbitRadius = 0;
   const orbitSpeed = 0;
+  const oblateness = 0.977;
 
   useEffect(() => {
     if (planetRef.current) {
@@ -58,11 +59,15 @@ function Uranus() {
 
   return (
     <>
-      <mesh ref={planetRef}>
+      <mesh ref={planetRef} scale={[1, oblateness, 1]}>
         <sphereGeometry args={[10, 50, 50]} />
         <meshPhongMaterial map={planetColor} />
       </mesh>
-      <mesh ref={glowRef} scale={[1.005, 1.005, 1.005]} position={[0, 0, 0]}>
+      <mesh
+        ref={glowRef}
+        scale={[1.005 * oblateness, 1.005, 1.005]}
+        position={[0, 0, 0]}
+      >
         <icosahedronGeometry args={[10, 16]} />
         <shaderMaterial
           attach="material"

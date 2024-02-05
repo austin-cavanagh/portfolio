@@ -6,7 +6,7 @@ import getFresnelMat from '../../functions/getFresnelMat';
 import earthColor from '../../assets/planets/earth/earth-color-4k.jpg';
 import earthBump from '../../assets/planets/earth/earth-bump-4k.jpg';
 import earthLights from '../../assets/planets/earth/earth-lights-4k.jpg';
-// import earthClouds from '../../assets/planets/earth/earth-clouds.jpg';
+import earthClouds from '../../assets/planets/earth/earth-clouds.jpg';
 import earthCloudsTransparency from '../../assets/planets/earth/earth-clouds-transparency-inverted.jpg';
 
 function Earth() {
@@ -17,7 +17,7 @@ function Earth() {
   const sunTexture = useLoader(TextureLoader, earthColor);
   const bumpTexture = useLoader(TextureLoader, earthBump);
   const lightsTexture = useLoader(TextureLoader, earthLights);
-  const cloudsTexture = useLoader(TextureLoader, earthCloudsTransparency);
+  const cloudsTexture = useLoader(TextureLoader, earthClouds);
   const cloudsTransparencyTexture = useLoader(
     TextureLoader,
     earthCloudsTransparency,
@@ -25,12 +25,15 @@ function Earth() {
 
   const orbitRadius = 0;
   const orbitSpeed = 0;
+  const oblateness = 0.997;
+  const size = 0;
+  const rotation = 0.001;
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
 
     if (planetRef.current) {
-      planetRef.current.rotation.y += 0.001;
+      planetRef.current.rotation.y += rotation;
 
       planetRef.current.position.x =
         Math.cos(elapsedTime * orbitSpeed) * orbitRadius;
@@ -50,7 +53,7 @@ function Earth() {
 
   return (
     <>
-      <mesh ref={planetRef}>
+      <mesh ref={planetRef} scale={[1, oblateness, 1]}>
         <sphereGeometry args={[16, 50, 50]} />
         <meshPhongMaterial
           map={sunTexture}
@@ -61,7 +64,7 @@ function Earth() {
           emissiveIntensity={0.6}
         />
       </mesh>
-      <mesh ref={cloudsRef} scale={[1.005, 1.005, 1.005]}>
+      <mesh ref={cloudsRef} scale={[1.005, 1.005 * oblateness, 1.005]}>
         <sphereGeometry args={[16, 50, 50]} />
         <meshPhongMaterial
           map={cloudsTexture}
@@ -72,7 +75,11 @@ function Earth() {
           side={DoubleSide}
         />
       </mesh>
-      <mesh ref={glowRef} scale={[1.005, 1.005, 1.005]} position={[0, 0, 0]}>
+      <mesh
+        ref={glowRef}
+        scale={[1.005, 1.005 * oblateness, 1.005]}
+        position={[0, 0, 0]}
+      >
         <icosahedronGeometry args={[16, 16]} />
         <shaderMaterial
           attach="material"

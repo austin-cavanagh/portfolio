@@ -80,10 +80,10 @@ function Sun() {
   return (
     <>
       <mesh ref={planetRef}>
-        <sphereGeometry args={[50, 50, 50]} />
+        <sphereGeometry args={[10, 50, 50]} />
       </mesh>
       <mesh ref={glowRef} scale={[1.005, 1.005, 1.005]} position={[0, 0, 0]}>
-        <icosahedronGeometry args={[50, 50]} />
+        <icosahedronGeometry args={[10, 50]} />
         <shaderMaterial
           attach="material"
           {...fresnelMaterialProps}

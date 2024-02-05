@@ -1,14 +1,11 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { useFrame, useLoader } from '@react-three/fiber';
 import { TextureLoader, Mesh, DoubleSide } from 'three';
+import getFresnelMat from '../../functions/getFresnelMat';
 
-// import saturnColor from '../../assets/planets/saturn/saturn-color.jpg';
-// import saturnColor from '../../assets/planets/saturn/saturn-new.jpeg';
 import saturnColor from '../../assets/planets/saturn/2k_saturn.jpg';
-
 import saturnRingColor from '../../assets/planets/saturn/saturn-ring-color.jpg';
 import saturnRingPattern from '../../assets/planets/saturn/saturn-ring-pattern.gif';
-import getFresnelMat from '../../functions/getFresnelMat';
 
 function Saturn() {
   const saturnRef = useRef<Mesh>(null!);
@@ -24,16 +21,7 @@ function Saturn() {
 
   const orbitRadius = 0;
   const orbitSpeed = 0.25;
-
-  useEffect(() => {
-    if (saturnRef.current) {
-      saturnRef.current.scale.y = 0.9;
-    }
-
-    if (glowRef.current) {
-      glowRef.current.scale.y = 0.905;
-    }
-  }, []);
+  const oblateness = 0.9;
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
@@ -60,11 +48,15 @@ function Saturn() {
 
   return (
     <>
-      <mesh ref={saturnRef}>
+      <mesh ref={saturnRef} scale={[1, oblateness, 1]}>
         <sphereGeometry args={[10, 50, 50]} />
         <meshPhongMaterial map={planetColor} />
       </mesh>
-      <mesh ref={glowRef} scale={[1.005, 1.005, 1.005]} position={[0, 0, 0]}>
+      <mesh
+        ref={glowRef}
+        scale={[1.005, 1.005 * oblateness, 1.005]}
+        position={[0, 0, 0]}
+      >
         <icosahedronGeometry args={[10, 16]} />
         <shaderMaterial
           attach="material"

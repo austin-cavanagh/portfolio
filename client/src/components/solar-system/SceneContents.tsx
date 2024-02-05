@@ -16,15 +16,13 @@ function SceneContents() {
     <>
       <ambientLight intensity={0.2} />
       <OrbitControls />
-
       <pointLight
         position={[0, 10, 80]}
         color={0xffffff}
         intensity={20000}
         distance={300}
       />
-
-      {/* <Sun /> */}
+      <Sun />
       {/* <Mercury /> */}
       {/* <Venus /> */}
       {/* <Earth /> */}
@@ -35,7 +33,6 @@ function SceneContents() {
       {/* <Uranus /> */}
       {/* <Neptune /> */}
       {/* <Pluto /> */}
-
       {/* <Stars
         radius={100} // Radius of the sphere that contains the stars
         depth={50} // Depth of the star field
