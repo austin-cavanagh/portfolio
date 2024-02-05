@@ -7,28 +7,23 @@ type PlanetProps = {
   radius: number;
   rotation: number;
   oblateness: number;
-  orbitRadius: number;
   orbitSpeed: number;
   glowColor: number;
   color: string;
+  semiMajorAxis: number;
+  eccentricity: number;
 };
 
 function Planet({
   radius,
   rotation,
   oblateness,
-  orbitRadius,
   orbitSpeed,
   glowColor,
   color,
+  semiMajorAxis,
+  eccentricity,
 }: PlanetProps) {
-  //   const orbitRadius = 20;
-  //   const orbitSpeed = 0.2;
-  //   const oblateness = 1;
-  //   const radius = 2;
-  //   const rotation = 0.001;
-  //   const glowColor = 0xb3cde0;
-
   const planetRef = useRef<Mesh>(null!);
   const glowRef = useRef<Mesh>(null!);
 
@@ -37,9 +32,18 @@ function Planet({
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
 
-    const planetX = Math.cos(elapsedTime * -orbitSpeed) * orbitRadius;
-    const planetZ = Math.sin(elapsedTime * -orbitSpeed) * orbitRadius;
+    const semiMinorAxis = semiMajorAxis * Math.sqrt(1 - eccentricity ** 2);
 
+    const angle = elapsedTime * orbitSpeed;
+    const r =
+      (semiMajorAxis * semiMinorAxis) /
+      Math.sqrt(
+        (semiMinorAxis * Math.cos(angle)) ** 2 +
+          (semiMajorAxis * Math.sin(angle)) ** 2,
+      );
+
+    const planetX = r * Math.cos(angle);
+    const planetZ = r * Math.sin(angle);
     if (planetRef.current) {
       planetRef.current.rotation.y += rotation;
       planetRef.current.position.x = planetX;

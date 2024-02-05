@@ -1,5 +1,11 @@
 import { OrbitControls, Stars } from '@react-three/drei';
-import { Texture } from 'three';
+import {
+  BufferGeometry,
+  Line,
+  LineBasicMaterial,
+  Texture,
+  Vector3,
+} from 'three';
 
 import Sun from './Sun';
 import Mercury from './Mercury';
@@ -15,25 +21,75 @@ import Pluto from './Pluto';
 import Planet from './Planet';
 
 import mercuryColor from '../../assets/planets/mercury/mercury-color-2k.jpg';
+import { useMemo } from 'react';
+import { useThree } from '@react-three/fiber';
 
 type PlanetProps = {
   radius: number;
   rotation: number;
   oblateness: number;
-  orbitRadius: number;
   orbitSpeed: number;
   glowColor: number;
   color: string;
+  semiMajorAxis: number;
+  eccentricity: number;
 };
 
 const mercury: PlanetProps = {
-  orbitRadius: 20,
+  semiMajorAxis: 57.9,
+  eccentricity: 0.2056,
   orbitSpeed: 0.2,
   oblateness: 1,
   radius: 2,
   rotation: 0.001,
   glowColor: 0xb3cde0,
   color: mercuryColor,
+};
+
+function generateEllipseVertices(
+  semiMajorAxis: number,
+  eccentricity: number,
+  segments: number,
+) {
+  const semiMinorAxis =
+    semiMajorAxis * Math.sqrt(1 - eccentricity * eccentricity);
+  const points = [];
+  for (let i = 0; i <= segments; i++) {
+    const angle = (i * 2 * Math.PI) / segments;
+    const x = semiMajorAxis * Math.cos(angle);
+    const y = semiMinorAxis * Math.sin(angle);
+    points.push(new Vector3(x, 0, y));
+  }
+  return points;
+}
+
+type OrbitPathProps = {
+  semiMajorAxis: number;
+  eccentricity: number;
+  segments?: number;
+};
+
+const OrbitPath = ({
+  semiMajorAxis,
+  eccentricity,
+  segments = 64,
+}: OrbitPathProps) => {
+  const points = useMemo(
+    () => generateEllipseVertices(semiMajorAxis, eccentricity, segments),
+    [semiMajorAxis, eccentricity, segments],
+  );
+
+  const lineGeometry = useMemo(
+    () => new BufferGeometry().setFromPoints(points),
+    [points],
+  );
+  const lineMaterial = useMemo(
+    () => new LineBasicMaterial({ color: 0xffffff }),
+    [],
+  );
+
+  // Use the 'primitive' component to render the Three.js Line object.
+  return <primitive object={new Line(lineGeometry, lineMaterial)} />;
 };
 
 function SceneContents() {
@@ -50,6 +106,11 @@ function SceneContents() {
       <Sun />
 
       <Planet {...mercury} />
+
+      <OrbitPath
+        semiMajorAxis={mercury.semiMajorAxis}
+        eccentricity={mercury.eccentricity}
+      />
 
       {/* <Mercury /> */}
       {/* <Venus /> */}
