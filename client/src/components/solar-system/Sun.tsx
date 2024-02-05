@@ -73,7 +73,7 @@ function Sun() {
       const material = planetRef.current.material as ShaderMaterial;
       material.uniforms.time.value = clock.getElapsedTime();
 
-      planetRef.current.rotation.y += 0.0005;
+      planetRef.current.rotation.y += 0.0001;
     }
   });
 

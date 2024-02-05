@@ -6,7 +6,7 @@ function SolarSystem() {
   const cameraPosition: [number, number, number] = [-90, 140, 140];
 
   return (
-    <div className="h-screen w-screen bg-black">
+    <div className="h-screen w-screen">
       <Canvas
         camera={{ fov: 45, position: cameraPosition, near: 0.1, far: 2000 }}
       >

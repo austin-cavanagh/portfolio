@@ -129,8 +129,6 @@ float snoise(vec4 v)
   }
 
 
-
-
 float fbm(vec4 p) {
     float sum = 0.0;
     float amp = 1.0;

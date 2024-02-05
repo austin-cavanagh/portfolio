@@ -3,20 +3,36 @@ import { useFrame, useLoader } from '@react-three/fiber';
 import { Mesh, TextureLoader } from 'three';
 import getFresnelMat from '../../functions/getFresnelMat';
 
-import mercuryColor from '../../assets/planets/mercury/mercury-color-2k.jpg';
+type PlanetProps = {
+  radius: number;
+  rotation: number;
+  oblateness: number;
+  orbitRadius: number;
+  orbitSpeed: number;
+  glowColor: number;
+  color: string;
+};
 
-function Mercury() {
-  const orbitRadius = 20;
-  const orbitSpeed = 0.2;
-  const oblateness = 1;
-  const radius = 2;
-  const rotation = 0.001;
-  const glowColor = 0xb3cde0;
+function Planet({
+  radius,
+  rotation,
+  oblateness,
+  orbitRadius,
+  orbitSpeed,
+  glowColor,
+  color,
+}: PlanetProps) {
+  //   const orbitRadius = 20;
+  //   const orbitSpeed = 0.2;
+  //   const oblateness = 1;
+  //   const radius = 2;
+  //   const rotation = 0.001;
+  //   const glowColor = 0xb3cde0;
 
   const planetRef = useRef<Mesh>(null!);
   const glowRef = useRef<Mesh>(null!);
 
-  const colorTexture = useLoader(TextureLoader, mercuryColor);
+  const colorTexture = useLoader(TextureLoader, color);
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
@@ -63,4 +79,4 @@ function Mercury() {
   );
 }
 
-export default Mercury;
+export default Planet;
