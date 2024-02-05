@@ -118,9 +118,9 @@ const neptune: PlanetProps = {
   orbitSpeed: 0.012,
   oblateness: 1.011,
   radius: 5.362,
-  rotation: 0.72,
+  rotation: 0.02,
   glowColor: 0x1ec2a4,
-  color: uranusColor,
+  color: neptuneColor,
 };
 
 const pluto: PlanetProps = {
@@ -129,9 +129,9 @@ const pluto: PlanetProps = {
   orbitSpeed: 0.012,
   oblateness: 1.011,
   radius: 2.362,
-  rotation: 0.72,
+  rotation: 0.02,
   glowColor: 0x1ec2a4,
-  color: uranusColor,
+  color: plutoColor,
 };
 
 function SceneContents() {
