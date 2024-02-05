@@ -32,27 +32,28 @@ function Planet({
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
 
-    const semiMinorAxis = semiMajorAxis * Math.sqrt(1 - eccentricity ** 2);
+    // Ellipse parameters
+    const c = semiMajorAxis * eccentricity; // Focal distance from the center to one of the foci
+    const angle = elapsedTime * orbitSpeed; // This angle should ideally correlate with the orbital period
 
-    const angle = elapsedTime * orbitSpeed;
-    const r =
-      (semiMajorAxis * semiMinorAxis) /
-      Math.sqrt(
-        (semiMinorAxis * Math.cos(angle)) ** 2 +
-          (semiMajorAxis * Math.sin(angle)) ** 2,
-      );
+    // Calculate the planet's position using the ellipse formula
+    // Adjusting x to account for the focal distance, using z instead of y for the depth axis
+    const x = semiMajorAxis * Math.cos(angle) - c; // Adjust x for the focal length
+    const z =
+      semiMajorAxis *
+      Math.sqrt(1 - eccentricity * eccentricity) *
+      Math.sin(angle); // Use z in place of y
 
-    const planetX = r * Math.cos(angle);
-    const planetZ = r * Math.sin(angle);
+    // Update planet and glow positions
     if (planetRef.current) {
       planetRef.current.rotation.y += rotation;
-      planetRef.current.position.x = planetX;
-      planetRef.current.position.z = planetZ;
+      planetRef.current.position.x = x;
+      planetRef.current.position.z = z; // Update z instead of y
     }
 
     if (glowRef.current) {
-      glowRef.current.position.x = planetX;
-      glowRef.current.position.z = planetZ;
+      glowRef.current.position.x = x;
+      glowRef.current.position.z = z;
     }
   });
 

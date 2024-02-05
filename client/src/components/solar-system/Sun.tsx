@@ -49,7 +49,7 @@ function Sun() {
                 ${sunShader}
 
                 void main() {
-                  vec4 p = vec4(vPosition*3.,time * 3.0) / 50.0;
+                  vec4 p = vec4(vPosition*3.,time * 3.0) / 40.0;
                   float noisy = fbm(p);
 
                   vec4 p1 = vec4(vPosition * 2.0, time * 0.09);
