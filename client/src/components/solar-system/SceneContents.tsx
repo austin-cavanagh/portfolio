@@ -51,7 +51,7 @@ const mercury: PlanetProps = {
 const venus: PlanetProps = {
   semiMajorAxis: 108.2,
   eccentricity: 0.0067,
-  orbitSpeed: 0.1,
+  orbitSpeed: 0.01,
   oblateness: 1,
   radius: 6.052,
   rotation: -0.001,
@@ -63,11 +63,11 @@ const venus: PlanetProps = {
 const earth: PlanetProps = {
   semiMajorAxis: 149.6,
   eccentricity: 0.0167,
-  orbitSpeed: 0.1,
+  orbitSpeed: 0.01,
   oblateness: 1,
   radius: 6.371,
   rotation: 0.00417,
-  glowColor: 0x0000ff,
+  glowColor: 0x0088ff,
   color: earthColor,
   name: 'Earth',
 };
@@ -157,16 +157,10 @@ function SceneContents() {
       /> */}
       <Sun />
 
-      {/* <Planet {...mercury} />
+      <Planet {...mercury} />
       <OrbitPath
         semiMajorAxis={mercury.semiMajorAxis}
         eccentricity={mercury.eccentricity}
-      />
-
-      <Planet {...venus} />
-      <OrbitPath
-        semiMajorAxis={venus.semiMajorAxis}
-        eccentricity={venus.eccentricity}
       />
 
       <Planet {...venus} />
@@ -181,7 +175,7 @@ function SceneContents() {
         eccentricity={earth.eccentricity}
       />
 
-      <Planet {...mars} />
+      {/* <Planet {...mars} />
       <OrbitPath
         semiMajorAxis={mars.semiMajorAxis}
         eccentricity={mars.eccentricity}
@@ -197,21 +191,21 @@ function SceneContents() {
       <OrbitPath
         semiMajorAxis={saturn.semiMajorAxis}
         eccentricity={saturn.eccentricity}
-      />
+      /> */}
 
-      <Planet {...uranus} />
+      {/* <Planet {...uranus} />
       <OrbitPath
         semiMajorAxis={uranus.semiMajorAxis}
         eccentricity={uranus.eccentricity}
-      />
+      /> */}
 
-      <Planet {...neptune} />
+      {/* <Planet {...neptune} />
       <OrbitPath
         semiMajorAxis={neptune.semiMajorAxis}
         eccentricity={neptune.eccentricity}
-      />
+      /> */}
 
-      <Planet {...pluto} />
+      {/* <Planet {...pluto} />
       <OrbitPath
         semiMajorAxis={pluto.semiMajorAxis}
         eccentricity={pluto.eccentricity}

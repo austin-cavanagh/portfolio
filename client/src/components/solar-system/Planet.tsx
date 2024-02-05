@@ -3,7 +3,7 @@ import { ThreeEvent, useFrame, useLoader } from '@react-three/fiber';
 import { Mesh, TextureLoader } from 'three';
 import getFresnelMat from '../../functions/getFresnelMat';
 import { PlanetProps } from './SceneContents';
-import AnimatedWireframe from './AnimatedWireframe';
+import { Text } from '@react-three/drei';
 
 function Planet({
   radius,
@@ -19,6 +19,7 @@ function Planet({
   const planetRef = useRef<Mesh>(null!);
   const glowRef = useRef<Mesh>(null!);
   const highlightRef = useRef<Mesh>(null!);
+  const textRef = useRef<any>(null!);
 
   const ring1Ref = useRef<Mesh>(null!);
   const ring2Ref = useRef<Mesh>(null!);
@@ -28,7 +29,7 @@ function Planet({
 
   const colorTexture = useLoader(TextureLoader, color);
 
-  useFrame(({ clock }) => {
+  useFrame(({ clock, camera }) => {
     const elapsedTime = clock.getElapsedTime();
 
     const c = semiMajorAxis * eccentricity;
@@ -64,23 +65,32 @@ function Planet({
     if (ring1Ref.current) {
       ring1Ref.current.position.x = x;
       ring1Ref.current.position.z = z;
-      ring1Ref.current.rotation.x += 0.01;
-      ring1Ref.current.rotation.y += 0.01;
-      //   ring1Ref.current.rotation.z += 0.01;
+      ring1Ref.current.rotation.x += 0.0095;
+      ring1Ref.current.rotation.y += 0.0095;
     }
 
     if (ring2Ref.current) {
       ring2Ref.current.position.x = x;
       ring2Ref.current.position.z = z;
-      //   ring2Ref.current.rotation.x += 0.01;
-      ring2Ref.current.rotation.y += 0.01;
+      ring2Ref.current.rotation.y += 0.009;
     }
 
     if (ring3Ref.current) {
       ring3Ref.current.position.x = x;
       ring3Ref.current.position.z = z;
-      //   ring3Ref.current.rotation.y += 0.01;
-      ring3Ref.current.rotation.x += 0.01;
+      ring3Ref.current.rotation.x += 0.009;
+    }
+
+    if (textRef.current && planetRef.current) {
+      const distance = camera.position.distanceTo(planetRef.current.position);
+      const fontSize = Math.max(0.1, 2 * (distance / 100));
+
+      textRef.current.position.x = planetRef.current.position.x + radius * 2;
+      textRef.current.position.y = planetRef.current.position.y;
+      textRef.current.position.z = planetRef.current.position.z;
+
+      textRef.current.lookAt(camera.position);
+      textRef.current.fontSize = fontSize;
     }
   });
 
@@ -112,18 +122,14 @@ function Planet({
         <meshPhongMaterial map={colorTexture} />
       </mesh>
 
-      {/* <mesh
-        ref={glowRef}
-        scale={[1.005, 1.005 * oblateness, 1.005]}
-        position={[0, 0, 0]}
-      >
+      <mesh ref={glowRef} scale={[1.005, 1.005 * oblateness, 1.005]}>
         <icosahedronGeometry args={[radius, 16]} />
         <shaderMaterial
           attach="material"
           {...fresnelMaterialProps}
           transparent
         />
-      </mesh> */}
+      </mesh>
 
       {/* <mesh
         ref={highlightRef}
@@ -137,21 +143,31 @@ function Planet({
 
       {/* Ring 1 */}
       <mesh ref={ring1Ref} visible={hovered}>
-        <torusGeometry args={[radius * 1.3, 0.05, 2, 50]} />
+        <torusGeometry args={[radius * 1.5, 0.12, 2, 50]} />
         <meshBasicMaterial color={0x00bfff} />
       </mesh>
 
       {/* Ring 2 */}
       <mesh ref={ring2Ref} visible={hovered}>
-        <torusGeometry args={[radius * 1.3, 0.05, 2, 50]} />
+        <torusGeometry args={[radius * 1.5, 0.12, 2, 50]} />
         <meshBasicMaterial color={0x00bfff} />
       </mesh>
 
       {/* Ring 3 */}
       <mesh ref={ring3Ref} visible={hovered}>
-        <torusGeometry args={[radius * 1.3, 0.05, 2, 50]} />
+        <torusGeometry args={[radius * 1.5, 0.12, 2, 50]} />
         <meshBasicMaterial color={0x00bfff} />
       </mesh>
+
+      <Text
+        ref={textRef}
+        fontSize={5}
+        color="#00bfff"
+        anchorX="center"
+        anchorY="middle"
+      >
+        {name}
+      </Text>
     </>
   );
 }
