@@ -18,13 +18,13 @@ import mercuryColor from '../../assets/planets/mercury/mercury-color-2k.jpg';
 import venusColor from '../../assets/planets/venus/venus-color-2k.jpg';
 import earthColor from '../../assets/planets/earth/earth-color-4k.jpg';
 import marsColor from '../../assets/planets/mars/mars-color-4k.jpg';
-import jupiterColor from '../../assets/planets/jupiter/jupiter-color-4k.jpg';
+import jupiterColor from '../../assets/planets/jupiter/jupiter-color-2k.jpg';
 import saturnColor from '../../assets/planets/saturn/saturn-color-2k.jpg';
 import uranusColor from '../../assets/planets/uranus/uranus-color-2k.jpg';
 import neptuneColor from '../../assets/planets/neptune/neptune-color-2k.jpg';
 import plutoColor from '../../assets/planets/pluto/pluto-color-2k.jpg';
 
-type PlanetProps = {
+export type PlanetProps = {
   radius: number;
   rotation: number;
   oblateness: number;
@@ -33,6 +33,7 @@ type PlanetProps = {
   color: string;
   semiMajorAxis: number;
   eccentricity: number;
+  name: string;
 };
 
 const mercury: PlanetProps = {
@@ -44,6 +45,7 @@ const mercury: PlanetProps = {
   rotation: 0.001,
   glowColor: 0xb3cde0,
   color: mercuryColor,
+  name: 'Mercury',
 };
 
 const venus: PlanetProps = {
@@ -55,6 +57,7 @@ const venus: PlanetProps = {
   rotation: -0.001,
   glowColor: 0xffd700,
   color: venusColor,
+  name: 'Venus',
 };
 
 const earth: PlanetProps = {
@@ -66,6 +69,7 @@ const earth: PlanetProps = {
   rotation: 0.00417,
   glowColor: 0x0000ff,
   color: earthColor,
+  name: 'Earth',
 };
 
 const mars: PlanetProps = {
@@ -77,17 +81,19 @@ const mars: PlanetProps = {
   rotation: 0.00427,
   glowColor: 0xff4500,
   color: marsColor,
+  name: 'Mars',
 };
 
 const jupiter: PlanetProps = {
-  semiMajorAxis: 278.5,
+  semiMajorAxis: 78.5,
   eccentricity: 0.0489,
-  orbitSpeed: 0.084,
+  orbitSpeed: 0.00084,
   oblateness: 1.069,
-  radius: 9.911,
-  rotation: 0.01,
-  glowColor: 0xffff00,
+  radius: 10,
+  rotation: 0.001,
+  glowColor: 0xffa500,
   color: jupiterColor,
+  name: 'Jupiter',
 };
 
 const saturn: PlanetProps = {
@@ -99,6 +105,7 @@ const saturn: PlanetProps = {
   rotation: 0.05,
   glowColor: 0xcba135,
   color: saturnColor,
+  name: 'Saturn',
 };
 
 const uranus: PlanetProps = {
@@ -110,6 +117,7 @@ const uranus: PlanetProps = {
   rotation: 0.72,
   glowColor: 0x1ec2a4,
   color: uranusColor,
+  name: 'Uranus',
 };
 
 const neptune: PlanetProps = {
@@ -121,6 +129,7 @@ const neptune: PlanetProps = {
   rotation: 0.02,
   glowColor: 0x1ec2a4,
   color: neptuneColor,
+  name: 'Neptune',
 };
 
 const pluto: PlanetProps = {
@@ -132,6 +141,7 @@ const pluto: PlanetProps = {
   rotation: 0.02,
   glowColor: 0x1ec2a4,
   color: plutoColor,
+  name: 'Pluto',
 };
 
 function SceneContents() {
@@ -147,7 +157,7 @@ function SceneContents() {
       /> */}
       <Sun />
 
-      <Planet {...mercury} />
+      {/* <Planet {...mercury} />
       <OrbitPath
         semiMajorAxis={mercury.semiMajorAxis}
         eccentricity={mercury.eccentricity}
@@ -175,7 +185,7 @@ function SceneContents() {
       <OrbitPath
         semiMajorAxis={mars.semiMajorAxis}
         eccentricity={mars.eccentricity}
-      />
+      /> */}
 
       <Planet {...jupiter} />
       <OrbitPath
@@ -183,7 +193,7 @@ function SceneContents() {
         eccentricity={jupiter.eccentricity}
       />
 
-      <Planet {...saturn} />
+      {/* <Planet {...saturn} />
       <OrbitPath
         semiMajorAxis={saturn.semiMajorAxis}
         eccentricity={saturn.eccentricity}
@@ -205,7 +215,7 @@ function SceneContents() {
       <OrbitPath
         semiMajorAxis={pluto.semiMajorAxis}
         eccentricity={pluto.eccentricity}
-      />
+      /> */}
 
       {/* <Mercury /> */}
       {/* <Venus /> */}
