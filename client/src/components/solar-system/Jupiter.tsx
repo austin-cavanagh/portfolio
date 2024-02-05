@@ -37,7 +37,7 @@ function Jupiter() {
   });
 
   const fresnelMaterialProps = getFresnelMat({
-    rimHex: 0xb67d49, // Customize glow color
+    rimHex: 0xffa500, // Customize glow color
     facingHex: 0x000000, // Center color
   });
 

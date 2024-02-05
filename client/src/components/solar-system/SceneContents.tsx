@@ -27,9 +27,14 @@ function SceneContents() {
       {/* <Sun /> */}
       {/* <Mercury /> */}
       {/* <Venus /> */}
-      {/* <Earth /> */}
-      <Mars />
+      <Earth />
+      {/* <Mars /> */}
       {/* <Jupiter /> */}
+      {/* <Saturn /> */}
+      {/* <Uranus /> */}
+      {/* <Neptune /> */}
+      {/* <Pluto /> */}
+      {/* <Moon /> */}
 
       {/* <Stars
         radius={100} // Radius of the sphere that contains the stars

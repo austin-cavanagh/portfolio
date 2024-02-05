@@ -2,7 +2,9 @@ import { useRef } from 'react';
 import { useFrame, useLoader } from '@react-three/fiber';
 import { Mesh, TextureLoader } from 'three';
 
-import mercuryColor from '../../assets/planets/mercury/mercury-color.webp';
+// import mercuryColor from '../../assets/planets/mercury/mercury-color.webp';
+import mercuryColor from '../../assets/planets/mercury/2k_mercury.jpg';
+
 import getFresnelMat from '../../functions/getFresnelMat';
 
 function Mercury() {
@@ -28,7 +30,7 @@ function Mercury() {
   });
 
   const fresnelMaterialProps = getFresnelMat({
-    rimHex: 0x5d3b9a, // Customize glow color
+    rimHex: 0xb3cde0, // Customize glow color
     facingHex: 0x000000, // Center color
   });
 

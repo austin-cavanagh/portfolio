@@ -3,13 +3,16 @@ import { useFrame, useLoader } from '@react-three/fiber';
 import { TextureLoader, Mesh, DoubleSide } from 'three';
 
 // import saturnColor from '../../assets/planets/saturn/saturn-color.jpg';
-import saturnColor from '../../assets/planets/saturn/saturn-new.jpeg';
+// import saturnColor from '../../assets/planets/saturn/saturn-new.jpeg';
+import saturnColor from '../../assets/planets/saturn/2k_saturn.jpg';
 
 import saturnRingColor from '../../assets/planets/saturn/saturn-ring-color.jpg';
 import saturnRingPattern from '../../assets/planets/saturn/saturn-ring-pattern.gif';
+import getFresnelMat from '../../functions/getFresnelMat';
 
 function Saturn() {
   const saturnRef = useRef<Mesh>(null!);
+  const glowRef = useRef<Mesh>(null!);
   const ringRef = useRef<Mesh>(null!);
 
   const planetColor = useLoader(TextureLoader, saturnColor);
@@ -26,17 +29,22 @@ function Saturn() {
     if (saturnRef.current) {
       saturnRef.current.scale.y = 0.9;
     }
+
+    if (glowRef.current) {
+      glowRef.current.scale.y = 0.905;
+    }
   }, []);
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
 
     if (saturnRef.current) {
+      saturnRef.current.rotation.y += 0.001;
+
       saturnRef.current.position.x =
         Math.cos(elapsedTime * orbitSpeed) * orbitRadius;
       saturnRef.current.position.z =
         Math.sin(elapsedTime * orbitSpeed) * orbitRadius;
-      saturnRef.current.rotation.y += 0.002;
     }
 
     if (ringRef.current) {
@@ -45,14 +53,27 @@ function Saturn() {
     }
   });
 
+  const fresnelMaterialProps = getFresnelMat({
+    rimHex: 0xfffacd, // Customize glow color
+    facingHex: 0x000000, // Center color
+  });
+
   return (
     <>
       <mesh ref={saturnRef}>
-        <sphereGeometry args={[2, 50, 50]} />
+        <sphereGeometry args={[10, 50, 50]} />
         <meshStandardMaterial map={planetColor} />
       </mesh>
+      <mesh ref={glowRef} scale={[1.005, 1.005, 1.005]} position={[0, 0, 0]}>
+        <icosahedronGeometry args={[10, 16]} />
+        <shaderMaterial
+          attach="material"
+          {...fresnelMaterialProps}
+          transparent
+        />
+      </mesh>
       <mesh ref={ringRef} rotation-x={Math.PI / 2}>
-        <torusGeometry args={[3.5, 0.8, 2.0, 100]} />
+        <torusGeometry args={[17, 3.2, 2.0, 100]} />
         <meshBasicMaterial
           map={ringColor}
           alphaMap={ringPattern}

@@ -1,13 +1,13 @@
 import { useFrame, useLoader } from '@react-three/fiber';
 import { Color, DoubleSide, Mesh, TextureLoader } from 'three';
 import { useRef } from 'react';
+import getFresnelMat from '../../functions/getFresnelMat';
 
 import earthColor from '../../assets/planets/earth/earth-color-4k.jpg';
 import earthBump from '../../assets/planets/earth/earth-bump-4k.jpg';
 import earthLights from '../../assets/planets/earth/earth-lights-4k.jpg';
-import earthClouds from '../../assets/planets/earth/earth-clouds.jpg';
+// import earthClouds from '../../assets/planets/earth/earth-clouds.jpg';
 import earthCloudsTransparency from '../../assets/planets/earth/earth-clouds-transparency-inverted.jpg';
-import getFresnelMat from '../../functions/getFresnelMat';
 
 function Earth() {
   const planetRef = useRef<Mesh>(null!);
@@ -17,7 +17,7 @@ function Earth() {
   const sunTexture = useLoader(TextureLoader, earthColor);
   const bumpTexture = useLoader(TextureLoader, earthBump);
   const lightsTexture = useLoader(TextureLoader, earthLights);
-  const cloudsTexture = useLoader(TextureLoader, earthClouds);
+  const cloudsTexture = useLoader(TextureLoader, earthCloudsTransparency);
   const cloudsTransparencyTexture = useLoader(
     TextureLoader,
     earthCloudsTransparency,
@@ -63,10 +63,10 @@ function Earth() {
       </mesh>
       <mesh ref={cloudsRef} scale={[1.005, 1.005, 1.005]}>
         <sphereGeometry args={[16, 50, 50]} />
-        <meshStandardMaterial
+        <meshPhongMaterial
           map={cloudsTexture}
           alphaMap={cloudsTransparencyTexture}
-          opacity={0.5}
+          opacity={0.4}
           depthWrite={false}
           transparent={true}
           side={DoubleSide}

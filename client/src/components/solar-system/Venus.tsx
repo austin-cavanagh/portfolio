@@ -2,7 +2,9 @@ import { useRef } from 'react';
 import { useFrame, useLoader } from '@react-three/fiber';
 import { Mesh, TextureLoader } from 'three';
 
-import venusColor from '../../assets/planets/venus/venus-color-2k.jpg';
+// import venusColor from '../../assets/planets/venus/venus-color-2k.jpg';
+import venusColor from '../../assets/planets/venus/2k_venus_atmosphere (1).jpg';
+
 import venusBump from '../../assets/planets/venus/venus-bump-2k.jpg';
 import getFresnelMat from '../../functions/getFresnelMat';
 
@@ -40,8 +42,8 @@ function Venus() {
         <sphereGeometry args={[16, 50, 50]} />
         <meshStandardMaterial
           map={colorTexture}
-          bumpMap={bumpTexture}
-          bumpScale={1}
+          // bumpMap={bumpTexture}
+          // bumpScale={1}
         />
       </mesh>
       <mesh ref={glowRef} scale={[1.005, 1.005, 1.005]} position={[0, 0, 0]}>
