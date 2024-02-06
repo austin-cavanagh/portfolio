@@ -49,7 +49,7 @@ function Sun() {
                 ${sunShader}
 
                 void main() {
-                  vec4 p = vec4(vPosition*3.,time * 3.0) / 40.0;
+                  vec4 p = vec4(vPosition*3.,time * 3.0) / 25.0;
                   float noisy = fbm(p);
 
                   vec4 p1 = vec4(vPosition * 2.0, time * 0.09);
@@ -80,7 +80,7 @@ function Sun() {
   return (
     <>
       <mesh ref={planetRef}>
-        <sphereGeometry args={[10, 50, 50]} />
+        <sphereGeometry args={[25, 50, 50]} />
       </mesh>
       <mesh ref={glowRef} scale={[1.005, 1.005, 1.005]} position={[0, 0, 0]}>
         <icosahedronGeometry args={[10, 50]} />

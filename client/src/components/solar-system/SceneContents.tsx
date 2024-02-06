@@ -38,9 +38,9 @@ export type PlanetProps = {
 };
 
 const mercury: PlanetProps = {
-  semiMajorAxis: 831.6229,
+  radius: 5,
+  semiMajorAxis: 100,
   eccentricity: 0.2056,
-  radius: 0.035,
 
   orbitSpeed: 0.001,
   oblateness: 1,
@@ -51,8 +51,8 @@ const mercury: PlanetProps = {
 };
 
 const venus: PlanetProps = {
-  radius: 0.0869,
-  semiMajorAxis: 1553.9669,
+  radius: 10,
+  semiMajorAxis: 200,
   eccentricity: 0.0067,
 
   orbitSpeed: 0.01,
@@ -64,8 +64,8 @@ const venus: PlanetProps = {
 };
 
 const earth: PlanetProps = {
-  radius: 0.0915,
-  semiMajorAxis: 2148.3474,
+  radius: 11,
+  semiMajorAxis: 300,
   eccentricity: 0.0167,
 
   orbitSpeed: 0.01,
@@ -77,8 +77,8 @@ const earth: PlanetProps = {
 };
 
 const mars: PlanetProps = {
-  radius: 0.0487,
-  semiMajorAxis: 3273.3894,
+  radius: 8,
+  semiMajorAxis: 450,
   eccentricity: 0.0935,
 
   orbitSpeed: 0.001,
@@ -90,9 +90,9 @@ const mars: PlanetProps = {
 };
 
 const jupiter: PlanetProps = {
-  semiMajorAxis: 11180.5612,
+  radius: 20,
+  semiMajorAxis: 620,
   eccentricity: 0.0489,
-  radius: 1.0267,
 
   orbitSpeed: 0.00084,
   oblateness: 1.069,
@@ -103,9 +103,9 @@ const jupiter: PlanetProps = {
 };
 
 const saturn: PlanetProps = {
-  semiMajorAxis: 20585.4808,
+  radius: 16,
+  semiMajorAxis: 800,
   eccentricity: 0.0565,
-  radius: 0.8363,
 
   orbitSpeed: 0.034,
   oblateness: 1.083,
@@ -116,8 +116,8 @@ const saturn: PlanetProps = {
 };
 
 const uranus: PlanetProps = {
-  radius: 0.3642,
-  semiMajorAxis: 41252.1049,
+  radius: 10,
+  semiMajorAxis: 970,
   eccentricity: 0.0457,
 
   orbitSpeed: 0.012,
@@ -129,8 +129,8 @@ const uranus: PlanetProps = {
 };
 
 const neptune: PlanetProps = {
-  radius: 0.3536,
-  semiMajorAxis: 64552.6668,
+  radius: 10,
+  semiMajorAxis: 1100,
   eccentricity: 0.0113,
 
   orbitSpeed: 0.012,
@@ -142,9 +142,9 @@ const neptune: PlanetProps = {
 };
 
 const pluto: PlanetProps = {
-  semiMajorAxis: 84820.2918,
-  eccentricity: 0.2444,
-  radius: 0.0171,
+  radius: 5,
+  semiMajorAxis: 1200,
+  eccentricity: 0.0444,
 
   orbitSpeed: 0.012,
   oblateness: 1.011,
