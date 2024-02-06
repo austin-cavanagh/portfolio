@@ -39,7 +39,7 @@ export type PlanetProps = {
 const mercury: PlanetProps = {
   semiMajorAxis: 57.9,
   eccentricity: 0.2056,
-  orbitSpeed: 0.1,
+  orbitSpeed: 0.001,
   oblateness: 1,
   radius: 2,
   rotation: 0.001,
@@ -75,7 +75,7 @@ const earth: PlanetProps = {
 const mars: PlanetProps = {
   semiMajorAxis: 227.9,
   eccentricity: 0.0934,
-  orbitSpeed: 0.1,
+  orbitSpeed: 0.001,
   oblateness: 1,
   radius: 3.39,
   rotation: 0.00427,
@@ -85,7 +85,7 @@ const mars: PlanetProps = {
 };
 
 const jupiter: PlanetProps = {
-  semiMajorAxis: 78.5,
+  semiMajorAxis: 278.5,
   eccentricity: 0.0489,
   orbitSpeed: 0.00084,
   oblateness: 1.069,
@@ -175,11 +175,11 @@ function SceneContents() {
         eccentricity={earth.eccentricity}
       />
 
-      {/* <Planet {...mars} />
+      <Planet {...mars} />
       <OrbitPath
         semiMajorAxis={mars.semiMajorAxis}
         eccentricity={mars.eccentricity}
-      /> */}
+      />
 
       <Planet {...jupiter} />
       <OrbitPath
