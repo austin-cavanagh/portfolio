@@ -1,14 +1,7 @@
-import { Suspense, useEffect, useMemo } from 'react';
-import { Canvas, useLoader, useThree } from '@react-three/fiber';
+import { Suspense, useEffect } from 'react';
+import { Canvas, useThree } from '@react-three/fiber';
 import SceneContents from './SceneContents';
-import { Environment } from '@react-three/drei';
-import {
-  BackSide,
-  CubeTextureLoader,
-  EquirectangularReflectionMapping,
-  LinearFilter,
-  TextureLoader,
-} from 'three';
+import { CubeTextureLoader } from 'three';
 
 import topSide from '../../assets/lightblue-skybox/top.png';
 import bottomSide from '../../assets/lightblue-skybox/bottom.png';
@@ -18,10 +11,9 @@ import backSide from '../../assets/lightblue-skybox/back.png';
 import leftSide from '../../assets/lightblue-skybox/left.png';
 
 function Skybox() {
-  const { scene } = useThree(); // Access the Three.js scene object
+  const { scene } = useThree();
 
   useEffect(() => {
-    // Load the six images for the skybox
     const loader = new CubeTextureLoader();
     const texture = loader.load([
       rightSide,
@@ -32,10 +24,10 @@ function Skybox() {
       backSide,
     ]);
 
-    scene.background = texture; // Set the scene background to the loaded texture
-  }, [scene]); // Dependency array ensures this effect runs only when the scene object changes
+    scene.background = texture;
+  }, [scene]);
 
-  return null; // This component does not render anything itself
+  return null;
 }
 
 function SolarSystem() {
@@ -48,7 +40,6 @@ function SolarSystem() {
       >
         <Suspense fallback={null}>
           <SceneContents />
-          {/* <SkySphere /> */}
           <Skybox />
         </Suspense>
       </Canvas>

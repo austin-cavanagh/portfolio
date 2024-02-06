@@ -1,24 +1,26 @@
 import { useRef, useState } from 'react';
-import { ThreeEvent, useFrame, useLoader } from '@react-three/fiber';
-import { Mesh, TextureLoader } from 'three';
+import { ThreeEvent, useFrame, useLoader, useThree } from '@react-three/fiber';
+import { Mesh, TextureLoader, Vector3 } from 'three';
 import getFresnelMat from '../../functions/getFresnelMat';
 import { PlanetProps } from './SceneContents';
 import OrbitPath from './OrbitPath';
 
 import moonColor from '../../assets/planets/moon/moon-color-2k.jpg';
 
-const moon: PlanetProps = {
-  semiMajorAxis: 20,
-  eccentricity: 0.0549,
-  orbitSpeed: 0.785,
-  oblateness: 1,
-  radius: 1.737,
-  rotation: 0.002,
-  glowColor: 0xaaaaaa,
-  color: moonColor,
-  name: 'Moon',
-  orbitCenter: { x: 0, y: 0, z: 0 },
-};
+import * as TWEEN from '@tweenjs/tween.js';
+
+// const moon: PlanetProps = {
+//   semiMajorAxis: 20,
+//   eccentricity: 0.0549,
+//   orbitSpeed: 0.785,
+//   oblateness: 1,
+//   radius: 1.737,
+//   rotation: 0.002,
+//   glowColor: 0xaaaaaa,
+//   color: moonColor,
+//   name: 'Moon',
+//   orbitCenter: { x: 0, y: 0, z: 0 },
+// };
 
 function Planet({
   radius,
@@ -31,6 +33,7 @@ function Planet({
   eccentricity,
   name,
   orbitCenter = { x: 0, y: 0, z: 0 },
+  focusOnPlanet,
 }: PlanetProps) {
   const planetRef = useRef<Mesh>(null!);
   const glowRef = useRef<Mesh>(null!);
@@ -92,6 +95,8 @@ function Planet({
       planetPosition.x = x;
       planetPosition.z = z;
     }
+
+    TWEEN.update();
   });
 
   const fresnelMaterialProps = getFresnelMat({
@@ -110,6 +115,43 @@ function Planet({
     document.body.style.cursor = 'auto';
   };
 
+  const handlePlanetClick = () => {
+    if (focusOnPlanet) {
+      focusOnPlanet(planetRef.current.position);
+
+      // const planetPosition = new Vector3();
+      // planetRef.current.getWorldPosition(planetPosition);
+      // focusOnPlanet({
+      //   x: planetPosition.x,
+      //   y: planetPosition.y,
+      //   z: planetPosition.z,
+      // });
+    }
+  };
+
+  // const handlePlanetClick = () => {
+  //   const targetPosition = new Vector3();
+  //   const planetPosition = new Vector3();
+  //   planetRef.current.getWorldPosition(planetPosition);
+
+  //   targetPosition.copy(planetPosition).add(new Vector3(0, radius * 1.5, 0));
+
+  //   if (controlsRef.current) {
+  //     console.log(name);
+
+  //     new TWEEN.Tween(controlsRef.current.position)
+  //       .to(
+  //         { x: targetPosition.x, y: targetPosition.y, z: targetPosition.z },
+  //         2000,
+  //       )
+  //       .easing(TWEEN.Easing.Quadratic.Out)
+  //       .onUpdate(() => controlsRef.current.update())
+  //       .start();
+
+  //     controlsRef.current.target.copy(planetPosition);
+  //   }
+  // };
+
   return (
     <>
       <mesh
@@ -117,6 +159,7 @@ function Planet({
         scale={[1, oblateness, 1]}
         onPointerOver={onPointerOver}
         onPointerOut={onPointerOut}
+        onClick={() => handlePlanetClick()}
       >
         <sphereGeometry args={[radius, 50, 50]} />
         <meshPhongMaterial map={colorTexture} />

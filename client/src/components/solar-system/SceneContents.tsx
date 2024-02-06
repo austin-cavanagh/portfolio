@@ -23,6 +23,9 @@ import saturnColor from '../../assets/planets/saturn/saturn-color-2k.jpg';
 import uranusColor from '../../assets/planets/uranus/uranus-color-2k.jpg';
 import neptuneColor from '../../assets/planets/neptune/neptune-color-2k.jpg';
 import plutoColor from '../../assets/planets/pluto/pluto-color-2k.jpg';
+import { useRef } from 'react';
+import * as TWEEN from '@tweenjs/tween.js';
+import { useThree } from '@react-three/fiber';
 
 export type PlanetProps = {
   radius: number;
@@ -35,6 +38,7 @@ export type PlanetProps = {
   eccentricity: number;
   name: string;
   orbitCenter?: { x: number; y: number; z: number };
+  focusOnPlanet?: (position: { x: number; y: number; z: number }) => void;
 };
 
 const mercury: PlanetProps = {
@@ -63,102 +67,138 @@ const venus: PlanetProps = {
   name: 'Venus',
 };
 
-const earth: PlanetProps = {
-  radius: 11,
-  semiMajorAxis: 300,
-  eccentricity: 0.0167,
+// const earth: PlanetProps = {
+//   radius: 11,
+//   semiMajorAxis: 300,
+//   eccentricity: 0.0167,
 
-  orbitSpeed: 0.01,
-  oblateness: 1,
-  rotation: 0.00417,
-  glowColor: 0x0088ff,
-  color: earthColor,
-  name: 'Earth',
-};
+//   orbitSpeed: 0.01,
+//   oblateness: 1,
+//   rotation: 0.00417,
+//   glowColor: 0x0088ff,
+//   color: earthColor,
+//   name: 'Earth',
+// };
 
-const mars: PlanetProps = {
-  radius: 8,
-  semiMajorAxis: 450,
-  eccentricity: 0.0935,
+// const mars: PlanetProps = {
+//   radius: 8,
+//   semiMajorAxis: 450,
+//   eccentricity: 0.0935,
 
-  orbitSpeed: 0.001,
-  oblateness: 1,
-  rotation: 0.00427,
-  glowColor: 0xff4500,
-  color: marsColor,
-  name: 'Mars',
-};
+//   orbitSpeed: 0.001,
+//   oblateness: 1,
+//   rotation: 0.00427,
+//   glowColor: 0xff4500,
+//   color: marsColor,
+//   name: 'Mars',
+// };
 
-const jupiter: PlanetProps = {
-  radius: 20,
-  semiMajorAxis: 620,
-  eccentricity: 0.0489,
+// const jupiter: PlanetProps = {
+//   radius: 20,
+//   semiMajorAxis: 620,
+//   eccentricity: 0.0489,
 
-  orbitSpeed: 0.00084,
-  oblateness: 1.069,
-  rotation: 0.001,
-  glowColor: 0xffa500,
-  color: jupiterColor,
-  name: 'Jupiter',
-};
+//   orbitSpeed: 0.00084,
+//   oblateness: 1.069,
+//   rotation: 0.001,
+//   glowColor: 0xffa500,
+//   color: jupiterColor,
+//   name: 'Jupiter',
+// };
 
-const saturn: PlanetProps = {
-  radius: 16,
-  semiMajorAxis: 800,
-  eccentricity: 0.0565,
+// const saturn: PlanetProps = {
+//   radius: 16,
+//   semiMajorAxis: 800,
+//   eccentricity: 0.0565,
 
-  orbitSpeed: 0.034,
-  oblateness: 1.083,
-  rotation: 0.05,
-  glowColor: 0xcba135,
-  color: saturnColor,
-  name: 'Saturn',
-};
+//   orbitSpeed: 0.034,
+//   oblateness: 1.083,
+//   rotation: 0.05,
+//   glowColor: 0xcba135,
+//   color: saturnColor,
+//   name: 'Saturn',
+// };
 
-const uranus: PlanetProps = {
-  radius: 10,
-  semiMajorAxis: 970,
-  eccentricity: 0.0457,
+// const uranus: PlanetProps = {
+//   radius: 10,
+//   semiMajorAxis: 970,
+//   eccentricity: 0.0457,
 
-  orbitSpeed: 0.012,
-  oblateness: 1.011,
-  rotation: 0.72,
-  glowColor: 0x1ec2a4,
-  color: uranusColor,
-  name: 'Uranus',
-};
+//   orbitSpeed: 0.012,
+//   oblateness: 1.011,
+//   rotation: 0.72,
+//   glowColor: 0x1ec2a4,
+//   color: uranusColor,
+//   name: 'Uranus',
+// };
 
-const neptune: PlanetProps = {
-  radius: 10,
-  semiMajorAxis: 1100,
-  eccentricity: 0.0113,
+// const neptune: PlanetProps = {
+//   radius: 10,
+//   semiMajorAxis: 1100,
+//   eccentricity: 0.0113,
 
-  orbitSpeed: 0.012,
-  oblateness: 1.011,
-  rotation: 0.02,
-  glowColor: 0x1ec2a4,
-  color: neptuneColor,
-  name: 'Neptune',
-};
+//   orbitSpeed: 0.012,
+//   oblateness: 1.011,
+//   rotation: 0.02,
+//   glowColor: 0x1ec2a4,
+//   color: neptuneColor,
+//   name: 'Neptune',
+// };
 
-const pluto: PlanetProps = {
-  radius: 5,
-  semiMajorAxis: 1200,
-  eccentricity: 0.0444,
+// const pluto: PlanetProps = {
+//   radius: 5,
+//   semiMajorAxis: 1200,
+//   eccentricity: 0.0444,
 
-  orbitSpeed: 0.012,
-  oblateness: 1.011,
-  rotation: 0.02,
-  glowColor: 0x1ec2a4,
-  color: plutoColor,
-  name: 'Pluto',
-};
+//   orbitSpeed: 0.012,
+//   oblateness: 1.011,
+//   rotation: 0.02,
+//   glowColor: 0x1ec2a4,
+//   color: plutoColor,
+//   name: 'Pluto',
+// };
 
 function SceneContents() {
+  const orbitControlsRef = useRef<any>(null);
+
+  const camera = useThree().camera;
+
+  const focusOnPlanet = (planetPosition: {
+    x: number;
+    y: number;
+    z: number;
+  }) => {
+    if (orbitControlsRef.current) {
+      console.log(planetPosition);
+
+      const targetPosition = {
+        x: planetPosition.x + 30,
+        y: planetPosition.y,
+        z: planetPosition.z,
+      };
+
+      new TWEEN.Tween(camera.position)
+        .to(targetPosition, 2000)
+        .easing(TWEEN.Easing.Quadratic.Out)
+        .onUpdate(() => {
+          if (orbitControlsRef.current) {
+            orbitControlsRef.current.target.set(
+              planetPosition.x,
+              planetPosition.y,
+              planetPosition.z,
+            );
+            orbitControlsRef.current.update();
+          }
+        })
+        .start();
+    }
+  };
+
   return (
     <>
       <ambientLight intensity={3} />
-      <OrbitControls />
+      <OrbitControls ref={orbitControlsRef} />
+
       {/* <pointLight
         position={[0, 0, 0]}
         color={0xffffff}
@@ -167,11 +207,11 @@ function SceneContents() {
       /> */}
       <Sun />
 
-      <Planet {...mercury} />
+      <Planet {...mercury} focusOnPlanet={focusOnPlanet} />
 
-      <Planet {...venus} />
+      <Planet {...venus} focusOnPlanet={focusOnPlanet} />
 
-      <Planet {...earth} />
+      {/* <Planet {...earth} />
 
       <Planet {...mars} />
 
@@ -183,7 +223,7 @@ function SceneContents() {
 
       <Planet {...neptune} />
 
-      <Planet {...pluto} />
+      <Planet {...pluto} /> */}
 
       {/* <Mercury /> */}
       {/* <Venus /> */}
