@@ -1,19 +1,3 @@
-import { OrbitControls, Stars } from '@react-three/drei';
-import OrbitPath from './OrbitPath';
-
-import Sun from './Sun';
-import Mercury from './Mercury';
-import Venus from './Venus';
-import Earth from './Earth';
-import Moon from './Moon';
-import Mars from './Mars';
-import Jupiter from './Jupiter';
-import Saturn from './Saturn';
-import Uranus from './Uranus';
-import Neptune from './Neptune';
-import Pluto from './Pluto';
-import Planet from './Planet';
-
 import mercuryColor from '../../assets/planets/mercury/mercury-color-2k.jpg';
 import venusColor from '../../assets/planets/venus/venus-color-2k.jpg';
 import earthColor from '../../assets/planets/earth/earth-color-4k.jpg';
@@ -24,7 +8,7 @@ import uranusColor from '../../assets/planets/uranus/uranus-color-2k.jpg';
 import neptuneColor from '../../assets/planets/neptune/neptune-color-2k.jpg';
 import plutoColor from '../../assets/planets/pluto/pluto-color-2k.jpg';
 
-export type PlanetProps = {
+type PlanetProps = {
   radius: number;
   rotation: number;
   oblateness: number;
@@ -153,59 +137,3 @@ const pluto: PlanetProps = {
   color: plutoColor,
   name: 'Pluto',
 };
-
-function SceneContents() {
-  return (
-    <>
-      <ambientLight intensity={3} />
-      <OrbitControls />
-      {/* <pointLight
-        position={[0, 0, 0]}
-        color={0xffffff}
-        intensity={1500}
-        distance={300}
-      /> */}
-      <Sun />
-
-      <Planet {...mercury} />
-
-      <Planet {...venus} />
-
-      <Planet {...earth} />
-
-      <Planet {...mars} />
-
-      <Planet {...jupiter} />
-
-      <Planet {...saturn} />
-
-      <Planet {...uranus} />
-
-      <Planet {...neptune} />
-
-      <Planet {...pluto} />
-
-      {/* <Mercury /> */}
-      {/* <Venus /> */}
-      {/* <Earth /> */}
-      {/* <Moon /> */}
-      {/* <Mars /> */}
-      {/* <Jupiter /> */}
-      {/* <Saturn /> */}
-      {/* <Uranus /> */}
-      {/* <Neptune /> */}
-      {/* <Pluto /> */}
-
-      {/* <Stars
-        radius={100} // Radius of the sphere that contains the stars
-        depth={50} // Depth of the star field
-        count={5000} // Number of stars
-        factor={4} // Variability of star size
-        saturation={0} // Color saturation
-        fade // Fades the stars toward the horizon
-      /> */}
-    </>
-  );
-}
-
-export default SceneContents;

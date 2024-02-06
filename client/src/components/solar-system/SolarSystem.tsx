@@ -8,7 +8,7 @@ function SolarSystem() {
   return (
     <div className="h-screen w-screen bg-black">
       <Canvas
-        camera={{ fov: 45, position: cameraPosition, near: 0.1, far: 10000 }}
+        camera={{ fov: 45, position: cameraPosition, near: 0.1, far: 400000 }}
       >
         <Suspense fallback={null}>
           <SceneContents />
