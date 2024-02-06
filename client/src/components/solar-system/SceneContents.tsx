@@ -34,6 +34,7 @@ export type PlanetProps = {
   semiMajorAxis: number;
   eccentricity: number;
   name: string;
+  orbitCenter?: { x: number; y: number; z: number };
 };
 
 const mercury: PlanetProps = {
@@ -170,10 +171,10 @@ function SceneContents() {
       /> */}
 
       <Planet {...earth} />
-      <OrbitPath
+      {/* <OrbitPath
         semiMajorAxis={earth.semiMajorAxis}
         eccentricity={earth.eccentricity}
-      />
+      /> */}
 
       {/* <Planet {...mars} />
       <OrbitPath
