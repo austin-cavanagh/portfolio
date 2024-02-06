@@ -157,7 +157,7 @@ function SceneContents() {
       /> */}
       <Sun />
 
-      <Planet {...mercury} />
+      {/* <Planet {...mercury} />
       <OrbitPath
         semiMajorAxis={mercury.semiMajorAxis}
         eccentricity={mercury.eccentricity}
@@ -167,7 +167,7 @@ function SceneContents() {
       <OrbitPath
         semiMajorAxis={venus.semiMajorAxis}
         eccentricity={venus.eccentricity}
-      />
+      /> */}
 
       <Planet {...earth} />
       <OrbitPath
@@ -175,7 +175,7 @@ function SceneContents() {
         eccentricity={earth.eccentricity}
       />
 
-      <Planet {...mars} />
+      {/* <Planet {...mars} />
       <OrbitPath
         semiMajorAxis={mars.semiMajorAxis}
         eccentricity={mars.eccentricity}
@@ -185,7 +185,7 @@ function SceneContents() {
       <OrbitPath
         semiMajorAxis={jupiter.semiMajorAxis}
         eccentricity={jupiter.eccentricity}
-      />
+      /> */}
 
       {/* <Planet {...saturn} />
       <OrbitPath

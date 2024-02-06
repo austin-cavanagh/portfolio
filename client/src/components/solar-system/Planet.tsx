@@ -3,14 +3,12 @@ import { ThreeEvent, useFrame, useLoader } from '@react-three/fiber';
 import {
   CanvasTexture,
   Mesh,
-  Sprite,
   SpriteMaterial,
   TextureLoader,
   Vector3,
 } from 'three';
 import getFresnelMat from '../../functions/getFresnelMat';
 import { PlanetProps } from './SceneContents';
-import { Text } from '@react-three/drei';
 
 function Planet({
   radius,
@@ -44,7 +42,7 @@ function Planet({
     canvas.height = 64; // Adjust as needed
 
     // Style your text
-    context.fillStyle = '#FFFFFF'; // Text color
+    context.fillStyle = '#00bfff'; // Text color
     context.font = 'Bold 20px Arial'; // Adjust font style as needed
     context.fillText(name, 30, 40); // Adjust text position as needed
 
@@ -131,16 +129,32 @@ function Planet({
       textRef.current.lookAt(camera.position);
     }
 
-    if (textSpriteRef.current) {
-      const offsetDistance = radius * 1.5; // Distance from planet to text
-      const dirVector = new Vector3()
-        .subVectors(camera.position, planetRef.current.position)
-        .normalize();
-      const leftDir = new Vector3(-dirVector.z, 0, dirVector.x).normalize();
-      textSpriteRef.current.position
-        .copy(planetRef.current.position)
-        .add(leftDir.multiplyScalar(offsetDistance));
-      //   textSpriteRef.current.lookAt(camera.position);
+    // if (textSpriteRef.current) {
+    //   const offsetDistance = radius * 1.5; // Distance from planet to text
+    //   const dirVector = new Vector3()
+    //     .subVectors(camera.position, planetRef.current.position)
+    //     .normalize();
+    //   const leftDir = new Vector3(-dirVector.z, 0, dirVector.x).normalize();
+    //   textSpriteRef.current.position
+    //     .copy(planetRef.current.position)
+    //     .add(leftDir.multiplyScalar(offsetDistance));
+    //   //   textSpriteRef.current.lookAt(camera.position);
+    // }
+
+    if (planetRef.current && textSpriteRef.current) {
+      const planetPosition = planetRef.current.position;
+      const upwardDirection = new Vector3(0, 1, 0); // Global up direction in Three.js (Y-axis)
+
+      // Define the distance above the planet you want the sprite to appear
+      const distanceAbovePlanet = radius + 1.5; // The planet's radius plus some extra distance
+
+      // Calculate the new position for the sprite
+      textSpriteRef.current.position.x =
+        planetPosition.x + upwardDirection.x * distanceAbovePlanet;
+      textSpriteRef.current.position.y =
+        planetPosition.y + upwardDirection.y * distanceAbovePlanet;
+      textSpriteRef.current.position.z =
+        planetPosition.z + upwardDirection.z * distanceAbovePlanet;
     }
   });
 
@@ -198,16 +212,6 @@ function Planet({
         <torusGeometry args={[radius * 1.5, 0.12, 2, 50]} />
         <meshBasicMaterial color={0x00bfff} />
       </mesh>
-
-      {/* <Text
-        ref={textRef}
-        fontSize={5}
-        color="#00bfff"
-        anchorX="center"
-        anchorY="middle"
-      >
-        {name}
-      </Text> */}
 
       <sprite ref={textSpriteRef} />
     </>
