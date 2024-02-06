@@ -44,12 +44,9 @@ function Planet({
     canvas.height = 64; // Adjust as needed
 
     // Style your text
-    context.fillStyle = '#00bfff'; // Text color
-    context.textBaseline = 'middle'; // Align text vertically in the middle
-    context.textAlign = 'right'; // Align text to the right
-
+    context.fillStyle = '#FFFFFF'; // Text color
     context.font = 'Bold 20px Arial'; // Adjust font style as needed
-    context.fillText(name, 110, 30); // Adjust text position as needed
+    context.fillText(name, 30, 40); // Adjust text position as needed
 
     // Create texture from canvas
     const texture = new CanvasTexture(canvas);
