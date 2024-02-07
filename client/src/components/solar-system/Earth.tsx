@@ -58,7 +58,7 @@ function Earth() {
         <meshPhongMaterial
           map={sunTexture}
           bumpMap={bumpTexture}
-          bumpScale={3}
+          bumpScale={0.05}
           emissiveMap={lightsTexture} // Use the city lights texture as an emissive map
           emissive={new Color(0xffffff)} // Color of the emitted light, typically white
           emissiveIntensity={0.6}

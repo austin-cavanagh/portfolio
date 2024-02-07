@@ -1,6 +1,6 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ThreeEvent, useFrame, useLoader, useThree } from '@react-three/fiber';
-import { Mesh, TextureLoader, Vector3 } from 'three';
+import { DoubleSide, Mesh, TextureLoader, Vector3 } from 'three';
 import getFresnelMat from '../../functions/getFresnelMat';
 import { PlanetProps } from './SceneContents';
 import OrbitPath from './OrbitPath';
@@ -28,25 +28,55 @@ function Planet({
   oblateness,
   orbitSpeed,
   glowColor,
-  color,
+  colorMap,
   semiMajorAxis,
   eccentricity,
   name,
   orbitCenter = { x: 0, y: 0, z: 0 },
   selectPlanet,
+  selectedPlanet,
+  bumpMap,
+  ringColor,
+  ringPattern,
+  ringRadius,
+  ringTubeRadius,
 }: PlanetProps) {
   const planetRef = useRef<Mesh>(null!);
   const glowRef = useRef<Mesh>(null!);
+  const ringRef = useRef<Mesh>(null!);
 
   const ring1Ref = useRef<Mesh>(null!);
   const ring2Ref = useRef<Mesh>(null!);
   const ring3Ref = useRef<Mesh>(null!);
 
+  useEffect(() => {
+    if (name !== 'Uranus') return;
+
+    if (planetRef.current) {
+      planetRef.current.rotation.z = -(Math.PI * 90) / 180;
+    }
+    if (ringRef.current) {
+      ringRef.current.rotation.y = -(Math.PI * 90) / 180;
+    }
+  }, []);
+
   let planetPosition = { x: 0, y: 0, z: 0 };
 
   const [hovered, setHovered] = useState(false);
 
-  const colorTexture = useLoader(TextureLoader, color);
+  const colorTexture = useLoader(TextureLoader, colorMap);
+  const bumpTexture = bumpMap ? useLoader(TextureLoader, bumpMap) : null;
+  const ringColorTexture = ringColor
+    ? useLoader(TextureLoader, ringColor)
+    : null;
+  const ringPatternTexture = ringPattern
+    ? useLoader(TextureLoader, ringPattern)
+    : null;
+
+  if (ringColorTexture && ringPatternTexture) {
+    ringColorTexture.rotation = Math.PI / 2;
+    ringPatternTexture.rotation = Math.PI / 2;
+  }
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
@@ -61,7 +91,13 @@ function Planet({
         Math.sqrt(1 - eccentricity * eccentricity) *
         Math.sin(angle);
 
-    if (planetRef.current) {
+    if (planetRef.current && name === 'Uranus') {
+      planetRef.current.rotation.x += rotation;
+      planetRef.current.position.x = x;
+      planetRef.current.position.z = z;
+    }
+
+    if (planetRef.current && name !== 'Uranus') {
       planetRef.current.rotation.y += rotation;
       planetRef.current.position.x = x;
       planetRef.current.position.z = z;
@@ -94,6 +130,11 @@ function Planet({
     if (name === 'Earth') {
       planetPosition.x = x;
       planetPosition.z = z;
+    }
+
+    if (ringColor) {
+      ringRef.current.position.x = x;
+      ringRef.current.position.z = z;
     }
 
     TWEEN.update();
@@ -131,7 +172,11 @@ function Planet({
         onClick={() => handlePlanetClick()}
       >
         <sphereGeometry args={[radius, 50, 50]} />
-        <meshPhongMaterial map={colorTexture} />
+        <meshPhongMaterial
+          map={colorTexture}
+          bumpMap={bumpTexture}
+          bumpScale={bumpTexture ? 5 : 0}
+        />
       </mesh>
 
       <mesh ref={glowRef} scale={[1.005, 1.005 * oblateness, 1.005]}>
@@ -143,25 +188,37 @@ function Planet({
         />
       </mesh>
 
-      {/* Ring 1 */}
-      <mesh ref={ring1Ref} visible={hovered}>
-        <torusGeometry args={[radius * 1.5, 0.12, 2, 50]} />
-        <meshBasicMaterial color={0x00bfff} />
-      </mesh>
-
-      {/* Ring 2 */}
-      <mesh ref={ring2Ref} visible={hovered}>
-        <torusGeometry args={[radius * 1.5, 0.12, 2, 50]} />
-        <meshBasicMaterial color={0x00bfff} />
-      </mesh>
-
-      {/* Ring 3 */}
-      <mesh ref={ring3Ref} visible={hovered}>
-        <torusGeometry args={[radius * 1.5, 0.12, 2, 50]} />
-        <meshBasicMaterial color={0x00bfff} />
-      </mesh>
+      {planetRef !== selectedPlanet && (
+        <>
+          <mesh ref={ring1Ref} visible={hovered}>
+            <torusGeometry args={[radius * 1.5, 0.12, 2, 50]} />
+            <meshBasicMaterial color={0x00bfff} />
+          </mesh>
+          <mesh ref={ring2Ref} visible={hovered}>
+            <torusGeometry args={[radius * 1.5, 0.12, 2, 50]} />
+            <meshBasicMaterial color={0x00bfff} />
+          </mesh>
+          <mesh ref={ring3Ref} visible={hovered}>
+            <torusGeometry args={[radius * 1.5, 0.12, 2, 50]} />
+            <meshBasicMaterial color={0x00bfff} />
+          </mesh>
+        </>
+      )}
 
       <OrbitPath semiMajorAxis={semiMajorAxis} eccentricity={eccentricity} />
+
+      {ringRadius && ringTubeRadius && (
+        <mesh ref={ringRef} rotation-x={Math.PI / 2}>
+          <torusGeometry args={[ringRadius, ringTubeRadius, 2.0, 100]} />
+          <meshBasicMaterial
+            map={ringColorTexture}
+            alphaMap={ringPatternTexture}
+            side={DoubleSide}
+            transparent={true}
+            depthWrite={false}
+          />
+        </mesh>
+      )}
 
       {/* {name !== 'Moon' && (
         <OrbitPath semiMajorAxis={semiMajorAxis} eccentricity={eccentricity} />

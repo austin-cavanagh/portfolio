@@ -3,7 +3,7 @@ import { useFrame, useLoader } from '@react-three/fiber';
 import { TextureLoader, Mesh, DoubleSide } from 'three';
 import getFresnelMat from '../../functions/getFresnelMat';
 
-import saturnColor from '../../assets/planets/saturn/2k_saturn.jpg';
+import saturnColor from '../../assets/planets/saturn/saturn-color-2k.jpg';
 import saturnRingColor from '../../assets/planets/saturn/saturn-ring-color.jpg';
 import saturnRingPattern from '../../assets/planets/saturn/saturn-ring-pattern.gif';
 
@@ -64,8 +64,9 @@ function Saturn() {
           transparent
         />
       </mesh>
+
       <mesh ref={ringRef} rotation-x={Math.PI / 2}>
-        <torusGeometry args={[17, 3.2, 2.0, 100]} />
+        <torusGeometry args={[17, 3.5, 2.0, 100]} />
         <meshBasicMaterial
           map={ringColor}
           alphaMap={ringPattern}

@@ -1,5 +1,8 @@
 import { OrbitControls, Stars } from '@react-three/drei';
 import OrbitPath from './OrbitPath';
+import { useRef, useState } from 'react';
+import { useFrame, useThree } from '@react-three/fiber';
+import { Mesh, Vector3 } from 'three';
 
 import Sun from './Sun';
 import Mercury from './Mercury';
@@ -16,16 +19,27 @@ import Planet from './Planet';
 
 import mercuryColor from '../../assets/planets/mercury/mercury-color-2k.jpg';
 import venusColor from '../../assets/planets/venus/venus-color-2k.jpg';
-import earthColor from '../../assets/planets/earth/earth-color-4k.jpg';
-import marsColor from '../../assets/planets/mars/mars-color-4k.jpg';
+
+import earthColor from '../../assets/planets/earth/earth-color-2k.jpg';
+import earthBump from '../../assets/planets/earth/earth-bump-2k.jpg';
+
+import marsColor from '../../assets/planets/mars/mars-color-2k.jpg';
+import marsBump from '../../assets/planets/mars/mars-bump-2k.jpg';
+
 import jupiterColor from '../../assets/planets/jupiter/jupiter-color-2k.jpg';
+
 import saturnColor from '../../assets/planets/saturn/saturn-color-2k.jpg';
+import saturnRingColor from '../../assets/planets/saturn/saturn-ring-color.jpg';
+import saturnRingPattern from '../../assets/planets/saturn/saturn-ring-pattern.gif';
+
 import uranusColor from '../../assets/planets/uranus/uranus-color-2k.jpg';
+import uranusRingColor from '../../assets/planets/uranus/uranus-ring-color.jpg';
+import uranusRingPattern from '../../assets/planets/uranus/uranus-ring-pattern.gif';
+
 import neptuneColor from '../../assets/planets/neptune/neptune-color-2k.jpg';
+
 import plutoColor from '../../assets/planets/pluto/pluto-color-2k.jpg';
-import { useRef, useState } from 'react';
-import { useFrame, useThree } from '@react-three/fiber';
-import { Vector3 } from 'three';
+import plutoBump from '../../assets/planets/pluto/pluto-bump-2k.jpg';
 
 export type PlanetProps = {
   radius: number;
@@ -33,12 +47,18 @@ export type PlanetProps = {
   oblateness: number;
   orbitSpeed: number;
   glowColor: number;
-  color: string;
+  colorMap: string;
   semiMajorAxis: number;
   eccentricity: number;
   name: string;
   orbitCenter?: { x: number; y: number; z: number };
-  selectPlanet?: (position: { x: number; y: number; z: number }) => void;
+  selectPlanet?: (planetMesh: Mesh) => void;
+  selectedPlanet?: any;
+  bumpMap?: string;
+  ringColor?: string;
+  ringPattern?: string;
+  ringRadius?: number;
+  ringTubeRadius?: number;
 };
 
 const mercury: PlanetProps = {
@@ -50,7 +70,7 @@ const mercury: PlanetProps = {
   oblateness: 1,
   rotation: 0.001,
   glowColor: 0xb3cde0,
-  color: mercuryColor,
+  colorMap: mercuryColor,
   name: 'Mercury',
 };
 
@@ -63,8 +83,9 @@ const venus: PlanetProps = {
   oblateness: 1,
   rotation: -0.001,
   glowColor: 0xffd700,
-  color: venusColor,
+  colorMap: venusColor,
   name: 'Venus',
+  bumpMap: earthBump,
 };
 
 const earth: PlanetProps = {
@@ -76,8 +97,9 @@ const earth: PlanetProps = {
   oblateness: 1,
   rotation: 0.00417,
   glowColor: 0x0088ff,
-  color: earthColor,
+  colorMap: earthColor,
   name: 'Earth',
+  bumpMap: earthBump,
 };
 
 const mars: PlanetProps = {
@@ -89,8 +111,9 @@ const mars: PlanetProps = {
   oblateness: 1,
   rotation: 0.00427,
   glowColor: 0xff4500,
-  color: marsColor,
+  colorMap: marsColor,
   name: 'Mars',
+  bumpMap: marsBump,
 };
 
 const jupiter: PlanetProps = {
@@ -102,7 +125,7 @@ const jupiter: PlanetProps = {
   oblateness: 1.069,
   rotation: 0.001,
   glowColor: 0xffa500,
-  color: jupiterColor,
+  colorMap: jupiterColor,
   name: 'Jupiter',
 };
 
@@ -115,8 +138,13 @@ const saturn: PlanetProps = {
   oblateness: 1.083,
   rotation: 0.05,
   glowColor: 0xcba135,
-  color: saturnColor,
+  colorMap: saturnColor,
   name: 'Saturn',
+
+  ringColor: saturnRingColor,
+  ringPattern: saturnRingPattern,
+  ringRadius: 27,
+  ringTubeRadius: 6,
 };
 
 const uranus: PlanetProps = {
@@ -126,10 +154,15 @@ const uranus: PlanetProps = {
 
   orbitSpeed: 0.012,
   oblateness: 1.011,
-  rotation: 0.72,
+  rotation: 0.01,
   glowColor: 0x1ec2a4,
-  color: uranusColor,
+  colorMap: uranusColor,
   name: 'Uranus',
+
+  ringColor: uranusRingColor,
+  ringPattern: uranusRingPattern,
+  ringRadius: 20,
+  ringTubeRadius: 2,
 };
 
 const neptune: PlanetProps = {
@@ -141,7 +174,7 @@ const neptune: PlanetProps = {
   oblateness: 1.011,
   rotation: 0.02,
   glowColor: 0x1ec2a4,
-  color: neptuneColor,
+  colorMap: neptuneColor,
   name: 'Neptune',
 };
 
@@ -154,8 +187,9 @@ const pluto: PlanetProps = {
   oblateness: 1.011,
   rotation: 0.02,
   glowColor: 0x1ec2a4,
-  color: plutoColor,
+  colorMap: plutoColor,
   name: 'Pluto',
+  bumpMap: plutoBump,
 };
 
 function SceneContents() {
@@ -259,7 +293,7 @@ function SceneContents() {
         .subVectors(camera.position, planetPosition)
         .normalize();
 
-      const distance = planetRadius * 4;
+      const distance = planetRadius * 6;
 
       const desiredCameraPosition = new Vector3().addVectors(
         planetPosition,
@@ -288,23 +322,59 @@ function SceneContents() {
       /> */}
       <Sun />
 
-      <Planet {...mercury} selectPlanet={selectPlanet} />
+      <Planet
+        {...mercury}
+        selectPlanet={selectPlanet}
+        selectedPlanet={selectedPlanet}
+      />
 
-      <Planet {...venus} selectPlanet={selectPlanet} />
+      <Planet
+        {...venus}
+        selectPlanet={selectPlanet}
+        selectedPlanet={selectedPlanet}
+      />
 
-      <Planet {...earth} selectPlanet={selectPlanet} />
+      <Planet
+        {...earth}
+        selectPlanet={selectPlanet}
+        selectedPlanet={selectedPlanet}
+      />
 
-      <Planet {...mars} selectPlanet={selectPlanet} />
+      <Planet
+        {...mars}
+        selectPlanet={selectPlanet}
+        selectedPlanet={selectedPlanet}
+      />
 
-      <Planet {...jupiter} selectPlanet={selectPlanet} />
+      <Planet
+        {...jupiter}
+        selectPlanet={selectPlanet}
+        selectedPlanet={selectedPlanet}
+      />
 
-      <Planet {...saturn} selectPlanet={selectPlanet} />
+      <Planet
+        {...saturn}
+        selectPlanet={selectPlanet}
+        selectedPlanet={selectedPlanet}
+      />
 
-      <Planet {...uranus} selectPlanet={selectPlanet} />
+      <Planet
+        {...uranus}
+        selectPlanet={selectPlanet}
+        selectedPlanet={selectedPlanet}
+      />
 
-      <Planet {...neptune} selectPlanet={selectPlanet} />
+      <Planet
+        {...neptune}
+        selectPlanet={selectPlanet}
+        selectedPlanet={selectedPlanet}
+      />
 
-      <Planet {...pluto} selectPlanet={selectPlanet} />
+      <Planet
+        {...pluto}
+        selectPlanet={selectPlanet}
+        selectedPlanet={selectedPlanet}
+      />
 
       {/* <Mercury /> */}
       {/* <Venus /> */}
@@ -316,15 +386,6 @@ function SceneContents() {
       {/* <Uranus /> */}
       {/* <Neptune /> */}
       {/* <Pluto /> */}
-
-      {/* <Stars
-        radius={100} // Radius of the sphere that contains the stars
-        depth={50} // Depth of the star field
-        count={5000} // Number of stars
-        factor={4} // Variability of star size
-        saturation={0} // Color saturation
-        fade // Fades the stars toward the horizon
-      /> */}
     </>
   );
 }
