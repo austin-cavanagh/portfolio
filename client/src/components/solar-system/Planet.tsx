@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { ThreeEvent, useFrame, useLoader } from '@react-three/fiber';
 import { DoubleSide, Mesh, TextureLoader } from 'three';
 import getFresnelMat from '../../functions/getFresnelMat';
-import { PlanetProps } from './SceneContents';
 import OrbitPath from './OrbitPath';
+import { PlanetProps } from '../../data/planets';
 
 import moonColor from '../../assets/planets/moon/moon-color-2k.jpg';
 import moonBump from '../../assets/planets/moon/moon-bump-2k.jpg';
@@ -160,7 +160,6 @@ function Planet({
 
   const handlePlanetClick = () => {
     if (selectPlanet) {
-      console.log('clicked');
       selectPlanet(planetRef);
     }
   };
@@ -207,8 +206,6 @@ function Planet({
           </mesh>
         </>
       )}
-
-      <OrbitPath semiMajorAxis={semiMajorAxis} eccentricity={eccentricity} />
 
       {ringRadius && ringTubeRadius && (
         <mesh ref={ringRef} rotation-x={Math.PI / 2}>
