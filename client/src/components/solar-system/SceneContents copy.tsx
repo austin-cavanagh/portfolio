@@ -1,14 +1,23 @@
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, Stars } from '@react-three/drei';
+import OrbitPath from './OrbitPath';
 import { useRef, useState } from 'react';
-import { useFrame } from '@react-three/fiber';
-import { Mesh, SphereGeometry, Vector3 } from 'three';
+import { useFrame, useThree } from '@react-three/fiber';
+import { Mesh, Vector3 } from 'three';
 
 import Sun from './Sun';
-
+import Mercury from './Mercury';
+import Venus from './Venus';
+import Earth from './Earth';
+import Moon from './Moon';
+import Mars from './Mars';
+import Jupiter from './Jupiter';
+import Saturn from './Saturn';
+import Uranus from './Uranus';
+import Neptune from './Neptune';
+import Pluto from './Pluto';
 import Planet from './Planet';
 
 import mercuryColor from '../../assets/planets/mercury/mercury-color-2k.jpg';
-
 import venusColor from '../../assets/planets/venus/venus-color-2k.jpg';
 
 import earthColor from '../../assets/planets/earth/earth-color-2k.jpg';
@@ -43,7 +52,7 @@ export type PlanetProps = {
   eccentricity: number;
   name: string;
   orbitCenter?: { x: number; y: number; z: number };
-  selectPlanet?: (planetRef: React.RefObject<Mesh>) => void;
+  selectPlanet?: (planetMesh: Mesh) => void;
   selectedPlanet?: any;
   bumpMap?: string;
   ringColor?: string;
@@ -185,23 +194,23 @@ const pluto: PlanetProps = {
 
 function SceneContents() {
   const orbitControlsRef = useRef<any>(null!);
-  const [selectedPlanet, setSelectedPlanet] =
-    useState<React.RefObject<Mesh> | null>(null);
+  const [selectedPlanet, setSelectedPlanet] = useState(null);
   const progressRef = useRef<number>(0);
 
-  const selectPlanet = (planetRef: React.RefObject<Mesh>) => {
+  const camera = useThree().camera;
+
+  const selectPlanet = (planetRef: any) => {
     if (selectedPlanet === planetRef) return;
+
+    console.log(planetRef.current.geometry.parameters.radius);
+
     progressRef.current = 0;
+
     setSelectedPlanet(planetRef);
   };
 
   // Defines a function to calculate a point on a quadratic Bezier curve given a fraction of time t, start point, control point, and end point
-  const calculateBezierPoint = (
-    t: number,
-    start: Vector3,
-    control: Vector3,
-    end: Vector3,
-  ) => {
+  const calculateBezierPoint = (t, start, control, end) => {
     // invT is the inverse of t, representing the remaining fraction of the curve to traverse
     const invT = 1 - t;
 
@@ -213,25 +222,29 @@ function SceneContents() {
   };
 
   // Called every frame to update the animation
-  useFrame(({ camera }, delta) => {
-    if (!selectPlanet) return;
-
-    const planetGeometry = selectedPlanet?.current?.geometry as SphereGeometry;
-    const planetRadius = planetGeometry.parameters.radius;
-
+  useFrame((_, delta) => {
     // Handle transition when new planet is seleted
     if (selectedPlanet && progressRef.current < 1) {
+      // Radius of the selected planet
+      const planetRadius = selectedPlanet.current.geometry.parameters.radius;
+
       // Clones the current camera position to use as the starting point for the Bezier curve
       const start = camera.position.clone();
       // Initializes new vector to store the selected planet's position
       const planetPosition = new Vector3();
       // Retrieves the world position of the selected planet and stores it in planetPosition
-      selectedPlanet.current?.getWorldPosition(planetPosition);
+      selectedPlanet.current.getWorldPosition(planetPosition);
 
       // Calculates an offset end position based on the planet's radius to ensure the camera ends up a specific distance away
       const offsetEnd = planetPosition
         .clone()
-        .add(new Vector3(0, 0, planetRadius * 4));
+        .add(
+          new Vector3(
+            0,
+            0,
+            selectedPlanet.current.geometry.parameters.radius * 4,
+          ),
+        );
 
       // Dynamic height adjustment to make the curve steeper at the start and less steep at the end
       const dynamicHeightAdjustment =
@@ -263,13 +276,16 @@ function SceneContents() {
       orbitControlsRef.current.target.lerp(planetPosition, t);
 
       progressRef.current += delta * 0.25;
+
+      console.log(progressRef);
     }
 
     // Handles staying with selected planet after transition
     if (selectedPlanet && progressRef.current > 1) {
       const planetPosition = new Vector3();
+      const planetRadius = selectedPlanet.current.geometry.parameters.radius;
 
-      selectedPlanet.current?.getWorldPosition(planetPosition);
+      selectedPlanet.current.getWorldPosition(planetPosition);
 
       orbitControlsRef.current.target.lerp(planetPosition, 0.1);
 
@@ -304,7 +320,6 @@ function SceneContents() {
         intensity={5000}
         distance={300}
       /> */}
-
       <Sun />
 
       <Planet
@@ -360,6 +375,17 @@ function SceneContents() {
         selectPlanet={selectPlanet}
         selectedPlanet={selectedPlanet}
       />
+
+      {/* <Mercury /> */}
+      {/* <Venus /> */}
+      {/* <Earth /> */}
+      {/* <Moon /> */}
+      {/* <Mars /> */}
+      {/* <Jupiter /> */}
+      {/* <Saturn /> */}
+      {/* <Uranus /> */}
+      {/* <Neptune /> */}
+      {/* <Pluto /> */}
     </>
   );
 }

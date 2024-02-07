@@ -1,26 +1,28 @@
 import { useEffect, useRef, useState } from 'react';
-import { ThreeEvent, useFrame, useLoader, useThree } from '@react-three/fiber';
-import { DoubleSide, Mesh, TextureLoader, Vector3 } from 'three';
+import { ThreeEvent, useFrame, useLoader } from '@react-three/fiber';
+import { DoubleSide, Mesh, TextureLoader } from 'three';
 import getFresnelMat from '../../functions/getFresnelMat';
 import { PlanetProps } from './SceneContents';
 import OrbitPath from './OrbitPath';
 
 import moonColor from '../../assets/planets/moon/moon-color-2k.jpg';
+import moonBump from '../../assets/planets/moon/moon-bump-2k.jpg';
 
 import * as TWEEN from '@tweenjs/tween.js';
 
-// const moon: PlanetProps = {
-//   semiMajorAxis: 20,
-//   eccentricity: 0.0549,
-//   orbitSpeed: 0.785,
-//   oblateness: 1,
-//   radius: 1.737,
-//   rotation: 0.002,
-//   glowColor: 0xaaaaaa,
-//   color: moonColor,
-//   name: 'Moon',
-//   orbitCenter: { x: 0, y: 0, z: 0 },
-// };
+const moon: PlanetProps = {
+  semiMajorAxis: 40,
+  eccentricity: 0.0549,
+  orbitSpeed: 0.085,
+  oblateness: 1,
+  radius: 1.737,
+  rotation: 0.002,
+  glowColor: 0xaaaaaa,
+  colorMap: moonColor,
+  bumpMap: moonBump,
+  name: 'Moon',
+  orbitCenter: { x: 0, y: 0, z: 0 },
+};
 
 function Planet({
   radius,
@@ -158,6 +160,7 @@ function Planet({
 
   const handlePlanetClick = () => {
     if (selectPlanet) {
+      console.log('clicked');
       selectPlanet(planetRef);
     }
   };
@@ -220,11 +223,17 @@ function Planet({
         </mesh>
       )}
 
-      {/* {name !== 'Moon' && (
+      {name !== 'Moon' && (
         <OrbitPath semiMajorAxis={semiMajorAxis} eccentricity={eccentricity} />
       )}
 
-      {name === 'Earth' && <Planet {...moon} orbitCenter={planetPosition} />} */}
+      {name === 'Earth' && (
+        <Planet
+          {...moon}
+          orbitCenter={planetPosition}
+          selectPlanet={selectPlanet}
+        />
+      )}
     </>
   );
 }
