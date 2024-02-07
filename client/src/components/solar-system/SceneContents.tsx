@@ -47,7 +47,7 @@ const mercury: PlanetProps = {
   semiMajorAxis: 100,
   eccentricity: 0.2056,
 
-  orbitSpeed: 0.02,
+  orbitSpeed: 0.1,
   oblateness: 1,
   rotation: 0.001,
   glowColor: 0xb3cde0,
@@ -225,12 +225,16 @@ function SceneContents() {
     if (selectedPlanet && progressRef.current > 1) {
       const planetPosition = new Vector3();
       selectedPlanet.current.getWorldPosition(planetPosition);
+
+      // Update orbit controls target to the current position of the planet.
       orbitControlsRef.current.target.lerp(planetPosition, 0.1);
 
+      // Calculate direction from planet to camera
       const direction = new Vector3()
         .subVectors(camera.position, planetPosition)
         .normalize();
 
+      // Desired distance from the planet
       const distance = 30; // Adjust this value to the desired distance
 
       // Calculate desired camera position based on the direction and distance
