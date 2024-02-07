@@ -24,7 +24,6 @@ import uranusColor from '../../assets/planets/uranus/uranus-color-2k.jpg';
 import neptuneColor from '../../assets/planets/neptune/neptune-color-2k.jpg';
 import plutoColor from '../../assets/planets/pluto/pluto-color-2k.jpg';
 import { useRef, useState } from 'react';
-import * as TWEEN from '@tweenjs/tween.js';
 import { useFrame, useThree } from '@react-three/fiber';
 import { Vector3 } from 'three';
 
@@ -39,7 +38,7 @@ export type PlanetProps = {
   eccentricity: number;
   name: string;
   orbitCenter?: { x: number; y: number; z: number };
-  focusOnPlanet?: (position: { x: number; y: number; z: number }) => void;
+  selectPlanet?: (position: { x: number; y: number; z: number }) => void;
 };
 
 const mercury: PlanetProps = {
@@ -166,16 +165,21 @@ function SceneContents() {
 
   const camera = useThree().camera;
 
-  const focusOnPlanet = (planetRef: any) => {
+  const selectPlanet = (planetRef: any) => {
+    if (selectedPlanet === planetRef) return;
+
     console.log(planetRef.current.geometry.parameters.radius);
 
     progressRef.current = 0;
+
     setSelectedPlanet(planetRef);
   };
 
-  // Function to calculate a point on a quadratic bezier curve
+  // Defines a function to calculate a point on a quadratic Bezier curve given a fraction of time t, start point, control point, and end point
   const calculateBezierPoint = (t, start, control, end) => {
+    // invT is the inverse of t, representing the remaining fraction of the curve to traverse
     const invT = 1 - t;
+
     return start
       .clone()
       .multiplyScalar(invT * invT)
@@ -183,16 +187,21 @@ function SceneContents() {
       .add(end.clone().multiplyScalar(t * t));
   };
 
+  // Called every frame to update the animation
   useFrame((_, delta) => {
-    // only update code inside of this if statement
+    // Handle transition when new planet is seleted
     if (selectedPlanet && progressRef.current < 1) {
+      // Radius of the selected planet
       const planetRadius = selectedPlanet.current.geometry.parameters.radius;
 
+      // Clones the current camera position to use as the starting point for the Bezier curve
       const start = camera.position.clone();
+      // Initializes new vector to store the selected planet's position
       const planetPosition = new Vector3();
+      // Retrieves the world position of the selected planet and stores it in planetPosition
       selectedPlanet.current.getWorldPosition(planetPosition);
 
-      // Define the end position with an offset to avoid direct center targeting
+      // Calculates an offset end position based on the planet's radius to ensure the camera ends up a specific distance away
       const offsetEnd = planetPosition
         .clone()
         .add(
@@ -202,14 +211,25 @@ function SceneContents() {
             selectedPlanet.current.geometry.parameters.radius * 4,
           ),
         );
+
+      // Dynamic height adjustment to make the curve steeper at the start and less steep at the end
+      const dynamicHeightAdjustment =
+        progressRef.current < 0.5
+          ? (0.5 - progressRef.current) * 2 // Increase impact at the start
+          : progressRef.current - 0.5; // Decrease impact towards the end
+
+      // Adjust these numbers to tweak steepness
+      const controlPointHeight =
+        planetRadius + dynamicHeightAdjustment * planetRadius * 2;
+
       const controlPoint = new Vector3(
         (start.x + offsetEnd.x) / 2,
-        Math.max(start.y, offsetEnd.y) + planetRadius * 1.5,
+        Math.max(start.y, offsetEnd.y) + controlPointHeight,
         (start.z + offsetEnd.z) / 2,
-      ); // Control point for the bezier curve, adjusted for a smoother arc
+      );
 
-      // Calculate the current point on the bezier curve
       const t = progressRef.current;
+
       const bezierPoint = calculateBezierPoint(
         t,
         start,
@@ -217,33 +237,37 @@ function SceneContents() {
         offsetEnd,
       );
 
-      camera.position.lerp(bezierPoint, 0.1); // Smoothly interpolate camera position towards the bezier curve point
-      orbitControlsRef.current.target.lerp(planetPosition, t); // Smoothly adjust the target to look at the planet
+      camera.position.lerp(bezierPoint, 0.1);
+
+      orbitControlsRef.current.target.lerp(planetPosition, t);
 
       progressRef.current += delta * 0.25;
+
+      console.log(progressRef);
     }
 
-    // if (selectedPlanet && progressRef.current > 1) {
-    //   const planetPosition = new Vector3();
-    //   const planetRadius = selectedPlanet.current.geometry.parameters.radius;
+    // Handles staying with selected planet after transition
+    if (selectedPlanet && progressRef.current > 1) {
+      const planetPosition = new Vector3();
+      const planetRadius = selectedPlanet.current.geometry.parameters.radius;
 
-    //   selectedPlanet.current.getWorldPosition(planetPosition);
+      selectedPlanet.current.getWorldPosition(planetPosition);
 
-    //   orbitControlsRef.current.target.lerp(planetPosition, 0.1);
+      orbitControlsRef.current.target.lerp(planetPosition, 0.1);
 
-    //   const direction = new Vector3()
-    //     .subVectors(camera.position, planetPosition)
-    //     .normalize();
+      const direction = new Vector3()
+        .subVectors(camera.position, planetPosition)
+        .normalize();
 
-    //   const distance = planetRadius * 4;
+      const distance = planetRadius * 4;
 
-    //   const desiredCameraPosition = new Vector3().addVectors(
-    //     planetPosition,
-    //     direction.multiplyScalar(distance),
-    //   );
+      const desiredCameraPosition = new Vector3().addVectors(
+        planetPosition,
+        direction.multiplyScalar(distance),
+      );
 
-    //   camera.position.lerp(desiredCameraPosition, 0.05);
-    // }
+      camera.position.lerp(desiredCameraPosition, 0.05);
+    }
   });
 
   return (
@@ -264,23 +288,23 @@ function SceneContents() {
       /> */}
       <Sun />
 
-      <Planet {...mercury} focusOnPlanet={focusOnPlanet} />
+      <Planet {...mercury} selectPlanet={selectPlanet} />
 
-      <Planet {...venus} focusOnPlanet={focusOnPlanet} />
+      <Planet {...venus} selectPlanet={selectPlanet} />
 
-      <Planet {...earth} focusOnPlanet={focusOnPlanet} />
+      <Planet {...earth} selectPlanet={selectPlanet} />
 
-      <Planet {...mars} focusOnPlanet={focusOnPlanet} />
+      <Planet {...mars} selectPlanet={selectPlanet} />
 
-      <Planet {...jupiter} focusOnPlanet={focusOnPlanet} />
+      <Planet {...jupiter} selectPlanet={selectPlanet} />
 
-      <Planet {...saturn} focusOnPlanet={focusOnPlanet} />
+      <Planet {...saturn} selectPlanet={selectPlanet} />
 
-      <Planet {...uranus} focusOnPlanet={focusOnPlanet} />
+      <Planet {...uranus} selectPlanet={selectPlanet} />
 
-      <Planet {...neptune} focusOnPlanet={focusOnPlanet} />
+      <Planet {...neptune} selectPlanet={selectPlanet} />
 
-      <Planet {...pluto} focusOnPlanet={focusOnPlanet} />
+      <Planet {...pluto} selectPlanet={selectPlanet} />
 
       {/* <Mercury /> */}
       {/* <Venus /> */}

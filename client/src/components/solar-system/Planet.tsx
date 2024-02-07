@@ -33,7 +33,7 @@ function Planet({
   eccentricity,
   name,
   orbitCenter = { x: 0, y: 0, z: 0 },
-  focusOnPlanet,
+  selectPlanet,
 }: PlanetProps) {
   const planetRef = useRef<Mesh>(null!);
   const glowRef = useRef<Mesh>(null!);
@@ -116,8 +116,8 @@ function Planet({
   };
 
   const handlePlanetClick = () => {
-    if (focusOnPlanet) {
-      focusOnPlanet(planetRef);
+    if (selectPlanet) {
+      selectPlanet(planetRef);
     }
   };
 
@@ -164,7 +164,9 @@ function Planet({
       <OrbitPath semiMajorAxis={semiMajorAxis} eccentricity={eccentricity} />
 
       {/* {name !== 'Moon' && (
+        <OrbitPath semiMajorAxis={semiMajorAxis} eccentricity={eccentricity} />
       )}
+
       {name === 'Earth' && <Planet {...moon} orbitCenter={planetPosition} />} */}
     </>
   );
