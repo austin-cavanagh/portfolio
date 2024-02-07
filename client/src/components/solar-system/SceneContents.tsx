@@ -68,96 +68,96 @@ const venus: PlanetProps = {
   name: 'Venus',
 };
 
-// const earth: PlanetProps = {
-//   radius: 11,
-//   semiMajorAxis: 300,
-//   eccentricity: 0.0167,
+const earth: PlanetProps = {
+  radius: 11,
+  semiMajorAxis: 300,
+  eccentricity: 0.0167,
 
-//   orbitSpeed: 0.01,
-//   oblateness: 1,
-//   rotation: 0.00417,
-//   glowColor: 0x0088ff,
-//   color: earthColor,
-//   name: 'Earth',
-// };
+  orbitSpeed: 0.01,
+  oblateness: 1,
+  rotation: 0.00417,
+  glowColor: 0x0088ff,
+  color: earthColor,
+  name: 'Earth',
+};
 
-// const mars: PlanetProps = {
-//   radius: 8,
-//   semiMajorAxis: 450,
-//   eccentricity: 0.0935,
+const mars: PlanetProps = {
+  radius: 8,
+  semiMajorAxis: 450,
+  eccentricity: 0.0935,
 
-//   orbitSpeed: 0.001,
-//   oblateness: 1,
-//   rotation: 0.00427,
-//   glowColor: 0xff4500,
-//   color: marsColor,
-//   name: 'Mars',
-// };
+  orbitSpeed: 0.001,
+  oblateness: 1,
+  rotation: 0.00427,
+  glowColor: 0xff4500,
+  color: marsColor,
+  name: 'Mars',
+};
 
-// const jupiter: PlanetProps = {
-//   radius: 20,
-//   semiMajorAxis: 620,
-//   eccentricity: 0.0489,
+const jupiter: PlanetProps = {
+  radius: 20,
+  semiMajorAxis: 620,
+  eccentricity: 0.0489,
 
-//   orbitSpeed: 0.00084,
-//   oblateness: 1.069,
-//   rotation: 0.001,
-//   glowColor: 0xffa500,
-//   color: jupiterColor,
-//   name: 'Jupiter',
-// };
+  orbitSpeed: 0.00084,
+  oblateness: 1.069,
+  rotation: 0.001,
+  glowColor: 0xffa500,
+  color: jupiterColor,
+  name: 'Jupiter',
+};
 
-// const saturn: PlanetProps = {
-//   radius: 16,
-//   semiMajorAxis: 800,
-//   eccentricity: 0.0565,
+const saturn: PlanetProps = {
+  radius: 16,
+  semiMajorAxis: 800,
+  eccentricity: 0.0565,
 
-//   orbitSpeed: 0.034,
-//   oblateness: 1.083,
-//   rotation: 0.05,
-//   glowColor: 0xcba135,
-//   color: saturnColor,
-//   name: 'Saturn',
-// };
+  orbitSpeed: 0.034,
+  oblateness: 1.083,
+  rotation: 0.05,
+  glowColor: 0xcba135,
+  color: saturnColor,
+  name: 'Saturn',
+};
 
-// const uranus: PlanetProps = {
-//   radius: 10,
-//   semiMajorAxis: 970,
-//   eccentricity: 0.0457,
+const uranus: PlanetProps = {
+  radius: 10,
+  semiMajorAxis: 970,
+  eccentricity: 0.0457,
 
-//   orbitSpeed: 0.012,
-//   oblateness: 1.011,
-//   rotation: 0.72,
-//   glowColor: 0x1ec2a4,
-//   color: uranusColor,
-//   name: 'Uranus',
-// };
+  orbitSpeed: 0.012,
+  oblateness: 1.011,
+  rotation: 0.72,
+  glowColor: 0x1ec2a4,
+  color: uranusColor,
+  name: 'Uranus',
+};
 
-// const neptune: PlanetProps = {
-//   radius: 10,
-//   semiMajorAxis: 1100,
-//   eccentricity: 0.0113,
+const neptune: PlanetProps = {
+  radius: 10,
+  semiMajorAxis: 1100,
+  eccentricity: 0.0113,
 
-//   orbitSpeed: 0.012,
-//   oblateness: 1.011,
-//   rotation: 0.02,
-//   glowColor: 0x1ec2a4,
-//   color: neptuneColor,
-//   name: 'Neptune',
-// };
+  orbitSpeed: 0.012,
+  oblateness: 1.011,
+  rotation: 0.02,
+  glowColor: 0x1ec2a4,
+  color: neptuneColor,
+  name: 'Neptune',
+};
 
-// const pluto: PlanetProps = {
-//   radius: 5,
-//   semiMajorAxis: 1200,
-//   eccentricity: 0.0444,
+const pluto: PlanetProps = {
+  radius: 5,
+  semiMajorAxis: 1200,
+  eccentricity: 0.0444,
 
-//   orbitSpeed: 0.012,
-//   oblateness: 1.011,
-//   rotation: 0.02,
-//   glowColor: 0x1ec2a4,
-//   color: plutoColor,
-//   name: 'Pluto',
-// };
+  orbitSpeed: 0.012,
+  oblateness: 1.011,
+  rotation: 0.02,
+  glowColor: 0x1ec2a4,
+  color: plutoColor,
+  name: 'Pluto',
+};
 
 function SceneContents() {
   const orbitControlsRef = useRef<any>(null!);
@@ -167,86 +167,83 @@ function SceneContents() {
   const camera = useThree().camera;
 
   const focusOnPlanet = (planetRef: any) => {
-    // const newCameraPosition = {
-    //   x: planetRef.current.position.x + 30,
-    //   y: planetRef.current.position.y,
-    //   z: planetRef.current.position.z,
-    // };
-
-    // const newTargetPosition = {
-    //   x: planetRef.current.position.x,
-    //   y: planetRef.current.position.y,
-    //   z: planetRef.current.position.z,
-    // };
-
-    // // Animate new camera position
-    // new TWEEN.Tween(camera.position)
-    //   .to(newCameraPosition, 2000)
-    //   .easing(TWEEN.Easing.Cubic.InOut)
-    //   .onUpdate(() => {})
-    //   .start();
-
-    // Animate new orbit controls target position
-    // new TWEEN.Tween(orbitControlsRef.current.target)
-    //   .to(newTargetPosition, 2000)
-    //   .easing(TWEEN.Easing.Quadratic.InOut)
-    //   .onUpdate(() => {})
-    //   .start();
+    console.log(planetRef.current.geometry.parameters.radius);
 
     progressRef.current = 0;
     setSelectedPlanet(planetRef);
   };
 
-  function easeInOut(t) {
-    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-  }
+  // Function to calculate a point on a quadratic bezier curve
+  const calculateBezierPoint = (t, start, control, end) => {
+    const invT = 1 - t;
+    return start
+      .clone()
+      .multiplyScalar(invT * invT)
+      .add(control.clone().multiplyScalar(2 * invT * t))
+      .add(end.clone().multiplyScalar(t * t));
+  };
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
+    // only update code inside of this if statement
     if (selectedPlanet && progressRef.current < 1) {
-      const planetPosition = new Vector3();
-      selectedPlanet.current.getWorldPosition(planetPosition);
-      const cameraPosition = planetPosition.clone().add(new Vector3(30, 0, 0)); // Your logic for the camera position
+      const planetRadius = selectedPlanet.current.geometry.parameters.radius;
 
-      progressRef.current += delta; // Update progress based on the frame's delta time
-      const progress = Math.min(progressRef.current, 1); // Clamp progress to 1
-
-      // Apply any easing function to progress
-      const easeFactor = easeInOut(progress); // Assuming you have an easing function
-
-      // Use the easeFactor with lerpVectors or any other interpolation you prefer
-      camera.position.lerpVectors(camera.position, cameraPosition, easeFactor);
-      orbitControlsRef.current.target.lerpVectors(
-        orbitControlsRef.current.target,
-        planetPosition,
-        easeFactor,
-      );
-    }
-
-    if (selectedPlanet && progressRef.current > 1) {
+      const start = camera.position.clone();
       const planetPosition = new Vector3();
       selectedPlanet.current.getWorldPosition(planetPosition);
 
-      // Update orbit controls target to the current position of the planet.
-      orbitControlsRef.current.target.lerp(planetPosition, 0.1);
+      // Define the end position with an offset to avoid direct center targeting
+      const offsetEnd = planetPosition
+        .clone()
+        .add(
+          new Vector3(
+            0,
+            0,
+            selectedPlanet.current.geometry.parameters.radius * 4,
+          ),
+        );
+      const controlPoint = new Vector3(
+        (start.x + offsetEnd.x) / 2,
+        Math.max(start.y, offsetEnd.y) + planetRadius * 1.5,
+        (start.z + offsetEnd.z) / 2,
+      ); // Control point for the bezier curve, adjusted for a smoother arc
 
-      // Calculate direction from planet to camera
-      const direction = new Vector3()
-        .subVectors(camera.position, planetPosition)
-        .normalize();
-
-      // Desired distance from the planet
-      const distance = 30; // Adjust this value to the desired distance
-
-      // Calculate desired camera position based on the direction and distance
-      const desiredCameraPosition = new Vector3().addVectors(
-        planetPosition,
-        direction.multiplyScalar(distance),
+      // Calculate the current point on the bezier curve
+      const t = progressRef.current;
+      const bezierPoint = calculateBezierPoint(
+        t,
+        start,
+        controlPoint,
+        offsetEnd,
       );
 
-      // Optionally, smoothly transition the camera to the desired position to maintain distance while allowing user control
-      // This step is optional and can be adjusted or removed based on user experience preference
-      camera.position.lerp(desiredCameraPosition, 0.05);
+      camera.position.lerp(bezierPoint, 0.1); // Smoothly interpolate camera position towards the bezier curve point
+      orbitControlsRef.current.target.lerp(planetPosition, t); // Smoothly adjust the target to look at the planet
+
+      progressRef.current += delta * 0.25;
     }
+
+    // if (selectedPlanet && progressRef.current > 1) {
+    //   const planetPosition = new Vector3();
+    //   const planetRadius = selectedPlanet.current.geometry.parameters.radius;
+
+    //   selectedPlanet.current.getWorldPosition(planetPosition);
+
+    //   orbitControlsRef.current.target.lerp(planetPosition, 0.1);
+
+    //   const direction = new Vector3()
+    //     .subVectors(camera.position, planetPosition)
+    //     .normalize();
+
+    //   const distance = planetRadius * 4;
+
+    //   const desiredCameraPosition = new Vector3().addVectors(
+    //     planetPosition,
+    //     direction.multiplyScalar(distance),
+    //   );
+
+    //   camera.position.lerp(desiredCameraPosition, 0.05);
+    // }
   });
 
   return (
@@ -256,7 +253,7 @@ function SceneContents() {
       <OrbitControls
         ref={orbitControlsRef}
         enablePan={false}
-        enableZoom={!selectedPlanet}
+        // enableZoom={!selectedPlanet}
       />
 
       {/* <pointLight
@@ -271,19 +268,19 @@ function SceneContents() {
 
       <Planet {...venus} focusOnPlanet={focusOnPlanet} />
 
-      {/* <Planet {...earth} />
+      <Planet {...earth} focusOnPlanet={focusOnPlanet} />
 
-      <Planet {...mars} />
+      <Planet {...mars} focusOnPlanet={focusOnPlanet} />
 
-      <Planet {...jupiter} />
+      <Planet {...jupiter} focusOnPlanet={focusOnPlanet} />
 
-      <Planet {...saturn} />
+      <Planet {...saturn} focusOnPlanet={focusOnPlanet} />
 
-      <Planet {...uranus} />
+      <Planet {...uranus} focusOnPlanet={focusOnPlanet} />
 
-      <Planet {...neptune} />
+      <Planet {...neptune} focusOnPlanet={focusOnPlanet} />
 
-      <Planet {...pluto} /> */}
+      <Planet {...pluto} focusOnPlanet={focusOnPlanet} />
 
       {/* <Mercury /> */}
       {/* <Venus /> */}

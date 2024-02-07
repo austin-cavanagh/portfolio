@@ -31,7 +31,7 @@ function Skybox() {
 }
 
 function SolarSystem() {
-  const cameraPosition: [number, number, number] = [-250, 500, 500];
+  const cameraPosition: [number, number, number] = [-750, 1000, 1500];
 
   return (
     <div className="h-screen w-screen">
