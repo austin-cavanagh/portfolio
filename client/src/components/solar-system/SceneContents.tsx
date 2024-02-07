@@ -23,7 +23,7 @@ import saturnColor from '../../assets/planets/saturn/saturn-color-2k.jpg';
 import uranusColor from '../../assets/planets/uranus/uranus-color-2k.jpg';
 import neptuneColor from '../../assets/planets/neptune/neptune-color-2k.jpg';
 import plutoColor from '../../assets/planets/pluto/pluto-color-2k.jpg';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import * as TWEEN from '@tweenjs/tween.js';
 import { useThree } from '@react-three/fiber';
 
@@ -46,7 +46,7 @@ const mercury: PlanetProps = {
   semiMajorAxis: 100,
   eccentricity: 0.2056,
 
-  orbitSpeed: 0.001,
+  orbitSpeed: 0.0,
   oblateness: 1,
   rotation: 0.001,
   glowColor: 0xb3cde0,
@@ -59,7 +59,7 @@ const venus: PlanetProps = {
   semiMajorAxis: 200,
   eccentricity: 0.0067,
 
-  orbitSpeed: 0.01,
+  orbitSpeed: 0.0,
   oblateness: 1,
   rotation: -0.001,
   glowColor: 0xffd700,
@@ -160,49 +160,75 @@ const venus: PlanetProps = {
 
 function SceneContents() {
   const orbitControlsRef = useRef<any>(null);
+  // const [selectedPlanet, setSelectedPlanet] = useState(null);
 
   const camera = useThree().camera;
 
-  const focusOnPlanet = (planetPosition: {
-    x: number;
-    y: number;
-    z: number;
-  }) => {
+  const focusOnPlanet = (planetRef: any) => {
     if (orbitControlsRef.current) {
-      console.log(planetPosition);
-
-      const targetPosition = {
-        x: planetPosition.x + 30,
-        y: planetPosition.y,
-        z: planetPosition.z,
+      const newCameraPosition = {
+        x: planetRef.current.position.x + 30,
+        y: planetRef.current.position.y,
+        z: planetRef.current.position.z,
       };
 
+      const newTargetPosition = {
+        x: planetRef.current.position.x,
+        y: planetRef.current.position.y,
+        z: planetRef.current.position.z,
+      };
+
+      // Animate camera position
       new TWEEN.Tween(camera.position)
-        .to(targetPosition, 2000)
-        .easing(TWEEN.Easing.Quadratic.Out)
-        .onUpdate(() => {
-          if (orbitControlsRef.current) {
-            orbitControlsRef.current.target.set(
-              planetPosition.x,
-              planetPosition.y,
-              planetPosition.z,
-            );
-            orbitControlsRef.current.update();
-          }
-        })
+        .to(newCameraPosition, 2000)
+        .easing(TWEEN.Easing.Quadratic.InOut)
+        .onUpdate(() => {})
+        .start();
+
+      // Animate orbit
+      new TWEEN.Tween(orbitControlsRef.current.target)
+        .to(newTargetPosition, 2000)
+        .easing(TWEEN.Easing.Quadratic.InOut)
+        .onUpdate(() => {})
         .start();
     }
   };
 
+  // In your useFrame or effect hook that handles following the selected planet
+  // useFrame(() => {
+  //   if (selectedPlanet && orbitControlsRef.current && camera) {
+  //     // Calculate the desired position of the camera based on the planet's position
+  //     // For example, this could be a fixed offset from the planet's position
+  //     const desiredPosition = new THREE.Vector3(
+  //       selectedPlanet.position.x + fixedOffsetX,
+  //       selectedPlanet.position.y + fixedOffsetY,
+  //       selectedPlanet.position.z + fixedOffsetZ,
+  //     );
+
+  //     // Move the camera to the desired position
+  //     camera.position.lerp(desiredPosition, 0.1); // Smooth transition to the desired position
+
+  //     // Update the orbit controls target to be the planet's position
+  //     orbitControlsRef.current.target.set(
+  //       selectedPlanet.position.x,
+  //       selectedPlanet.position.y,
+  //       selectedPlanet.position.z,
+  //     );
+
+  //     // Manually update the controls to ensure the latest target position is used
+  //     orbitControlsRef.current.update();
+  //   }
+  // });
+
   return (
     <>
-      <ambientLight intensity={3} />
-      <OrbitControls ref={orbitControlsRef} />
+      <ambientLight intensity={2.5} />
+      <OrbitControls ref={orbitControlsRef} enablePan={false} />
 
       {/* <pointLight
-        position={[0, 0, 0]}
+        position={[40, 0, 0]}
         color={0xffffff}
-        intensity={1500}
+        intensity={5000}
         distance={300}
       /> */}
       <Sun />

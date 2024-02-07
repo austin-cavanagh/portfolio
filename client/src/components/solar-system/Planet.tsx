@@ -117,40 +117,9 @@ function Planet({
 
   const handlePlanetClick = () => {
     if (focusOnPlanet) {
-      focusOnPlanet(planetRef.current.position);
-
-      // const planetPosition = new Vector3();
-      // planetRef.current.getWorldPosition(planetPosition);
-      // focusOnPlanet({
-      //   x: planetPosition.x,
-      //   y: planetPosition.y,
-      //   z: planetPosition.z,
-      // });
+      focusOnPlanet(planetRef);
     }
   };
-
-  // const handlePlanetClick = () => {
-  //   const targetPosition = new Vector3();
-  //   const planetPosition = new Vector3();
-  //   planetRef.current.getWorldPosition(planetPosition);
-
-  //   targetPosition.copy(planetPosition).add(new Vector3(0, radius * 1.5, 0));
-
-  //   if (controlsRef.current) {
-  //     console.log(name);
-
-  //     new TWEEN.Tween(controlsRef.current.position)
-  //       .to(
-  //         { x: targetPosition.x, y: targetPosition.y, z: targetPosition.z },
-  //         2000,
-  //       )
-  //       .easing(TWEEN.Easing.Quadratic.Out)
-  //       .onUpdate(() => controlsRef.current.update())
-  //       .start();
-
-  //     controlsRef.current.target.copy(planetPosition);
-  //   }
-  // };
 
   return (
     <>
