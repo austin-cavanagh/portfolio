@@ -25,7 +25,8 @@ import neptuneColor from '../../assets/planets/neptune/neptune-color-2k.jpg';
 import plutoColor from '../../assets/planets/pluto/pluto-color-2k.jpg';
 import { useRef, useState } from 'react';
 import * as TWEEN from '@tweenjs/tween.js';
-import { useThree } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
+import { Vector3 } from 'three';
 
 export type PlanetProps = {
   radius: number;
@@ -46,7 +47,7 @@ const mercury: PlanetProps = {
   semiMajorAxis: 100,
   eccentricity: 0.2056,
 
-  orbitSpeed: 0.0,
+  orbitSpeed: 0.02,
   oblateness: 1,
   rotation: 0.001,
   glowColor: 0xb3cde0,
@@ -159,71 +160,100 @@ const venus: PlanetProps = {
 // };
 
 function SceneContents() {
-  const orbitControlsRef = useRef<any>(null);
-  // const [selectedPlanet, setSelectedPlanet] = useState(null);
+  const orbitControlsRef = useRef<any>(null!);
+  const [selectedPlanet, setSelectedPlanet] = useState(null);
+  const progressRef = useRef<number>(0);
 
   const camera = useThree().camera;
 
   const focusOnPlanet = (planetRef: any) => {
-    if (orbitControlsRef.current) {
-      const newCameraPosition = {
-        x: planetRef.current.position.x + 30,
-        y: planetRef.current.position.y,
-        z: planetRef.current.position.z,
-      };
+    // const newCameraPosition = {
+    //   x: planetRef.current.position.x + 30,
+    //   y: planetRef.current.position.y,
+    //   z: planetRef.current.position.z,
+    // };
 
-      const newTargetPosition = {
-        x: planetRef.current.position.x,
-        y: planetRef.current.position.y,
-        z: planetRef.current.position.z,
-      };
+    // const newTargetPosition = {
+    //   x: planetRef.current.position.x,
+    //   y: planetRef.current.position.y,
+    //   z: planetRef.current.position.z,
+    // };
 
-      // Animate camera position
-      new TWEEN.Tween(camera.position)
-        .to(newCameraPosition, 2000)
-        .easing(TWEEN.Easing.Quadratic.InOut)
-        .onUpdate(() => {})
-        .start();
+    // // Animate new camera position
+    // new TWEEN.Tween(camera.position)
+    //   .to(newCameraPosition, 2000)
+    //   .easing(TWEEN.Easing.Cubic.InOut)
+    //   .onUpdate(() => {})
+    //   .start();
 
-      // Animate orbit
-      new TWEEN.Tween(orbitControlsRef.current.target)
-        .to(newTargetPosition, 2000)
-        .easing(TWEEN.Easing.Quadratic.InOut)
-        .onUpdate(() => {})
-        .start();
-    }
+    // Animate new orbit controls target position
+    // new TWEEN.Tween(orbitControlsRef.current.target)
+    //   .to(newTargetPosition, 2000)
+    //   .easing(TWEEN.Easing.Quadratic.InOut)
+    //   .onUpdate(() => {})
+    //   .start();
+
+    progressRef.current = 0;
+    setSelectedPlanet(planetRef);
   };
 
-  // In your useFrame or effect hook that handles following the selected planet
-  // useFrame(() => {
-  //   if (selectedPlanet && orbitControlsRef.current && camera) {
-  //     // Calculate the desired position of the camera based on the planet's position
-  //     // For example, this could be a fixed offset from the planet's position
-  //     const desiredPosition = new THREE.Vector3(
-  //       selectedPlanet.position.x + fixedOffsetX,
-  //       selectedPlanet.position.y + fixedOffsetY,
-  //       selectedPlanet.position.z + fixedOffsetZ,
-  //     );
+  function easeInOut(t) {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+  }
 
-  //     // Move the camera to the desired position
-  //     camera.position.lerp(desiredPosition, 0.1); // Smooth transition to the desired position
+  useFrame((state, delta) => {
+    if (selectedPlanet && progressRef.current < 1) {
+      const planetPosition = new Vector3();
+      selectedPlanet.current.getWorldPosition(planetPosition);
+      const cameraPosition = planetPosition.clone().add(new Vector3(30, 0, 0)); // Your logic for the camera position
 
-  //     // Update the orbit controls target to be the planet's position
-  //     orbitControlsRef.current.target.set(
-  //       selectedPlanet.position.x,
-  //       selectedPlanet.position.y,
-  //       selectedPlanet.position.z,
-  //     );
+      progressRef.current += delta; // Update progress based on the frame's delta time
+      const progress = Math.min(progressRef.current, 1); // Clamp progress to 1
 
-  //     // Manually update the controls to ensure the latest target position is used
-  //     orbitControlsRef.current.update();
-  //   }
-  // });
+      // Apply any easing function to progress
+      const easeFactor = easeInOut(progress); // Assuming you have an easing function
+
+      // Use the easeFactor with lerpVectors or any other interpolation you prefer
+      camera.position.lerpVectors(camera.position, cameraPosition, easeFactor);
+      orbitControlsRef.current.target.lerpVectors(
+        orbitControlsRef.current.target,
+        planetPosition,
+        easeFactor,
+      );
+    }
+
+    if (selectedPlanet && progressRef.current > 1) {
+      const planetPosition = new Vector3();
+      selectedPlanet.current.getWorldPosition(planetPosition);
+      orbitControlsRef.current.target.lerp(planetPosition, 0.1);
+
+      const direction = new Vector3()
+        .subVectors(camera.position, planetPosition)
+        .normalize();
+
+      const distance = 30; // Adjust this value to the desired distance
+
+      // Calculate desired camera position based on the direction and distance
+      const desiredCameraPosition = new Vector3().addVectors(
+        planetPosition,
+        direction.multiplyScalar(distance),
+      );
+
+      // Optionally, smoothly transition the camera to the desired position to maintain distance while allowing user control
+      // This step is optional and can be adjusted or removed based on user experience preference
+      camera.position.lerp(desiredCameraPosition, 0.05);
+    }
+  });
 
   return (
     <>
       <ambientLight intensity={2.5} />
-      <OrbitControls ref={orbitControlsRef} enablePan={false} />
+
+      <OrbitControls
+        ref={orbitControlsRef}
+        enablePan={false}
+        enableZoom={!selectedPlanet}
+      />
 
       {/* <pointLight
         position={[40, 0, 0]}
