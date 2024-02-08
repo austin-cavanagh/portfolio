@@ -1,4 +1,4 @@
-import { Mesh } from 'three';
+import sunColor from '../assets/planets/sun/2k_sun.jpg';
 
 import mercuryColor from '../assets/planets/mercury/mercury-color-2k.jpg';
 
@@ -36,7 +36,6 @@ export type PlanetProps = {
   eccentricity: number;
   name: string;
   orbitCenter?: { x: number; y: number; z: number };
-  selectPlanet?: (planetRef: React.RefObject<Mesh>, name: string) => void;
   bumpMap?: string;
   ringColor?: string;
   ringPattern?: string;
@@ -45,6 +44,17 @@ export type PlanetProps = {
 };
 
 export const planets: PlanetProps[] = [
+  {
+    radius: 25,
+    semiMajorAxis: 0,
+    eccentricity: 0,
+    orbitSpeed: 0,
+    oblateness: 1,
+    rotation: 0.001,
+    glowColor: 0xff0000,
+    colorMap: sunColor,
+    name: 'Sun',
+  },
   {
     radius: 5,
     semiMajorAxis: 100,

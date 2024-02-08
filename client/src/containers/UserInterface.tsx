@@ -1,11 +1,14 @@
-import { useSelector } from 'react-redux';
-import { RootState } from '../state/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../state/store';
+import { setCurrentPlanet } from '../state/appSlice';
 // import AboutMe from './AboutMe';
 
 type UserInterfaceProps = {};
 
 function UserInterface({}: UserInterfaceProps) {
   const { currentPlanet } = useSelector((state: RootState) => state.app);
+
+  const dispatch = useDispatch<AppDispatch>();
 
   //   const renderContent = () => {
   //     switch (selectedPlanet.name) {
@@ -15,6 +18,10 @@ function UserInterface({}: UserInterfaceProps) {
   //         return null;
   //     }
   //   };
+
+  const handlePageClick = (page: string) => {
+    dispatch(setCurrentPlanet(page));
+  };
 
   return (
     <div className="absolute left-0 top-0 w-full">
@@ -75,10 +82,30 @@ function UserInterface({}: UserInterfaceProps) {
         <div className="flex-1 text-center text-xl">{currentPlanet}</div>
 
         <div className="flex space-x-5">
-          <button className="text-[#00bfff] hover:text-white">Overview</button>
-          <button className="text-[#00bfff] hover:text-white">About</button>
-          <button className="text-[#00bfff] hover:text-white">Projects</button>
-          <button className="text-[#00bfff] hover:text-white">Contact</button>
+          <button
+            className="text-[#00bfff] hover:text-white"
+            onClick={() => handlePageClick('Overview')}
+          >
+            Overview
+          </button>
+          <button
+            className="text-[#00bfff] hover:text-white"
+            onClick={() => handlePageClick('Earth')}
+          >
+            About
+          </button>
+          <button
+            className="text-[#00bfff] hover:text-white"
+            onClick={() => handlePageClick('Mars')}
+          >
+            Projects
+          </button>
+          <button
+            className="text-[#00bfff] hover:text-white"
+            onClick={() => handlePageClick('Jupiter')}
+          >
+            Contact
+          </button>
         </div>
       </nav>
       {/* {renderContent()} */}

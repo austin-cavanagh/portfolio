@@ -39,7 +39,6 @@ function Planet({
   eccentricity,
   name,
   orbitCenter = { x: 0, y: 0, z: 0 },
-  selectPlanet,
   bumpMap,
   ringColor,
   ringPattern,
@@ -240,13 +239,7 @@ function Planet({
         <OrbitPath semiMajorAxis={semiMajorAxis} eccentricity={eccentricity} />
       )}
 
-      {name === 'Earth' && (
-        <Planet
-          {...moon}
-          orbitCenter={planetPosition}
-          selectPlanet={selectPlanet}
-        />
-      )}
+      {name === 'Earth' && <Planet {...moon} orbitCenter={planetPosition} />}
     </>
   );
 }

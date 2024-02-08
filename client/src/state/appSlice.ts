@@ -7,7 +7,7 @@ type AppState = {
 };
 
 const initialState: AppState = {
-  currentPlanet: 'Sun',
+  currentPlanet: 'Overview',
   showContent: false,
   isTransitioning: false,
 };

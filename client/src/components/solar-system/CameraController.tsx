@@ -42,6 +42,32 @@ function CameraController({}: CameraControllerProps) {
   }, [currentPlanet]);
 
   useFrame(({ camera }, delta) => {
+    if (currentPlanet === 'Overview') {
+      const initialCameraPosition = new Vector3(-750, 1000, 1500);
+      const initialTargetPosition = new Vector3(0, 0, 0); //
+
+      if (transitionProgressRef.current < 1) {
+        transitionProgressRef.current += delta;
+        camera.position.lerp(
+          initialCameraPosition,
+          transitionProgressRef.current,
+        );
+        orbitControlsRef.current.target.lerp(
+          initialTargetPosition,
+          transitionProgressRef.current,
+        );
+      } else {
+        camera.position.copy(initialCameraPosition);
+        orbitControlsRef.current.target.copy(initialTargetPosition);
+      }
+
+      if (transitionProgressRef.current >= 1 && isTransitioning) {
+        dispatch(endTransition());
+      }
+
+      return;
+    }
+
     if (!currentPlanetRef?.current) return;
 
     const planetGeometry = currentPlanetRef.current.geometry as SphereGeometry;

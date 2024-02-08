@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react';
+import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 
 import UserInterface from '../../containers/UserInterface';
@@ -12,12 +12,6 @@ import { PlanetProvider } from '../../context/PlanetContext';
 function SolarSystem() {
   const cameraPosition: [number, number, number] = [-750, 1000, 1500];
 
-  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
-
-  const endTransition = () => {
-    setIsTransitioning(false);
-  };
-
   return (
     <PlanetProvider>
       <div className="h-screen w-screen">
@@ -29,16 +23,13 @@ function SolarSystem() {
 
             <ambientLight intensity={2.5} />
 
-            <Sun />
+            {/* <Sun /> */}
 
             {planets.map((planet, index) => {
               return <Planet {...planet} key={index} />;
             })}
 
-            <CameraController
-              isTransitioning={isTransitioning}
-              endTransition={endTransition}
-            />
+            <CameraController />
           </Suspense>
         </Canvas>
         <UserInterface />
