@@ -1,7 +1,26 @@
-function UserInterface() {
+import { Mesh } from 'three';
+import AboutMe from './AboutMe';
+
+type UserInterfaceProps = {
+  selectedPlanet: {
+    ref: React.RefObject<Mesh> | null;
+    name: string | null;
+  };
+};
+
+function UserInterface({ selectedPlanet }: UserInterfaceProps) {
+  //   const renderContent = () => {
+  //     switch (selectedPlanet.name) {
+  //       case 'Earth':
+  //         return <AboutMe />;
+  //       default:
+  //         return null;
+  //     }
+  //   };
+
   return (
     <div className="absolute left-0 top-0 w-full">
-      <nav className="flex items-center justify-between bg-gray-800 p-4 text-lg">
+      <nav className="flex items-center justify-between bg-gray-800 p-4 text-lg font-medium text-[#00bfff]">
         <div className="flex items-center space-x-5">
           {/* Resume */}
           <a
@@ -54,6 +73,11 @@ function UserInterface() {
             </svg>
           </a>
         </div>
+
+        <div className="flex-1 text-center text-xl">
+          {selectedPlanet.name ? selectedPlanet.name : 'None'}
+        </div>
+
         <div className="flex space-x-5">
           <button className="text-[#00bfff] hover:text-white">Overview</button>
           <button className="text-[#00bfff] hover:text-white">About</button>
@@ -61,6 +85,7 @@ function UserInterface() {
           <button className="text-[#00bfff] hover:text-white">Contact</button>
         </div>
       </nav>
+      {/* {renderContent()} */}
     </div>
   );
 }

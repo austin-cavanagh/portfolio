@@ -24,6 +24,7 @@ import neptuneColor from '../assets/planets/neptune/neptune-color-2k.jpg';
 
 import plutoColor from '../assets/planets/pluto/pluto-color-2k.jpg';
 import plutoBump from '../assets/planets/pluto/pluto-bump-2k.jpg';
+import { SelectedPlanet } from '../components/solar-system/SolarSystem';
 
 export type PlanetProps = {
   radius: number;
@@ -37,7 +38,7 @@ export type PlanetProps = {
   name: string;
   orbitCenter?: { x: number; y: number; z: number };
   selectPlanet?: (planetRef: React.RefObject<Mesh>, name: string) => void;
-  selectedPlanet?: any;
+  selectedPlanet?: SelectedPlanet;
   bumpMap?: string;
   ringColor?: string;
   ringPattern?: string;

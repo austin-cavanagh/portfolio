@@ -164,6 +164,8 @@ function Planet({
     }
   };
 
+  // console.log(selectedPlanet.name);
+
   return (
     <>
       <mesh
@@ -190,7 +192,7 @@ function Planet({
         />
       </mesh>
 
-      {planetRef !== selectedPlanet && (
+      {name !== selectedPlanet?.name && (
         <>
           <mesh ref={ring1Ref} visible={hovered}>
             <torusGeometry args={[radius * 1.5, 0.12, 2, 50]} />

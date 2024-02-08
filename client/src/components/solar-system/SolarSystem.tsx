@@ -9,12 +9,17 @@ import Planet from './Planet';
 import { planets } from '../../data/planets';
 import CameraController from './CameraController';
 
+export type SelectedPlanet = {
+  ref: React.RefObject<Mesh> | null;
+  name: string | null;
+};
+
 function SolarSystem() {
   const cameraPosition: [number, number, number] = [-750, 1000, 1500];
-  const [selectedPlanet, setSelectedPlanet] = useState<{
-    ref: React.RefObject<Mesh> | null;
-    name: string | null;
-  }>({ ref: null, name: null });
+  const [selectedPlanet, setSelectedPlanet] = useState<SelectedPlanet>({
+    ref: null,
+    name: null,
+  });
 
   const [showContent, setShowContent] = useState<boolean>(false);
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
@@ -61,7 +66,7 @@ function SolarSystem() {
           />
         </Suspense>
       </Canvas>
-      <UserInterface />
+      <UserInterface selectedPlanet={selectedPlanet} />
     </div>
   );
 }
