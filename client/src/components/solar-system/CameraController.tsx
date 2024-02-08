@@ -1,7 +1,14 @@
 import { OrbitControls } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import { useRef, useState } from 'react';
-import { SphereGeometry, Vector3 } from 'three';
+import { RefObject, useEffect, useRef, useState } from 'react';
+import { Mesh, SphereGeometry, Vector3 } from 'three';
+
+type CameraControllerProps = {
+  selectedPlanet: RefObject<Mesh> | null;
+  isTransitioning: boolean;
+  showContent: boolean;
+  endTransition: () => void;
+};
 
 const calculateBezierPoint = (
   t: number,
@@ -20,12 +27,21 @@ const calculateBezierPoint = (
 
 function CameraController({
   selectedPlanet,
-  progressRef,
+  //   progressRef,
   isTransitioning,
   showContent,
   endTransition,
-}) {
+}: CameraControllerProps) {
   const orbitControlsRef = useRef<any>(null!);
+  const [transitionProgress, setTransitionProgress] = useState<number>(0);
+
+  useEffect(() => {
+    setTransitionProgress(0);
+  }, [selectedPlanet]);
+
+  useEffect(() => {
+    console.log(transitionProgress);
+  }, [transitionProgress]);
 
   useFrame(({ camera }, delta) => {
     if (!selectedPlanet) return;
@@ -33,7 +49,7 @@ function CameraController({
     const planetGeometry = selectedPlanet?.current?.geometry as SphereGeometry;
     const planetRadius = planetGeometry.parameters.radius;
 
-    if (selectedPlanet && progressRef.current < 1) {
+    if (selectedPlanet && transitionProgress < 1) {
       const start = camera.position.clone();
       const planetPosition = new Vector3();
       selectedPlanet.current?.getWorldPosition(planetPosition);
@@ -43,9 +59,9 @@ function CameraController({
         .add(new Vector3(0, 0, planetRadius * 4));
 
       const dynamicHeightAdjustment =
-        progressRef.current < 0.5
-          ? (0.5 - progressRef.current) * 2
-          : progressRef.current - 0.5;
+        transitionProgress < 0.5
+          ? (0.5 - transitionProgress) * 2
+          : transitionProgress - 0.5;
 
       const controlPointHeight =
         planetRadius + dynamicHeightAdjustment * planetRadius * 2;
@@ -56,7 +72,7 @@ function CameraController({
         (start.z + offsetEnd.z) / 2,
       );
 
-      const t = progressRef.current;
+      const t = transitionProgress;
       const bezierPoint = calculateBezierPoint(
         t,
         start,
@@ -66,10 +82,12 @@ function CameraController({
 
       camera.position.lerp(bezierPoint, 0.1);
       orbitControlsRef.current.target.lerp(planetPosition, t);
-      progressRef.current += delta * 0.25;
+      setTransitionProgress(
+        transitionProgress => transitionProgress + delta * 0.25,
+      );
     }
 
-    if (selectedPlanet && progressRef.current > 1) {
+    if (selectedPlanet && transitionProgress > 1) {
       endTransition();
 
       const planetPosition = new Vector3();
