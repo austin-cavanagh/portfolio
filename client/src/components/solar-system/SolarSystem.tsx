@@ -9,6 +9,7 @@ import frontSide from '../../assets/lightblue-skybox/front.png';
 import rightSide from '../../assets/lightblue-skybox/right.png';
 import backSide from '../../assets/lightblue-skybox/back.png';
 import leftSide from '../../assets/lightblue-skybox/left.png';
+import UserInterface from '../../containers/UserInterface';
 
 function Skybox() {
   const { scene } = useThree();
@@ -43,6 +44,7 @@ function SolarSystem() {
           <Skybox />
         </Suspense>
       </Canvas>
+      <UserInterface />
     </div>
   );
 }

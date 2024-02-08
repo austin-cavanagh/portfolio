@@ -13,6 +13,7 @@ export default {
         'mac-text-blink': '#c4c5ce',
         'mac-header': '#e3e2e4',
         'mac-body': '#5b5d7a',
+        'link-blue': '#00bfff',
       },
       fontFamily: {
         'mac-terminal': [
