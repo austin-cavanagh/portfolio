@@ -41,7 +41,6 @@ function CameraController({
 
   useEffect(() => {
     transitionProgressRef.current = 0;
-    console.log(selectedPlanet);
   }, [selectedPlanet]);
 
   useFrame(({ camera }, delta) => {

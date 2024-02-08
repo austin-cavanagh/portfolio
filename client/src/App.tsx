@@ -13,7 +13,7 @@ function App() {
   //   setCurrentScene('mainPage');
   // };
 
-  const cameraPosition = [0, 0, 100]; // Example camera position
+  // const cameraPosition = [0, 0, 100]; // Example camera position
 
   return (
     // <div style={{ height: '100vh', width: '100vw', position: 'relative' }}>
@@ -29,6 +29,7 @@ function App() {
     //   {currentScene === 'mainPage' && <HomePage />}
     // </div>
     // <HomePage />
+
     <SolarSystem />
   );
 }
