@@ -11,16 +11,18 @@ import CameraController from './CameraController';
 
 function SolarSystem() {
   const cameraPosition: [number, number, number] = [-750, 1000, 1500];
-  const [selectedPlanet, setSelectedPlanet] =
-    useState<React.RefObject<Mesh> | null>(null);
+  const [selectedPlanet, setSelectedPlanet] = useState<{
+    ref: React.RefObject<Mesh> | null;
+    name: string | null;
+  }>({ ref: null, name: null });
 
   const [showContent, setShowContent] = useState<boolean>(false);
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
 
-  const selectPlanet = (planetRef: React.RefObject<Mesh>) => {
-    if (selectedPlanet === planetRef) return;
-    // progressRef.current = 0;
-    setSelectedPlanet(planetRef);
+  const selectPlanet = (planetRef: React.RefObject<Mesh>, name: string) => {
+    if (selectedPlanet.name === name) return;
+
+    setSelectedPlanet({ ref: planetRef, name: name });
     setIsTransitioning(true);
   };
 

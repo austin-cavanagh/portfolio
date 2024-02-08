@@ -160,7 +160,7 @@ function Planet({
 
   const handlePlanetClick = () => {
     if (selectPlanet) {
-      selectPlanet(planetRef);
+      selectPlanet(planetRef, name);
     }
   };
 

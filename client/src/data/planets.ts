@@ -36,7 +36,7 @@ export type PlanetProps = {
   eccentricity: number;
   name: string;
   orbitCenter?: { x: number; y: number; z: number };
-  selectPlanet?: (planetRef: React.RefObject<Mesh>) => void;
+  selectPlanet?: (planetRef: React.RefObject<Mesh>, name: string) => void;
   selectedPlanet?: any;
   bumpMap?: string;
   ringColor?: string;
