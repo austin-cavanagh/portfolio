@@ -113,13 +113,6 @@ function SceneContents() {
         enableRotate={!isTransitioning}
       />
 
-      {/* <pointLight
-        position={[40, 0, 0]}
-        color={0xffffff}
-        intensity={5000}
-        distance={300}
-      /> */}
-
       <Sun />
 
       {planets.map((planet, index) => {

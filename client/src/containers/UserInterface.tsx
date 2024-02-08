@@ -6,17 +6,19 @@ function UserInterface() {
           {/* Resume */}
           <a
             href="/resume.pdf"
-            // className="text-link-blue border-link-blue hover:bg-link-blue rounded-lg border px-3 py-2 transition duration-300 ease-in-out hover:text-white"
-            className="text-link-blue border-link-blue rounded-lg border px-3 py-2 transition duration-300 ease-in-out hover:border-white hover:text-white"
             target="_blank"
             rel="noopener noreferrer"
+            className="text-link-blue border-link-blue rounded-lg border px-3 py-2 transition duration-300 ease-in-out hover:border-white hover:text-white"
           >
             Resume
           </a>
           {/* GitHub */}
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/austin-cavanagh"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-[#00bfff] transition duration-300 ease-in-out hover:text-white"
+            aria-label="Link to my GitHub profile"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -51,34 +53,12 @@ function UserInterface() {
               </g>
             </svg>
           </a>
-          {/* Mail */}
-          {/* <a
-            href="your-link-here"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#00bfff] transition duration-300 ease-in-out hover:text-white"
-            aria-label="Link to your desired destination"
-          >
-            <svg
-              enable-background="new 0 0 64 64"
-              version="1.1"
-              viewBox="0 0 64 64"
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-12 w-12 fill-current"
-            >
-              <g id="Glyph_copy_2">
-                <path d="M63.125,9.977c-0.902-1.321-2.419-2.194-4.131-2.194H5.006c-1.676,0-3.158,0.842-4.067,2.117l31.16,25.982L63.125,9.977z" />
-                <path d="M0.006,14.328v36.889c0,2.75,2.25,5,5,5h53.988c2.75,0,5-2.25,5-5V14.461L32.099,41.09L0.006,14.328z" />
-              </g>
-            </svg>
-          </a> */}
         </div>
         <div className="flex gap-4">
-          <button className="text-[#00bfff] hover:text-white">About Me</button>
+          <button className="text-[#00bfff] hover:text-white">Overview</button>
+          <button className="text-[#00bfff] hover:text-white">About</button>
           <button className="text-[#00bfff] hover:text-white">Projects</button>
-          <button className="text-[#00bfff] hover:text-white">
-            Contact Me
-          </button>
+          <button className="text-[#00bfff] hover:text-white">Contact</button>
         </div>
       </nav>
     </div>
