@@ -2,7 +2,7 @@ function UserInterface() {
   return (
     <div className="absolute left-0 top-0 w-full">
       <nav className="flex items-center justify-between bg-gray-800 p-4 text-lg">
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-5">
           {/* Resume */}
           <a
             href="/resume.pdf"
@@ -54,7 +54,7 @@ function UserInterface() {
             </svg>
           </a>
         </div>
-        <div className="flex gap-4">
+        <div className="flex space-x-5">
           <button className="text-[#00bfff] hover:text-white">Overview</button>
           <button className="text-[#00bfff] hover:text-white">About</button>
           <button className="text-[#00bfff] hover:text-white">Projects</button>
