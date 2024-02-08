@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { ThreeEvent, useFrame, useLoader } from '@react-three/fiber';
 import { DoubleSide, Mesh, TextureLoader } from 'three';
 import getFresnelMat from '../../functions/getFresnelMat';
@@ -9,6 +9,7 @@ import moonColor from '../../assets/planets/moon/moon-color-2k.jpg';
 import moonBump from '../../assets/planets/moon/moon-bump-2k.jpg';
 
 import * as TWEEN from '@tweenjs/tween.js';
+import { PlanetContext } from '../../context/PlanetContext';
 
 const moon: PlanetProps = {
   semiMajorAxis: 40,
@@ -51,6 +52,8 @@ function Planet({
   const ring2Ref = useRef<Mesh>(null!);
   const ring3Ref = useRef<Mesh>(null!);
 
+  const { setPlanetRefs } = useContext(PlanetContext);
+
   useEffect(() => {
     if (name !== 'Uranus') return;
 
@@ -61,6 +64,13 @@ function Planet({
       ringRef.current.rotation.y = -(Math.PI * 90) / 180;
     }
   }, []);
+
+  useEffect(() => {
+    setPlanetRefs(prevRefs => ({
+      ...prevRefs,
+      [name]: planetRef,
+    }));
+  }, [name, planetRef, setPlanetRefs]);
 
   let planetPosition = { x: 0, y: 0, z: 0 };
 

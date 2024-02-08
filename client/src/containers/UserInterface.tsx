@@ -1,5 +1,5 @@
 import { Mesh } from 'three';
-import AboutMe from './AboutMe';
+// import AboutMe from './AboutMe';
 
 type UserInterfaceProps = {
   selectedPlanet: {

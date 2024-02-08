@@ -8,6 +8,7 @@ import Sun from './Sun';
 import Planet from './Planet';
 import { planets } from '../../data/planets';
 import CameraController from './CameraController';
+import { PlanetProvider } from '../../context/PlanetContext';
 
 export type SelectedPlanet = {
   ref: React.RefObject<Mesh> | null;
@@ -36,38 +37,40 @@ function SolarSystem() {
   };
 
   return (
-    <div className="h-screen w-screen">
-      <Canvas
-        camera={{ fov: 45, position: cameraPosition, near: 0.1, far: 100000 }}
-      >
-        <Suspense fallback={null}>
-          <Skybox />
+    <PlanetProvider>
+      <div className="h-screen w-screen">
+        <Canvas
+          camera={{ fov: 45, position: cameraPosition, near: 0.1, far: 100000 }}
+        >
+          <Suspense fallback={null}>
+            <Skybox />
 
-          <ambientLight intensity={2.5} />
+            <ambientLight intensity={2.5} />
 
-          <Sun />
+            <Sun />
 
-          {planets.map((planet, index) => {
-            return (
-              <Planet
-                {...planet}
-                selectPlanet={selectPlanet}
-                selectedPlanet={selectedPlanet}
-                key={index}
-              />
-            );
-          })}
+            {planets.map((planet, index) => {
+              return (
+                <Planet
+                  {...planet}
+                  selectPlanet={selectPlanet}
+                  selectedPlanet={selectedPlanet}
+                  key={index}
+                />
+              );
+            })}
 
-          <CameraController
-            selectedPlanet={selectedPlanet}
-            isTransitioning={isTransitioning}
-            showContent={showContent}
-            endTransition={endTransition}
-          />
-        </Suspense>
-      </Canvas>
-      <UserInterface selectedPlanet={selectedPlanet} />
-    </div>
+            <CameraController
+              selectedPlanet={selectedPlanet}
+              isTransitioning={isTransitioning}
+              showContent={showContent}
+              endTransition={endTransition}
+            />
+          </Suspense>
+        </Canvas>
+        <UserInterface selectedPlanet={selectedPlanet} />
+      </div>
+    </PlanetProvider>
   );
 }
 
