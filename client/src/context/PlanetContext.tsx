@@ -38,8 +38,6 @@ function PlanetProvider({ children }: PlanetProviderProps) {
   // Only recalculates when planetRefs changes
   const value = useMemo(() => ({ planetRefs, setPlanetRefs }), [planetRefs]);
 
-  console.log(planetRefs);
-
   // Render the provider component, passing the value to all consuming components
   return (
     <PlanetContext.Provider value={value}>{children}</PlanetContext.Provider>

@@ -1,14 +1,12 @@
-import { Mesh } from 'three';
+import { useSelector } from 'react-redux';
+import { RootState } from '../state/store';
 // import AboutMe from './AboutMe';
 
-type UserInterfaceProps = {
-  selectedPlanet: {
-    ref: React.RefObject<Mesh> | null;
-    name: string | null;
-  };
-};
+type UserInterfaceProps = {};
 
-function UserInterface({ selectedPlanet }: UserInterfaceProps) {
+function UserInterface({}: UserInterfaceProps) {
+  const { currentPlanet } = useSelector((state: RootState) => state.app);
+
   //   const renderContent = () => {
   //     switch (selectedPlanet.name) {
   //       case 'Earth':
@@ -74,9 +72,7 @@ function UserInterface({ selectedPlanet }: UserInterfaceProps) {
           </a>
         </div>
 
-        <div className="flex-1 text-center text-xl">
-          {selectedPlanet.name ? selectedPlanet.name : 'None'}
-        </div>
+        <div className="flex-1 text-center text-xl">{currentPlanet}</div>
 
         <div className="flex space-x-5">
           <button className="text-[#00bfff] hover:text-white">Overview</button>

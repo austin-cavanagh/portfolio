@@ -1,19 +1,13 @@
 import { OrbitControls } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import { useEffect, useRef } from 'react';
-import { Mesh, SphereGeometry, Vector3 } from 'three';
+import { useContext, useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { SphereGeometry, Vector3 } from 'three';
+import { AppDispatch, RootState } from '../../state/store';
+import { PlanetContext } from '../../context/PlanetContext';
+import { endTransition } from '../../state/appSlice';
 
-type CameraControllerProps = {
-  selectedPlanet:
-    | {
-        ref: React.RefObject<Mesh> | null;
-        name: string | null;
-      }
-    | { ref: null; name: null };
-  isTransitioning: boolean;
-  showContent: boolean;
-  endTransition: () => void;
-};
+type CameraControllerProps = {};
 
 const calculateBezierPoint = (
   t: number,
@@ -30,34 +24,37 @@ const calculateBezierPoint = (
     .add(end.clone().multiplyScalar(t * t));
 };
 
-function CameraController({
-  selectedPlanet,
-  isTransitioning,
-  showContent,
-  endTransition,
-}: CameraControllerProps) {
+function CameraController({}: CameraControllerProps) {
   const orbitControlsRef = useRef<any>(null!);
   const transitionProgressRef = useRef<number>(0);
 
+  const { currentPlanet, showContent, isTransitioning } = useSelector(
+    (state: RootState) => state.app,
+  );
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  const { planetRefs } = useContext(PlanetContext);
+  const currentPlanetRef = planetRefs[currentPlanet];
+
   useEffect(() => {
     transitionProgressRef.current = 0;
-  }, [selectedPlanet]);
+  }, [currentPlanet]);
 
   useFrame(({ camera }, delta) => {
-    if (!selectedPlanet.name) return;
+    if (!currentPlanetRef?.current) return;
 
-    const planetGeometry = selectedPlanet.ref?.current
-      ?.geometry as SphereGeometry;
+    const planetGeometry = currentPlanetRef.current.geometry as SphereGeometry;
     const planetRadius = planetGeometry.parameters.radius;
 
-    if (selectedPlanet && transitionProgressRef.current < 1) {
+    if (currentPlanet && transitionProgressRef.current < 1) {
       const start = camera.position.clone();
       const planetPosition = new Vector3();
-      selectedPlanet.ref?.current?.getWorldPosition(planetPosition);
+      currentPlanetRef.current.getWorldPosition(planetPosition);
 
       const offsetEnd = planetPosition
         .clone()
-        .add(new Vector3(0, 0, planetRadius * 4));
+        .add(new Vector3(0, 0, planetRadius * 6));
 
       const dynamicHeightAdjustment =
         transitionProgressRef.current < 0.5
@@ -87,11 +84,11 @@ function CameraController({
       transitionProgressRef.current += delta * 0.25;
     }
 
-    if (selectedPlanet && transitionProgressRef.current > 1) {
-      endTransition();
+    if (currentPlanet && transitionProgressRef.current > 1) {
+      if (isTransitioning) dispatch(endTransition());
 
       const planetPosition = new Vector3();
-      selectedPlanet.ref?.current?.getWorldPosition(planetPosition);
+      currentPlanetRef.current.getWorldPosition(planetPosition);
       orbitControlsRef.current.target.lerp(planetPosition, 0.1);
       const direction = new Vector3()
         .subVectors(camera.position, planetPosition)

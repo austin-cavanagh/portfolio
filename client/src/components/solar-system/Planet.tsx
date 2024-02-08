@@ -10,6 +10,9 @@ import moonBump from '../../assets/planets/moon/moon-bump-2k.jpg';
 
 import * as TWEEN from '@tweenjs/tween.js';
 import { PlanetContext } from '../../context/PlanetContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../state/store';
+import { setCurrentPlanet } from '../../state/appSlice';
 
 const moon: PlanetProps = {
   semiMajorAxis: 40,
@@ -37,7 +40,6 @@ function Planet({
   name,
   orbitCenter = { x: 0, y: 0, z: 0 },
   selectPlanet,
-  selectedPlanet,
   bumpMap,
   ringColor,
   ringPattern,
@@ -53,6 +55,10 @@ function Planet({
   const ring3Ref = useRef<Mesh>(null!);
 
   const { setPlanetRefs } = useContext(PlanetContext);
+
+  const { currentPlanet } = useSelector((state: RootState) => state.app);
+
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     if (name !== 'Uranus') return;
@@ -158,6 +164,7 @@ function Planet({
   });
 
   const onPointerOver = (event: ThreeEvent<PointerEvent>) => {
+    if (name === currentPlanet) return;
     event.stopPropagation();
     setHovered(true);
     document.body.style.cursor = 'pointer';
@@ -169,12 +176,9 @@ function Planet({
   };
 
   const handlePlanetClick = () => {
-    if (selectPlanet) {
-      selectPlanet(planetRef, name);
-    }
+    if (name === currentPlanet) return;
+    dispatch(setCurrentPlanet(name));
   };
-
-  // console.log(selectedPlanet.name);
 
   return (
     <>
@@ -202,7 +206,7 @@ function Planet({
         />
       </mesh>
 
-      {name !== selectedPlanet?.name && (
+      {name !== currentPlanet && (
         <>
           <mesh ref={ring1Ref} visible={hovered}>
             <torusGeometry args={[radius * 1.5, 0.12, 2, 50]} />

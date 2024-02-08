@@ -3,34 +3,16 @@ import { Canvas } from '@react-three/fiber';
 
 import UserInterface from '../../containers/UserInterface';
 import Skybox from './SkyBox';
-import { Mesh } from 'three';
 import Sun from './Sun';
 import Planet from './Planet';
 import { planets } from '../../data/planets';
 import CameraController from './CameraController';
 import { PlanetProvider } from '../../context/PlanetContext';
 
-export type SelectedPlanet = {
-  ref: React.RefObject<Mesh> | null;
-  name: string | null;
-};
-
 function SolarSystem() {
   const cameraPosition: [number, number, number] = [-750, 1000, 1500];
-  const [selectedPlanet, setSelectedPlanet] = useState<SelectedPlanet>({
-    ref: null,
-    name: null,
-  });
 
-  const [showContent, setShowContent] = useState<boolean>(false);
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
-
-  const selectPlanet = (planetRef: React.RefObject<Mesh>, name: string) => {
-    if (selectedPlanet.name === name) return;
-
-    setSelectedPlanet({ ref: planetRef, name: name });
-    setIsTransitioning(true);
-  };
 
   const endTransition = () => {
     setIsTransitioning(false);
@@ -50,25 +32,16 @@ function SolarSystem() {
             <Sun />
 
             {planets.map((planet, index) => {
-              return (
-                <Planet
-                  {...planet}
-                  selectPlanet={selectPlanet}
-                  selectedPlanet={selectedPlanet}
-                  key={index}
-                />
-              );
+              return <Planet {...planet} key={index} />;
             })}
 
             <CameraController
-              selectedPlanet={selectedPlanet}
               isTransitioning={isTransitioning}
-              showContent={showContent}
               endTransition={endTransition}
             />
           </Suspense>
         </Canvas>
-        <UserInterface selectedPlanet={selectedPlanet} />
+        <UserInterface />
       </div>
     </PlanetProvider>
   );

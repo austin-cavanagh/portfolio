@@ -1,15 +1,31 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-type AppState = {};
+type AppState = {
+  currentPlanet: string;
+  showContent: boolean;
+  isTransitioning: boolean;
+};
 
-const initialState: AppState = {};
+const initialState: AppState = {
+  currentPlanet: 'Sun',
+  showContent: false,
+  isTransitioning: false,
+};
 
 export const appSlice = createSlice({
   name: 'app',
   initialState,
-  reducers: {},
+  reducers: {
+    setCurrentPlanet: (state, action: PayloadAction<string>) => {
+      state.currentPlanet = action.payload;
+      state.isTransitioning = true;
+    },
+    endTransition: state => {
+      state.isTransitioning = false;
+    },
+  },
 });
 
-export const {} = appSlice.actions;
+export const { setCurrentPlanet, endTransition } = appSlice.actions;
 
 export default appSlice.reducer;
