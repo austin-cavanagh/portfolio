@@ -82,7 +82,7 @@ function Project() {
           </a>
         </div>
       </div>
-      <div className="w-600 p-1">
+      <div className="w-600 border border-4 border-[#00bfff]">
         <ImagesCarousel images={images} />
       </div>
     </div>
