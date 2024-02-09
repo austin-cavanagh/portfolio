@@ -1,5 +1,5 @@
 import Intro from './Intro';
-import AboutMe from './AboutMe';
+import AboutMe from './About';
 // import Projects from './Projects';
 // import ContactMe from './ContactMe';
 

@@ -5,7 +5,6 @@ import getFresnelMat from '../../functions/getFresnelMat';
 import OrbitPath from './OrbitPath';
 import { PlanetProps } from '../../data/planets';
 
-import * as TWEEN from '@tweenjs/tween.js';
 import { PlanetContext } from '../../context/PlanetContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../state/store';

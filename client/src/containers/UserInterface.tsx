@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../state/store';
 import { setCurrentPlanet } from '../state/appSlice';
-// import AboutMe from './AboutMe';
-// import Projects from './Projects';
-// import ContactMe from './ContactMe';
+import PlanetTitle from '../components/user-interface/PlanetTitle';
+import About from './About';
+import Projects from './Projects';
+import Contact from './Contact';
 
 type UserInterfaceProps = {};
 
@@ -14,18 +15,22 @@ function UserInterface({}: UserInterfaceProps) {
 
   const dispatch = useDispatch<AppDispatch>();
 
-  // const renderContent = () => {
-  //   switch (currentPlanet) {
-  //     case 'Earth':
-  //       return <AboutMe />;
-  //     case 'Mars':
-  //       return <Projects />;
-  //     case 'Jupiter':
-  //       return <ContactMe />;
-  //     default:
-  //       return null;
-  //   }
-  // };
+  const renderContent = () => {
+    switch (currentPlanet) {
+      case 'Earth':
+        return <About />;
+      case 'Moon':
+        return <Projects />;
+      case 'Mars':
+        return <Projects />;
+      case 'Jupiter':
+        return <Projects />;
+      case 'Saturn':
+        return <Contact />;
+      default:
+        return null;
+    }
+  };
 
   const handlePageClick = (page: string) => {
     if (isTransitioning) return;
@@ -88,7 +93,9 @@ function UserInterface({}: UserInterfaceProps) {
           </a>
         </div>
 
-        <div className="flex-1 text-center text-xl">{currentPlanet}</div>
+        {/* <div className="flex-1 text-center text-xl">{currentPlanet}</div> */}
+
+        <PlanetTitle />
 
         <div className="flex space-x-5">
           <button
@@ -105,7 +112,7 @@ function UserInterface({}: UserInterfaceProps) {
           </button>
           <button
             className="text-[#00bfff] hover:text-white"
-            onClick={() => handlePageClick('Mars')}
+            onClick={() => handlePageClick('Moon')}
           >
             Projects
           </button>
@@ -117,7 +124,7 @@ function UserInterface({}: UserInterfaceProps) {
           </button>
         </div>
       </nav>
-      {/* {renderContent()} */}
+      {renderContent()}
     </div>
   );
 }
