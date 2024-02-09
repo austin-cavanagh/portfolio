@@ -2,24 +2,33 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../state/store';
 import { setCurrentPlanet } from '../state/appSlice';
 // import AboutMe from './AboutMe';
+// import Projects from './Projects';
+// import ContactMe from './ContactMe';
 
 type UserInterfaceProps = {};
 
 function UserInterface({}: UserInterfaceProps) {
-  const { currentPlanet } = useSelector((state: RootState) => state.app);
+  const { currentPlanet, isTransitioning } = useSelector(
+    (state: RootState) => state.app,
+  );
 
   const dispatch = useDispatch<AppDispatch>();
 
-  //   const renderContent = () => {
-  //     switch (selectedPlanet.name) {
-  //       case 'Earth':
-  //         return <AboutMe />;
-  //       default:
-  //         return null;
-  //     }
-  //   };
+  // const renderContent = () => {
+  //   switch (currentPlanet) {
+  //     case 'Earth':
+  //       return <AboutMe />;
+  //     case 'Mars':
+  //       return <Projects />;
+  //     case 'Jupiter':
+  //       return <ContactMe />;
+  //     default:
+  //       return null;
+  //   }
+  // };
 
   const handlePageClick = (page: string) => {
+    if (isTransitioning) return;
     dispatch(setCurrentPlanet(page));
   };
 

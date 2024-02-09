@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 
 import UserInterface from '../../containers/UserInterface';
 import Skybox from './SkyBox';
-import Sun from './Sun';
+// import Sun from './Sun';
 import Planet from './Planet';
 import { planets } from '../../data/planets';
 import CameraController from './CameraController';

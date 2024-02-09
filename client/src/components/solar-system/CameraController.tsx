@@ -43,36 +43,38 @@ function CameraController({}: CameraControllerProps) {
 
   useFrame(({ camera }, delta) => {
     if (currentPlanet === 'Overview') {
-      const initialCameraPosition = new Vector3(-750, 1000, 1500);
-      const initialTargetPosition = new Vector3(0, 0, 0); //
+      // During Overview transition
+      if (transitionProgressRef.current < 0.12) {
+        const newCameraPosition = new Vector3(-750, 1000, 1500);
+        const newTargetPosition = new Vector3(0, 0, 0);
 
-      if (transitionProgressRef.current < 1) {
-        transitionProgressRef.current += delta;
-        camera.position.lerp(
-          initialCameraPosition,
-          transitionProgressRef.current,
-        );
+        transitionProgressRef.current += delta * 0.04;
+
+        camera.position.lerp(newCameraPosition, transitionProgressRef.current);
+
         orbitControlsRef.current.target.lerp(
-          initialTargetPosition,
+          newTargetPosition,
           transitionProgressRef.current,
         );
-      } else {
-        camera.position.copy(initialCameraPosition);
-        orbitControlsRef.current.target.copy(initialTargetPosition);
       }
 
-      if (transitionProgressRef.current >= 1 && isTransitioning) {
+      // After Overview transition
+      if (transitionProgressRef.current >= 0.12 && isTransitioning) {
+        console.log('done');
+
         dispatch(endTransition());
+        console.log('ended transition');
       }
 
       return;
     }
 
-    if (!currentPlanetRef?.current) return;
+    // if (!currentPlanetRef?.current) return;
 
     const planetGeometry = currentPlanetRef.current.geometry as SphereGeometry;
     const planetRadius = planetGeometry.parameters.radius;
 
+    // During planet transition
     if (currentPlanet && transitionProgressRef.current < 1) {
       const start = camera.position.clone();
       const planetPosition = new Vector3();
@@ -110,6 +112,7 @@ function CameraController({}: CameraControllerProps) {
       transitionProgressRef.current += delta * 0.25;
     }
 
+    // After planet transition
     if (currentPlanet && transitionProgressRef.current > 1) {
       if (isTransitioning) dispatch(endTransition());
 
@@ -137,7 +140,7 @@ function CameraController({}: CameraControllerProps) {
       ref={orbitControlsRef}
       enablePan={false}
       enableZoom={!showContent && !isTransitioning}
-      enableRotate={!isTransitioning}
+      enableRotate={!showContent && !isTransitioning}
     />
   );
 }

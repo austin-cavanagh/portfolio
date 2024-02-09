@@ -7,6 +7,9 @@ import venusColor from '../assets/planets/venus/venus-color-2k.jpg';
 import earthColor from '../assets/planets/earth/earth-color-2k.jpg';
 import earthBump from '../assets/planets/earth/earth-bump-2k.jpg';
 
+import moonColor from '../assets/planets/moon/moon-color-2k.jpg';
+import moonBump from '../assets/planets/moon/moon-bump-2k.jpg';
+
 import marsColor from '../assets/planets/mars/mars-color-2k.jpg';
 import marsBump from '../assets/planets/mars/mars-bump-2k.jpg';
 
@@ -89,6 +92,19 @@ export const planets: PlanetProps[] = [
     colorMap: earthColor,
     name: 'Earth',
     bumpMap: earthBump,
+  },
+  {
+    semiMajorAxis: 40,
+    eccentricity: 0.0549,
+    orbitSpeed: 0.085,
+    oblateness: 1,
+    radius: 2,
+    rotation: 0.002,
+    glowColor: 0xaaaaaa,
+    colorMap: moonColor,
+    bumpMap: moonBump,
+    name: 'Moon',
+    orbitCenter: { x: 0, y: 0, z: 0 },
   },
   {
     radius: 8,

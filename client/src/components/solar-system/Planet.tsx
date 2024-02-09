@@ -5,28 +5,11 @@ import getFresnelMat from '../../functions/getFresnelMat';
 import OrbitPath from './OrbitPath';
 import { PlanetProps } from '../../data/planets';
 
-import moonColor from '../../assets/planets/moon/moon-color-2k.jpg';
-import moonBump from '../../assets/planets/moon/moon-bump-2k.jpg';
-
 import * as TWEEN from '@tweenjs/tween.js';
 import { PlanetContext } from '../../context/PlanetContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../state/store';
 import { setCurrentPlanet } from '../../state/appSlice';
-
-const moon: PlanetProps = {
-  semiMajorAxis: 40,
-  eccentricity: 0.0549,
-  orbitSpeed: 0.085,
-  oblateness: 1,
-  radius: 1.737,
-  rotation: 0.002,
-  glowColor: 0xaaaaaa,
-  colorMap: moonColor,
-  bumpMap: moonBump,
-  name: 'Moon',
-  orbitCenter: { x: 0, y: 0, z: 0 },
-};
 
 function Planet({
   radius,
@@ -53,9 +36,11 @@ function Planet({
   const ring2Ref = useRef<Mesh>(null!);
   const ring3Ref = useRef<Mesh>(null!);
 
-  const { setPlanetRefs } = useContext(PlanetContext);
+  const { planetRefs, setPlanetRefs } = useContext(PlanetContext);
 
-  const { currentPlanet } = useSelector((state: RootState) => state.app);
+  const { currentPlanet, isTransitioning } = useSelector(
+    (state: RootState) => state.app,
+  );
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -100,6 +85,10 @@ function Planet({
 
     const c = semiMajorAxis * eccentricity;
     const angle = elapsedTime * orbitSpeed;
+
+    if (name === 'Moon' && planetRefs.Earth?.current) {
+      orbitCenter = planetRefs.Earth.current.position;
+    }
 
     const x = orbitCenter.x + semiMajorAxis * Math.cos(angle) - c;
     const z =
@@ -153,8 +142,6 @@ function Planet({
       ringRef.current.position.x = x;
       ringRef.current.position.z = z;
     }
-
-    TWEEN.update();
   });
 
   const fresnelMaterialProps = getFresnelMat({
@@ -175,7 +162,7 @@ function Planet({
   };
 
   const handlePlanetClick = () => {
-    if (name === currentPlanet) return;
+    if (name === currentPlanet || isTransitioning) return;
     dispatch(setCurrentPlanet(name));
   };
 
@@ -238,8 +225,6 @@ function Planet({
       {name !== 'Moon' && (
         <OrbitPath semiMajorAxis={semiMajorAxis} eccentricity={eccentricity} />
       )}
-
-      {name === 'Earth' && <Planet {...moon} orbitCenter={planetPosition} />}
     </>
   );
 }
