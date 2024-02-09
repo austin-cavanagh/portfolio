@@ -16,25 +16,27 @@ const images = [
 
 function Project() {
   return (
-    <div className="flex">
-      <div className="font-poppins mr-5 flex h-full w-96 flex-col justify-center space-y-3">
-        <h2 className="text-3xl font-semibold">React Query Rewind</h2>
-        <p className="text-lg">
+    <div className="flex rounded-3xl bg-gray-800 bg-opacity-85 p-14">
+      <div className="mr-10 flex h-full w-96 flex-col justify-center space-y-6 font-poppins">
+        <h2 className="text-3xl font-semibold text-[#00bfff]">
+          React Query Rewind
+        </h2>
+        <p className="text-lg text-[#00bfff]">
           Description of my project and many other words that I should have in
           here to take up some space so I can see what it will look like.
           Thought I should make it slightly longer.
         </p>
         <div className="space-x-2">
-          <span className="inline-block rounded border-2 border-blue-600 px-2 py-1">
+          <span className="inline-block rounded border-2 border-[#00bfff] px-2 py-1 text-[#00bfff]">
             React
           </span>
-          <span className="inline-block rounded border-2 border-blue-600 px-2 py-1">
+          <span className="inline-block rounded border-2 border-[#00bfff] px-2 py-1 text-[#00bfff]">
             Tailwind
           </span>
-          <span className="inline-block rounded border-2 border-blue-600 px-2 py-1">
+          <span className="inline-block rounded border-2 border-[#00bfff] px-2 py-1 text-[#00bfff]">
             Webpack
           </span>
-          <span className="inline-block rounded border-2 border-blue-600 px-2 py-1">
+          <span className="inline-block rounded border-2 border-[#00bfff] px-2 py-1 text-[#00bfff]">
             Redux
           </span>
         </div>
@@ -43,7 +45,7 @@ function Project() {
             href="https://github.com/your-username/your-repo"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-700 hover:text-black"
+            className="text-[#00bfff] hover:text-black"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +61,7 @@ function Project() {
             href="https://example.com/live-demo"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-700 hover:text-black"
+            className="text-[#00bfff] hover:text-black"
           >
             <svg
               id="icon"
@@ -80,7 +82,7 @@ function Project() {
           </a>
         </div>
       </div>
-      <div className="w-500 bg-black p-1">
+      <div className="w-600 p-1">
         <ImagesCarousel images={images} />
       </div>
     </div>

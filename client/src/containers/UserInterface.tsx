@@ -9,7 +9,7 @@ import Contact from './Contact';
 type UserInterfaceProps = {};
 
 function UserInterface({}: UserInterfaceProps) {
-  const { currentPlanet, isTransitioning } = useSelector(
+  const { currentPlanet, isTransitioning, showContent } = useSelector(
     (state: RootState) => state.app,
   );
 
@@ -37,8 +37,12 @@ function UserInterface({}: UserInterfaceProps) {
     dispatch(setCurrentPlanet(page));
   };
 
+  console.log(showContent);
+
   return (
-    <div className="absolute left-0 top-0 w-full">
+    <div
+      className={`absolute left-0 top-0 flex w-screen flex-col ${!showContent && 'h-screen'}`}
+    >
       <nav className="flex items-center justify-between bg-gray-800 p-4 text-lg font-medium text-[#00bfff]">
         <div className="flex items-center space-x-5">
           {/* Resume */}
@@ -124,7 +128,9 @@ function UserInterface({}: UserInterfaceProps) {
           </button>
         </div>
       </nav>
-      {renderContent()}
+      <div className="flex flex-1 items-center justify-center overflow-auto">
+        {renderContent()}
+      </div>{' '}
     </div>
   );
 }
