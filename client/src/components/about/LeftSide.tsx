@@ -6,15 +6,19 @@ function LeftSide() {
       <img
         src={portrait}
         alt="Austin Cavanagh"
-        className="h-32 w-32 rounded-full border-2 border-blue-500"
+        className="h-48 w-48 rounded-full border-2 border-blue-500"
       />
       <h1 className="text-2xl font-bold">Austin Cavanagh</h1>
       <h2 className="text-xl">Software Engineer</h2>
-      <h2 className="text-xl">San Francisco, CA</h2>
-      <p className="max-w-md text-left">
-        Briefly introduce yourself here. Mention your professional background,
-        what you're passionate about, and a personal note. Keep it engaging and
-        concise. Not too long and not too short, just the perfect amount.
+      <h2 className="mt-5 text-xl">San Francisco, CA</h2>
+      <p className="max-w-md text-left text-lg">
+        Briefly introduce yourself here. Mention your{' '}
+        <span className="font-bold text-blue-500">professional background</span>
+        , what you're{' '}
+        <span className="font-bold text-green-400">passionate about</span>, and
+        a personal note. Keep it engaging and concise. Not too long and not too
+        short, just the{' '}
+        <span className="font-bold text-red-500">perfect amount</span>.
       </p>
     </div>
   );
