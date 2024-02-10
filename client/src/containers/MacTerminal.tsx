@@ -35,12 +35,6 @@ function MacTerminal() {
             ["training my dog", "riding motorcylces", "snowboarding","chess"]
           </div>
         </div>
-        {/* <div className="">
-          <div className="text-mac-text-white">{`> Austin.currentLocation`}</div>
-          <div className="text-mac-text-yellow">
-            "B.S. Business Administration - University of California, Berkeley"
-          </div>
-        </div> */}
         <div className="flex items-center">
           <span className="text-mac-text-white">{'>'}</span>
           <span
