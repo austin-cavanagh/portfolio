@@ -1,9 +1,11 @@
 import LeftSide from '../components/about/LeftSide';
+import Skills from '../components/about/Skills';
 
 function About() {
   return (
-    <div className="flex items-center justify-center px-4 py-5 sm:p-6">
+    <div className="flex items-center justify-center">
       <LeftSide />
+      <Skills />
     </div>
   );
 }

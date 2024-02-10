@@ -13,12 +13,14 @@ function LeftSide() {
       <h2 className="mt-5 text-xl">San Francisco, CA</h2>
       <p className="max-w-md text-left text-lg">
         Briefly introduce yourself here. Mention your{' '}
-        <span className="font-bold text-blue-500">professional background</span>
+        <span className="font-bold text-[#00bfff]">
+          professional background
+        </span>
         , what you're{' '}
-        <span className="font-bold text-green-400">passionate about</span>, and
+        <span className="font-bold text-[#00bfff]">passionate about</span>, and
         a personal note. Keep it engaging and concise. Not too long and not too
         short, just the{' '}
-        <span className="font-bold text-red-500">perfect amount</span>.
+        <span className="font-bold text-[#00bfff]">perfect amount</span>.
       </p>
     </div>
   );
