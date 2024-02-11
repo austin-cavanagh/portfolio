@@ -1,4 +1,4 @@
-import { useContext, useEffect, useReducer, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { ThreeEvent, useFrame, useLoader, useThree } from '@react-three/fiber';
 import { DoubleSide, Mesh, TextureLoader } from 'three';
 import getFresnelMat from '../../functions/getFresnelMat';
@@ -53,6 +53,7 @@ function Planet({
     if (planetRef.current) {
       planetRef.current.rotation.z = -(Math.PI * 90) / 180;
     }
+
     if (ringRef.current) {
       ringRef.current.rotation.y = -(Math.PI * 90) / 180;
     }
@@ -67,18 +68,20 @@ function Planet({
 
   // When we deselect the planet update the selectedTime
   useEffect(() => {
-    if (name !== currentPlanet) return;
+    let pauseStart = 0;
 
-    const pauseStart = clock.getElapsedTime();
+    if (currentPlanet === name) {
+      // When the planet is selected store the start time of the pause
+      pauseStart = clock.getElapsedTime();
+    }
 
     return () => {
       if (pauseStart !== 0) {
+        // When the planet is deselected update the total pause time
         selectedTime.current += clock.getElapsedTime() - pauseStart;
       }
     };
   }, [currentPlanet, name, clock]);
-
-  let planetPosition = { x: 0, y: 0, z: 0 };
 
   const [hovered, setHovered] = useState(false);
 
@@ -97,13 +100,21 @@ function Planet({
   }
 
   useFrame(({}) => {
-    if (name === currentPlanet) return;
-
     const elapsedTime = clock.getElapsedTime() - selectedTime.current;
-
     const c = semiMajorAxis * eccentricity;
     const angle = elapsedTime * orbitSpeed;
 
+    // Update planet rotations
+    if (planetRef.current && name === 'Uranus') {
+      planetRef.current.rotation.x += rotation;
+    } else {
+      planetRef.current.rotation.y += rotation;
+    }
+
+    // Do not need to update the planet position since it is not moving when selected
+    if (name === currentPlanet) return;
+
+    // Update moon to orbit around earths location
     if (name === 'Moon' && planetRefs.Earth?.current) {
       orbitCenter = planetRefs.Earth.current.position;
     }
@@ -115,17 +126,8 @@ function Planet({
         Math.sqrt(1 - eccentricity * eccentricity) *
         Math.sin(angle);
 
-    if (planetRef.current && name === 'Uranus') {
-      planetRef.current.rotation.x += rotation;
-      planetRef.current.position.x = x;
-      planetRef.current.position.z = z;
-    }
-
-    if (planetRef.current && name !== 'Uranus') {
-      planetRef.current.rotation.y += rotation;
-      planetRef.current.position.x = x;
-      planetRef.current.position.z = z;
-    }
+    planetRef.current.position.x = x;
+    planetRef.current.position.z = z;
 
     if (glowRef.current) {
       glowRef.current.position.x = x;
@@ -149,11 +151,6 @@ function Planet({
       ring3Ref.current.position.x = x;
       ring3Ref.current.position.z = z;
       ring3Ref.current.rotation.x += 0.009;
-    }
-
-    if (name === 'Earth') {
-      planetPosition.x = x;
-      planetPosition.z = z;
     }
 
     if (ringColor) {
