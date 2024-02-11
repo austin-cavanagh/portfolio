@@ -8,13 +8,13 @@ const frontend: TechIconName[] = [
   'Tailwind',
   'React',
   'Redux',
-  //   'Threejs',
+  'Three.js',
   //   'Vue',
   //   'Solid',
   //   'Svelte',
 ];
 
-const backend: TechIconName[] = ['Node.js', 'Express', 'Python'];
+const backend: TechIconName[] = ['Node.js', 'Express.js', 'Python', 'GraphQL'];
 
 const databases: TechIconName[] = [
   'PostgreSQL',
