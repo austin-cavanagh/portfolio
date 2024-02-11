@@ -880,7 +880,7 @@ function TechIcon({ name }: TechIconProps) {
   return (
     <div className="flex flex-col items-center justify-center space-y-2">
       <div className="h-16 w-16">{techIcons[name]}</div>
-      <span className="text-white">{name}</span>
+      <span className="font-thin text-[#00bfff]">{name}</span>
     </div>
   );
 }

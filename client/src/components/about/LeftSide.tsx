@@ -6,7 +6,7 @@ function LeftSide() {
       <img
         src={portrait}
         alt="Austin Cavanagh"
-        className="h-48 w-48 rounded-full border-2 border-blue-500"
+        className="h-56 w-56 rounded-full border-2 border-blue-500"
       />
       <h1 className="text-2xl font-bold">Austin Cavanagh</h1>
       <h2 className="text-xl">Software Engineer</h2>
