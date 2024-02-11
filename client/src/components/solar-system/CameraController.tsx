@@ -69,15 +69,16 @@ function CameraController({}: CameraControllerProps) {
       return;
     }
 
-    // if (!currentPlanetRef?.current) return;
-
     const planetGeometry = currentPlanetRef.current.geometry as SphereGeometry;
     const planetRadius = planetGeometry.parameters.radius;
 
     // During planet transition
+    // Solution goes in this if statement
     if (currentPlanet && transitionProgressRef.current < 1) {
       const start = camera.position.clone();
-      const planetPosition = new Vector3();
+
+      const planetPosition = currentPlanetRef.current.position;
+
       currentPlanetRef.current.getWorldPosition(planetPosition);
 
       const offsetEnd = planetPosition

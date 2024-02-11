@@ -1,5 +1,5 @@
-import { useContext, useEffect, useRef, useState } from 'react';
-import { ThreeEvent, useFrame, useLoader } from '@react-three/fiber';
+import { useContext, useEffect, useReducer, useRef, useState } from 'react';
+import { ThreeEvent, useFrame, useLoader, useThree } from '@react-three/fiber';
 import { DoubleSide, Mesh, TextureLoader } from 'three';
 import getFresnelMat from '../../functions/getFresnelMat';
 import OrbitPath from './OrbitPath';
@@ -35,6 +35,8 @@ function Planet({
   const ring2Ref = useRef<Mesh>(null!);
   const ring3Ref = useRef<Mesh>(null!);
 
+  const selectedTime = useRef<number>(0);
+
   const { planetRefs, setPlanetRefs } = useContext(PlanetContext);
 
   const { currentPlanet, isTransitioning } = useSelector(
@@ -42,6 +44,8 @@ function Planet({
   );
 
   const dispatch = useDispatch<AppDispatch>();
+
+  const { clock } = useThree();
 
   useEffect(() => {
     if (name !== 'Uranus') return;
@@ -61,6 +65,19 @@ function Planet({
     }));
   }, [name, planetRef, setPlanetRefs]);
 
+  // When we deselect the planet update the selectedTime
+  useEffect(() => {
+    if (name !== currentPlanet) return;
+
+    const pauseStart = clock.getElapsedTime();
+
+    return () => {
+      if (pauseStart !== 0) {
+        selectedTime.current += clock.getElapsedTime() - pauseStart;
+      }
+    };
+  }, [currentPlanet, name, clock]);
+
   let planetPosition = { x: 0, y: 0, z: 0 };
 
   const [hovered, setHovered] = useState(false);
@@ -79,8 +96,10 @@ function Planet({
     ringPatternTexture.rotation = Math.PI / 2;
   }
 
-  useFrame(({ clock }) => {
-    const elapsedTime = clock.getElapsedTime();
+  useFrame(({}) => {
+    if (name === currentPlanet) return;
+
+    const elapsedTime = clock.getElapsedTime() - selectedTime.current;
 
     const c = semiMajorAxis * eccentricity;
     const angle = elapsedTime * orbitSpeed;
