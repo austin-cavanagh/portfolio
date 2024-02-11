@@ -2,5 +2,6 @@
   "dependencies": {
     "@react-three/fiber": "^8.15.13",
     "@react-three/postprocessing": "^2.15.11"
-  }
+  },
+  "devDependencies": {}
 }
