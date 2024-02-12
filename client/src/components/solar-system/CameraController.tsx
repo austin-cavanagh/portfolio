@@ -2,7 +2,7 @@ import { OrbitControls } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
 import { useContext, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { SphereGeometry, Vector3 } from 'three';
+import { Vector3 } from 'three';
 import { AppDispatch, RootState } from '../../state/store';
 import { PlanetContext } from '../../context/PlanetContext';
 import { endTransition } from '../../state/appSlice';
@@ -59,101 +59,6 @@ function CameraController({}: CameraControllerProps) {
       path = 'planetToPlanet';
     }
 
-    // if (path === 'overviewToPlanet') {
-    //   console.log('overviewToPlanet');
-
-    //   const initialPosition = new Vector3(-750, 1000, 1500);
-    //   const initialTarget = new Vector3(0, 0, 0);
-
-    //   new TWEEN.Tween(camera.position)
-    //     .to(
-    //       { x: initialPosition.x, y: initialPosition.y, z: initialPosition.z },
-    //       2000,
-    //     )
-    //     .easing(TWEEN.Easing.Quadratic.InOut)
-    //     .onUpdate(() => camera.updateProjectionMatrix())
-    //     .onComplete(() => {
-    //       dispatch(endTransition());
-    //     })
-    //     .start();
-
-    //   new TWEEN.Tween(orbitControlsRef.current.target)
-    //     .to(
-    //       { x: initialTarget.x, y: initialTarget.y, z: initialTarget.z },
-    //       2000,
-    //     )
-    //     .easing(TWEEN.Easing.Quadratic.InOut)
-    //     .onUpdate(() => orbitControlsRef.current.update())
-    //     .start();
-    // }
-
-    // if (currentPlanet === 'Sun') {
-    //   const planetRadius = currentPlanetRef.current.geometry.parameters.radius;
-    //   const planetPosition = currentPlanetRef.current.position;
-
-    //   const offsetDistance = planetRadius * 4;
-    //   const newPosition = planetPosition
-    //     .clone()
-    //     .add(new Vector3(0, 0, offsetDistance));
-
-    //   const newTarget = planetPosition;
-
-    //   new TWEEN.Tween(camera.position)
-    //     .to(newPosition, 2000)
-    //     .easing(TWEEN.Easing.Quadratic.InOut)
-    //     .onUpdate(() => {
-    //       camera.updateProjectionMatrix();
-    //     })
-    //     .onComplete(() => {
-    //       dispatch(endTransition());
-    //     })
-    //     .start();
-
-    //   new TWEEN.Tween(orbitControlsRef.current.target)
-    //     .to(newTarget, 2000)
-    //     .easing(TWEEN.Easing.Quadratic.InOut)
-    //     .onUpdate(() => {
-    //       orbitControlsRef.current.update();
-    //     })
-    //     .start();
-    // }
-
-    // if (currentPlanet !== 'Overview' && currentPlanet !== 'Sun') {
-    //   const planetRadius = currentPlanetRef.current.geometry.parameters.radius;
-    //   const planetPosition = currentPlanetRef.current.position;
-
-    // const sunToPlanetVector = planetPosition.clone();
-    // const upVector = new Vector3(0, 1, 0);
-    // const cameraToPlanetVector = new Vector3()
-    //   .crossVectors(sunToPlanetVector, upVector)
-    //   .normalize();
-
-    //   const newPosition = planetPosition
-    //     .clone()
-    //     .add(cameraToPlanetVector.multiplyScalar(planetRadius * 4));
-
-    //   const newTarget = planetPosition;
-
-    //   new TWEEN.Tween(camera.position)
-    //     .to(newPosition, 2000)
-    //     .easing(TWEEN.Easing.Quadratic.InOut)
-    //     .onUpdate(() => {
-    //       camera.updateProjectionMatrix();
-    //     })
-    //     .onComplete(() => {
-    //       dispatch(endTransition());
-    //     })
-    //     .start();
-
-    //   new TWEEN.Tween(orbitControlsRef.current.target)
-    //     .to(newTarget, 2000)
-    //     .easing(TWEEN.Easing.Quadratic.InOut)
-    //     .onUpdate(() => {
-    //       orbitControlsRef.current.update();
-    //     })
-    //     .start();
-    // }
-
     // seperated logic
 
     const startPosition = camera.position;
@@ -187,6 +92,10 @@ function CameraController({}: CameraControllerProps) {
     let planetRadius;
     let endPosition;
     let endTarget;
+
+    // I need special logic becuase the camera does not need to be calculated for the sun
+    // Instead of trying to get the sun on the left if we are going to the sun we just need to offset along the z axis
+    // Did not have to do this for overview because we are not orienting based on planet
 
     if (currentPlanet === 'Sun') {
       planetRadius = planetRefs['Sun'].current.geometry.parameters.radius;
