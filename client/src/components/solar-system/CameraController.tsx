@@ -43,7 +43,6 @@ function CameraController({}: CameraControllerProps) {
 
   useEffect(() => {
     if (currentPlanet === 'Overview') {
-      console.log('run');
       const initialPosition = new Vector3(-750, 1000, 1500);
       const initialTarget = new Vector3(0, 0, 0);
 
@@ -166,20 +165,29 @@ function CameraController({}: CameraControllerProps) {
         midPoint.z,
       );
 
-      const updateCameraPosition = (t: any) => {
-        const bezierPoint = calculateBezierPoint(
-          t,
-          startPosition,
-          controlPoint,
-          endPosition,
-        );
-        camera.position.copy(bezierPoint);
-        orbitControlsRef.current.target.lerp(endTarget, t);
-      };
-
+      // Position Transition
       new TWEEN.Tween({ t: 0 })
         .to({ t: 1 }, 2000)
-        .onUpdate(({ t }) => updateCameraPosition(t))
+        .onUpdate(({ t }) => {
+          const bezierPoint = calculateBezierPoint(
+            t,
+            startPosition,
+            controlPoint,
+            endPosition,
+          );
+          camera.position.copy(bezierPoint);
+        })
+        .easing(TWEEN.Easing.Quadratic.InOut)
+        .start();
+
+      // Target Transition
+      new TWEEN.Tween({ t: 0 })
+        .to({ t: 1 }, 2000)
+        .onUpdate(({ t }) => {
+          const newTarget = startTarget.clone().lerp(endTarget, t);
+          orbitControlsRef.current.target.copy(newTarget);
+          orbitControlsRef.current.update();
+        })
         .easing(TWEEN.Easing.Quadratic.InOut)
         .onComplete(() => {
           dispatch(endTransition());
