@@ -31,9 +31,9 @@ function Planet({
   const glowRef = useRef<Mesh>(null!);
   const ringRef = useRef<Mesh>(null!);
 
-  const ring1Ref = useRef<Mesh>(null!);
-  const ring2Ref = useRef<Mesh>(null!);
-  const ring3Ref = useRef<Mesh>(null!);
+  const hoverRefOne = useRef<Mesh>(null!);
+  const hoverRefTwo = useRef<Mesh>(null!);
+  const hoverRefThree = useRef<Mesh>(null!);
 
   const selectedTime = useRef<number>(0);
 
@@ -119,43 +119,43 @@ function Planet({
       orbitCenter = planetRefs.Earth.current.position;
     }
 
-    const x = orbitCenter.x + semiMajorAxis * Math.cos(angle) - c;
-    const z =
+    const newX = orbitCenter.x + semiMajorAxis * Math.cos(angle) - c;
+    const newZ =
       orbitCenter.z +
       semiMajorAxis *
         Math.sqrt(1 - eccentricity * eccentricity) *
         Math.sin(angle);
 
-    planetRef.current.position.x = x;
-    planetRef.current.position.z = z;
+    planetRef.current.position.x = newX;
+    planetRef.current.position.z = newZ;
 
     if (glowRef.current) {
-      glowRef.current.position.x = x;
-      glowRef.current.position.z = z;
+      glowRef.current.position.x = newX;
+      glowRef.current.position.z = newZ;
     }
 
-    if (ring1Ref.current) {
-      ring1Ref.current.position.x = x;
-      ring1Ref.current.position.z = z;
-      ring1Ref.current.rotation.x += 0.0095;
-      ring1Ref.current.rotation.y += 0.0095;
+    if (hoverRefOne.current) {
+      hoverRefOne.current.position.x = newX;
+      hoverRefOne.current.position.z = newZ;
+      hoverRefOne.current.rotation.x += 0.0095;
+      hoverRefOne.current.rotation.y += 0.0095;
     }
 
-    if (ring2Ref.current) {
-      ring2Ref.current.position.x = x;
-      ring2Ref.current.position.z = z;
-      ring2Ref.current.rotation.y += 0.009;
+    if (hoverRefTwo.current) {
+      hoverRefTwo.current.position.x = newX;
+      hoverRefTwo.current.position.z = newZ;
+      hoverRefTwo.current.rotation.y += 0.009;
     }
 
-    if (ring3Ref.current) {
-      ring3Ref.current.position.x = x;
-      ring3Ref.current.position.z = z;
-      ring3Ref.current.rotation.x += 0.009;
+    if (hoverRefThree.current) {
+      hoverRefThree.current.position.x = newX;
+      hoverRefThree.current.position.z = newZ;
+      hoverRefThree.current.rotation.x += 0.009;
     }
 
     if (ringColor) {
-      ringRef.current.position.x = x;
-      ringRef.current.position.z = z;
+      ringRef.current.position.x = newX;
+      ringRef.current.position.z = newZ;
     }
   });
 
@@ -209,15 +209,15 @@ function Planet({
 
       {name !== currentPlanet && (
         <>
-          <mesh ref={ring1Ref} visible={hovered}>
+          <mesh ref={hoverRefOne} visible={hovered}>
             <torusGeometry args={[radius * 1.5, 0.12, 2, 50]} />
             <meshBasicMaterial color={0x00bfff} />
           </mesh>
-          <mesh ref={ring2Ref} visible={hovered}>
+          <mesh ref={hoverRefTwo} visible={hovered}>
             <torusGeometry args={[radius * 1.5, 0.12, 2, 50]} />
             <meshBasicMaterial color={0x00bfff} />
           </mesh>
-          <mesh ref={ring3Ref} visible={hovered}>
+          <mesh ref={hoverRefThree} visible={hovered}>
             <torusGeometry args={[radius * 1.5, 0.12, 2, 50]} />
             <meshBasicMaterial color={0x00bfff} />
           </mesh>

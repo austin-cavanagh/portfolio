@@ -37,7 +37,7 @@ function UserInterface({}: UserInterfaceProps) {
     dispatch(setCurrentPlanet(page));
   };
 
-  console.log(showContent);
+  // console.log(showContent);
 
   return (
     <div
