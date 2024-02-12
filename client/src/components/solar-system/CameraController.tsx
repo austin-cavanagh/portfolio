@@ -154,41 +154,88 @@ function CameraController({}: CameraControllerProps) {
     //     .start();
     // }
 
-    // new logic
-    if (path === 'planetToPlanet' || path === 'overviewToPlanet') {
-      const startPosition = camera.position.clone();
-      const startTarget = new Vector3().copy(orbitControlsRef.current.target);
+    // seperated logic
 
-      let planetRadius;
-      let endPosition;
-      let endTarget;
+    const startPosition = camera.position;
+    const startTarget = orbitControlsRef.current.target;
 
-      if (currentPlanet === 'Sun') {
-        planetRadius = planetRefs['Sun'].current.geometry.parameters.radius;
-        endTarget = new Vector3(0, 0, 0);
-        endPosition = new Vector3(0, 0, planetRadius * 4);
-      }
+    // Slow Start -> Fast End
+    if (path === 'planetToOverview') {
+      const endTarget = new Vector3(0, 0, 0);
+      const endPosition = new Vector3(-750, 1000, 1500);
 
-      if (currentPlanet !== 'Sun') {
-        planetRadius = currentPlanetRef.current.geometry.parameters.radius;
-        endTarget = currentPlanetRef.current.position.clone();
+      // Position Transition
+      new TWEEN.Tween(startPosition)
+        .to(endPosition, 2000)
+        .easing(TWEEN.Easing.Quadratic.InOut)
+        .onUpdate(() => camera.updateProjectionMatrix())
+        .onComplete(() => {
+          dispatch(endTransition());
+        })
+        .start();
 
-        const sunToPlanetVector = endTarget
-          .clone()
-          .sub(new Vector3(0, 0, 0))
-          .normalize();
+      // Target Transition
+      new TWEEN.Tween(startTarget)
+        .to(endTarget, 2000)
+        .easing(TWEEN.Easing.Quadratic.InOut)
+        .onUpdate(() => orbitControlsRef.current.update())
+        .start();
+    }
 
-        const sideDirection = new Vector3()
-          .crossVectors(sunToPlanetVector, new Vector3(0, 1, 0))
-          .normalize();
+    if (!currentPlanetRef?.current) return;
 
-        endPosition = endTarget
-          .clone()
-          .add(sideDirection.multiplyScalar(planetRadius * 4));
-      }
+    let planetRadius;
+    let endPosition;
+    let endTarget;
 
+    if (currentPlanet === 'Sun') {
+      planetRadius = planetRefs['Sun'].current.geometry.parameters.radius;
+      endTarget = new Vector3(0, 0, 0);
+      endPosition = new Vector3(0, 0, planetRadius * 4);
+    }
+
+    if (currentPlanet !== 'Sun') {
+      planetRadius = currentPlanetRef.current.geometry.parameters.radius;
+      endTarget = currentPlanetRef.current.position.clone();
+
+      const sunToPlanetVector = endTarget
+        .clone()
+        .sub(new Vector3(0, 0, 0))
+        .normalize();
+
+      const sideDirection = new Vector3()
+        .crossVectors(sunToPlanetVector, new Vector3(0, 1, 0))
+        .normalize();
+
+      endPosition = endTarget
+        .clone()
+        .add(sideDirection.multiplyScalar(planetRadius * 4));
+    }
+
+    // Fast Start -> Slow End
+    if (path === 'overviewToPlanet') {
+      // Position Transition
+      new TWEEN.Tween(startPosition)
+        .to(endPosition, 2000)
+        .easing(TWEEN.Easing.Quadratic.InOut)
+        .onUpdate(() => camera.updateProjectionMatrix())
+        .onComplete(() => {
+          dispatch(endTransition());
+        })
+        .start();
+
+      // Target Transition
+      new TWEEN.Tween(startTarget)
+        .to(endTarget, 2000)
+        .easing(TWEEN.Easing.Quadratic.InOut)
+        .onUpdate(() => orbitControlsRef.current.update())
+        .start();
+    }
+
+    // Slow Start -> Slow End
+    if (path === 'planetToPlanet') {
       const midPoint = startPosition.clone().lerp(endTarget, 0.5);
-      const arcHeight = 300;
+      const arcHeight = planetRadius * 10;
       const controlPoint = new Vector3(
         midPoint.x,
         midPoint.y + arcHeight,
