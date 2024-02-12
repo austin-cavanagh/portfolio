@@ -194,7 +194,7 @@ function Planet({
         <meshPhongMaterial
           map={colorTexture}
           bumpMap={bumpTexture}
-          bumpScale={bumpTexture ? 5 : 0}
+          bumpScale={bumpTexture ? 3 : 0}
         />
       </mesh>
 

@@ -22,16 +22,16 @@ function SolarSystem() {
           camera={{ fov: 45, position: cameraPosition, near: 0.1, far: 100000 }}
         >
           <Suspense fallback={null}>
-            <Skybox />
+            <ambientLight intensity={0.15} />
 
             <pointLight
               position={[0, 0, 0]}
-              intensity={1.5}
-              distance={5000}
-              decay={2}
+              intensity={2}
+              distance={0} // This effectively makes the light not diminish with distance.
+              decay={0} // Setting decay to 0 to prevent intensity reduction.
             />
 
-            <ambientLight intensity={0.5} />
+            <Skybox />
 
             {/* <Sun /> */}
 
