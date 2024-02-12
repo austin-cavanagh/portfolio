@@ -69,7 +69,38 @@ function CameraController({}: CameraControllerProps) {
         .start();
     }
 
-    if (currentPlanet !== 'Overview') {
+    if (currentPlanet === 'Sun') {
+      const planetRadius = currentPlanetRef.current.geometry.parameters.radius;
+      const planetPosition = currentPlanetRef.current.position;
+
+      const offsetDistance = planetRadius * 4;
+      const newPosition = planetPosition
+        .clone()
+        .add(new Vector3(0, 0, offsetDistance));
+
+      const newTarget = planetPosition;
+
+      new TWEEN.Tween(camera.position)
+        .to(newPosition, 2000)
+        .easing(TWEEN.Easing.Quadratic.InOut)
+        .onUpdate(() => {
+          camera.updateProjectionMatrix();
+        })
+        .onComplete(() => {
+          dispatch(endTransition());
+        })
+        .start();
+
+      new TWEEN.Tween(orbitControlsRef.current.target)
+        .to(newTarget, 2000)
+        .easing(TWEEN.Easing.Quadratic.InOut)
+        .onUpdate(() => {
+          orbitControlsRef.current.update();
+        })
+        .start();
+    }
+
+    if (currentPlanet !== 'Overview' && currentPlanet !== 'Sun') {
       const planetRadius = currentPlanetRef.current.geometry.parameters.radius;
       const planetPosition = currentPlanetRef.current.position;
 
