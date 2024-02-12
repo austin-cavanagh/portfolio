@@ -42,30 +42,68 @@ function CameraController({}: CameraControllerProps) {
   const currentPlanetRef = planetRefs[currentPlanet];
 
   useEffect(() => {
-    if (!currentPlanetRef?.current) return;
+    if (currentPlanet === 'Overview') {
+      console.log('run');
+      const initialPosition = new Vector3(-750, 1000, 1500);
+      const initialTarget = new Vector3(0, 0, 0);
 
-    const planetRadius = currentPlanetRef.current.geometry.parameters.radius;
-    const planetPosition = currentPlanetRef.current.position;
-    const newPosition = planetPosition
-      .clone()
-      .add(new Vector3(planetRadius * 4, 0, 0));
-    const newTarget = planetPosition;
+      new TWEEN.Tween(camera.position)
+        .to(
+          { x: initialPosition.x, y: initialPosition.y, z: initialPosition.z },
+          2000,
+        )
+        .easing(TWEEN.Easing.Quadratic.InOut)
+        .onUpdate(() => camera.updateProjectionMatrix())
+        .onComplete(() => {
+          dispatch(endTransition());
+        })
+        .start();
 
-    new TWEEN.Tween(camera.position)
-      .to(newPosition, 2000)
-      .easing(TWEEN.Easing.Quadratic.InOut)
-      .onUpdate(() => {
-        camera.updateProjectionMatrix();
-      })
-      .start();
+      new TWEEN.Tween(orbitControlsRef.current.target)
+        .to(
+          { x: initialTarget.x, y: initialTarget.y, z: initialTarget.z },
+          2000,
+        )
+        .easing(TWEEN.Easing.Quadratic.InOut)
+        .onUpdate(() => orbitControlsRef.current.update())
+        .start();
+    }
 
-    new TWEEN.Tween(orbitControlsRef.current.target)
-      .to(newTarget, 2000)
-      .easing(TWEEN.Easing.Quadratic.InOut)
-      .onUpdate(() => {
-        orbitControlsRef.current.update();
-      })
-      .start();
+    if (currentPlanet !== 'Overview') {
+      const planetRadius = currentPlanetRef.current.geometry.parameters.radius;
+      const planetPosition = currentPlanetRef.current.position;
+
+      const sunToPlanetVector = planetPosition.clone();
+      const upVector = new Vector3(0, 1, 0);
+      const cameraToPlanetVector = new Vector3()
+        .crossVectors(sunToPlanetVector, upVector)
+        .normalize();
+
+      const newPosition = planetPosition
+        .clone()
+        .add(cameraToPlanetVector.multiplyScalar(planetRadius * 4));
+
+      const newTarget = planetPosition;
+
+      new TWEEN.Tween(camera.position)
+        .to(newPosition, 2000)
+        .easing(TWEEN.Easing.Quadratic.InOut)
+        .onUpdate(() => {
+          camera.updateProjectionMatrix();
+        })
+        .onComplete(() => {
+          dispatch(endTransition());
+        })
+        .start();
+
+      new TWEEN.Tween(orbitControlsRef.current.target)
+        .to(newTarget, 2000)
+        .easing(TWEEN.Easing.Quadratic.InOut)
+        .onUpdate(() => {
+          orbitControlsRef.current.update();
+        })
+        .start();
+    }
   }, [currentPlanet]);
 
   useEffect(() => {
