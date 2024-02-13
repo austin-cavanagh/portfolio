@@ -18,7 +18,9 @@ function Earth() {
   const sunTexture = useLoader(TextureLoader, earthColor);
   const bumpTexture = useLoader(TextureLoader, earthBump);
   const lightsTexture = useLoader(TextureLoader, earthLights);
+
   const cloudsTexture = useLoader(TextureLoader, earthClouds);
+
   const cloudsTransparencyTexture = useLoader(
     TextureLoader,
     earthCloudsTransparency,
@@ -65,6 +67,7 @@ function Earth() {
           emissiveIntensity={0.6}
         />
       </mesh>
+
       <mesh ref={cloudsRef} scale={[1.005, 1.005 * oblateness, 1.005]}>
         <sphereGeometry args={[16, 50, 50]} />
         <meshPhongMaterial
@@ -76,6 +79,7 @@ function Earth() {
           side={DoubleSide}
         />
       </mesh>
+
       <mesh
         ref={glowRef}
         scale={[1.005, 1.005 * oblateness, 1.005]}

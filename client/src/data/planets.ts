@@ -33,23 +33,28 @@ import plutoColor from '../assets/planets/pluto/pluto-color-2k.jpg';
 import plutoBump from '../assets/planets/pluto/pluto-bump-2k.jpg';
 
 export type PlanetProps = {
+  name: string;
   radius: number;
-  rotation: number;
-  oblateness: number;
-  orbitSpeed: number;
-  glowColor: number;
-  colorMap: string;
   semiMajorAxis: number;
   eccentricity: number;
-  name: string;
+  orbitSpeed: number;
+  rotation: number;
+  oblateness: number;
+  glowColor: number;
+  colorMap: string;
+
   orbitCenter?: { x: number; y: number; z: number };
+
   bumpMap?: string;
+  bumpScale?: number;
+
   ringColor?: string;
   ringPattern?: string;
   ringRadius?: number;
   ringTubeRadius?: number;
-  bumpScale?: number;
+
   lightMap?: string;
+
   cloudMap?: string;
   cloudTransparancy?: string;
 };
@@ -103,9 +108,9 @@ export const planets: PlanetProps[] = [
     colorMap: earthColor,
     bumpMap: earthBump,
     bumpScale: 5,
-    lightMap: earthLights,
     cloudMap: earthClouds,
     cloudTransparancy: earthCloudsTransparency,
+    lightMap: earthLights,
   },
 
   {

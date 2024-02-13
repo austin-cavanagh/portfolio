@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { ThreeEvent, useFrame, useLoader, useThree } from '@react-three/fiber';
-import { DoubleSide, Mesh, TextureLoader } from 'three';
+import { Color, DoubleSide, Mesh, TextureLoader } from 'three';
 import getFresnelMat from '../../functions/getFresnelMat';
 import OrbitPath from './OrbitPath';
 import { PlanetProps } from '../../data/planets';
@@ -27,10 +27,14 @@ function Planet({
   ringRadius,
   ringTubeRadius,
   bumpScale,
+  cloudMap,
+  cloudTransparancy,
+  lightMap,
 }: PlanetProps) {
   const planetRef = useRef<Mesh>(null!);
   const glowRef = useRef<Mesh>(null!);
   const ringRef = useRef<Mesh>(null!);
+  const cloudsRef = useRef<Mesh>(null!);
 
   const hoverRefOne = useRef<Mesh>(null!);
   const hoverRefTwo = useRef<Mesh>(null!);
@@ -158,6 +162,11 @@ function Planet({
       ringRef.current.position.x = newX;
       ringRef.current.position.z = newZ;
     }
+
+    if (name === 'Earth') {
+      cloudsRef.current.position.x = newX;
+      cloudsRef.current.position.z = newZ;
+    }
   });
 
   const fresnelMaterialProps = getFresnelMat({
@@ -195,7 +204,13 @@ function Planet({
         <meshPhongMaterial
           map={colorTexture}
           bumpMap={bumpTexture}
-          bumpScale={bumpTexture ? 3 : 0}
+          bumpScale={bumpScale}
+          {...(name === 'Earth' &&
+            lightMap && {
+              emissiveMap: useLoader(TextureLoader, lightMap),
+              emissive: new Color(0xffffff),
+              emissiveIntensity: 0.6,
+            })}
         />
       </mesh>
 
@@ -208,6 +223,7 @@ function Planet({
         />
       </mesh>
 
+      {/* Planet Hover Animation */}
       {name !== currentPlanet && (
         <>
           <mesh ref={hoverRefOne} visible={hovered}>
@@ -225,6 +241,7 @@ function Planet({
         </>
       )}
 
+      {/* Planet Rings */}
       {ringRadius && ringTubeRadius && (
         <mesh ref={ringRef} rotation-x={Math.PI / 2}>
           <torusGeometry args={[ringRadius, ringTubeRadius, 2.0, 100]} />
@@ -238,8 +255,24 @@ function Planet({
         </mesh>
       )}
 
+      {/* Orbit Path */}
       {name !== 'Moon' && (
         <OrbitPath semiMajorAxis={semiMajorAxis} eccentricity={eccentricity} />
+      )}
+
+      {/* Earth Clouds */}
+      {name === 'Earth' && cloudMap && cloudTransparancy && (
+        <mesh ref={cloudsRef} scale={[1.005, 1.005 * oblateness, 1.005]}>
+          <sphereGeometry args={[radius, 50, 50]} />
+          <meshPhongMaterial
+            map={useLoader(TextureLoader, cloudMap)}
+            alphaMap={useLoader(TextureLoader, cloudTransparancy)}
+            opacity={0.4}
+            depthWrite={false}
+            transparent={true}
+            side={DoubleSide}
+          />
+        </mesh>
       )}
     </>
   );
