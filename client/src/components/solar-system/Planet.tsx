@@ -26,6 +26,7 @@ function Planet({
   ringPattern,
   ringRadius,
   ringTubeRadius,
+  bumpScale,
 }: PlanetProps) {
   const planetRef = useRef<Mesh>(null!);
   const glowRef = useRef<Mesh>(null!);

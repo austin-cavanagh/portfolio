@@ -6,6 +6,7 @@ import getFresnelMat from '../../functions/getFresnelMat';
 import earthColor from '../../assets/planets/earth/earth-color-4k.jpg';
 import earthBump from '../../assets/planets/earth/earth-bump-4k.jpg';
 import earthLights from '../../assets/planets/earth/earth-lights-4k.jpg';
+
 import earthClouds from '../../assets/planets/earth/earth-clouds.jpg';
 import earthCloudsTransparency from '../../assets/planets/earth/earth-clouds-transparency-inverted.jpg';
 

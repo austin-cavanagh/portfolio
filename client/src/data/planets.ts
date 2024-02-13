@@ -7,6 +7,10 @@ import venusColor from '../assets/planets/venus/venus-color-2k.jpg';
 import earthColor from '../assets/planets/earth/earth-color-2k.jpg';
 import earthBump from '../assets/planets/earth/earth-bump-2k.jpg';
 
+import earthLights from '../assets/planets/earth/earth-lights-2k.jpg';
+import earthClouds from '../assets/planets/earth/earth-clouds.jpg';
+import earthCloudsTransparency from '../assets/planets/earth/earth-clouds-transparency-inverted.jpg';
+
 import moonColor from '../assets/planets/moon/moon-color-2k.jpg';
 import moonBump from '../assets/planets/moon/moon-bump-2k.jpg';
 
@@ -44,141 +48,161 @@ export type PlanetProps = {
   ringPattern?: string;
   ringRadius?: number;
   ringTubeRadius?: number;
+  bumpScale?: number;
+  lightMap?: string;
+  cloudMap?: string;
+  cloudTransparancy?: string;
 };
 
 export const planets: PlanetProps[] = [
   {
+    name: 'Sun',
     radius: 25,
     semiMajorAxis: 0,
     eccentricity: 0,
     orbitSpeed: 0,
-    oblateness: 1,
     rotation: 0.001,
+    oblateness: 1,
     glowColor: 0xff0000,
     colorMap: sunColor,
-    name: 'Sun',
   },
+
   {
+    name: 'Mercury',
     radius: 5,
     semiMajorAxis: 100,
     eccentricity: 0.2056,
-    orbitSpeed: 0.1,
-    oblateness: 1,
+    orbitSpeed: 0.01,
     rotation: 0.001,
+    oblateness: 1,
     glowColor: 0xb3cde0,
     colorMap: mercuryColor,
-    name: 'Mercury',
   },
+
   {
+    name: 'Venus',
     radius: 10,
     semiMajorAxis: 200,
     eccentricity: 0.0067,
     orbitSpeed: 0.0,
-    oblateness: 1,
     rotation: -0.001,
+    oblateness: 1,
     glowColor: 0xffd700,
     colorMap: venusColor,
-    name: 'Venus',
   },
+
   {
+    name: 'Earth',
     radius: 11,
     semiMajorAxis: 300,
     eccentricity: 0.0167,
     orbitSpeed: 0.01,
-    oblateness: 1,
     rotation: 0.002,
+    oblateness: 1,
     glowColor: 0x0088ff,
     colorMap: earthColor,
-    name: 'Earth',
     bumpMap: earthBump,
+    bumpScale: 5,
+    lightMap: earthLights,
+    cloudMap: earthClouds,
+    cloudTransparancy: earthCloudsTransparency,
   },
+
   {
+    name: 'Moon',
+    radius: 2,
     semiMajorAxis: 40,
     eccentricity: 0.0549,
     orbitSpeed: 0.085,
-    oblateness: 1,
-    radius: 2,
     rotation: 0.002,
+    oblateness: 1,
     glowColor: 0xaaaaaa,
     colorMap: moonColor,
     bumpMap: moonBump,
-    name: 'Moon',
-    orbitCenter: { x: 0, y: 0, z: 0 },
+    bumpScale: 5,
   },
+
   {
+    name: 'Mars',
     radius: 8,
     semiMajorAxis: 450,
     eccentricity: 0.0935,
     orbitSpeed: 0.001,
-    oblateness: 1,
     rotation: 0.00427,
+    oblateness: 1,
     glowColor: 0xff4500,
     colorMap: marsColor,
-    name: 'Mars',
     bumpMap: marsBump,
+    bumpScale: 5,
   },
+
   {
+    name: 'Jupiter',
     radius: 20,
     semiMajorAxis: 620,
     eccentricity: 0.0489,
     orbitSpeed: 0.00084,
-    oblateness: 1.069,
     rotation: 0.001,
+    oblateness: 1.069,
     glowColor: 0xffa500,
     colorMap: jupiterColor,
-    name: 'Jupiter',
   },
+
   {
+    name: 'Saturn',
     radius: 16,
     semiMajorAxis: 800,
     eccentricity: 0.0565,
     orbitSpeed: 0.034,
-    oblateness: 1.083,
     rotation: 0.05,
+    oblateness: 1.083,
     glowColor: 0xcba135,
     colorMap: saturnColor,
-    name: 'Saturn',
     ringColor: saturnRingColor,
     ringPattern: saturnRingPattern,
     ringRadius: 27,
     ringTubeRadius: 6,
   },
+
   {
+    name: 'Uranus',
     radius: 10,
     semiMajorAxis: 970,
     eccentricity: 0.0457,
     orbitSpeed: 0.012,
-    oblateness: 1.011,
     rotation: 0.01,
+    oblateness: 1.011,
     glowColor: 0x1ec2a4,
     colorMap: uranusColor,
-    name: 'Uranus',
     ringColor: uranusRingColor,
     ringPattern: uranusRingPattern,
     ringRadius: 20,
     ringTubeRadius: 2,
   },
+
   {
+    name: 'Neptune',
     radius: 10,
     semiMajorAxis: 1100,
     eccentricity: 0.0113,
     orbitSpeed: 0.012,
-    oblateness: 1.011,
     rotation: 0.02,
+    oblateness: 1.011,
     glowColor: 0x1ec2a4,
     colorMap: neptuneColor,
-    name: 'Neptune',
   },
+
   {
+    name: 'Pluto',
     radius: 5,
     semiMajorAxis: 1200,
     eccentricity: 0.0444,
     orbitSpeed: 0.012,
-    oblateness: 1.011,
     rotation: 0.005,
+    oblateness: 1.011,
     glowColor: 0x1ec2a4,
     colorMap: plutoColor,
-    name: 'Pluto',
     bumpMap: plutoBump,
+    bumpScale: 5,
   },
 ];
