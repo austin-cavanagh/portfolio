@@ -8,12 +8,9 @@ import Planet from './Planet';
 import { planets } from '../../data/planets';
 import CameraController from './CameraController';
 import { PlanetProvider } from '../../context/PlanetContext';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../state/store';
 
 function SolarSystem() {
   const cameraPosition: [number, number, number] = [-750, 1000, 1500];
-  const { currentPlanet } = useSelector((state: RootState) => state.app);
 
   return (
     <PlanetProvider>
@@ -22,13 +19,13 @@ function SolarSystem() {
           camera={{ fov: 45, position: cameraPosition, near: 0.1, far: 100000 }}
         >
           <Suspense fallback={null}>
-            <ambientLight intensity={0.15} />
+            <ambientLight intensity={0.1} />
 
             <pointLight
               position={[0, 0, 0]}
               intensity={2}
-              distance={0} // This effectively makes the light not diminish with distance.
-              decay={0} // Setting decay to 0 to prevent intensity reduction.
+              distance={0}
+              decay={0}
             />
 
             <Skybox />
