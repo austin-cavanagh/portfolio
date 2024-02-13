@@ -116,6 +116,10 @@ function Planet({
       planetRef.current.rotation.y += rotation;
     }
 
+    if (cloudsRef.current) {
+      cloudsRef.current.rotation.y += rotation * 1.1;
+    }
+
     // Do not need to update the planet position since it is not moving when selected
     if (name === currentPlanet) return;
 
@@ -163,7 +167,7 @@ function Planet({
       ringRef.current.position.z = newZ;
     }
 
-    if (name === 'Earth') {
+    if (name === 'Earth' && cloudsRef.current) {
       cloudsRef.current.position.x = newX;
       cloudsRef.current.position.z = newZ;
     }
@@ -214,6 +218,7 @@ function Planet({
         />
       </mesh>
 
+      {/* Glow Mesh */}
       <mesh ref={glowRef} scale={[1.005, 1.005 * oblateness, 1.005]}>
         <icosahedronGeometry args={[radius, 16]} />
         <shaderMaterial
@@ -262,7 +267,7 @@ function Planet({
 
       {/* Earth Clouds */}
       {cloudMap && cloudTransparancy && (
-        <mesh ref={cloudsRef} scale={[1.005, 1.005 * oblateness, 1.005]}>
+        <mesh ref={cloudsRef} scale={[1.01, 1.01 * oblateness, 1.01]}>
           <sphereGeometry args={[radius, 50, 50]} />
           <meshPhongMaterial
             map={useLoader(TextureLoader, cloudMap)}
