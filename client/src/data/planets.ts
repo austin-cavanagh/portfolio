@@ -102,7 +102,7 @@ export const planets: PlanetProps[] = [
     semiMajorAxis: 300,
     eccentricity: 0.0167,
     orbitSpeed: 0.05,
-    rotation: 0.001,
+    rotation: 0.0008,
     oblateness: 1,
     glowColor: 0x0088ff,
     colorMap: earthColor,

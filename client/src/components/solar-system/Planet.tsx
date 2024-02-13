@@ -213,7 +213,7 @@ function Planet({
           {...(lightMap && {
             emissiveMap: useLoader(TextureLoader, lightMap),
             emissive: new Color(0xffffff),
-            emissiveIntensity: 0.6,
+            emissiveIntensity: 0.4,
           })}
         />
       </mesh>
@@ -225,22 +225,38 @@ function Planet({
           attach="material"
           {...fresnelMaterialProps}
           transparent
+          depthWrite={false}
         />
       </mesh>
+
+      {/* Earth Clouds */}
+      {cloudMap && cloudTransparancy && (
+        <mesh ref={cloudsRef} scale={[1.015, 1.015 * oblateness, 1.015]}>
+          <sphereGeometry args={[radius, 50, 50]} />
+          <meshPhongMaterial
+            map={useLoader(TextureLoader, cloudMap)}
+            alphaMap={useLoader(TextureLoader, cloudTransparancy)}
+            opacity={0.4}
+            depthWrite={false}
+            transparent={true}
+            side={DoubleSide}
+          />
+        </mesh>
+      )}
 
       {/* Planet Hover Animation */}
       {name !== currentPlanet && (
         <>
           <mesh ref={hoverRefOne} visible={hovered}>
-            <torusGeometry args={[radius * 1.5, 0.12, 2, 50]} />
+            <torusGeometry args={[radius * 1.5, radius * 0.06, 3, 50]} />
             <meshBasicMaterial color={0x00bfff} />
           </mesh>
           <mesh ref={hoverRefTwo} visible={hovered}>
-            <torusGeometry args={[radius * 1.5, 0.12, 2, 50]} />
+            <torusGeometry args={[radius * 1.5, radius * 0.06, 3, 50]} />
             <meshBasicMaterial color={0x00bfff} />
           </mesh>
           <mesh ref={hoverRefThree} visible={hovered}>
-            <torusGeometry args={[radius * 1.5, 0.12, 2, 50]} />
+            <torusGeometry args={[radius * 1.5, radius * 0.06, 3, 50]} />
             <meshBasicMaterial color={0x00bfff} />
           </mesh>
         </>
@@ -263,21 +279,6 @@ function Planet({
       {/* Orbit Path */}
       {name !== 'Moon' && (
         <OrbitPath semiMajorAxis={semiMajorAxis} eccentricity={eccentricity} />
-      )}
-
-      {/* Earth Clouds */}
-      {cloudMap && cloudTransparancy && (
-        <mesh ref={cloudsRef} scale={[1.01, 1.01 * oblateness, 1.01]}>
-          <sphereGeometry args={[radius, 50, 50]} />
-          <meshPhongMaterial
-            map={useLoader(TextureLoader, cloudMap)}
-            alphaMap={useLoader(TextureLoader, cloudTransparancy)}
-            opacity={0.4}
-            depthWrite={false}
-            transparent={true}
-            side={DoubleSide}
-          />
-        </mesh>
       )}
     </>
   );
