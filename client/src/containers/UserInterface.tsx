@@ -123,7 +123,7 @@ function UserInterface({}: UserInterfaceProps) {
                 className="absolute bottom-0 left-0 right-0 mx-auto h-0.5 w-0 bg-[#00bfff] transition-all duration-300 ease-out group-hover:w-full"
                 style={{
                   transform:
-                    currentPlanet === item.value ? 'none' : 'scaleX(0)',
+                    currentPlanet !== item.value ? 'none' : 'scaleX(0)',
                   transformOrigin: 'center',
                 }}
               />
