@@ -52,6 +52,7 @@ function Planet({
 
   const { clock } = useThree();
 
+  // Adjust planet, ring, and glow orientation based on planets axis tilt
   useEffect(() => {
     if (name !== 'Uranus') return;
 
@@ -62,8 +63,13 @@ function Planet({
     if (ringRef.current) {
       ringRef.current.rotation.y = -(Math.PI * 90) / 180;
     }
+
+    if (glowRef.current) {
+      glowRef.current.rotation.z = -(Math.PI * 90) / 180;
+    }
   }, []);
 
+  // Add the planetRef to our context
   useEffect(() => {
     setPlanetRefs(prevRefs => ({
       ...prevRefs,

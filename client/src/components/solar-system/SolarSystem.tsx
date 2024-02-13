@@ -22,7 +22,7 @@ function SolarSystem() {
           camera={{ fov: 45, position: cameraPosition, near: 0.1, far: 100000 }}
         >
           <Suspense fallback={null}>
-            <ambientLight intensity={0.125} />
+            <ambientLight intensity={0.15} />
 
             <pointLight
               position={[0, 0, 0]}
