@@ -205,12 +205,12 @@ function Planet({
           map={colorTexture}
           bumpMap={bumpTexture}
           bumpScale={bumpScale}
-          {...(name === 'Earth' &&
-            lightMap && {
-              emissiveMap: useLoader(TextureLoader, lightMap),
-              emissive: new Color(0xffffff),
-              emissiveIntensity: 0.6,
-            })}
+          // Earth Lights
+          {...(lightMap && {
+            emissiveMap: useLoader(TextureLoader, lightMap),
+            emissive: new Color(0xffffff),
+            emissiveIntensity: 0.6,
+          })}
         />
       </mesh>
 
@@ -261,7 +261,7 @@ function Planet({
       )}
 
       {/* Earth Clouds */}
-      {name === 'Earth' && cloudMap && cloudTransparancy && (
+      {cloudMap && cloudTransparancy && (
         <mesh ref={cloudsRef} scale={[1.005, 1.005 * oblateness, 1.005]}>
           <sphereGeometry args={[radius, 50, 50]} />
           <meshPhongMaterial
