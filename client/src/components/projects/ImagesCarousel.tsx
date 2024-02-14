@@ -9,7 +9,9 @@ function ImagesCarousel({ images }: ImagesCarouselProps) {
   const [isTransitioning, setIsTransitioning] = useState(true);
   const intervalRef = useRef<number | null>(null);
 
-  const [isPaused, setIsPaused] = useState(false);
+  const [viewMode, setViewMode] = useState<string>('laptop');
+
+  const [isPaused, setIsPaused] = useState<boolean>(false);
 
   const extendedImages = [...images, images[0]];
 
