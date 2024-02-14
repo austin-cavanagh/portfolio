@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../state/store';
 import { setCurrentPlanet } from '../state/appSlice';
 
-import PlanetTitle from '../components/user-interface/PlanetTitle';
 import About from './About';
 import Projects from './Projects';
 import Contact from './Contact';
@@ -44,7 +43,9 @@ function UserInterface({}: UserInterfaceProps) {
     { name: 'Overview', value: 'Overview' },
     { name: 'About', value: 'Earth' },
     { name: 'Projects', value: 'Moon' },
-    { name: 'Contact', value: 'Jupiter' },
+    // { name: 'Project-2', value: 'Mars' },
+    // { name: 'Project-3', value: 'Jupiter' },
+    { name: 'Contact', value: 'Saturn' },
   ];
 
   return (
@@ -109,7 +110,7 @@ function UserInterface({}: UserInterfaceProps) {
         {/* Center */}
         <div className="flex-1 text-center text-2xl">{currentPlanet}</div>
 
-        {/* Right  */}
+        {/* Right */}
         <div className="flex space-x-5">
           {navItems.map(item => (
             <div key={item.value} className="group relative">
@@ -120,12 +121,7 @@ function UserInterface({}: UserInterfaceProps) {
                 {item.name}
               </button>
               <div
-                className="absolute bottom-0 left-0 right-0 mx-auto h-0.5 w-0 bg-[#00bfff] transition-all duration-300 ease-out group-hover:w-full"
-                style={{
-                  transform:
-                    currentPlanet !== item.value ? 'none' : 'scaleX(0)',
-                  transformOrigin: 'center',
-                }}
+                className={`absolute bottom-0 left-0 right-0 mx-auto h-0.5 bg-[#00bfff] transition-all duration-300 ease-out ${currentPlanet === item.value ? 'w-full' : 'w-0 group-hover:w-full'}`}
               />
             </div>
           ))}

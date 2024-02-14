@@ -2,7 +2,7 @@ import portrait from '../../assets/portrait.jpeg';
 
 function LeftSide() {
   return (
-    <div className="flex flex-col items-center space-y-1 rounded-3xl bg-gray-800 bg-opacity-85 p-5 text-white">
+    <div className="flex flex-col items-center space-y-3 rounded-3xl bg-gray-800 bg-opacity-85 p-5 text-white">
       <img
         src={portrait}
         alt="Austin Cavanagh"
