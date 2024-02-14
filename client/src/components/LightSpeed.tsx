@@ -6,7 +6,6 @@ import LightSpeedStar from './LightSpeedStar';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../state/store';
 import { setScene } from '../state/appSlice';
-// import { OrbitControls } from '@react-three/drei';
 
 // Define the props interface
 interface LightSpeedProps {}
@@ -65,12 +64,3 @@ const LightSpeed = ({}: LightSpeedProps) => {
 };
 
 export default LightSpeed;
-
-{
-  /* <mesh position={[0, 0, 0]}>
-        <sphereGeometry args={[0.5, 32, 32]} />
-        <meshBasicMaterial color="red" />
-      </mesh>
-
-      <OrbitControls /> */
-}

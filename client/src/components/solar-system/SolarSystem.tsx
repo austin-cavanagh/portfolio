@@ -3,11 +3,11 @@ import { Canvas } from '@react-three/fiber';
 
 import UserInterface from '../../containers/UserInterface';
 import Skybox from './SkyBox';
-// import Sun from './Sun';
 import Planet from './Planet';
 import { planets } from '../../data/planets';
 import CameraController from './CameraController';
 import { PlanetProvider } from '../../context/PlanetContext';
+// import Sun from './Sun';
 
 function SolarSystem() {
   const cameraPosition: [number, number, number] = [-750, 1000, 1500];

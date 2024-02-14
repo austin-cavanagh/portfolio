@@ -1,17 +1,17 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 type AppState = {
+  scene: string;
   currentPlanet: string;
   showContent: boolean;
   isTransitioning: boolean;
-  scene: string;
 };
 
 const initialState: AppState = {
+  scene: 'solar-system',
   currentPlanet: 'Overview',
-  showContent: false,
+  showContent: true,
   isTransitioning: false,
-  scene: 'light-speed',
 };
 
 export const appSlice = createSlice({

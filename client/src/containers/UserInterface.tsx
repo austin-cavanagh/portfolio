@@ -2,10 +2,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../state/store';
 import { setCurrentPlanet } from '../state/appSlice';
 
-// import PlanetTitle from '../components/user-interface/PlanetTitle';
-// import About from './About';
-// import Projects from './Projects';
-// import Contact from './Contact';
+import PlanetTitle from '../components/user-interface/PlanetTitle';
+import About from './About';
+import Projects from './Projects';
+import Contact from './Contact';
 
 type UserInterfaceProps = {};
 
@@ -16,22 +16,22 @@ function UserInterface({}: UserInterfaceProps) {
 
   const dispatch = useDispatch<AppDispatch>();
 
-  // const renderContent = () => {
-  //   switch (currentPlanet) {
-  //     case 'Earth':
-  //       return <About />;
-  //     case 'Moon':
-  //       return <Projects />;
-  //     case 'Mars':
-  //       return <Projects />;
-  //     case 'Jupiter':
-  //       return <Projects />;
-  //     case 'Saturn':
-  //       return <Contact />;
-  //     default:
-  //       return null;
-  //   }
-  // };
+  const renderContent = () => {
+    switch (currentPlanet) {
+      case 'Earth':
+        return <About />;
+      case 'Moon':
+        return <Projects />;
+      case 'Mars':
+        return <Projects />;
+      case 'Jupiter':
+        return <Projects />;
+      case 'Saturn':
+        return <Contact />;
+      default:
+        return null;
+    }
+  };
 
   const handlePageClick = (page: string) => {
     console.log(page);
@@ -131,10 +131,9 @@ function UserInterface({}: UserInterfaceProps) {
           ))}
         </div>
       </nav>
-
-      {/* <div className="flex flex-1 items-center justify-center overflow-auto">
+      <div className="flex flex-1 items-center justify-center overflow-auto">
         {renderContent()}
-      </div>{' '} */}
+      </div>{' '}
     </div>
   );
 }
