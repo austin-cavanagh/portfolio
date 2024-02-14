@@ -4,12 +4,14 @@ type AppState = {
   currentPlanet: string;
   showContent: boolean;
   isTransitioning: boolean;
+  scene: string;
 };
 
 const initialState: AppState = {
   currentPlanet: 'Overview',
   showContent: false,
   isTransitioning: false,
+  scene: 'light-speed',
 };
 
 export const appSlice = createSlice({
@@ -23,9 +25,12 @@ export const appSlice = createSlice({
     endTransition: state => {
       state.isTransitioning = false;
     },
+    setScene: (state, action: PayloadAction<string>) => {
+      state.scene = action.payload;
+    },
   },
 });
 
-export const { setCurrentPlanet, endTransition } = appSlice.actions;
+export const { setCurrentPlanet, endTransition, setScene } = appSlice.actions;
 
 export default appSlice.reducer;

@@ -3,18 +3,21 @@ import { useFrame } from '@react-three/fiber';
 import { SphereGeometry } from 'three';
 import starPositions from '../utils/starPositions';
 import LightSpeedStar from './LightSpeedStar';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../state/store';
+import { setScene } from '../state/appSlice';
 // import { OrbitControls } from '@react-three/drei';
 
 // Define the props interface
-interface LightSpeedProps {
-  onTransition: () => void;
-}
+interface LightSpeedProps {}
 
-const LightSpeed = ({ onTransition }: LightSpeedProps) => {
+const LightSpeed = ({}: LightSpeedProps) => {
   const [startHyperspace, setStartHyperspace] = useState(false);
   const animationStartTimeRef = useRef(0);
   const positions = useMemo(() => starPositions(), []);
   const geometry = useMemo(() => new SphereGeometry(0.01, 32, 32), []);
+
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     // Start the hyperspace effect
@@ -42,7 +45,7 @@ const LightSpeed = ({ onTransition }: LightSpeedProps) => {
       // Check if the camera has reached the desired position
       if (camera.position.z < -175) {
         console.log('transition');
-        onTransition(); // Call the callback to change the scene
+        dispatch(setScene('solar-system'));
       }
     }
   });
