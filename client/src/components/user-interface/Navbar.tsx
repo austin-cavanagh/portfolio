@@ -84,12 +84,12 @@ function Navbar() {
       </div>
 
       {/* Left Middle */}
-      <div className="h-full flex-grow bg-red-500"></div>
+      {/* <div className="h-full flex-grow bg-red-500"></div> */}
 
       {/* Center */}
-      <div className="flex h-full items-center justify-center bg-gray-900 p-4 text-2xl">
+      {/* <div className="flex h-full items-center justify-center bg-gray-900 p-4 text-2xl">
         {currentPlanet}
-      </div>
+      </div> */}
 
       {/* Right Middle */}
       <div className="h-full flex-grow bg-red-500"></div>
