@@ -25,12 +25,20 @@ function Navbar() {
     { name: 'Contact', value: 'Saturn' },
   ];
 
-  // bg-gray-800
+  // Style for left diagonal
+  const diagonalCutLeft = {
+    clipPath: 'polygon(0 0, 100% 0, 100% 20%, 0 100%)', // Adjust the last value to change the angle of the diagonal
+  };
+
+  // Style for right diagonal
+  const diagonalCutRight = {
+    clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 20%)', // Adjust the last value to change the angle of the diagonal
+  };
 
   return (
-    <nav className="flex items-center justify-between text-lg font-medium text-[#00bfff]">
+    <nav className="flex items-start justify-between text-lg font-medium text-[#00bfff]">
       {/* Left */}
-      <div className="flex h-full items-center space-x-5 bg-gray-800 p-4">
+      <div className="flex h-full items-center space-x-5 bg-gray-900 p-4">
         {/* Resume */}
         <a
           href="/resume.pdf"
@@ -83,16 +91,14 @@ function Navbar() {
         </a>
       </div>
 
-      {/* Left Middle */}
-      {/* <div className="h-full flex-grow bg-red-500"></div> */}
+      {/* Left Diagonal */}
+      <div className="h-full w-10 bg-gray-900" style={diagonalCutLeft}></div>
 
-      {/* Center */}
-      {/* <div className="flex h-full items-center justify-center bg-gray-900 p-4 text-2xl">
-        {currentPlanet}
-      </div> */}
+      {/* Middle */}
+      <div className="h-1/5 flex-grow bg-gray-900"></div>
 
-      {/* Right Middle */}
-      <div className="h-full flex-grow bg-red-500"></div>
+      {/* Right Diagonal */}
+      <div className="h-full w-10 bg-gray-900" style={diagonalCutRight}></div>
 
       {/* Right */}
       <div className="bg-gray-90 flex h-full space-x-5 bg-gray-900 p-4">
