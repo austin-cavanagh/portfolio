@@ -25,10 +25,12 @@ function Navbar() {
     { name: 'Contact', value: 'Saturn' },
   ];
 
+  // bg-gray-800
+
   return (
-    <nav className="flex items-center justify-between bg-gray-800 p-4 text-lg font-medium text-[#00bfff]">
+    <nav className="flex items-center justify-between text-lg font-medium text-[#00bfff]">
       {/* Left */}
-      <div className="flex items-center space-x-5">
+      <div className="flex h-full items-center space-x-5 bg-gray-800 p-4">
         {/* Resume */}
         <a
           href="/resume.pdf"
@@ -82,10 +84,12 @@ function Navbar() {
       </div>
 
       {/* Center */}
-      <div className="flex-1 text-center text-2xl">{currentPlanet}</div>
+      <div className="flex h-full items-center justify-center bg-gray-900 p-4 text-2xl">
+        {currentPlanet}
+      </div>
 
       {/* Right */}
-      <div className="flex space-x-5">
+      <div className="bg-gray-90 flex h-full space-x-5 bg-gray-900 p-4">
         {navItems.map(item => (
           <div key={item.value} className="group relative">
             <button
