@@ -83,10 +83,16 @@ function Navbar() {
         </a>
       </div>
 
+      {/* Left Middle */}
+      <div className="h-full flex-grow bg-red-500"></div>
+
       {/* Center */}
       <div className="flex h-full items-center justify-center bg-gray-900 p-4 text-2xl">
         {currentPlanet}
       </div>
+
+      {/* Right Middle */}
+      <div className="h-full flex-grow bg-red-500"></div>
 
       {/* Right */}
       <div className="bg-gray-90 flex h-full space-x-5 bg-gray-900 p-4">

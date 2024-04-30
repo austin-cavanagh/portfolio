@@ -5,6 +5,7 @@ import About from './About';
 import Projects from './Projects';
 import Contact from './Contact';
 import Navbar from '../components/user-interface/Navbar';
+import BottomBar from '../components/user-interface/BottomBar';
 
 type UserInterfaceProps = {};
 
@@ -37,7 +38,9 @@ function UserInterface({}: UserInterfaceProps) {
       <Navbar />
       <div className="flex flex-1 items-center justify-center overflow-auto">
         {renderContent()}
-      </div>{' '}
+      </div>
+
+      <BottomBar />
     </div>
   );
 }
