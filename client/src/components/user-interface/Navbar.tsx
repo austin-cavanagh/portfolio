@@ -58,13 +58,13 @@ function Navbar() {
   return (
     <nav className="flex items-start justify-between text-lg font-medium text-[#00bfff]">
       {/* Left */}
-      <div className="flex h-full items-center space-x-5 border-b-2 border-[#00bfff] bg-gray-900 bg-opacity-80  p-4">
+      <div className="flex h-[70px] items-center space-x-5 border-b-2 border-[#00bfff] bg-gray-900 bg-opacity-80  p-4">
         {/* Resume */}
         <a
           href="/resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-lg border border-link-blue px-3 py-2 text-link-blue transition duration-300 ease-in-out hover:border-white hover:text-white"
+          className="rounded-lg border border-link-blue px-2 py-1 text-link-blue transition duration-300 ease-in-out hover:border-white hover:text-white"
         >
           Resume
         </a>
@@ -112,21 +112,21 @@ function Navbar() {
       </div>
 
       {/* Left Diagonal */}
-      <div className="relative h-full w-10 bg-transparent">
+      <div className="relative h-[70px] w-10 bg-transparent">
         {/* Blue background that appears as diagonal */}
         <div
-          className="absolute left-0 top-0 h-full w-full bg-opacity-80"
+          className="absolute left-0 top-0 h-full w-full bg-[00bfff] bg-opacity-80"
           style={{
             backgroundColor: '#00bfff',
-            clipPath: 'polygon(0 0, 100% 0, 100% 17%, 0 100%)',
+            clipPath: 'polygon(0 67.5px, 100% 7.5px, 100% 10px, 0 100%)',
           }}
         ></div>
 
         {/* Gray background that appears on top of the blue element above */}
         <div
-          className="absolute left-0 top-0 h-full w-full border-r-2 border-gray-900 bg-gray-900 bg-opacity-80"
+          className="absolute left-0 top-0 h-full w-full bg-gray-900 bg-opacity-80"
           style={{
-            clipPath: 'polygon(0 0, 100% 0, 100% 14%, 0 97%)',
+            clipPath: 'polygon(0 0, 100% 0, 100% 7.5px, 0 67.5px)',
           }}
         ></div>
       </div>
@@ -148,7 +148,7 @@ function Navbar() {
         <div
           className="absolute left-0 top-0 h-[70px] w-full bg-gray-900 bg-opacity-80"
           style={{
-            clipPath: 'polygon(0 0, 100% 0, 100% 97%, 0 8px)',
+            clipPath: 'polygon(0 0, 100% 0, 100% 67.5px, 0 8px)',
           }}
         ></div>
       </div>
