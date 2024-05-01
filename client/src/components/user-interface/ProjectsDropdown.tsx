@@ -6,7 +6,7 @@ function classNames(...classes: (string | false)[]): string {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Example() {
+export default function ProjectsDropdown() {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>

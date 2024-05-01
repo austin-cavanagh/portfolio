@@ -1,27 +1,50 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../state/store';
 import { setCurrentPlanet } from '../../state/appSlice';
+import { useEffect, useRef, useState } from 'react';
 
 function Navbar() {
   const { currentPlanet, isTransitioning } = useSelector(
     (state: RootState) => state.app,
   );
 
+  const dropdownRef = useRef(null);
+
+  const [projectOptionsOpen, setProjectOptionsOpen] = useState(false);
+
   const dispatch = useDispatch<AppDispatch>();
 
-  const handlePageClick = (page: string) => {
-    console.log(page);
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setProjectOptionsOpen(false);
+      }
+    };
 
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const handlePageClick = (event, page: string, option: string) => {
     if (isTransitioning) return;
-    dispatch(setCurrentPlanet(page));
+
+    event.stopPropagation();
+
+    if (option === 'Projects') {
+      setProjectOptionsOpen(!projectOptionsOpen);
+    }
+
+    if (option !== 'Projects') {
+      dispatch(setCurrentPlanet(page));
+    }
   };
 
   const navItems = [
     { name: 'Overview', value: 'Overview' },
     { name: 'About', value: 'Earth' },
     { name: 'Projects', value: 'Moon' },
-    // { name: 'Project-2', value: 'Mars' },
-    // { name: 'Project-3', value: 'Jupiter' },
     { name: 'Contact', value: 'Saturn' },
   ];
 
@@ -125,20 +148,89 @@ function Navbar() {
 
       {/* Right */}
       <div className="bg-gray-90 flex h-full space-x-5 border-b-2 border-[#00bfff] bg-gray-900 p-4">
-        {navItems.map(item => (
-          <div key={item.value} className="group relative">
-            <button
-              className="px-3 py-2 text-[#00bfff] focus:outline-none"
-              onClick={() => handlePageClick(item.value)}
-            >
-              {item.name}
-            </button>
-
+        {navItems.map(item => {
+          return (
             <div
-              className={`absolute bottom-0 left-0 right-0 mx-auto h-0.5 bg-[#00bfff] transition-all duration-300 ease-out ${currentPlanet === item.value ? 'w-full' : 'w-0 group-hover:w-full'}`}
-            />
-          </div>
-        ))}
+              key={item.value}
+              className="group relative"
+              ref={item.name === 'Projects' ? dropdownRef : null}
+            >
+              <button
+                className="inline-flex items-center px-3 py-2 text-[#00bfff] focus:outline-none"
+                onClick={event => handlePageClick(event, item.value, item.name)}
+              >
+                {item.name}
+
+                {/* Open Chevron */}
+                {item.name === 'Projects' && !projectOptionsOpen && (
+                  <svg
+                    className="ml-1 h-4 w-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M3.293 13.707a1 1 0 011.414 0L10 8.414l5.293 5.293a1 1 0 001.414-1.414l-6-6a1 1 0 00-1.414 0l-6 6a1 1 0 010 1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                )}
+
+                {/* Closed Chevron */}
+                {item.name === 'Projects' && projectOptionsOpen && (
+                  <>
+                    <svg
+                      className="ml-1 h-4 w-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M3.293 6.293a1 1 0 011.414 0L10 11.586l5.293-5.293a1 1 0 011.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+
+                    <div className="absolute left-0 top-full mt-1 w-48 bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+                      <ul className="py-1 text-gray-700">
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 text-sm hover:bg-gray-100"
+                          >
+                            React Query Rewind
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 text-sm hover:bg-gray-100"
+                          >
+                            B2C eCommerce Site
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            className="block px-4 py-2 text-sm hover:bg-gray-100"
+                          >
+                            Solar System Portfolio
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </>
+                )}
+              </button>
+
+              <div
+                className={`absolute bottom-0 left-0 right-0 mx-auto h-0.5 bg-[#00bfff] transition-all duration-300 ease-out ${currentPlanet === item.value ? 'w-full' : 'w-0 group-hover:w-full'}`}
+              />
+            </div>
+          );
+        })}
       </div>
     </nav>
   );
