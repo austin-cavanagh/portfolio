@@ -1,33 +1,40 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../state/store';
 import { setCurrentPlanet } from '../../state/appSlice';
-import { useEffect, useRef, useState } from 'react';
+import { MouseEvent, useEffect, useRef, useState } from 'react';
 
 function Navbar() {
   const { currentPlanet, isTransitioning } = useSelector(
     (state: RootState) => state.app,
   );
 
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const [projectOptionsOpen, setProjectOptionsOpen] = useState(false);
 
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    const handleClickOutside = event => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent<EventTarget>) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setProjectOptionsOpen(false);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside as any);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside as any);
     };
   }, []);
 
-  const handlePageClick = (event, page: string, option: string) => {
+  const handlePageClick = (
+    event: MouseEvent<HTMLButtonElement>,
+    page: string,
+    option: string,
+  ) => {
     if (isTransitioning) return;
 
     event.stopPropagation();
