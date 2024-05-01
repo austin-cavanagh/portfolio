@@ -5,7 +5,7 @@ import About from './About';
 import Projects from './Projects';
 import Contact from './Contact';
 import Navbar from '../components/user-interface/Navbar';
-import BottomBar from '../components/user-interface/BottomBar';
+import BottomBar from '../components/user-interface/Footer';
 
 type UserInterfaceProps = {};
 
