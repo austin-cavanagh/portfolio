@@ -25,16 +25,6 @@ function Navbar() {
     { name: 'Contact', value: 'Saturn' },
   ];
 
-  // Style for left diagonal
-  const diagonalCutLeft = {
-    clipPath: 'polygon(0% 0%, 100% 0%, 100% 20%, 0% 100%)', // Adjust the last value to change the angle of the diagonal
-  };
-
-  // Style for right diagonal
-  const diagonalCutRight = {
-    clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 20%)', // Adjust the last value to change the angle of the diagonal
-  };
-
   return (
     <nav className="flex items-start justify-between text-lg font-medium text-[#00bfff]">
       {/* Left */}
@@ -92,13 +82,46 @@ function Navbar() {
       </div>
 
       {/* Left Diagonal */}
-      <div className="h-full w-10 bg-gray-900" style={diagonalCutLeft}></div>
+      <div className="relative h-full w-10 bg-transparent">
+        {/* Blue background that appears as diagonal */}
+        <div
+          className="absolute left-0 top-0 h-full w-full"
+          style={{
+            backgroundColor: '#00bfff',
+            clipPath: 'polygon(0 0, 100% 0, 100% 20%, 0 100%)',
+          }}
+        ></div>
+
+        {/* Gray background that appears on top of the blue element above */}
+        <div
+          className="absolute left-0 top-0 h-full w-full border-r-2 border-gray-900 bg-gray-900"
+          style={{
+            clipPath: 'polygon(0 0, 100% 0, 100% 17%, 0 97%)',
+          }}
+        ></div>
+      </div>
 
       {/* Middle */}
       <div className="h-1/5 flex-grow border-b-2 border-[#00bfff] bg-gray-900"></div>
 
       {/* Right Diagonal */}
-      <div className="h-full w-10 bg-gray-900" style={diagonalCutRight}></div>
+      <div className="relative h-full w-10 bg-transparent">
+        {/* Blue background that appears as diagonal */}
+        <div
+          className="absolute left-0 top-0 h-full w-full bg-[#00bfff]"
+          style={{
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 20%)',
+          }}
+        ></div>
+
+        {/* Gray background that appears on top of the blue element above */}
+        <div
+          className="absolute left-0 top-0 h-full w-full border-r-2 border-gray-900 bg-gray-900"
+          style={{
+            clipPath: 'polygon(0 0, 100% 0, 100% 97%, 0 17%)',
+          }}
+        ></div>
+      </div>
 
       {/* Right */}
       <div className="bg-gray-90 flex h-full space-x-5 border-b-2 border-[#00bfff] bg-gray-900 p-4">

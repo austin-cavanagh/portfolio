@@ -5,16 +5,6 @@ import DateTimeDisplay from './DateTimeDisplay';
 function Footer() {
   const { currentPlanet } = useSelector((state: RootState) => state.app);
 
-  // Style for left diagonal
-  // const diagonalCutLeft = {
-  //   clipPath: 'polygon(0 2px, 100% 80%, 100% 100%, 0 100%)', // Adjust the last value to change the angle of the diagonal
-  // };
-
-  // Style for right diagonal
-  const diagonalCutRight = {
-    clipPath: 'polygon(0 80%, 100% 0, 100% 100%, 0 100%)', // Adjust the last value to change the angle of the diagonal
-  };
-
   return (
     <footer className="flex w-full items-end justify-center text-white">
       {/* Current Planet */}
@@ -58,7 +48,7 @@ function Footer() {
 
         {/* Gray background that appears on top of the blue element above */}
         <div
-          className="absolute left-0 top-0 h-full w-full border-l-2 border-gray-900 bg-gray-900"
+          className="absolute left-0 top-0 h-full w-full border-r-2 border-gray-900 bg-gray-900"
           style={{
             clipPath: 'polygon(0 83%, 100% 2.5px, 100% 100%, 0 100%)',
           }}
