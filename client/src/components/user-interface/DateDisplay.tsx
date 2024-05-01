@@ -11,13 +11,16 @@ function DateTimeDisplay() {
     return () => clearInterval(timerId); // Clean up the interval on component unmount
   }, []);
 
-  const formatDate = date => {
-    const options = { month: 'long', day: 'numeric' };
+  const formatDate = (date: Date) => {
+    const options: Intl.DateTimeFormatOptions = {
+      month: 'long', // 'long', 'short', 'narrow', 'numeric', or '2-digit'
+      day: 'numeric', // 'numeric' or '2-digit'
+    };
     return date.toLocaleDateString(undefined, options); // E.g., "April 28"
   };
 
-  const formatTime = date => {
-    const options = {
+  const formatTime = (date: Date) => {
+    const options: Intl.DateTimeFormatOptions = {
       hour: '2-digit',
       minute: '2-digit',
       second: '2-digit',
