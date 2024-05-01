@@ -27,18 +27,18 @@ function Navbar() {
 
   // Style for left diagonal
   const diagonalCutLeft = {
-    clipPath: 'polygon(0 0, 100% 0, 100% 20%, 0 100%)', // Adjust the last value to change the angle of the diagonal
+    clipPath: 'polygon(0% 0%, 100% 0%, 100% 20%, 0% 100%)', // Adjust the last value to change the angle of the diagonal
   };
 
   // Style for right diagonal
   const diagonalCutRight = {
-    clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 20%)', // Adjust the last value to change the angle of the diagonal
+    clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 20%)', // Adjust the last value to change the angle of the diagonal
   };
 
   return (
     <nav className="flex items-start justify-between text-lg font-medium text-[#00bfff]">
       {/* Left */}
-      <div className="flex h-full items-center space-x-5 bg-gray-900 p-4">
+      <div className="flex h-full items-center space-x-5 border-b-2 border-[#00bfff] bg-gray-900 p-4">
         {/* Resume */}
         <a
           href="/resume.pdf"
@@ -95,13 +95,13 @@ function Navbar() {
       <div className="h-full w-10 bg-gray-900" style={diagonalCutLeft}></div>
 
       {/* Middle */}
-      <div className="h-1/5 flex-grow bg-gray-900"></div>
+      <div className="h-1/5 flex-grow border-b-2 border-[#00bfff] bg-gray-900"></div>
 
       {/* Right Diagonal */}
       <div className="h-full w-10 bg-gray-900" style={diagonalCutRight}></div>
 
       {/* Right */}
-      <div className="bg-gray-90 flex h-full space-x-5 bg-gray-900 p-4">
+      <div className="bg-gray-90 flex h-full space-x-5 border-b-2 border-[#00bfff] bg-gray-900 p-4">
         {navItems.map(item => (
           <div key={item.value} className="group relative">
             <button

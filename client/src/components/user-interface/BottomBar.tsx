@@ -1,13 +1,13 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../state/store';
-import DateTimeDisplay from './DateDisplay';
+import DateTimeDisplay from './DateTimeDisplay';
 
 function BottomBar() {
   const { currentPlanet } = useSelector((state: RootState) => state.app);
 
   // Style for left diagonal
   const diagonalCutLeft = {
-    clipPath: 'polygon(0 0, 100% 80%, 100% 100%, 0 100%)', // Adjust the last value to change the angle of the diagonal
+    clipPath: 'polygon(0 2px, 100% 80%, 100% 100%, 0 100%)', // Adjust the last value to change the angle of the diagonal
   };
 
   // Style for right diagonal
@@ -16,17 +16,20 @@ function BottomBar() {
   };
 
   return (
-    <footer className="flex w-full items-end justify-between text-white">
+    <footer className="flex w-full items-end justify-center text-white">
       {/* Current Planet */}
-      <div className="bg-gray-900 p-6 text-lg text-[#00bfff]">
+      <div className="border-t-2 border-[#00bfff] bg-gray-900 p-6 text-lg text-[#00bfff]">
         {currentPlanet}
       </div>
 
       {/* Left Diagonal */}
-      <div className="h-full w-10 bg-gray-900" style={diagonalCutLeft}></div>
+      <div
+        className="diagonalWithBorder h-full w-10 border-t-2 border-[#00bfff] bg-gray-900"
+        style={diagonalCutLeft}
+      ></div>
 
       {/* Middle */}
-      <div className="h-1/5 flex-grow bg-gray-900"></div>
+      <div className="h-1/5 flex-grow border-t-2 border-[#00bfff] bg-gray-900"></div>
 
       {/* Right Diagonal */}
       <div className="h-full w-10 bg-gray-900" style={diagonalCutRight}></div>
