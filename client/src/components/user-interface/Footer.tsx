@@ -8,7 +8,7 @@ function Footer() {
   return (
     <footer className="flex w-full items-end justify-center text-white">
       {/* Current Planet */}
-      <div className="h-[70px] border-t-2 border-[#00bfff] bg-gray-900 p-6 text-lg text-[#00bfff] opacity-80">
+      <div className="h-[70px] border-t-2 border-[#00bfff] bg-gray-900 p-6 text-xl text-[#00bfff] opacity-80">
         {currentPlanet}
       </div>
 

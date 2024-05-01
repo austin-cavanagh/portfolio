@@ -56,7 +56,7 @@ function Navbar() {
   ];
 
   return (
-    <nav className="flex items-start justify-between text-lg font-medium text-[#00bfff]">
+    <nav className="flex items-start justify-between text-xl font-medium text-[#00bfff]">
       {/* Left */}
       <div className="flex h-[70px] items-center space-x-5 border-b-2 border-[#00bfff] bg-gray-900 bg-opacity-80  p-4">
         {/* Resume */}
@@ -201,7 +201,7 @@ function Navbar() {
                     </svg>
 
                     {/* Dropdown Menu */}
-                    <div className="absolute right-0 top-full mt-8 shadow-lg">
+                    <div className="absolute right-0 top-full mt-8 w-48 shadow-lg">
                       <ul className="w-56 rounded-lg border-2 border-[#00bfff] bg-gray-900 bg-opacity-80 py-1 text-left text-[#00bfff]">
                         <li>
                           <a

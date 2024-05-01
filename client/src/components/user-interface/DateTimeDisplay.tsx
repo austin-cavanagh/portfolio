@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function DateTimeDisplay() {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -12,29 +12,29 @@ function DateTimeDisplay() {
   }, []);
 
   const formatDate = (date: Date) => {
-    const options: Intl.DateTimeFormatOptions = {
-      month: 'long', // 'long', 'short', 'narrow', 'numeric', or '2-digit'
-      day: 'numeric', // 'numeric' or '2-digit'
-    };
-    return date.toLocaleDateString(undefined, options); // E.g., "April 28"
-  };
+    const formattedDate = date
+      .toLocaleDateString(undefined, {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+      })
+      .split('/')
+      .reverse()
+      .join(':'); // Adjusts the format to YYYY-MM-DD
 
-  const formatTime = (date: Date) => {
-    const options: Intl.DateTimeFormatOptions = {
+    const formattedTime = date.toLocaleTimeString(undefined, {
       hour: '2-digit',
       minute: '2-digit',
       second: '2-digit',
       hour12: false,
-    };
-    return date.toLocaleTimeString(undefined, options); // E.g., "23:31:45"
+    });
+
+    return `${formattedDate} ${formattedTime}`; // Combines date and time in the desired format
   };
 
   return (
-    <div className="flex h-[70px] items-center space-x-4 border-t-2 border-[#00bfff] bg-gray-900 p-6 text-sm text-white opacity-80 md:text-base lg:text-lg">
-      <span className="text-[#00bfff]">{formatDate(currentTime)}</span>
-      <span className="font-mono tracking-wider text-[#00bfff]">
-        {formatTime(currentTime)}
-      </span>
+    <div className="flex h-[70px] items-center space-x-4 border-t-2 border-[#00bfff] bg-gray-900 p-6 opacity-80">
+      <span className="text-xl text-[#00bfff]">{formatDate(currentTime)}</span>
     </div>
   );
 }
