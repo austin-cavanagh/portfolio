@@ -49,6 +49,7 @@ function Navbar() {
   };
 
   const handleNavigation = (planet: string) => {
+    if (currentPlanet === planet) return;
     dispatch(setCurrentPlanet(planet));
   };
 

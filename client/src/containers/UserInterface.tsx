@@ -6,6 +6,8 @@ import Projects from './Projects';
 import Contact from './Contact';
 import Navbar from '../components/user-interface/Navbar';
 import BottomBar from '../components/user-interface/Footer';
+import ProjectOne from '../components/projects/ProjectOne';
+import ProjectTwo from '../components/projects/ProjectTwo';
 
 type UserInterfaceProps = {};
 
@@ -18,10 +20,10 @@ function UserInterface({}: UserInterfaceProps) {
     switch (currentPlanet) {
       case 'Earth':
         return <About />;
-      case 'Moon':
-        return <Projects />;
       case 'Mars':
-        return <Projects />;
+        return <ProjectOne />;
+      case 'Venus':
+        return <ProjectTwo />;
       case 'Jupiter':
         return <Projects />;
       case 'Saturn':
