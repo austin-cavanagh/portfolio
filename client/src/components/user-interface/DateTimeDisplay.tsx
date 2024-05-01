@@ -30,7 +30,7 @@ function DateTimeDisplay() {
   };
 
   return (
-    <div className="flex h-full items-center space-x-4 border-t-2 border-[#00bfff] bg-gray-900 p-6 text-sm text-white md:text-base lg:text-lg">
+    <div className="flex h-[70px] items-center space-x-4 border-t-2 border-[#00bfff] bg-gray-900 p-6 text-sm text-white opacity-80 md:text-base lg:text-lg">
       <span className="text-[#00bfff]">{formatDate(currentTime)}</span>
       <span className="font-mono tracking-wider text-[#00bfff]">
         {formatTime(currentTime)}

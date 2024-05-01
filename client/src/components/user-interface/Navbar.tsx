@@ -201,12 +201,12 @@ function Navbar() {
                     </svg>
 
                     {/* Dropdown Menu */}
-                    <div className="absolute right-0 top-full mt-8 w-48 shadow-lg">
-                      <ul className="rounded-2xl border-2 border-[#00bfff] bg-gray-900 bg-opacity-80 py-1 text-left text-[#00bfff]">
+                    <div className="absolute right-0 top-full mt-8 shadow-lg">
+                      <ul className="w-56 rounded-lg border-2 border-[#00bfff] bg-gray-900 bg-opacity-80 py-1 text-left text-[#00bfff]">
                         <li>
                           <a
                             href="#"
-                            className="block px-4 py-2 text-sm hover:bg-gray-100"
+                            className="block px-4 py-2 text-base hover:text-white"
                           >
                             1. React Query Rewind
                           </a>
@@ -214,7 +214,7 @@ function Navbar() {
                         <li>
                           <a
                             href="#"
-                            className="block px-4 py-2 text-sm hover:bg-gray-100"
+                            className="block px-4 py-2 text-base hover:text-white"
                           >
                             2. B2C eCommerce Site
                           </a>
@@ -222,7 +222,7 @@ function Navbar() {
                         <li>
                           <a
                             href="#"
-                            className="block px-4 py-2 text-sm hover:bg-gray-100"
+                            className="block px-4 py-2 text-base hover:text-white"
                           >
                             3. Threejs Solar System
                           </a>
