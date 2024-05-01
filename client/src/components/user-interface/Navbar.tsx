@@ -52,13 +52,13 @@ function Navbar() {
     { name: 'Overview', value: 'Overview' },
     { name: 'About', value: 'Earth' },
     { name: 'Projects', value: 'Moon' },
-    { name: 'Contact', value: 'Saturn' },
+    // { name: 'Contact', value: 'Saturn' },
   ];
 
   return (
     <nav className="flex items-start justify-between text-lg font-medium text-[#00bfff]">
       {/* Left */}
-      <div className="flex h-full items-center space-x-5 border-b-2 border-[#00bfff] bg-gray-900 p-4">
+      <div className="flex h-full items-center space-x-5 border-b-2 border-[#00bfff] bg-gray-900 bg-opacity-80  p-4">
         {/* Resume */}
         <a
           href="/resume.pdf"
@@ -115,7 +115,7 @@ function Navbar() {
       <div className="relative h-full w-10 bg-transparent">
         {/* Blue background that appears as diagonal */}
         <div
-          className="absolute left-0 top-0 h-full w-full"
+          className="absolute left-0 top-0 h-full w-full bg-opacity-80"
           style={{
             backgroundColor: '#00bfff',
             clipPath: 'polygon(0 0, 100% 0, 100% 17%, 0 100%)',
@@ -124,7 +124,7 @@ function Navbar() {
 
         {/* Gray background that appears on top of the blue element above */}
         <div
-          className="absolute left-0 top-0 h-full w-full border-r-2 border-gray-900 bg-gray-900"
+          className="absolute left-0 top-0 h-full w-full border-r-2 border-gray-900 bg-gray-900 bg-opacity-80"
           style={{
             clipPath: 'polygon(0 0, 100% 0, 100% 14%, 0 97%)',
           }}
@@ -132,34 +132,34 @@ function Navbar() {
       </div>
 
       {/* Middle */}
-      <div className="h-1/6 flex-grow border-b-2 border-[#00bfff] bg-gray-900"></div>
+      <div className="h-[10px] flex-grow border-b-2 border-[#00bfff] bg-gray-900 bg-opacity-80"></div>
 
       {/* Right Diagonal */}
-      <div className="relative h-full w-10 bg-transparent">
+      <div className="relative h-[70px] w-10 bg-transparent">
         {/* Blue background that appears as diagonal */}
         <div
           className="absolute left-0 top-0 h-full w-full bg-[#00bfff]"
           style={{
-            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 17%)',
+            clipPath: 'polygon(0 7.5px, 100% 67.5px, 100% 100%, 0 10px)',
           }}
         ></div>
 
         {/* Gray background that appears on top of the blue element above */}
         <div
-          className="absolute left-0 top-0 h-full w-full border-r-2 border-gray-900 bg-gray-900"
+          className="absolute left-0 top-0 h-[70px] w-full bg-gray-900 bg-opacity-80"
           style={{
-            clipPath: 'polygon(0 0, 100% 0, 100% 97%, 0 14%)',
+            clipPath: 'polygon(0 0, 100% 0, 100% 97%, 0 8px)',
           }}
         ></div>
       </div>
 
       {/* Right */}
-      <div className="bg-gray-90 flex h-full space-x-5 border-b-2 border-[#00bfff] bg-gray-900 p-4">
+      <div className="bg-gray-90 flex h-[70px] space-x-5 border-b-2 border-[#00bfff] bg-gray-900 bg-opacity-80 p-4 px-6">
         {navItems.map(item => {
           return (
             <div
               key={item.value}
-              className="group relative"
+              className="group relative flex items-center justify-center"
               ref={item.name === 'Projects' ? dropdownRef : null}
             >
               <button
@@ -168,7 +168,7 @@ function Navbar() {
               >
                 {item.name}
 
-                {/* Open Chevron */}
+                {/* Chevron Up */}
                 {item.name === 'Projects' && !projectOptionsOpen && (
                   <svg
                     className="ml-1 h-4 w-4"
@@ -184,7 +184,7 @@ function Navbar() {
                   </svg>
                 )}
 
-                {/* Closed Chevron */}
+                {/* Chevron Down */}
                 {item.name === 'Projects' && projectOptionsOpen && (
                   <>
                     <svg
@@ -200,14 +200,15 @@ function Navbar() {
                       />
                     </svg>
 
-                    <div className="absolute left-0 top-full mt-1 w-48 bg-white shadow-lg ring-1 ring-black ring-opacity-5">
-                      <ul className="py-1 text-gray-700">
+                    {/* Dropdown Menu */}
+                    <div className="absolute right-0 top-full mt-8 w-48 shadow-lg">
+                      <ul className="rounded-2xl border-2 border-[#00bfff] bg-gray-900 bg-opacity-80 py-1 text-left text-[#00bfff]">
                         <li>
                           <a
                             href="#"
                             className="block px-4 py-2 text-sm hover:bg-gray-100"
                           >
-                            React Query Rewind
+                            1. React Query Rewind
                           </a>
                         </li>
                         <li>
@@ -215,7 +216,7 @@ function Navbar() {
                             href="#"
                             className="block px-4 py-2 text-sm hover:bg-gray-100"
                           >
-                            B2C eCommerce Site
+                            2. B2C eCommerce Site
                           </a>
                         </li>
                         <li>
@@ -223,7 +224,7 @@ function Navbar() {
                             href="#"
                             className="block px-4 py-2 text-sm hover:bg-gray-100"
                           >
-                            Solar System Portfolio
+                            3. Threejs Solar System
                           </a>
                         </li>
                       </ul>
