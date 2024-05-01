@@ -133,6 +133,7 @@ function Navbar() {
             >
               {item.name}
             </button>
+
             <div
               className={`absolute bottom-0 left-0 right-0 mx-auto h-0.5 bg-[#00bfff] transition-all duration-300 ease-out ${currentPlanet === item.value ? 'w-full' : 'w-0 group-hover:w-full'}`}
             />
