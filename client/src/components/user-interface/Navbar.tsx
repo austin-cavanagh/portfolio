@@ -88,7 +88,7 @@ function Navbar() {
           className="absolute left-0 top-0 h-full w-full"
           style={{
             backgroundColor: '#00bfff',
-            clipPath: 'polygon(0 0, 100% 0, 100% 20%, 0 100%)',
+            clipPath: 'polygon(0 0, 100% 0, 100% 17%, 0 100%)',
           }}
         ></div>
 
@@ -96,13 +96,13 @@ function Navbar() {
         <div
           className="absolute left-0 top-0 h-full w-full border-r-2 border-gray-900 bg-gray-900"
           style={{
-            clipPath: 'polygon(0 0, 100% 0, 100% 17%, 0 97%)',
+            clipPath: 'polygon(0 0, 100% 0, 100% 14%, 0 97%)',
           }}
         ></div>
       </div>
 
       {/* Middle */}
-      <div className="h-1/5 flex-grow border-b-2 border-[#00bfff] bg-gray-900"></div>
+      <div className="h-1/6 flex-grow border-b-2 border-[#00bfff] bg-gray-900"></div>
 
       {/* Right Diagonal */}
       <div className="relative h-full w-10 bg-transparent">
@@ -110,7 +110,7 @@ function Navbar() {
         <div
           className="absolute left-0 top-0 h-full w-full bg-[#00bfff]"
           style={{
-            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 20%)',
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 17%)',
           }}
         ></div>
 
@@ -118,7 +118,7 @@ function Navbar() {
         <div
           className="absolute left-0 top-0 h-full w-full border-r-2 border-gray-900 bg-gray-900"
           style={{
-            clipPath: 'polygon(0 0, 100% 0, 100% 97%, 0 17%)',
+            clipPath: 'polygon(0 0, 100% 0, 100% 97%, 0 14%)',
           }}
         ></div>
       </div>
