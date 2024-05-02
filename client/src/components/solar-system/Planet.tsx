@@ -5,9 +5,9 @@ import {
   Color,
   DoubleSide,
   Mesh,
+  Sprite,
   SpriteMaterial,
   TextureLoader,
-  Vector3,
 } from 'three';
 import getFresnelMat from '../../functions/getFresnelMat';
 import OrbitPath from './OrbitPath';
@@ -17,7 +17,6 @@ import { PlanetContext } from '../../context/PlanetContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../state/store';
 import { setCurrentPlanet } from '../../state/appSlice';
-import { Text } from '@react-three/drei';
 
 function Planet({
   radius,
@@ -46,7 +45,7 @@ function Planet({
   const cloudsRef = useRef<Mesh>(null!);
 
   // const textRef = useRef<any>(null!);
-  const textSpriteRef = useRef(null);
+  const textSpriteRef = useRef<Sprite | null>(null);
 
   const hoverRefOne = useRef<Mesh>(null!);
   const hoverRefTwo = useRef<Mesh>(null!);
@@ -81,6 +80,7 @@ function Planet({
     }
   }, []);
 
+  // Code to move the text
   useEffect(() => {
     // Create canvas
     const canvas = document.createElement('canvas');
@@ -88,27 +88,32 @@ function Planet({
     canvas.width = 256; // Adjust as needed
     canvas.height = 64; // Adjust as needed
 
-    // Style your text
-    context.fillStyle = '#00bfff'; // Text color
-    context.textBaseline = 'middle'; // Align text vertically in the middle
-    context.textAlign = 'right'; // Align text to the right
+    if (context) {
+      // Style your text
+      context.fillStyle = '#00bfff'; // Text color
+      context.textBaseline = 'middle'; // Align text vertically in the middle
+      context.textAlign = 'right'; // Align text to the right
 
-    context.font = 'Bold 20px Arial'; // Adjust font style as needed
-    context.fillText(name, 110, 30); // Adjust text position as needed
+      context.font = 'Bold 20px Arial'; // Adjust font style as needed
+      context.fillText(name, 110, 30); // Adjust text position as needed
 
-    // Create texture from canvas
-    const texture = new CanvasTexture(canvas);
+      if (textSpriteRef.current) {
+        // Create texture from canvas
+        const texture = new CanvasTexture(canvas);
 
-    // Create sprite material with this texture
-    const material = new SpriteMaterial({
-      map: texture,
-      sizeAttenuation: false, // This ensures the sprite's size remains constant on screen
-    });
-    // Assign material to sprite
-    textSpriteRef.current.material = material;
+        // Create sprite material with this texture
+        const material = new SpriteMaterial({
+          map: texture,
+          sizeAttenuation: false, // This ensures the sprite's size remains constant on screen
+        });
 
-    // Adjust sprite scale here if needed
-    textSpriteRef.current.scale.set(0.2, 0.05, 1); // Scale values might need adjustment
+        // Assign material to sprite
+        textSpriteRef.current.material = material;
+
+        // Adjust sprite scale here if needed
+        textSpriteRef.current.scale.set(0.2, 0.05, 1); // Scale values might need adjustment
+      }
+    }
   }, [name]);
 
   // Add the planetRef to our context
@@ -152,7 +157,7 @@ function Planet({
     ringPatternTexture.rotation = Math.PI / 2;
   }
 
-  useFrame(({ clock, camera }) => {
+  useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime() - selectedTime.current;
     const c = semiMajorAxis * eccentricity;
     const angle = elapsedTime * orbitSpeed;
@@ -227,7 +232,6 @@ function Planet({
         planetRef.current.position.y + radius * offsetAbovePlanet;
       textSpriteRef.current.position.z = newZ;
 
-      // textSpriteRef.current.lookAt(camera.position);
       // Dynamically adjust the scale or other properties based on the distance to the camera if needed
     }
   });
