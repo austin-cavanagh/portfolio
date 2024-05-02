@@ -44,7 +44,6 @@ function Planet({
   const ringRef = useRef<Mesh>(null!);
   const cloudsRef = useRef<Mesh>(null!);
 
-  // const textRef = useRef<any>(null!);
   const textSpriteRef = useRef<Sprite | null>(null);
 
   const hoverRefOne = useRef<Mesh>(null!);
@@ -80,7 +79,7 @@ function Planet({
     }
   }, []);
 
-  // Code to move the text
+  // Code to handle the planet name positioning
   useEffect(() => {
     // Create canvas
     const canvas = document.createElement('canvas');
@@ -94,7 +93,7 @@ function Planet({
       context.textBaseline = 'middle'; // Align text vertically in the middle
       context.textAlign = 'right'; // Align text to the right
 
-      context.font = 'Bold 20px Arial'; // Adjust font style as needed
+      context.font = 'Bold 18px Arial'; // Adjust font style as needed
       context.fillText(name, 110, 30); // Adjust text position as needed
 
       if (textSpriteRef.current) {
@@ -225,6 +224,7 @@ function Planet({
       cloudsRef.current.position.z = newZ;
     }
 
+    // Adjusting the textStripeRef position
     if (textSpriteRef.current) {
       const offsetAbovePlanet = 1.2; // Adjust the multiplier to control the height above the planet
       textSpriteRef.current.position.x = newX;
@@ -281,7 +281,10 @@ function Planet({
         />
       </mesh>
 
-      <sprite ref={textSpriteRef} />
+      {/* Planet Name Display */}
+      {name !== 'Sun' && name !== 'Moon' && currentPlanet !== name && (
+        <sprite ref={textSpriteRef} />
+      )}
 
       {/* Glow Mesh */}
       <mesh ref={glowRef} scale={[1.005, 1.005 * oblateness, 1.005]}>
