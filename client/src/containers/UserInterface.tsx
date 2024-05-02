@@ -2,12 +2,12 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../state/store';
 
 import About from './About';
-import Projects from './Projects';
 import Contact from './Contact';
 import Navbar from '../components/user-interface/Navbar';
 import BottomBar from '../components/user-interface/Footer';
 import ProjectOne from '../components/projects/ProjectOne';
 import ProjectTwo from '../components/projects/ProjectTwo';
+import ProjectThree from '../components/projects/ProjectsThree';
 
 type UserInterfaceProps = {};
 
@@ -25,7 +25,7 @@ function UserInterface({}: UserInterfaceProps) {
       case 'Venus':
         return <ProjectTwo />;
       case 'Jupiter':
-        return <Projects />;
+        return <ProjectThree />;
       case 'Saturn':
         return <Contact />;
       default:
