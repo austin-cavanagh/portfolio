@@ -10,7 +10,7 @@ type AppState = {
 const initialState: AppState = {
   scene: 'solar-system',
   currentPlanet: 'Overview',
-  showContent: true,
+  showContent: false,
   isTransitioning: false,
 };
 

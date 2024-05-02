@@ -18,30 +18,30 @@ function UserInterface({}: UserInterfaceProps) {
 
   const renderContent = () => {
     switch (currentPlanet) {
-      case 'Earth':
-        return (
-          <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
-            <About />;
-          </div>
-        );
-      case 'Mars':
-        return (
-          <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
-            <ProjectOne />;
-          </div>
-        );
-      case 'Venus':
-        return (
-          <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
-            <ProjectTwo />;
-          </div>
-        );
-      case 'Jupiter':
-        return (
-          <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
-            <ProjectThree />;
-          </div>
-        );
+      // case 'Earth':
+      //   return (
+      //     <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
+      //       <About />;
+      //     </div>
+      //   );
+      // case 'Mars':
+      //   return (
+      //     <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
+      //       <ProjectOne />;
+      //     </div>
+      //   );
+      // case 'Venus':
+      //   return (
+      //     <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
+      //       <ProjectTwo />;
+      //     </div>
+      //   );
+      // case 'Jupiter':
+      //   return (
+      //     <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
+      //       <ProjectThree />;
+      //     </div>
+      //   );
       // case 'Saturn':
       //   return <Contact />;
       default:

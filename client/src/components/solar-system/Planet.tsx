@@ -1,6 +1,14 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { ThreeEvent, useFrame, useLoader, useThree } from '@react-three/fiber';
-import { Color, DoubleSide, Mesh, TextureLoader } from 'three';
+import {
+  CanvasTexture,
+  Color,
+  DoubleSide,
+  Mesh,
+  SpriteMaterial,
+  TextureLoader,
+  Vector3,
+} from 'three';
 import getFresnelMat from '../../functions/getFresnelMat';
 import OrbitPath from './OrbitPath';
 import { PlanetProps } from '../../data/planets';
@@ -9,6 +17,7 @@ import { PlanetContext } from '../../context/PlanetContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../state/store';
 import { setCurrentPlanet } from '../../state/appSlice';
+import { Text } from '@react-three/drei';
 
 function Planet({
   radius,
@@ -35,6 +44,9 @@ function Planet({
   const glowRef = useRef<Mesh>(null!);
   const ringRef = useRef<Mesh>(null!);
   const cloudsRef = useRef<Mesh>(null!);
+
+  // const textRef = useRef<any>(null!);
+  const textSpriteRef = useRef(null);
 
   const hoverRefOne = useRef<Mesh>(null!);
   const hoverRefTwo = useRef<Mesh>(null!);
@@ -68,6 +80,36 @@ function Planet({
       glowRef.current.rotation.z = -(Math.PI * 90) / 180;
     }
   }, []);
+
+  useEffect(() => {
+    // Create canvas
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    canvas.width = 256; // Adjust as needed
+    canvas.height = 64; // Adjust as needed
+
+    // Style your text
+    context.fillStyle = '#00bfff'; // Text color
+    context.textBaseline = 'middle'; // Align text vertically in the middle
+    context.textAlign = 'right'; // Align text to the right
+
+    context.font = 'Bold 20px Arial'; // Adjust font style as needed
+    context.fillText(name, 110, 30); // Adjust text position as needed
+
+    // Create texture from canvas
+    const texture = new CanvasTexture(canvas);
+
+    // Create sprite material with this texture
+    const material = new SpriteMaterial({
+      map: texture,
+      sizeAttenuation: false, // This ensures the sprite's size remains constant on screen
+    });
+    // Assign material to sprite
+    textSpriteRef.current.material = material;
+
+    // Adjust sprite scale here if needed
+    textSpriteRef.current.scale.set(0.2, 0.05, 1); // Scale values might need adjustment
+  }, [name]);
 
   // Add the planetRef to our context
   useEffect(() => {
@@ -110,7 +152,7 @@ function Planet({
     ringPatternTexture.rotation = Math.PI / 2;
   }
 
-  useFrame(({}) => {
+  useFrame(({ clock, camera }) => {
     const elapsedTime = clock.getElapsedTime() - selectedTime.current;
     const c = semiMajorAxis * eccentricity;
     const angle = elapsedTime * orbitSpeed;
@@ -177,6 +219,34 @@ function Planet({
       cloudsRef.current.position.x = newX;
       cloudsRef.current.position.z = newZ;
     }
+
+    // if (planetRef.current && textRef.current) {
+    //   // Calculate position above the planet
+    //   const positionAbovePlanet = new Vector3(0, radius * 1.2, 0); // Adjust the multiplier to set height above the planet
+    //   const worldPosition = planetRef.current.localToWorld(
+    //     positionAbovePlanet.clone(),
+    //   );
+
+    //   textRef.current.position.copy(worldPosition);
+    //   textRef.current.lookAt(camera.position);
+
+    //   // Dynamically adjust font size based on distance to camera
+    //   const distance = camera.position.distanceTo(planetRef.current.position);
+    //   const fontSize = Math.max(0.1, radius * (100 / distance)); // Adjust the multiplier for scaling
+    //   textRef.current.fontSize = fontSize;
+    // }
+
+    if (textSpriteRef.current) {
+      const offsetDistance = radius * 1.5; // Distance from planet to text
+      const dirVector = new Vector3()
+        .subVectors(camera.position, planetRef.current.position)
+        .normalize();
+      const leftDir = new Vector3(-dirVector.z, 0, dirVector.x).normalize();
+      textSpriteRef.current.position
+        .copy(planetRef.current.position)
+        .add(leftDir.multiplyScalar(offsetDistance));
+      //   textSpriteRef.current.lookAt(camera.position);
+    }
   });
 
   const fresnelMaterialProps = getFresnelMat({
@@ -223,6 +293,37 @@ function Planet({
           })}
         />
       </mesh>
+
+      {/* <Billboard
+        position={[0, radius + 0.1 * radius, 0]} // Position adjusted above the planet
+        follow={true} // Ensures the label always faces the camera
+        lockX={false} // Allows rotation around the x-axis
+        lockY={false} // Allows rotation around the y-axis
+        lockZ={false} // Allows rotation around the z-axis
+      >
+        <Text
+          color="#00bfff" // Cyan color for the text
+          fontSize={radius / 5} // Dynamic font size based on planet radius
+          maxWidth={radius * 2} // Max width to prevent overly long names wrapping oddly
+          lineHeight={1}
+          anchorX="center"
+          anchorY="middle"
+        >
+          {name}
+        </Text>
+      </Billboard> */}
+
+      {/* <Text
+        ref={textRef}
+        color="#00bfff"
+        anchorX="center"
+        anchorY="middle"
+        fontSize={radius / 5} // Initial font size, will adjust dynamically
+      >
+        {name}
+      </Text> */}
+
+      <sprite ref={textSpriteRef} />
 
       {/* Glow Mesh */}
       <mesh ref={glowRef} scale={[1.005, 1.005 * oblateness, 1.005]}>
