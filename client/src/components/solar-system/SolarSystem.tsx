@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 
-import UserInterface from '../../containers/UserInterface';
+// import UserInterface from '../../containers/UserInterface';
 import Skybox from './SkyBox';
 import Planet from './Planet';
 import { planets } from '../../data/planets';
@@ -15,8 +15,10 @@ function SolarSystem() {
 
   return (
     <PlanetProvider>
-      <div className="h-screen w-screen">
-        <Suspense fallback={<LoadingScreen />}>
+      <LoadingScreen />
+
+      <Suspense fallback={<LoadingScreen />}>
+        <div className="h-screen w-screen">
           <Canvas
             camera={{
               fov: 45,
@@ -44,9 +46,9 @@ function SolarSystem() {
 
             <CameraController />
           </Canvas>
-        </Suspense>
-        <UserInterface />
-      </div>
+          {/* <UserInterface /> */}
+        </div>
+      </Suspense>
     </PlanetProvider>
   );
 }

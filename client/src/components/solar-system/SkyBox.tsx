@@ -15,7 +15,7 @@ export default function Skybox() {
   useEffect(() => {
     try {
       // This will suspend if still loading
-      const texture = skyboxResource.read();
+      const texture = skyboxTextures.read();
       scene.background = texture;
       console.log('Skybox textures loaded successfully.');
     } catch (error) {
@@ -28,12 +28,12 @@ export default function Skybox() {
 }
 
 // Load textures for the skybox
-const skyboxResource = createResource(
+const skyboxTextures = preloadTextures(
   new CubeTextureLoader().loadAsync([right, left, top, bottom, front, back]),
 );
 
 // Define the type for the function that creates a resource for loading textures
-function createResource(promise: Promise<CubeTexture>) {
+function preloadTextures(promise: Promise<CubeTexture>) {
   let status: 'loading' | 'success' | 'error' = 'loading';
   let result: CubeTexture | Error;
 
