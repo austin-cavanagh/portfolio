@@ -113,7 +113,7 @@ function Planet({
         textSpriteRef.current.scale.set(0.2, 0.05, 1); // Scale values might need adjustment
       }
     }
-  }, [name]);
+  }, [name, currentPlanet]);
 
   // Add the planetRef to our context
   useEffect(() => {
@@ -226,13 +226,12 @@ function Planet({
 
     // Adjusting the textStripeRef position
     if (textSpriteRef.current) {
-      const offsetAbovePlanet = 1.2; // Adjust the multiplier to control the height above the planet
+      // Adjust the multiplier to control the height above the planet
+      const offsetAbovePlanet = 1.2;
       textSpriteRef.current.position.x = newX;
       textSpriteRef.current.position.y =
         planetRef.current.position.y + radius * offsetAbovePlanet;
       textSpriteRef.current.position.z = newZ;
-
-      // Dynamically adjust the scale or other properties based on the distance to the camera if needed
     }
   });
 

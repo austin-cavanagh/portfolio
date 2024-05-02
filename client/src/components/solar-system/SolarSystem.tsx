@@ -7,6 +7,7 @@ import Planet from './Planet';
 import { planets } from '../../data/planets';
 import CameraController from './CameraController';
 import { PlanetProvider } from '../../context/PlanetContext';
+import LoadingScreen from './LoadingScreen';
 // import Sun from './Sun';
 
 function SolarSystem() {
@@ -15,10 +16,15 @@ function SolarSystem() {
   return (
     <PlanetProvider>
       <div className="h-screen w-screen">
-        <Canvas
-          camera={{ fov: 45, position: cameraPosition, near: 0.1, far: 100000 }}
-        >
-          <Suspense fallback={null}>
+        <Suspense fallback={<LoadingScreen />}>
+          <Canvas
+            camera={{
+              fov: 45,
+              position: cameraPosition,
+              near: 0.1,
+              far: 100000,
+            }}
+          >
             <ambientLight intensity={0.1} />
 
             <pointLight
@@ -37,8 +43,8 @@ function SolarSystem() {
             })}
 
             <CameraController />
-          </Suspense>
-        </Canvas>
+          </Canvas>
+        </Suspense>
         <UserInterface />
       </div>
     </PlanetProvider>

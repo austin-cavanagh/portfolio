@@ -1,6 +1,6 @@
 import { useThree } from '@react-three/fiber';
 import { useEffect } from 'react';
-import { CubeTextureLoader } from 'three';
+import { CubeTexture, CubeTextureLoader } from 'three';
 
 import top from '../../assets/lightblue-skybox/top.png';
 import bottom from '../../assets/lightblue-skybox/bottom.png';
@@ -9,17 +9,54 @@ import right from '../../assets/lightblue-skybox/right.png';
 import back from '../../assets/lightblue-skybox/back.png';
 import left from '../../assets/lightblue-skybox/left.png';
 
-function Skybox() {
+export default function Skybox() {
   const { scene } = useThree();
 
   useEffect(() => {
-    const loader = new CubeTextureLoader();
-    const texture = loader.load([right, left, top, bottom, front, back]);
-
-    scene.background = texture;
+    try {
+      // This will suspend if still loading
+      const texture = skyboxResource.read();
+      scene.background = texture;
+      console.log('Skybox textures loaded successfully.');
+    } catch (error) {
+      console.error('Failed to load skybox textures:', error);
+    }
   }, [scene]);
 
-  return null;
+  // This component does not render anything itself
+  return <></>;
 }
 
-export default Skybox;
+// Load textures for the skybox
+const skyboxResource = createResource(
+  new CubeTextureLoader().loadAsync([right, left, top, bottom, front, back]),
+);
+
+// Define the type for the function that creates a resource for loading textures
+function createResource(promise: Promise<CubeTexture>) {
+  let status: 'loading' | 'success' | 'error' = 'loading';
+  let result: CubeTexture | Error;
+
+  let suspender = promise.then(
+    (r: CubeTexture) => {
+      status = 'success';
+      result = r;
+    },
+    (e: Error) => {
+      status = 'error';
+      result = e;
+    },
+  );
+
+  return {
+    read(): CubeTexture {
+      if (status === 'loading') {
+        throw suspender;
+      } else if (status === 'error') {
+        throw result;
+      } else {
+        return result as CubeTexture;
+      }
+    },
+  };
+}
