@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../state/store';
 
-import About from './About';
-import Contact from './Contact';
 import Navbar from '../components/user-interface/Navbar';
 import BottomBar from '../components/user-interface/Footer';
+import About from './About';
+import Contact from './Contact';
 import ProjectOne from '../components/projects/ProjectOne';
 import ProjectTwo from '../components/projects/ProjectTwo';
 import ProjectThree from '../components/projects/ProjectsThree';
@@ -19,28 +19,45 @@ function UserInterface({}: UserInterfaceProps) {
   const renderContent = () => {
     switch (currentPlanet) {
       case 'Earth':
-        return <About />;
+        return (
+          <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
+            <About />;
+          </div>
+        );
       case 'Mars':
-        return <ProjectOne />;
+        return (
+          <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
+            <ProjectOne />;
+          </div>
+        );
       case 'Venus':
-        return <ProjectTwo />;
+        return (
+          <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
+            <ProjectTwo />;
+          </div>
+        );
       case 'Jupiter':
-        return <ProjectThree />;
-      case 'Saturn':
-        return <Contact />;
+        return (
+          <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
+            <ProjectThree />;
+          </div>
+        );
+      // case 'Saturn':
+      //   return <Contact />;
       default:
-        return null;
+        return (
+          <div className="pointer-events-none flex flex-1 overflow-auto"></div>
+        );
     }
   };
 
+  // pointer-events-none
+
   return (
-    <div
-      className={`absolute left-0 top-0 flex w-screen flex-col ${showContent && 'h-screen'}`}
-    >
+    <div className="pointer-events-none absolute left-0 top-0 flex h-screen w-screen flex-col">
       <Navbar />
-      <div className="flex flex-1 items-center justify-center overflow-auto">
-        {renderContent()}
-      </div>
+
+      {renderContent()}
 
       <BottomBar />
     </div>

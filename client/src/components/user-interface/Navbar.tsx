@@ -61,7 +61,7 @@ function Navbar() {
   ];
 
   return (
-    <nav className="flex items-start justify-between text-xl font-medium text-[#00bfff]">
+    <nav className="pointer-events-auto flex items-start justify-between text-xl font-medium text-[#00bfff]">
       {/* Left */}
       <div className="flex h-[70px] items-center space-x-5 border-b-2 border-[#00bfff] bg-gray-900 bg-opacity-80  p-4">
         {/* Resume */}

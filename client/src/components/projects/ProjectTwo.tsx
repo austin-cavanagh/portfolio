@@ -18,7 +18,7 @@ export default function ProjectTwo() {
   return (
     <section className="flex h-full w-full flex-col items-center justify-center px-4 py-5 sm:p-6">
       {/* <h1 className="text-4xl font-bold">Projects</h1> */}
-      <div className="flex rounded-3xl bg-gray-800 bg-opacity-85 p-14">
+      <div className="flex rounded-3xl bg-gray-900 bg-opacity-80 p-14">
         <div className="mr-10 flex h-full w-96 flex-col justify-center space-y-6 font-poppins">
           <h2 className="text-3xl font-semibold text-[#00bfff]">
             B2C eCommerce Website
