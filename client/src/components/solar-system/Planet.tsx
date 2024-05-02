@@ -220,32 +220,15 @@ function Planet({
       cloudsRef.current.position.z = newZ;
     }
 
-    // if (planetRef.current && textRef.current) {
-    //   // Calculate position above the planet
-    //   const positionAbovePlanet = new Vector3(0, radius * 1.2, 0); // Adjust the multiplier to set height above the planet
-    //   const worldPosition = planetRef.current.localToWorld(
-    //     positionAbovePlanet.clone(),
-    //   );
-
-    //   textRef.current.position.copy(worldPosition);
-    //   textRef.current.lookAt(camera.position);
-
-    //   // Dynamically adjust font size based on distance to camera
-    //   const distance = camera.position.distanceTo(planetRef.current.position);
-    //   const fontSize = Math.max(0.1, radius * (100 / distance)); // Adjust the multiplier for scaling
-    //   textRef.current.fontSize = fontSize;
-    // }
-
     if (textSpriteRef.current) {
-      const offsetDistance = radius * 1.5; // Distance from planet to text
-      const dirVector = new Vector3()
-        .subVectors(camera.position, planetRef.current.position)
-        .normalize();
-      const leftDir = new Vector3(-dirVector.z, 0, dirVector.x).normalize();
-      textSpriteRef.current.position
-        .copy(planetRef.current.position)
-        .add(leftDir.multiplyScalar(offsetDistance));
-      //   textSpriteRef.current.lookAt(camera.position);
+      const offsetAbovePlanet = 1.2; // Adjust the multiplier to control the height above the planet
+      textSpriteRef.current.position.x = newX;
+      textSpriteRef.current.position.y =
+        planetRef.current.position.y + radius * offsetAbovePlanet;
+      textSpriteRef.current.position.z = newZ;
+
+      // textSpriteRef.current.lookAt(camera.position);
+      // Dynamically adjust the scale or other properties based on the distance to the camera if needed
     }
   });
 
@@ -293,35 +276,6 @@ function Planet({
           })}
         />
       </mesh>
-
-      {/* <Billboard
-        position={[0, radius + 0.1 * radius, 0]} // Position adjusted above the planet
-        follow={true} // Ensures the label always faces the camera
-        lockX={false} // Allows rotation around the x-axis
-        lockY={false} // Allows rotation around the y-axis
-        lockZ={false} // Allows rotation around the z-axis
-      >
-        <Text
-          color="#00bfff" // Cyan color for the text
-          fontSize={radius / 5} // Dynamic font size based on planet radius
-          maxWidth={radius * 2} // Max width to prevent overly long names wrapping oddly
-          lineHeight={1}
-          anchorX="center"
-          anchorY="middle"
-        >
-          {name}
-        </Text>
-      </Billboard> */}
-
-      {/* <Text
-        ref={textRef}
-        color="#00bfff"
-        anchorX="center"
-        anchorY="middle"
-        fontSize={radius / 5} // Initial font size, will adjust dynamically
-      >
-        {name}
-      </Text> */}
 
       <sprite ref={textSpriteRef} />
 
