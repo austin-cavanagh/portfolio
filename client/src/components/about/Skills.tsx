@@ -252,15 +252,22 @@ function Skills() {
     <div className="space-y-6">
       <div className="flex flex-col space-y-4 rounded-3xl bg-gray-900 bg-opacity-80 p-5">
         <h2 className="text-xl text-white">Frontend</h2>
-        {/* <div className="flex space-x-4">
-          {frontend.map(name => {
-            return <TechIcon name={name} key={name} />;
+        {/* <div className="">
+          {frontendBadges.map(badge => {
+            return <img src={badge.src} alt={badge.alt} className="p-1" />;
           })}
         </div> */}
 
-        <div className="">
-          {frontendBadges.map(badge => {
-            return <img src={badge.src} alt={badge.alt} className="p-1" />;
+        <div className="flex max-w-[700px] flex-wrap">
+          {frontendBadges.map((badge, index) => {
+            return (
+              <img
+                key={index}
+                src={badge.src}
+                alt={badge.alt}
+                className="p-1"
+              />
+            );
           })}
         </div>
       </div>
