@@ -33,7 +33,8 @@ const LoadingScreen = ({}: LoadingScreenProps) => {
 
   return (
     <div
-      className="flex h-screen w-full items-center justify-center overflow-hidden"
+      className="absolute inset-0 z-10 flex h-screen w-screen items-center justify-center overflow-hidden"
+      // className="flex h-screen w-full items-center justify-center overflow-hidden"
       style={{
         backgroundImage: `url(${spaceBackground})`,
         backgroundSize: 'cover',
