@@ -3,18 +3,16 @@ import { RootState } from '../state/store';
 
 import Navbar from '../components/user-interface/Navbar';
 import BottomBar from '../components/user-interface/Footer';
-import About from './About';
-import Contact from './Contact';
-import ProjectOne from '../components/projects/ProjectOne';
-import ProjectTwo from '../components/projects/ProjectTwo';
-import ProjectThree from '../components/projects/ProjectsThree';
+// import About from './About';
+// import Contact from './Contact';
+// import ProjectOne from '../components/projects/ProjectOne';
+// import ProjectTwo from '../components/projects/ProjectTwo';
+// import ProjectThree from '../components/projects/ProjectsThree';
 
 type UserInterfaceProps = {};
 
 function UserInterface({}: UserInterfaceProps) {
-  const { currentPlanet, showContent } = useSelector(
-    (state: RootState) => state.app,
-  );
+  const { currentPlanet } = useSelector((state: RootState) => state.app);
 
   const renderContent = () => {
     switch (currentPlanet) {

@@ -21,7 +21,7 @@ type PlanetProps = {
   orbitCenter?: { x: number; y: number; z: number };
 };
 
-const mercury: PlanetProps = {
+export const mercury: PlanetProps = {
   semiMajorAxis: 831.6229,
   eccentricity: 0.2056,
   radius: 0.035,
@@ -34,7 +34,7 @@ const mercury: PlanetProps = {
   name: 'Mercury',
 };
 
-const venus: PlanetProps = {
+export const venus: PlanetProps = {
   radius: 0.0869,
   semiMajorAxis: 1553.9669,
   eccentricity: 0.0067,
@@ -47,7 +47,7 @@ const venus: PlanetProps = {
   name: 'Venus',
 };
 
-const earth: PlanetProps = {
+export const earth: PlanetProps = {
   radius: 0.0915,
   semiMajorAxis: 2148.3474,
   eccentricity: 0.0167,
@@ -60,7 +60,7 @@ const earth: PlanetProps = {
   name: 'Earth',
 };
 
-const mars: PlanetProps = {
+export const mars: PlanetProps = {
   radius: 0.0487,
   semiMajorAxis: 3273.3894,
   eccentricity: 0.0935,
@@ -73,7 +73,7 @@ const mars: PlanetProps = {
   name: 'Mars',
 };
 
-const jupiter: PlanetProps = {
+export const jupiter: PlanetProps = {
   semiMajorAxis: 11180.5612,
   eccentricity: 0.0489,
   radius: 1.0267,
@@ -86,7 +86,7 @@ const jupiter: PlanetProps = {
   name: 'Jupiter',
 };
 
-const saturn: PlanetProps = {
+export const saturn: PlanetProps = {
   semiMajorAxis: 20585.4808,
   eccentricity: 0.0565,
   radius: 0.8363,
@@ -99,7 +99,7 @@ const saturn: PlanetProps = {
   name: 'Saturn',
 };
 
-const uranus: PlanetProps = {
+export const uranus: PlanetProps = {
   radius: 0.3642,
   semiMajorAxis: 41252.1049,
   eccentricity: 0.0457,
@@ -112,7 +112,7 @@ const uranus: PlanetProps = {
   name: 'Uranus',
 };
 
-const neptune: PlanetProps = {
+export const neptune: PlanetProps = {
   radius: 0.3536,
   semiMajorAxis: 64552.6668,
   eccentricity: 0.0113,
@@ -125,7 +125,7 @@ const neptune: PlanetProps = {
   name: 'Neptune',
 };
 
-const pluto: PlanetProps = {
+export const pluto: PlanetProps = {
   semiMajorAxis: 84820.2918,
   eccentricity: 0.2444,
   radius: 0.0171,
