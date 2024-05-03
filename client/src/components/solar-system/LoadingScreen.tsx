@@ -3,21 +3,26 @@ import React from 'react';
 interface LoadingScreenProps {
   squareSize: number; // Size of each square in pixels
   gapSize: number; // Gap between squares in pixels
+  backgroundColor: string;
+  squareColor: string;
 }
 
 const LoadingScreen: React.FC<LoadingScreenProps> = ({
-  squareSize = 50,
-  gapSize = 2,
+  squareSize = 15,
+  gapSize = 1.5,
+  backgroundColor = 'gray-100', // Default background color using Tailwind's color system
+  squareColor = 'gray',
 }) => {
   const containerStyle = {
     gridTemplateColumns: `repeat(auto-fill, minmax(${squareSize}px, 1fr))`,
     gap: `${gapSize}px`,
+    backgroundColor: `bg-${backgroundColor}`, // Tailwind utility for background color
   };
 
   const squareStyle = {
     width: `${squareSize}px`,
     height: `${squareSize}px`,
-    backgroundColor: 'gray', // You can customize the color
+    backgroundColor: squareColor,
   };
 
   // Estimate the number of squares to fill the screen
