@@ -130,3 +130,27 @@ html {
   border-top: 2px solid #00bfff;
   height: 2px;
 }
+
+@keyframes expandGradient {
+  0%,
+  100% {
+    background-size: 50% 100%;
+    background-position: center center;
+  }
+  50% {
+    background-size: 100% 100%;
+    background-position: center center;
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(
+    to left,
+    transparent 20%,
+    #00bfff 50%,
+    transparent 80%
+  );
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
+  animation: expandGradient 3s ease-in-out infinite;
+}

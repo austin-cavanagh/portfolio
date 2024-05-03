@@ -40,6 +40,7 @@ const LoadingScreen = ({}: LoadingScreenProps) => {
         backgroundPosition: 'center',
       }}
     >
+      {/* Squares Container */}
       <div
         className="grid h-full w-full"
         style={{
@@ -61,34 +62,18 @@ const LoadingScreen = ({}: LoadingScreenProps) => {
         ))}
       </div>
 
-      <div className="loading-animation">
-        <svg
-          width="200px"
-          height="100px"
-          viewBox="0 0 200 100"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill="none"
-            stroke="#007BFF"
-            stroke-width="2"
-            d="M10,90 L50,10 L90,90 M30,55 L70,55"
-            stroke-dasharray="240"
-            stroke-dashoffset="240"
-            id="A"
-            style={{ animation: 'draw 2s ease forwards' }}
-          ></path>
-          <path
-            fill="none"
-            stroke="#007BFF"
-            stroke-width="2"
-            d="M110,90 C110,90 100,10 150,10 C200,10 190,90 140,90"
-            stroke-dasharray="300"
-            stroke-dashoffset="300"
-            id="C"
-            style={{ animation: 'draw 2s ease forwards' }}
-          ></path>
-        </svg>
+      {/* Loading Message */}
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform bg-transparent text-center">
+        <div className="relative">
+          <div className="animated-gradient h-1 w-full"></div>
+          <h1
+            className="my-2 text-3xl font-semibold"
+            style={{ color: '#00bfff' }}
+          >
+            INITIALIZING
+          </h1>
+          <div className="animated-gradient h-1 w-full"></div>
+        </div>
       </div>
     </div>
   );
