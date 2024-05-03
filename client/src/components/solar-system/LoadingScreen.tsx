@@ -1,13 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import spaceBackground from '../../data/small-starts.webp';
-// import spaceBackground from '../../data/hmmmmm.avif';
+import spaceBackground from '../../data/space-background.webp';
 
-type LoadingScreenProps = {
-  //   squareSize?: number;
-  //   gapSize?: number;
-  //   backgroundColor?: string;
-};
+type LoadingScreenProps = {};
 
 const LoadingScreen = ({}: LoadingScreenProps) => {
   const squareSize = 14;
@@ -24,22 +19,17 @@ const LoadingScreen = ({}: LoadingScreenProps) => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const newColors = squareColors.map(
-        () => (Math.random() < 0.15 ? '#22334B' : '#1B263B'), // 10% chance to turn a square white, otherwise dark blue
+      const newColors = squareColors.map(() =>
+        // 15% chance to be a light square otherwise stay the same
+        Math.random() < 0.15 ? '#22334B' : '#1B263B',
       );
+
       setSquareColors(newColors);
-    }, 100); // Adjust interval for faster or slower blinking
+    }, 100); // Adjust interval to control blinking speed
 
-    return () => clearInterval(intervalId); // Cleanup interval on component unmount
+    // Cleanup interval on component unmount
+    return () => clearInterval(intervalId);
   }, [squareColors]);
-
-  const containerStyle = {
-    gridTemplateColumns: `repeat(auto-fill, minmax(${squareSize}px, 1fr))`,
-    gap: `${gapSize}px`,
-    backgroundImage: `url(${spaceBackground})`,
-    backgroundSize: 'cover', // Cover the entire container
-    backgroundPosition: 'center', // Center the background image
-  };
 
   return (
     <div
@@ -51,11 +41,11 @@ const LoadingScreen = ({}: LoadingScreenProps) => {
       }}
     >
       <div
-        className="grid h-full w-full opacity-80"
+        className="grid h-full w-full"
         style={{
           gridTemplateColumns: `repeat(auto-fill, minmax(${squareSize}px, 1fr))`,
           gap: `${gapSize}px`,
-          backgroundColor: '#0D1B2A', // Dark blue with 75% opacity
+          backgroundColor: 'rgba(0, 65, 117, 0.35)',
         }}
       >
         {squareColors.map((color, index) => (
