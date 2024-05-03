@@ -29,7 +29,7 @@ function Earth() {
   const orbitRadius = 0;
   const orbitSpeed = 0;
   const oblateness = 0.997;
-  const size = 0;
+  // const size = 0;
   const rotation = 0.001;
 
   useFrame(({ clock }) => {

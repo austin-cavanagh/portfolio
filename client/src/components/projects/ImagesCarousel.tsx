@@ -9,7 +9,7 @@ function ImagesCarousel({ images }: ImagesCarouselProps) {
   const [isTransitioning, setIsTransitioning] = useState(true);
   const intervalRef = useRef<number | null>(null);
 
-  const [viewMode, setViewMode] = useState<string>('laptop');
+  // const [viewMode, setViewMode] = useState<string>('laptop');
 
   const [isPaused, setIsPaused] = useState<boolean>(false);
 

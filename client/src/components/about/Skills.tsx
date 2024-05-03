@@ -121,59 +121,59 @@ const backendBadges: TechnologyBadge[] = [
   // },
 ];
 
-const databaseBadges: TechnologyBadge[] = [
-  {
-    src: 'https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white',
-    alt: 'PostgreSQL',
-  },
-  {
-    src: 'https://img.shields.io/badge/MongoDB-07ab4e?style=for-the-badge&logo=mongodb&logoColor=white',
-    alt: 'MongoDB',
-  },
-  {
-    src: 'https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white',
-    alt: 'Prisma',
-  },
-  // {
-  //   src: 'https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white',
-  //   alt: 'MySQL',
-  // },
-  // {
-  //   src: '',
-  //   alt: '',
-  // },
-];
+// const databaseBadges: TechnologyBadge[] = [
+//   {
+//     src: 'https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white',
+//     alt: 'PostgreSQL',
+//   },
+//   {
+//     src: 'https://img.shields.io/badge/MongoDB-07ab4e?style=for-the-badge&logo=mongodb&logoColor=white',
+//     alt: 'MongoDB',
+//   },
+//   {
+//     src: 'https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white',
+//     alt: 'Prisma',
+//   },
+//   // {
+//   //   src: 'https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white',
+//   //   alt: 'MySQL',
+//   // },
+//   // {
+//   //   src: '',
+//   //   alt: '',
+//   // },
+// ];
 
-const devOpsBadges: TechnologyBadge[] = [
-  // {
-  //   src: 'https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white',
-  //   alt: 'Cloudflare',
-  // },
-  {
-    src: 'https://img.shields.io/badge/Docker-1e63ee?style=for-the-badge&logo=docker&logoColor=white',
-    alt: 'Docker',
-  },
-  {
-    src: 'https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white',
-    alt: 'Amazon AWS',
-  },
-  {
-    src: 'https://img.shields.io/badge/Google_Cloud-e94234?style=for-the-badge&logo=google-cloud&logoColor=white',
-    alt: 'Google Cloud',
-  },
-  // {
-  //   src: 'https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white',
-  //   alt: 'GitHub Actions',
-  // },
-  // {
-  //   src: 'https://img.shields.io/badge/kubernetes-326ce5.svg?&style=for-the-badge&logo=kubernetes&logoColor=white',
-  //   alt: 'Kubernetes',
-  // },
-  // {
-  //   src: '',
-  //   alt: '',
-  // },
-];
+// const devOpsBadges: TechnologyBadge[] = [
+//   // {
+//   //   src: 'https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white',
+//   //   alt: 'Cloudflare',
+//   // },
+//   {
+//     src: 'https://img.shields.io/badge/Docker-1e63ee?style=for-the-badge&logo=docker&logoColor=white',
+//     alt: 'Docker',
+//   },
+//   {
+//     src: 'https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white',
+//     alt: 'Amazon AWS',
+//   },
+//   {
+//     src: 'https://img.shields.io/badge/Google_Cloud-e94234?style=for-the-badge&logo=google-cloud&logoColor=white',
+//     alt: 'Google Cloud',
+//   },
+//   // {
+//   //   src: 'https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white',
+//   //   alt: 'GitHub Actions',
+//   // },
+//   // {
+//   //   src: 'https://img.shields.io/badge/kubernetes-326ce5.svg?&style=for-the-badge&logo=kubernetes&logoColor=white',
+//   //   alt: 'Kubernetes',
+//   // },
+//   // {
+//   //   src: '',
+//   //   alt: '',
+//   // },
+// ];
 
 const miscBadges: TechnologyBadge[] = [
   // {

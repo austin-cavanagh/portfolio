@@ -90,8 +90,8 @@ function CameraController({}: CameraControllerProps) {
     if (!currentPlanetRef?.current) return;
 
     let planetRadius;
-    let endPosition;
-    let endTarget;
+    let endPosition: any;
+    let endTarget: any;
 
     // I need special logic becuase the camera does not need to be calculated for the sun
     // Instead of trying to get the sun on the left if we are going to the sun we just need to offset along the z axis
@@ -186,7 +186,7 @@ function CameraController({}: CameraControllerProps) {
     transitionProgressRef.current = 0;
   }, [currentPlanet]);
 
-  useFrame(({}, delta) => {
+  useFrame(({}) => {
     TWEEN.update();
 
     // if (currentPlanet === 'Overview') {
