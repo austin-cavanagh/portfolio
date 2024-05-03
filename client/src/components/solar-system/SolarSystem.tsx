@@ -1,13 +1,11 @@
-// import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-
 import UserInterface from '../../containers/UserInterface';
 import Skybox from './SkyBox';
 import Planet from './Planet';
 import { planets } from '../../data/planets';
 import CameraController from './CameraController';
 import { PlanetProvider } from '../../context/PlanetContext';
-// import LoadingScreen from './LoadingScreen';
+import Sun from './Sun';
 // import Sun from './Sun';
 
 function SolarSystem() {
@@ -36,7 +34,7 @@ function SolarSystem() {
 
           <Skybox />
 
-          {/* <Sun /> */}
+          <Sun />
 
           {planets.map((planet, index) => {
             return <Planet {...planet} key={index} />;

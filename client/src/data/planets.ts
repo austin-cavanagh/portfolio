@@ -60,18 +60,17 @@ export type PlanetProps = {
 };
 
 export const planets: PlanetProps[] = [
-  {
-    name: 'Sun',
-    radius: 25,
-    semiMajorAxis: 0,
-    eccentricity: 0,
-    orbitSpeed: 0,
-    rotation: 0.001,
-    oblateness: 1,
-    glowColor: 0xff0000,
-    colorMap: sunColor,
-  },
-
+  // {
+  //   name: 'Sun',
+  //   radius: 25,
+  //   semiMajorAxis: 0,
+  //   eccentricity: 0,
+  //   orbitSpeed: 0,
+  //   rotation: 0.001,
+  //   oblateness: 1,
+  //   glowColor: 0xff0000,
+  //   colorMap: sunColor,
+  // },
   {
     name: 'Mercury',
     radius: 5,
