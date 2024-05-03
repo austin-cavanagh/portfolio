@@ -1,42 +1,73 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+// import spaceBackground from '../../data/milky-way-starry-sky-night-sky-star-956981.jpeg';
+// import spaceBackground from '../../data/space-background-2.jpeg';
+// import spaceBackground from '../../data/pexels-krisof-1252890.jpg';
+import spaceBackground from '../../data/dark-background.jpeg';
+// import spaceBackground from '../../data/blue.jpeg';
 
 interface LoadingScreenProps {
-  squareSize: number; // Size of each square in pixels
-  gapSize: number; // Gap between squares in pixels
-  backgroundColor: string;
-  squareColor: string;
+  squareSize?: number;
+  gapSize?: number;
+  backgroundColor?: string;
 }
 
 const LoadingScreen: React.FC<LoadingScreenProps> = ({
   squareSize = 15,
   gapSize = 1.5,
-  backgroundColor = 'gray-100', // Default background color using Tailwind's color system
-  squareColor = 'gray',
+  backgroundColor = '#020c1b',
 }) => {
-  const containerStyle = {
-    gridTemplateColumns: `repeat(auto-fill, minmax(${squareSize}px, 1fr))`,
-    gap: `${gapSize}px`,
-    backgroundColor: `bg-${backgroundColor}`, // Tailwind utility for background color
-  };
-
-  const squareStyle = {
-    width: `${squareSize}px`,
-    height: `${squareSize}px`,
-    backgroundColor: squareColor,
-  };
-
-  // Estimate the number of squares to fill the screen
-  // Assuming a viewport size to calculate the number of squares
   const screenHeight = window.innerHeight;
   const screenWidth = window.innerWidth;
   const numSquares =
     Math.ceil(screenWidth / squareSize) * Math.ceil(screenHeight / squareSize);
 
+  // Initialize colors for each square
+  const [squareColors, setSquareColors] = useState<Array<string>>(
+    Array(numSquares).fill('#0D1B2A'),
+  );
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const newColors = squareColors.map(
+        color => (Math.random() < 0.15 ? '#22334B' : '#1B263B'), // 10% chance to turn a square white, otherwise dark blue
+      );
+      setSquareColors(newColors);
+    }, 100); // Adjust interval for faster or slower blinking
+
+    return () => clearInterval(intervalId); // Cleanup interval on component unmount
+  }, [squareColors]);
+
+  //   const containerStyle = {
+  //     gridTemplateColumns: `repeat(auto-fill, minmax(${squareSize}px, 1fr))`,
+  //     gap: `${gapSize}px`,
+  //     backgroundColor: backgroundColor,
+  //   };
+
+  const containerStyle = {
+    gridTemplateColumns: `repeat(auto-fill, minmax(${squareSize}px, 1fr))`,
+    gap: `${gapSize}px`,
+    backgroundImage: `url(${spaceBackground})`, // Set the background image
+    backgroundSize: 'cover', // Cover the entire container
+    backgroundPosition: 'center', // Center the background image
+  };
+
   return (
-    <div className="flex h-screen w-full items-center justify-center overflow-hidden bg-gray-100">
+    <div
+      className="flex h-screen w-full items-center justify-center overflow-hidden"
+      style={{ backgroundColor }}
+    >
       <div className="grid h-full w-full" style={containerStyle}>
-        {Array.from({ length: numSquares }).map((_, index) => (
-          <div key={index} style={squareStyle}></div>
+        {squareColors.map((color, index) => (
+          <div
+            key={index}
+            className="opacity-60"
+            style={{
+              width: `${squareSize}px`,
+              height: `${squareSize}px`,
+              backgroundColor: color,
+            }}
+          ></div>
         ))}
       </div>
     </div>
