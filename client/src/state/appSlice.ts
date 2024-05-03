@@ -5,6 +5,7 @@ type AppState = {
   currentPlanet: string;
   showContent: boolean;
   isTransitioning: boolean;
+  isLoading: boolean;
 };
 
 const initialState: AppState = {
@@ -12,6 +13,7 @@ const initialState: AppState = {
   currentPlanet: 'Overview',
   showContent: false,
   isTransitioning: false,
+  isLoading: true,
 };
 
 export const appSlice = createSlice({
@@ -28,9 +30,13 @@ export const appSlice = createSlice({
     setScene: (state, action: PayloadAction<string>) => {
       state.scene = action.payload;
     },
+    setIsLoading: (state, action: PayloadAction<boolean>) => {
+      state.isLoading = action.payload;
+    },
   },
 });
 
-export const { setCurrentPlanet, endTransition, setScene } = appSlice.actions;
+export const { setCurrentPlanet, endTransition, setScene, setIsLoading } =
+  appSlice.actions;
 
 export default appSlice.reducer;
