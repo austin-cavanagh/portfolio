@@ -131,10 +131,12 @@ html {
   height: 2px;
 }
 
+/* Animated Loading Gradient */
+
 @keyframes expandGradient {
   0%,
   100% {
-    background-size: 50% 100%;
+    background-size: 30% 100%;
     background-position: center center;
   }
   50% {
@@ -146,9 +148,9 @@ html {
 .animated-gradient {
   background: linear-gradient(
     to left,
-    transparent 20%,
+    transparent 5%,
     #00bfff 50%,
-    transparent 80%
+    transparent 95%
   );
   background-size: 50% 100%;
   background-repeat: no-repeat;
