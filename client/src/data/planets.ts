@@ -1,4 +1,4 @@
-import sunColor from '../assets/planets/sun/2k_sun.jpg';
+// import sunColor from '../assets/planets/sun/2k_sun.jpg';
 
 import mercuryColor from '../assets/planets/mercury/mercury-color-2k.jpg';
 
@@ -74,8 +74,9 @@ export const planets: PlanetProps[] = [
   {
     name: 'Mercury',
     radius: 5,
-    semiMajorAxis: 100,
-    eccentricity: 0.2056,
+    semiMajorAxis: 125,
+    // eccentricity: 0.2056,
+    eccentricity: 0.1056,
     orbitSpeed: 0.01,
     rotation: 0.001,
     oblateness: 1,
@@ -86,7 +87,7 @@ export const planets: PlanetProps[] = [
   {
     name: 'Venus',
     radius: 10,
-    semiMajorAxis: 200,
+    semiMajorAxis: 220,
     eccentricity: 0.0067,
     orbitSpeed: 0.0,
     rotation: -0.001,
@@ -98,7 +99,7 @@ export const planets: PlanetProps[] = [
   {
     name: 'Earth',
     radius: 11,
-    semiMajorAxis: 300,
+    semiMajorAxis: 325,
     eccentricity: 0.0167,
     orbitSpeed: 0.05,
     rotation: 0.0008,
@@ -129,7 +130,7 @@ export const planets: PlanetProps[] = [
   {
     name: 'Mars',
     radius: 8,
-    semiMajorAxis: 450,
+    semiMajorAxis: 500,
     eccentricity: 0.0935,
     orbitSpeed: 0.001,
     rotation: 0.00427,
@@ -143,7 +144,7 @@ export const planets: PlanetProps[] = [
   {
     name: 'Jupiter',
     radius: 20,
-    semiMajorAxis: 620,
+    semiMajorAxis: 650,
     eccentricity: 0.0489,
     orbitSpeed: 0.00084,
     rotation: 0.001,
@@ -155,7 +156,7 @@ export const planets: PlanetProps[] = [
   {
     name: 'Saturn',
     radius: 16,
-    semiMajorAxis: 800,
+    semiMajorAxis: 850,
     eccentricity: 0.0565,
     orbitSpeed: 0.034,
     rotation: 0.05,
@@ -171,7 +172,7 @@ export const planets: PlanetProps[] = [
   {
     name: 'Uranus',
     radius: 10,
-    semiMajorAxis: 970,
+    semiMajorAxis: 1050,
     eccentricity: 0.0457,
     orbitSpeed: 0.012,
     rotation: 0.01,
@@ -187,7 +188,7 @@ export const planets: PlanetProps[] = [
   {
     name: 'Neptune',
     radius: 10,
-    semiMajorAxis: 1100,
+    semiMajorAxis: 1300,
     eccentricity: 0.0113,
     orbitSpeed: 0.012,
     rotation: 0.02,
@@ -199,7 +200,7 @@ export const planets: PlanetProps[] = [
   {
     name: 'Pluto',
     radius: 5,
-    semiMajorAxis: 1200,
+    semiMajorAxis: 1700,
     eccentricity: 0.0444,
     orbitSpeed: 0.012,
     rotation: 0.005,
