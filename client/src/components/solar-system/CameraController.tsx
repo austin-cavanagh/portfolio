@@ -139,48 +139,9 @@ export default function CameraController({}: CameraControllerProps) {
     }
 
     // Slow Start -> Slow End
-    // if (path === 'planetToPlanet') {
-    //   const midPoint = startPosition.clone().lerp(endTarget, 0.5);
-    //   const arcHeight = planetRadius * 10;
-    //   const controlPoint = new Vector3(
-    //     midPoint.x,
-    //     midPoint.y + arcHeight,
-    //     midPoint.z,
-    //   );
-
-    //   // Position Transition
-    //   new TWEEN.Tween({ t: 0 })
-    //     .to({ t: 1 }, 2000)
-    //     .onUpdate(({ t }) => {
-    //       const bezierPoint = calculateBezierPoint(
-    //         t,
-    //         startPosition,
-    //         controlPoint,
-    //         endPosition,
-    //       );
-    //       camera.position.copy(bezierPoint);
-    //     })
-    //     .easing(TWEEN.Easing.Quadratic.InOut)
-    //     .start();
-
-    //   // Target Transition
-    //   new TWEEN.Tween({ t: 0 })
-    //     .to({ t: 1 }, 2000)
-    //     .onUpdate(({ t }) => {
-    //       const newTarget = startTarget.clone().lerp(endTarget, t);
-    //       orbitControlsRef.current.target.copy(newTarget);
-    //       orbitControlsRef.current.update();
-    //     })
-    //     .easing(TWEEN.Easing.Quadratic.InOut)
-    //     .onComplete(() => {
-    //       dispatch(endTransition());
-    //     })
-    //     .start();
-    // }
-
     if (path === 'planetToPlanet') {
       const midPoint = startPosition.clone().lerp(endTarget, 0.5);
-      const arcHeight = planetRadius * 5; // Reduced height for a smoother arc
+      const arcHeight = planetRadius * 3; // Reduced height for a smoother arc
       const controlPoint = new Vector3(
         midPoint.x,
         midPoint.y + arcHeight,
@@ -189,7 +150,7 @@ export default function CameraController({}: CameraControllerProps) {
 
       // Position Transition with updated easing
       new TWEEN.Tween({ t: 0 })
-        .to({ t: 1 }, 2500) // Increased duration for smoother transition
+        .to({ t: 1 }, 3500) // Increased duration for smoother transition
         .onUpdate(({ t }) => {
           const bezierPoint = calculateBezierPoint(
             t,
@@ -204,7 +165,7 @@ export default function CameraController({}: CameraControllerProps) {
 
       // Target Transition with updated easing
       new TWEEN.Tween({ t: 0 })
-        .to({ t: 1 }, 2500) // Synchronized duration with position transition
+        .to({ t: 1 }, 3500) // Synchronized duration with position transition
         .onUpdate(({ t }) => {
           const newTarget = startTarget.clone().lerp(endTarget, t);
           orbitControlsRef.current.target.copy(newTarget);
@@ -224,99 +185,6 @@ export default function CameraController({}: CameraControllerProps) {
 
   useFrame(({}) => {
     TWEEN.update();
-
-    // if (currentPlanet === 'Overview') {
-    //   // During Overview transition
-    //   if (transitionProgressRef.current < 0.12) {
-    //     const newCameraPosition = new Vector3(-750, 1000, 1500);
-    //     const newTargetPosition = new Vector3(0, 0, 0);
-
-    //     transitionProgressRef.current += delta * 0.04;
-
-    //     camera.position.lerp(newCameraPosition, transitionProgressRef.current);
-
-    //     orbitControlsRef.current.target.lerp(
-    //       newTargetPosition,
-    //       transitionProgressRef.current,
-    //     );
-    //   }
-
-    //   // After Overview transition
-    //   if (transitionProgressRef.current >= 0.12 && isTransitioning) {
-    //     // console.log('done');
-
-    //     dispatch(endTransition());
-    //     // console.log('ended transition');
-    //   }
-
-    //   return;
-    // }
-
-    // const planetGeometry = currentPlanetRef.current.geometry as SphereGeometry;
-    // const planetRadius = planetGeometry.parameters.radius;
-
-    // // During planet transition
-    // // Solution goes in this if statement
-    // // if (currentPlanet && transitionProgressRef.current < 1) {
-    // //   const start = camera.position.clone();
-
-    // //   const planetPosition = currentPlanetRef.current.position;
-
-    // //   currentPlanetRef.current.getWorldPosition(planetPosition);
-
-    // //   const offsetEnd = planetPosition
-    // //     .clone()
-    // //     .add(new Vector3(0, 0, planetRadius * 6));
-
-    // //   const dynamicHeightAdjustment =
-    // //     transitionProgressRef.current < 0.5
-    // //       ? (0.5 - transitionProgressRef.current) * 2
-    // //       : transitionProgressRef.current - 0.5;
-
-    // //   const controlPointHeight =
-    // //     planetRadius + dynamicHeightAdjustment * planetRadius * 2;
-
-    // //   const controlPoint = new Vector3(
-    // //     (start.x + offsetEnd.x) / 2,
-    // //     Math.max(start.y, offsetEnd.y) + controlPointHeight,
-    // //     (start.z + offsetEnd.z) / 2,
-    // //   );
-
-    // //   const t = transitionProgressRef.current;
-    // //   const bezierPoint = calculateBezierPoint(
-    // //     t,
-    // //     start,
-    // //     controlPoint,
-    // //     offsetEnd,
-    // //   );
-
-    // //   camera.position.lerp(bezierPoint, 0.1);
-    // //   orbitControlsRef.current.target.lerp(planetPosition, t);
-
-    // //   transitionProgressRef.current += delta * 0.25;
-    // // }
-
-    // // After planet transition
-    // // if (currentPlanet && transitionProgressRef.current > 1) {
-    // //   if (isTransitioning) dispatch(endTransition());
-
-    // //   const planetPosition = new Vector3();
-    // //   currentPlanetRef.current.getWorldPosition(planetPosition);
-    // //   orbitControlsRef.current.target.lerp(planetPosition, 0.1);
-    // //   const direction = new Vector3()
-    // //     .subVectors(camera.position, planetPosition)
-    // //     .normalize();
-
-    // //   const distance = planetRadius * 6;
-    // //   const desiredCameraPosition = new Vector3().addVectors(
-    // //     planetPosition,
-    // //     direction.multiplyScalar(distance),
-    // //   );
-
-    // //   if (showContent) {
-    // //     camera.position.lerp(desiredCameraPosition, 0.05);
-    // //   }
-    // // }
   });
 
   return (
