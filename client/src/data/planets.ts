@@ -42,6 +42,7 @@ export type PlanetProps = {
   oblateness: number;
   glowColor: number;
   colorMap: string;
+  timeOffset: number;
 
   orbitCenter?: { x: number; y: number; z: number };
 
@@ -77,11 +78,12 @@ export const planets: PlanetProps[] = [
     semiMajorAxis: 125,
     // eccentricity: 0.2056,
     eccentricity: 0.1056,
-    orbitSpeed: 0.01,
+    orbitSpeed: 0.05,
     rotation: 0.001,
     oblateness: 1,
     glowColor: 0xb3cde0,
     colorMap: mercuryColor,
+    timeOffset: 90,
   },
 
   {
@@ -89,11 +91,12 @@ export const planets: PlanetProps[] = [
     radius: 10,
     semiMajorAxis: 220,
     eccentricity: 0.0067,
-    orbitSpeed: 0.0,
+    orbitSpeed: 0.03,
     rotation: -0.001,
     oblateness: 1,
     glowColor: 0xffd700,
     colorMap: venusColor,
+    timeOffset: 80,
   },
 
   {
@@ -101,7 +104,7 @@ export const planets: PlanetProps[] = [
     radius: 11,
     semiMajorAxis: 325,
     eccentricity: 0.0167,
-    orbitSpeed: 0.05,
+    orbitSpeed: 0.02,
     rotation: 0.0008,
     oblateness: 1,
     glowColor: 0x0088ff,
@@ -111,34 +114,37 @@ export const planets: PlanetProps[] = [
     cloudMap: earthClouds,
     cloudTransparancy: earthCloudsTransparency,
     lightMap: earthLights,
+    timeOffset: 280,
   },
 
   {
     name: 'Moon',
     radius: 2,
-    semiMajorAxis: 40,
+    semiMajorAxis: 30,
     eccentricity: 0.0549,
-    orbitSpeed: 0.085,
+    orbitSpeed: 0.12,
     rotation: 0.002,
     oblateness: 1,
     glowColor: 0xb3cde0,
     colorMap: moonColor,
     bumpMap: moonBump,
     bumpScale: 5,
+    timeOffset: 0,
   },
 
   {
     name: 'Mars',
     radius: 8,
-    semiMajorAxis: 500,
+    semiMajorAxis: 480,
     eccentricity: 0.0935,
-    orbitSpeed: 0.001,
+    orbitSpeed: 0.013,
     rotation: 0.00427,
     oblateness: 1,
     glowColor: 0xff4500,
     colorMap: marsColor,
     bumpMap: marsBump,
     bumpScale: 5,
+    timeOffset: 50,
   },
 
   {
@@ -146,11 +152,12 @@ export const planets: PlanetProps[] = [
     radius: 20,
     semiMajorAxis: 650,
     eccentricity: 0.0489,
-    orbitSpeed: 0.00084,
+    orbitSpeed: 0.01,
     rotation: 0.001,
     oblateness: 0.935,
     glowColor: 0xffa500,
     colorMap: jupiterColor,
+    timeOffset: 420,
   },
 
   {
@@ -158,7 +165,7 @@ export const planets: PlanetProps[] = [
     radius: 16,
     semiMajorAxis: 850,
     eccentricity: 0.0565,
-    orbitSpeed: 0.034,
+    orbitSpeed: 0.008,
     rotation: 0.05,
     oblateness: 0.9,
     glowColor: 0xcba135,
@@ -167,6 +174,7 @@ export const planets: PlanetProps[] = [
     ringPattern: saturnRingPattern,
     ringRadius: 27,
     ringTubeRadius: 6,
+    timeOffset: 750,
   },
 
   {
@@ -174,7 +182,7 @@ export const planets: PlanetProps[] = [
     radius: 10,
     semiMajorAxis: 1050,
     eccentricity: 0.0457,
-    orbitSpeed: 0.012,
+    orbitSpeed: 0.006,
     rotation: 0.01,
     oblateness: 0.977,
     glowColor: 0x89cff0,
@@ -183,6 +191,7 @@ export const planets: PlanetProps[] = [
     ringPattern: uranusRingPattern,
     ringRadius: 20,
     ringTubeRadius: 2,
+    timeOffset: 860,
   },
 
   {
@@ -190,11 +199,12 @@ export const planets: PlanetProps[] = [
     radius: 10,
     semiMajorAxis: 1300,
     eccentricity: 0.0113,
-    orbitSpeed: 0.012,
+    orbitSpeed: 0.005,
     rotation: 0.02,
     oblateness: 0.983,
     glowColor: 0x0088ff,
     colorMap: neptuneColor,
+    timeOffset: 500,
   },
 
   {
@@ -202,12 +212,13 @@ export const planets: PlanetProps[] = [
     radius: 5,
     semiMajorAxis: 1700,
     eccentricity: 0.0444,
-    orbitSpeed: 0.012,
+    orbitSpeed: 0.004,
     rotation: 0.005,
     oblateness: 1,
     glowColor: 0x1ec2a4,
     colorMap: plutoColor,
     bumpMap: plutoBump,
     bumpScale: 5,
+    timeOffset: 300,
   },
 ];

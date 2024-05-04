@@ -9,7 +9,7 @@ import Sun from './Sun';
 // import Sun from './Sun';
 
 function SolarSystem() {
-  const cameraPosition: [number, number, number] = [-450, 500, 700];
+  const cameraPosition: [number, number, number] = [-350, 400, 600];
 
   return (
     <PlanetProvider>

@@ -38,6 +38,7 @@ function Planet({
   cloudMap,
   cloudTransparancy,
   lightMap,
+  timeOffset,
 }: PlanetProps) {
   const planetRef = useRef<Mesh>(null!);
   const glowRef = useRef<Mesh>(null!);
@@ -157,7 +158,8 @@ function Planet({
   }
 
   useFrame(({ clock }) => {
-    const elapsedTime = clock.getElapsedTime() - selectedTime.current;
+    const elapsedTime =
+      clock.getElapsedTime() - selectedTime.current + timeOffset;
     const c = semiMajorAxis * eccentricity;
     const angle = elapsedTime * orbitSpeed;
 
