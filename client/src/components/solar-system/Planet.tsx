@@ -101,10 +101,10 @@ function Planet({
         // Create texture from canvas
         const texture = new CanvasTexture(canvas);
 
-        // Create sprite material with this texture
         const material = new SpriteMaterial({
           map: texture,
-          sizeAttenuation: false, // This ensures the sprite's size remains constant on screen
+          sizeAttenuation: false, // Ensures the sprites size remains constant on screen
+          depthWrite: false, // Disable depth writing or else background blocks the orbit path
         });
 
         // Assign material to sprite

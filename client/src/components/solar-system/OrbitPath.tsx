@@ -35,7 +35,12 @@ function OrbitPath({
   );
 
   const lineMaterial = useMemo(
-    () => new LineBasicMaterial({ color: 0x00bfff }),
+    () =>
+      new LineBasicMaterial({
+        color: 0x00bfff, // Light blue color
+        transparent: true, // Enable transparency
+        opacity: 0.5, // Adjust this value to control the transparency level
+      }),
     [],
   );
 
