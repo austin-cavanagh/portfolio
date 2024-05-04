@@ -16,7 +16,8 @@ function DateTimeDisplay() {
     const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Gets the month, +1 because getMonth() returns 0-11
     const day = date.getDate().toString().padStart(2, '0'); // Gets the day of the month
 
-    const formattedDate = `${year}-${month}-${day}`; // Formats date as YYYY-MM-DD
+    // const formattedDate = `${year}-${month}-${day}`; // Formats date as YYYY-MM-DD
+    const formattedDate = `${year}:${month}:${day}`; // Formats date as YYYY:MM:DD
 
     const formattedTime = date.toLocaleTimeString(undefined, {
       hour: '2-digit',

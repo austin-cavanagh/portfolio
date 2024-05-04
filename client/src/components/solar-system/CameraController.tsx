@@ -99,12 +99,6 @@ export default function CameraController({}: CameraControllerProps) {
     // Instead of trying to get the sun on the left if we are going to the sun we just need to offset along the z axis
     // Did not have to do this for overview because we are not orienting based on planet
 
-    if (currentPlanet === 'Sun') {
-      planetRadius = planetRefs['Sun'].current.geometry.parameters.radius;
-      endTarget = new Vector3(0, 0, 0);
-      endPosition = new Vector3(0, 0, planetRadius * 4);
-    }
-
     if (currentPlanet !== 'Sun') {
       planetRadius = currentPlanetRef.current.geometry.parameters.radius;
       endTarget = currentPlanetRef.current.position.clone();
@@ -145,18 +139,57 @@ export default function CameraController({}: CameraControllerProps) {
     }
 
     // Slow Start -> Slow End
+    // if (path === 'planetToPlanet') {
+    //   const midPoint = startPosition.clone().lerp(endTarget, 0.5);
+    //   const arcHeight = planetRadius * 10;
+    //   const controlPoint = new Vector3(
+    //     midPoint.x,
+    //     midPoint.y + arcHeight,
+    //     midPoint.z,
+    //   );
+
+    //   // Position Transition
+    //   new TWEEN.Tween({ t: 0 })
+    //     .to({ t: 1 }, 2000)
+    //     .onUpdate(({ t }) => {
+    //       const bezierPoint = calculateBezierPoint(
+    //         t,
+    //         startPosition,
+    //         controlPoint,
+    //         endPosition,
+    //       );
+    //       camera.position.copy(bezierPoint);
+    //     })
+    //     .easing(TWEEN.Easing.Quadratic.InOut)
+    //     .start();
+
+    //   // Target Transition
+    //   new TWEEN.Tween({ t: 0 })
+    //     .to({ t: 1 }, 2000)
+    //     .onUpdate(({ t }) => {
+    //       const newTarget = startTarget.clone().lerp(endTarget, t);
+    //       orbitControlsRef.current.target.copy(newTarget);
+    //       orbitControlsRef.current.update();
+    //     })
+    //     .easing(TWEEN.Easing.Quadratic.InOut)
+    //     .onComplete(() => {
+    //       dispatch(endTransition());
+    //     })
+    //     .start();
+    // }
+
     if (path === 'planetToPlanet') {
       const midPoint = startPosition.clone().lerp(endTarget, 0.5);
-      const arcHeight = planetRadius * 10;
+      const arcHeight = planetRadius * 5; // Reduced height for a smoother arc
       const controlPoint = new Vector3(
         midPoint.x,
         midPoint.y + arcHeight,
         midPoint.z,
       );
 
-      // Position Transition
+      // Position Transition with updated easing
       new TWEEN.Tween({ t: 0 })
-        .to({ t: 1 }, 2000)
+        .to({ t: 1 }, 2500) // Increased duration for smoother transition
         .onUpdate(({ t }) => {
           const bezierPoint = calculateBezierPoint(
             t,
@@ -166,18 +199,18 @@ export default function CameraController({}: CameraControllerProps) {
           );
           camera.position.copy(bezierPoint);
         })
-        .easing(TWEEN.Easing.Quadratic.InOut)
+        .easing(TWEEN.Easing.Cubic.InOut) // Smoother easing function
         .start();
 
-      // Target Transition
+      // Target Transition with updated easing
       new TWEEN.Tween({ t: 0 })
-        .to({ t: 1 }, 2000)
+        .to({ t: 1 }, 2500) // Synchronized duration with position transition
         .onUpdate(({ t }) => {
           const newTarget = startTarget.clone().lerp(endTarget, t);
           orbitControlsRef.current.target.copy(newTarget);
           orbitControlsRef.current.update();
         })
-        .easing(TWEEN.Easing.Quadratic.InOut)
+        .easing(TWEEN.Easing.Cubic.InOut) // Consistent easing for both position and target
         .onComplete(() => {
           dispatch(endTransition());
         })
