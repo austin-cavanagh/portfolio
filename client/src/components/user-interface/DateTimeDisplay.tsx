@@ -12,15 +12,11 @@ function DateTimeDisplay() {
   }, []);
 
   const formatDate = (date: Date) => {
-    const formattedDate = date
-      .toLocaleDateString(undefined, {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-      })
-      .split('/')
-      .reverse()
-      .join(':'); // Adjusts the format to YYYY-MM-DD
+    const year = date.getFullYear(); // Gets the full year (4 digits)
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Gets the month, +1 because getMonth() returns 0-11
+    const day = date.getDate().toString().padStart(2, '0'); // Gets the day of the month
+
+    const formattedDate = `${year}-${month}-${day}`; // Formats date as YYYY-MM-DD
 
     const formattedTime = date.toLocaleTimeString(undefined, {
       hour: '2-digit',
