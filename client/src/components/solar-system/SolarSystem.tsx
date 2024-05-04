@@ -6,14 +6,12 @@ import { planets } from '../../data/planets';
 import CameraController from './CameraController';
 import { PlanetProvider } from '../../context/PlanetContext';
 import Sun from './Sun';
-// import Sun from './Sun';
 
 function SolarSystem() {
   const cameraPosition: [number, number, number] = [-350, 400, 600];
 
   return (
     <PlanetProvider>
-      {/* <Suspense fallback={<LoadingScreen />}> */}
       <div className="h-screen w-screen">
         <Canvas
           camera={{
@@ -44,7 +42,6 @@ function SolarSystem() {
         </Canvas>
         <UserInterface />
       </div>
-      {/* </Suspense> */}
     </PlanetProvider>
   );
 }

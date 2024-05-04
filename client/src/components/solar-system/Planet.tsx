@@ -261,6 +261,7 @@ function Planet({
 
   return (
     <>
+      {/* Planet */}
       <mesh
         ref={planetRef}
         scale={[1, oblateness, 1]}

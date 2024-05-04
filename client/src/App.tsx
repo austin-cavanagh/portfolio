@@ -2,7 +2,7 @@ import SolarSystem from './components/solar-system/SolarSystem';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './state/store';
 import LoadingScreen from './components/solar-system/LoadingScreen';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { setIsLoading } from './state/appSlice';
 
 function App() {
@@ -33,12 +33,16 @@ function App() {
         {!isLoading && <SolarSystem />}
       </Suspense> */}
 
-      {/* <div className="relative h-full w-full">
+      <div className="relative h-full w-full">
         {isLoading && <LoadingScreen />}
         {readyToShow && <SolarSystem />}
-      </div> */}
 
-      <SolarSystem />
+        {/* <Suspense fallback={<LoadingScreen />}>
+          <SolarSystem />
+        </Suspense> */}
+      </div>
+
+      {/* <SolarSystem /> */}
     </>
   );
 }

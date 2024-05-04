@@ -66,8 +66,8 @@ function CameraController({}: CameraControllerProps) {
 
     // Slow Start -> Fast End
     if (path === 'planetToOverview') {
-      const endTarget = new Vector3(0, 0, 0);
-      const endPosition = new Vector3(-750, 1000, 1500);
+      const endTarget = new Vector3(0, 0, 0); // Position of the new planet
+      const endPosition = new Vector3(-750, 1000, 1500); // End position of the camera
 
       // Position Transition
       new TWEEN.Tween(startPosition)
@@ -118,7 +118,8 @@ function CameraController({}: CameraControllerProps) {
 
       endPosition = endTarget
         .clone()
-        .add(sideDirection.multiplyScalar(planetRadius * 4));
+        .add(sideDirection.multiplyScalar(planetRadius * 4))
+        .add(new Vector3(0, planetRadius * 0.5, 0)); // Adjust Y position upwards
     }
 
     // Fast Start -> Slow End
