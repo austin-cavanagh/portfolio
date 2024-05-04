@@ -34,8 +34,10 @@ function App() {
       </Suspense> */}
 
       <div className="relative h-full w-full">
-        {isLoading && <LoadingScreen />}
-        {readyToShow && <SolarSystem />}
+        {/* {isLoading && <LoadingScreen />}
+        {readyToShow && <SolarSystem />} */}
+
+        <SolarSystem />
 
         {/* <Suspense fallback={<LoadingScreen />}>
           <SolarSystem />

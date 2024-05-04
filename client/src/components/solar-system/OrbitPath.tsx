@@ -10,7 +10,7 @@ type OrbitPathProps = {
 function OrbitPath({
   semiMajorAxis,
   eccentricity,
-  segments = 64,
+  segments = 200,
 }: OrbitPathProps) {
   const points = useMemo(() => {
     const c = semiMajorAxis * eccentricity;
