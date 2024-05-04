@@ -255,13 +255,13 @@ function Planet({
   };
 
   const handlePlanetClick = () => {
-    if (name === currentPlanet || isTransitioning) return;
+    if (name === currentPlanet || name === 'Moon' || isTransitioning) return;
     dispatch(setCurrentPlanet(name));
   };
 
   return (
     <>
-      {/* Planet */}
+      {/* Planet Shape & Texture */}
       <mesh
         ref={planetRef}
         scale={[1, oblateness, 1]}
@@ -315,7 +315,7 @@ function Planet({
       )}
 
       {/* Planet Hover Animation */}
-      {name !== currentPlanet && (
+      {name !== currentPlanet && name !== 'Moon' && (
         <>
           <mesh ref={hoverRefOne} visible={hovered}>
             <torusGeometry args={[radius * 1.5, radius * 0.06, 3, 50]} />

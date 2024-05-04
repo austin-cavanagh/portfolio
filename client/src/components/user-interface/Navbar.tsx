@@ -56,7 +56,7 @@ function Navbar() {
   const navItems = [
     { name: 'Overview', value: 'Overview' },
     { name: 'About', value: 'Earth' },
-    { name: 'Projects', value: 'Moon' },
+    { name: 'Projects', value: 'Jupiter' || 'Saturn' || 'Mars' },
     // { name: 'Contact', value: 'Saturn' },
   ];
 
@@ -182,6 +182,11 @@ function Navbar() {
       {/* Right */}
       <div className="bg-gray-90 flex h-[70px] space-x-5 border-b-2 border-[#00bfff] bg-gray-900 bg-opacity-80 p-4 px-6">
         {navItems.map(item => {
+          console.log('CURRENT_PLANET:', currentPlanet);
+          const isActive =
+            item.name === 'Projects'
+              ? ['Jupiter', 'Saturn', 'Mars'].includes(currentPlanet)
+              : currentPlanet === item.value;
           return (
             <div
               key={item.value}
@@ -260,7 +265,7 @@ function Navbar() {
               </button>
 
               <div
-                className={`absolute bottom-0 left-0 right-0 mx-auto h-0.5 bg-[#00bfff] transition-all duration-300 ease-out ${currentPlanet === item.value ? 'w-full' : 'w-0 group-hover:w-full'}`}
+                className={`absolute bottom-0 left-0 right-0 mx-auto h-0.5 bg-[#00bfff] transition-all duration-300 ease-out ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}
               />
             </div>
           );

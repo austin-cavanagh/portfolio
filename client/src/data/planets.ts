@@ -128,7 +128,7 @@ export const planets: PlanetProps[] = [
     glowColor: 0xb3cde0,
     colorMap: moonColor,
     bumpMap: moonBump,
-    bumpScale: 5,
+    bumpScale: 1,
     timeOffset: 0,
   },
 

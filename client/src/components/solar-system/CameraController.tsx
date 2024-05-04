@@ -26,7 +26,7 @@ const calculateBezierPoint = (
     .add(end.clone().multiplyScalar(t * t));
 };
 
-function CameraController({}: CameraControllerProps) {
+export default function CameraController({}: CameraControllerProps) {
   const orbitControlsRef = useRef<any>(null!);
   const transitionProgressRef = useRef<number>(0);
 
@@ -47,7 +47,7 @@ function CameraController({}: CameraControllerProps) {
     const startY = camera.position.y;
 
     let path = '';
-    if (startY < 100 && currentPlanet === 'Overview') {
+    if (currentPlanet === 'Overview') {
       path = 'planetToOverview';
     }
 
@@ -67,7 +67,9 @@ function CameraController({}: CameraControllerProps) {
     // Slow Start -> Fast End
     if (path === 'planetToOverview') {
       const endTarget = new Vector3(0, 0, 0); // Position of the new planet
-      const endPosition = new Vector3(-750, 1000, 1500); // End position of the camera
+      const endPosition = new Vector3(-350, 400, 600); // End position of the camera
+
+      // const cameraPosition: [number, number, number] = [-350, 400, 600];
 
       // Position Transition
       new TWEEN.Tween(startPosition)
@@ -293,5 +295,3 @@ function CameraController({}: CameraControllerProps) {
     />
   );
 }
-
-export default CameraController;
