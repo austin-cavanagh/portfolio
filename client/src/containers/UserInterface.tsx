@@ -9,8 +9,6 @@ import About from './About';
 // import ProjectTwo from '../components/projects/ProjectTwo';
 // import ProjectThree from '../components/projects/ProjectsThree';
 
-import { motion } from 'framer-motion';
-
 type UserInterfaceProps = {};
 
 function UserInterface({}: UserInterfaceProps) {
@@ -19,27 +17,12 @@ function UserInterface({}: UserInterfaceProps) {
   const renderContent = () => {
     const { isTransitioning } = useSelector((state: RootState) => state.app); // Assuming this flag exists and is managed appropriately
 
-    const contentVariants = {
-      hidden: { opacity: 0, y: 50 }, // starts 50px below the final position
-      visible: { opacity: 1, y: 0 },
-    };
-
     switch (currentPlanet) {
       case 'Earth':
         return (
-          // <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
-          //   <About />;
-          // </div>
-
-          <motion.div
-            className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto"
-            initial="hidden"
-            animate={!isTransitioning ? 'visible' : 'hidden'}
-            variants={contentVariants}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-          >
-            <About />
-          </motion.div>
+          <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
+            <About />;
+          </div>
         );
       // case 'Mars':
       //   return (

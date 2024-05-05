@@ -182,7 +182,6 @@ function Navbar() {
       {/* Right */}
       <div className="bg-gray-90 flex h-[70px] space-x-5 border-b-2 border-[#00bfff] bg-gray-900 bg-opacity-80 p-4 px-6">
         {navItems.map(item => {
-          console.log('CURRENT_PLANET:', currentPlanet);
           const isActive =
             item.name === 'Projects'
               ? ['Jupiter', 'Saturn', 'Mars'].includes(currentPlanet)

@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 export type TechnologyBadge = {
   src: string;
   alt: string;
@@ -116,64 +118,14 @@ const backendBadges: TechnologyBadge[] = [
     alt: 'Google Cloud',
   },
   // {
+  //   src: 'https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white',
+  //   alt: 'MySQL',
+  // },
+  // {
   //   src: '',
   //   alt: '',
   // },
 ];
-
-// const databaseBadges: TechnologyBadge[] = [
-//   {
-//     src: 'https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white',
-//     alt: 'PostgreSQL',
-//   },
-//   {
-//     src: 'https://img.shields.io/badge/MongoDB-07ab4e?style=for-the-badge&logo=mongodb&logoColor=white',
-//     alt: 'MongoDB',
-//   },
-//   {
-//     src: 'https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white',
-//     alt: 'Prisma',
-//   },
-//   // {
-//   //   src: 'https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white',
-//   //   alt: 'MySQL',
-//   // },
-//   // {
-//   //   src: '',
-//   //   alt: '',
-//   // },
-// ];
-
-// const devOpsBadges: TechnologyBadge[] = [
-//   // {
-//   //   src: 'https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white',
-//   //   alt: 'Cloudflare',
-//   // },
-//   {
-//     src: 'https://img.shields.io/badge/Docker-1e63ee?style=for-the-badge&logo=docker&logoColor=white',
-//     alt: 'Docker',
-//   },
-//   {
-//     src: 'https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white',
-//     alt: 'Amazon AWS',
-//   },
-//   {
-//     src: 'https://img.shields.io/badge/Google_Cloud-e94234?style=for-the-badge&logo=google-cloud&logoColor=white',
-//     alt: 'Google Cloud',
-//   },
-//   // {
-//   //   src: 'https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white',
-//   //   alt: 'GitHub Actions',
-//   // },
-//   // {
-//   //   src: 'https://img.shields.io/badge/kubernetes-326ce5.svg?&style=for-the-badge&logo=kubernetes&logoColor=white',
-//   //   alt: 'Kubernetes',
-//   // },
-//   // {
-//   //   src: '',
-//   //   alt: '',
-//   // },
-// ];
 
 const miscBadges: TechnologyBadge[] = [
   // {
@@ -205,6 +157,10 @@ const miscBadges: TechnologyBadge[] = [
     alt: 'Stripe',
   },
   // {
+  //   src: 'https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white',
+  //   alt: 'GitHub Actions',
+  // },
+  // {
   //   src: 'https://img.shields.io/badge/VIM-%2311AB00.svg?&style=for-the-badge&logo=vim&logoColor=white',
   //   alt: 'Vim',
   // },
@@ -225,14 +181,51 @@ const miscBadges: TechnologyBadge[] = [
   //   alt: 'NPM',
   // },
   // {
+  //   src: 'https://img.shields.io/badge/kubernetes-326ce5.svg?&style=for-the-badge&logo=kubernetes&logoColor=white',
+  //   alt: 'Kubernetes',
+  // },
+  // {
+  //   src: 'https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white',
+  //   alt: 'Cloudflare',
+  // },
+  // {
   //   src: '',
   //   alt: '',
   // },
 ];
 
 function Skills() {
+  // Animation variants for each skill section
+  const frontendVariants = {
+    hidden: { y: 100, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { delay: 0.1, type: 'spring', stiffness: 100 },
+    },
+  };
+
+  const backendVariants = {
+    hidden: { y: 100, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { delay: 0.3, type: 'spring', stiffness: 100 },
+    },
+  };
+
+  const miscVariants = {
+    hidden: { y: 100, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { delay: 0.5, type: 'spring', stiffness: 100 },
+    },
+  };
+
   return (
     <div className="space-y-6">
+      {/* 1 Container for Skills */}
       {/* <div className="flex flex-col space-y-4 rounded-3xl bg-gray-900 bg-opacity-80 p-5">
         <h2 className="text-xl text-white">Frontend</h2>
         <div className="flex max-w-[700px] flex-wrap">
@@ -276,51 +269,48 @@ function Skills() {
           })}
         </div>
       </div> */}
-      <div className="flex flex-col space-y-4 rounded-3xl bg-gray-900 bg-opacity-80 p-5">
+
+      <motion.div
+        className="flex flex-col space-y-4 rounded-3xl bg-gray-900 bg-opacity-80 p-5"
+        initial="hidden"
+        animate="visible"
+        variants={frontendVariants}
+      >
         <h2 className="text-xl text-white">Frontend</h2>
         <div className="flex max-w-[700px] flex-wrap">
-          {frontendBadges.map((badge, index) => {
-            return (
-              <img
-                key={index}
-                src={badge.src}
-                alt={badge.alt}
-                className="p-1"
-              />
-            );
-          })}
+          {frontendBadges.map((badge, index) => (
+            <img key={index} src={badge.src} alt={badge.alt} className="p-1" />
+          ))}
         </div>
-      </div>
-      <div className="flex flex-col space-y-4 rounded-3xl bg-gray-900 bg-opacity-80 p-5">
+      </motion.div>
+
+      <motion.div
+        className="flex flex-col space-y-4 rounded-3xl bg-gray-900 bg-opacity-80 p-5"
+        initial="hidden"
+        animate="visible"
+        variants={backendVariants}
+      >
         <h2 className="text-xl text-white">Backend</h2>
         <div className="flex max-w-[700px] flex-wrap">
-          {backendBadges.map((badge, index) => {
-            return (
-              <img
-                key={index}
-                src={badge.src}
-                alt={badge.alt}
-                className="p-1"
-              />
-            );
-          })}
+          {backendBadges.map((badge, index) => (
+            <img key={index} src={badge.src} alt={badge.alt} className="p-1" />
+          ))}
         </div>
-      </div>
-      <div className="flex flex-col space-y-4 rounded-3xl bg-gray-900 bg-opacity-80 p-5">
-        <h2 className="text-xl text-white">Other</h2>
+      </motion.div>
+
+      <motion.div
+        className="flex flex-col space-y-4 rounded-3xl bg-gray-900 bg-opacity-80 p-5"
+        initial="hidden"
+        animate="visible"
+        variants={miscVariants}
+      >
+        <h2 className="text-xl text-white">Misc</h2>
         <div className="flex max-w-[700px] flex-wrap">
-          {miscBadges.map((badge, index) => {
-            return (
-              <img
-                key={index}
-                src={badge.src}
-                alt={badge.alt}
-                className="p-1"
-              />
-            );
-          })}
+          {miscBadges.map((badge, index) => (
+            <img key={index} src={badge.src} alt={badge.alt} className="p-1" />
+          ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

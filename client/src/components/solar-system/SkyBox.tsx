@@ -17,7 +17,6 @@ export default function Skybox() {
       // This will suspend if still loading
       const texture = skyboxTextures.read();
       scene.background = texture;
-      console.log('Skybox textures loaded successfully.');
     } catch (error) {
       console.error('Failed to load skybox textures:', error);
     }
