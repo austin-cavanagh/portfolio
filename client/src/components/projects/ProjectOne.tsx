@@ -36,14 +36,14 @@ const technologyBadges: TechnologyBadge[] = [
     src: 'https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB',
     alt: 'React',
   },
-  {
-    src: 'https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D',
-    alt: 'Vue.js',
-  },
-  {
-    src: 'https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00',
-    alt: 'Svelte',
-  },
+  // {
+  //   src: 'https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D',
+  //   alt: 'Vue.js',
+  // },
+  // {
+  //   src: 'https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00',
+  //   alt: 'Svelte',
+  // },
   {
     src: 'https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white',
     alt: 'React Router',
@@ -64,10 +64,10 @@ const technologyBadges: TechnologyBadge[] = [
     src: 'https://img.shields.io/badge/rollup-EC4A3F?style=for-the-badge&logo=rollup.js&logoColor=white',
     alt: 'Rollup',
   },
-  {
-    src: 'https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E',
-    alt: 'Vite',
-  },
+  // {
+  //   src: 'https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E',
+  //   alt: 'Vite',
+  // },
   {
     src: 'https://img.shields.io/badge/Chrome_Extension-4285F4?style=for-the-badge&logo=Google-chrome&logoColor=white',
     alt: 'Chrome Extension',
@@ -80,13 +80,9 @@ const technologyBadges: TechnologyBadge[] = [
     src: 'https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white',
     alt: 'Jest',
   },
-  {
-    src: 'https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white',
-    alt: 'Cypress',
-  },
   // {
-  //   src: '',
-  //   alt: '',
+  //   src: 'https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white',
+  //   alt: 'Cypress',
   // },
 ];
 
@@ -164,13 +160,14 @@ export default function ProjectOne() {
           <ImagesCarousel images={images} />
         </div>
       </div> */}
-      <div className="flex rounded-3xl bg-gray-900 bg-opacity-80 p-14">
+      <div className="flex w-[1200px] rounded-3xl bg-gray-900 bg-opacity-80 p-10">
         <div className="flex h-full flex-col justify-center space-y-6 font-poppins">
-          <h2 className="text-3xl font-semibold text-[#00bfff]">
+          {/* <h2 className="text-3xl font-semibold text-[#00bfff]"> */}
+          <h2 className="text-3xl font-semibold text-white">
             React Query Rewind
           </h2>
 
-          <div className="flex max-w-[700px] flex-wrap">
+          <div className="flex flex-wrap">
             {technologyBadges.map((badge, index) => (
               <img
                 key={index}
@@ -179,6 +176,44 @@ export default function ProjectOne() {
                 className="p-1"
               />
             ))}
+          </div>
+
+          <div className="flex">
+            <div className="mr-10 w-[500px]">
+              <p className="text-left text-lg text-white">
+                Briefly introduce yourself here. Mention your{' '}
+                <span className="font-bold text-[#00bfff]">
+                  professional background
+                </span>
+                , what you're{' '}
+                <span className="font-bold text-[#00bfff]">
+                  passionate about
+                </span>
+                , and a personal note. Keep it engaging and concise. Not too
+                long and not too short, just the{' '}
+                <span className="font-bold text-[#00bfff]">perfect amount</span>
+                .
+              </p>
+
+              <p className="mt-4 text-left text-lg text-white">
+                Briefly introduce yourself here. Mention your{' '}
+                <span className="font-bold text-[#00bfff]">
+                  professional background
+                </span>
+                , what you're{' '}
+                <span className="font-bold text-[#00bfff]">
+                  passionate about
+                </span>
+                , and a personal note. Keep it engaging and concise. Not too
+                long and not too short, just the{' '}
+                <span className="font-bold text-[#00bfff]">perfect amount</span>
+                .
+              </p>
+            </div>
+
+            <div className="border border-4 border-[#00bfff]">
+              <ImagesCarousel images={images} />
+            </div>
           </div>
         </div>
       </div>
