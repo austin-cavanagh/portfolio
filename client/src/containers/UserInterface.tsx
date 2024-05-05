@@ -1,9 +1,11 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../state/store';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import Navbar from '../components/user-interface/Navbar';
 import BottomBar from '../components/user-interface/Footer';
 import About from './About';
+import ProjectOne from '../components/projects/ProjectOne';
 // import Contact from './Contact';
 // import ProjectOne from '../components/projects/ProjectOne';
 // import ProjectTwo from '../components/projects/ProjectTwo';
@@ -12,23 +14,42 @@ import About from './About';
 type UserInterfaceProps = {};
 
 function UserInterface({}: UserInterfaceProps) {
-  const { currentPlanet } = useSelector((state: RootState) => state.app);
+  const { currentPlanet, isTransitioning } = useSelector(
+    (state: RootState) => state.app,
+  );
+
+  const exitVariants = {
+    exit: {
+      opacity: 0,
+      y: 100, // Now set to move downwards
+      transition: { duration: 0.5 },
+    },
+  };
 
   const renderContent = () => {
-    const { isTransitioning } = useSelector((state: RootState) => state.app); // Assuming this flag exists and is managed appropriately
-
     switch (currentPlanet) {
       case 'Earth':
+        // return (
+        //   <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
+        //     <About />;
+        //   </div>
+        // );
         return (
-          <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
-            <About />;
-          </div>
+          <motion.div
+            key="earth"
+            initial="hidden"
+            exit="exit"
+            variants={exitVariants}
+            className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto"
+          >
+            <About />
+          </motion.div>
         );
       // case 'Mars':
       //   return (
-      //     <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
-      //       <ProjectOne />;
-      //     </div>
+      // <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
+      //   <ProjectOne />;
+      // </div>
       //   );
       // case 'Venus':
       //   return (
@@ -57,7 +78,35 @@ function UserInterface({}: UserInterfaceProps) {
     <div className="pointer-events-none absolute left-0 top-0 flex h-screen w-screen flex-col">
       <Navbar />
 
-      {renderContent()}
+      {/* {renderContent()} */}
+      {/* <AnimatePresence>{renderContent()}</AnimatePresence> */}
+
+      <AnimatePresence>
+        {currentPlanet === 'Earth' && (
+          <motion.div
+            key="earth"
+            initial="hidden"
+            exit="exit"
+            variants={exitVariants}
+            className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto"
+          >
+            <About />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {currentPlanet === 'Saturn' && (
+        <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
+          <ProjectOne />;
+        </div>
+      )}
+
+      <AnimatePresence>
+        {currentPlanet !== 'Earth' && currentPlanet !== 'Saturn' && (
+          // <div className="pointer-events-none flex flex-1 overflow-auto"></div>
+          <></>
+        )}
+      </AnimatePresence>
 
       <BottomBar />
     </div>

@@ -73,7 +73,7 @@ export default function CameraController({}: CameraControllerProps) {
 
       // Position Transition
       new TWEEN.Tween(startPosition)
-        .to(endPosition, 2000)
+        .to(endPosition, 2500)
         .easing(TWEEN.Easing.Quadratic.InOut)
         .onUpdate(() => camera.updateProjectionMatrix())
         .onComplete(() => {
@@ -83,7 +83,7 @@ export default function CameraController({}: CameraControllerProps) {
 
       // Target Transition
       new TWEEN.Tween(startTarget)
-        .to(endTarget, 2000)
+        .to(endTarget, 2500)
         .easing(TWEEN.Easing.Quadratic.InOut)
         .onUpdate(() => orbitControlsRef.current.update())
         .start();
@@ -122,7 +122,7 @@ export default function CameraController({}: CameraControllerProps) {
     if (path === 'overviewToPlanet') {
       // Position Transition
       new TWEEN.Tween(startPosition)
-        .to(endPosition, 2000)
+        .to(endPosition, 2500)
         .easing(TWEEN.Easing.Quadratic.InOut)
         .onUpdate(() => camera.updateProjectionMatrix())
         .onComplete(() => {
@@ -132,7 +132,7 @@ export default function CameraController({}: CameraControllerProps) {
 
       // Target Transition
       new TWEEN.Tween(startTarget)
-        .to(endTarget, 2000)
+        .to(endTarget, 2500)
         .easing(TWEEN.Easing.Quadratic.InOut)
         .onUpdate(() => orbitControlsRef.current.update())
         .start();
