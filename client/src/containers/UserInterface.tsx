@@ -21,7 +21,7 @@ function UserInterface({}: UserInterfaceProps) {
   const exitVariants = {
     exit: {
       opacity: 0,
-      y: 100, // Now set to move downwards
+      y: 100,
       transition: { duration: 0.5 },
     },
   };
@@ -29,11 +29,6 @@ function UserInterface({}: UserInterfaceProps) {
   const renderContent = () => {
     switch (currentPlanet) {
       case 'Earth':
-        // return (
-        //   <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
-        //     <About />;
-        //   </div>
-        // );
         return (
           <motion.div
             key="earth"
@@ -45,12 +40,12 @@ function UserInterface({}: UserInterfaceProps) {
             <About />
           </motion.div>
         );
-      // case 'Mars':
-      //   return (
-      // <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
-      //   <ProjectOne />;
-      // </div>
-      //   );
+      case 'Saturn':
+        return (
+          <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
+            <ProjectOne />;
+          </div>
+        );
       // case 'Venus':
       //   return (
       //     <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
@@ -66,47 +61,15 @@ function UserInterface({}: UserInterfaceProps) {
       // case 'Saturn':
       //   return <Contact />;
       default:
-        return (
-          <div className="pointer-events-none flex flex-1 overflow-auto"></div>
-        );
+        return <></>;
     }
   };
 
-  // pointer-events-none
-
   return (
-    <div className="pointer-events-none absolute left-0 top-0 flex h-screen w-screen flex-col">
+    <div className="pointer-events-none absolute left-0 top-0 flex h-screen w-screen flex-col justify-between">
       <Navbar />
 
-      {/* {renderContent()} */}
-      {/* <AnimatePresence>{renderContent()}</AnimatePresence> */}
-
-      <AnimatePresence>
-        {currentPlanet === 'Earth' && (
-          <motion.div
-            key="earth"
-            initial="hidden"
-            exit="exit"
-            variants={exitVariants}
-            className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto"
-          >
-            <About />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {currentPlanet === 'Saturn' && (
-        <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
-          <ProjectOne />;
-        </div>
-      )}
-
-      <AnimatePresence>
-        {currentPlanet !== 'Earth' && currentPlanet !== 'Saturn' && (
-          // <div className="pointer-events-none flex flex-1 overflow-auto"></div>
-          <></>
-        )}
-      </AnimatePresence>
+      <AnimatePresence>{renderContent()}</AnimatePresence>
 
       <BottomBar />
     </div>
