@@ -72,7 +72,6 @@ const technologyBadges: TechnologyBadge[] = [
     src: 'https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white',
     alt: 'AWS',
   },
-
   {
     src: 'https://img.shields.io/badge/EC2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white',
     alt: 'AWS EC2',

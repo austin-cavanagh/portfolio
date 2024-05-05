@@ -53,10 +53,6 @@ const technologyBadges: TechnologyBadge[] = [
     alt: 'Redux',
   },
   {
-    src: 'https://img.shields.io/badge/Toolkit-774abc?style=for-the-badge&logo=redux&logoColor=white',
-    alt: 'Redux Toolkit',
-  },
-  {
     src: 'https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E',
     alt: 'Vite',
   },

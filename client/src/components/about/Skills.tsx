@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../state/store';
 
@@ -36,9 +36,10 @@ const frontendBadges: TechnologyBadge[] = [
     src: 'https://img.shields.io/badge/Redux-774abc?style=for-the-badge&logo=redux&logoColor=white',
     alt: 'Redux',
   },
-
-  // Redux Toolkit
-
+  {
+    src: 'https://img.shields.io/badge/Toolkit-774abc?style=for-the-badge&logo=redux&logoColor=white',
+    alt: 'Redux Toolkit',
+  },
   {
     src: 'https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=ReactQuery&logoColor=white',
     alt: 'React Query',
@@ -70,10 +71,6 @@ const frontendBadges: TechnologyBadge[] = [
   // {
   //   src: 'https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00',
   //   alt: 'Svelte',
-  // },
-  // {
-  //   src: '',
-  //   alt: '',
   // },
 ];
 
