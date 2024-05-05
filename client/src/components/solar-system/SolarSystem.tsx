@@ -40,6 +40,7 @@ function SolarSystem() {
 
           <CameraController />
         </Canvas>
+
         <UserInterface />
       </div>
     </PlanetProvider>

@@ -44,8 +44,10 @@ const technologyBadges: TechnologyBadge[] = [
     src: 'https://img.shields.io/badge/Tailwind_CSS-4f45e4?style=for-the-badge&logo=tailwind-css&logoColor=white',
     alt: 'Tailwind',
   },
-
-  // GLSL
+  {
+    src: 'https://img.shields.io/badge/GLSL-774abc?style=for-the-badge&logo=opengl&logoColor=white',
+    alt: 'GLSL',
+  },
 
   {
     src: 'https://img.shields.io/badge/Redux-774abc?style=for-the-badge&logo=redux&logoColor=white',
@@ -66,10 +68,14 @@ const technologyBadges: TechnologyBadge[] = [
     src: 'https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white',
     alt: 'AWS',
   },
-
-  // EC2
-  // ECR
-
+  {
+    src: 'https://img.shields.io/badge/EC2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white',
+    alt: 'AWS EC2',
+  },
+  {
+    src: 'https://img.shields.io/badge/ECR-FF9900?style=for-the-badge&logo=amazonecs&logoColor=white',
+    alt: 'WS ECR',
+  },
   {
     src: 'https://img.shields.io/badge/ThreeJs-black?style=for-the-badge&logo=three.js&logoColor=white',
     alt: 'Three.js',
