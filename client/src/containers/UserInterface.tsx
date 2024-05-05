@@ -4,12 +4,14 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import Navbar from '../components/user-interface/Navbar';
 import BottomBar from '../components/user-interface/Footer';
+
 import About from './About';
-import ProjectOne from '../components/projects/ProjectOne';
+
+import ReactQueryRewind from '../components/projects/ReactQueryRewing';
+import B2CEcommerceWebsite from '../components/projects/B2CEcommerceWebsite';
+import SolarSystemPorfolio from '../components/projects/SolarSystemPortfolio';
+
 // import Contact from './Contact';
-// import ProjectOne from '../components/projects/ProjectOne';
-// import ProjectTwo from '../components/projects/ProjectTwo';
-// import ProjectThree from '../components/projects/ProjectsThree';
 
 type UserInterfaceProps = {};
 
@@ -43,21 +45,21 @@ function UserInterface({}: UserInterfaceProps) {
       case 'Saturn':
         return (
           <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
-            <ProjectOne />;
+            <ReactQueryRewind />;
           </div>
         );
-      // case 'Venus':
-      //   return (
-      //     <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
-      //       <ProjectTwo />;
-      //     </div>
-      //   );
-      // case 'Jupiter':
-      //   return (
-      //     <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
-      //       <ProjectThree />;
-      //     </div>
-      //   );
+      case 'Jupiter':
+        return (
+          <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
+            <B2CEcommerceWebsite />;
+          </div>
+        );
+      case 'Mars':
+        return (
+          <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
+            <SolarSystemPorfolio />;
+          </div>
+        );
       // case 'Saturn':
       //   return <Contact />;
       default:
