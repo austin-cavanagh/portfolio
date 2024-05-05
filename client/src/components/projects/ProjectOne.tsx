@@ -100,20 +100,6 @@ export default function ProjectOne() {
             here to take up some space so I can see what it will look like.
             Thought I should make it slightly longer.
           </p>
-          <div className="space-x-2">
-            <span className="inline-block rounded border-2 border-[#00bfff] px-2 py-1 text-[#00bfff]">
-              React
-            </span>
-            <span className="inline-block rounded border-2 border-[#00bfff] px-2 py-1 text-[#00bfff]">
-              Tailwind
-            </span>
-            <span className="inline-block rounded border-2 border-[#00bfff] px-2 py-1 text-[#00bfff]">
-              Webpack
-            </span>
-            <span className="inline-block rounded border-2 border-[#00bfff] px-2 py-1 text-[#00bfff]">
-              Redux
-            </span>
-          </div>
           <div className="flex space-x-4">
             <a
               href="https://github.com/oslabs-beta/react-query-rewind"
@@ -163,9 +149,162 @@ export default function ProjectOne() {
       <div className="flex w-[1200px] rounded-3xl bg-gray-900 bg-opacity-80 p-10">
         <div className="flex h-full flex-col justify-center space-y-6 font-poppins">
           {/* <h2 className="text-3xl font-semibold text-[#00bfff]"> */}
-          <h2 className="text-3xl font-semibold text-white">
-            React Query Rewind
-          </h2>
+          <div className="flex w-full justify-between">
+            <h2 className="text-3xl font-semibold text-white">
+              React Query Rewind
+            </h2>
+
+            <div className="flex items-center justify-center space-x-4">
+              <a
+                href="https://reactqueryrewind.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#00bfff] hover:text-black"
+              >
+                <svg
+                  viewBox="0 0 48 48"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#00bfff"
+                  className="h-6 w-6"
+                >
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <title>npm</title>
+                    <g id="Layer_2" data-name="Layer 2">
+                      <g id="invisible_box" data-name="invisible box">
+                        <rect width="48" height="48" fill="none"></rect>
+                      </g>
+                      <g id="Q3_icons" data-name="Q3 icons">
+                        <g>
+                          <rect
+                            x="21.6"
+                            y="19.9"
+                            width="2.4"
+                            height="4.84"
+                          ></rect>
+                          <path d="M2,15V29.7H14.2v2.5H24V29.7H46V15ZM14.2,27.2H11.8V19.9H9.3v7.3H4.5V17.5h9.7Zm12.3,0H21.6v2.5H16.7V17.5h9.8Zm17.1,0H41.2V19.9H38.7v7.3H36.2V19.9H33.8v7.3H28.9V17.5H43.6Z"></path>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </a>
+
+              <a
+                href="https://reactqueryrewind.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#00bfff] hover:text-black"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-8 w-8"
+                >
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path
+                      d="M12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22Z"
+                      stroke="#00bfff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M12 16C14.21 16 16 14.21 16 12C16 9.79 14.21 8 12 8C9.79 8 8 9.79 8 12C8 14.21 9.79 16 12 16Z"
+                      stroke="#00bfff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M21.17 8C18.15 7.34 15.02 7.34 12 8"
+                      stroke="#00bfff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M3.95001 6.06006L3.97001 6.12006C4.98001 9.01006 6.53001 11.6901 8.54001 14.0001"
+                      stroke="#00bfff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M10.88 21.94C12.94 19.67 14.49 16.99 15.43 14.08L15.46 14"
+                      stroke="#00bfff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </g>
+                </svg>
+              </a>
+
+              <a
+                href="https://github.com/oslabs-beta/react-query-rewind"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#00bfff] hover:text-black"
+              >
+                <svg
+                  fill="#00bfff"
+                  viewBox="-6 0 32 32"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-10 w-10"
+                >
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    {' '}
+                    <title>github</title>{' '}
+                    <path d="M18.36 9.28c0.48-1.72-0.24-3.6-0.28-3.72-0.12-0.28-0.4-0.52-0.72-0.52-0.080 0-1.92-0.16-3.76 1.24-1.44-0.28-3.080-0.36-3.16-0.36-0.040 0-0.040 0-0.080 0-0.080 0-1.72 0.080-3.16 0.36-1.84-1.4-3.68-1.24-3.76-1.24-0.32 0.040-0.6 0.24-0.72 0.52-0.040 0.080-0.8 2-0.28 3.72-0.92 1.28-1.64 2.96-1 5.96 0.6 2.72 2.84 4.24 5.16 4.76-0.2 0.56-0.28 1.24-0.36 1.96-0.96 0.040-1.56-0.52-2.4-1.4-0.72-0.76-1.52-1.64-2.84-1.92-0.44-0.12-0.88 0.16-1 0.64-0.080 0.48 0.2 0.92 0.68 1 0.76 0.16 1.28 0.72 1.92 1.4 0.84 0.88 1.8 1.96 3.52 1.96 0 0 0.040 0 0.040 0 0 0.92 0.080 1.8 0.12 2.52 0.040 0.48 0.44 0.8 0.92 0.76s0.8-0.44 0.76-0.92c-0.24-2.72-0.040-5.6 0.4-6 0.32-0.2 0.52-0.56 0.4-0.96-0.080-0.36-0.4-0.64-0.8-0.64-0.36 0-4.12-0.2-4.84-3.52-0.6-2.72 0.16-3.92 0.96-4.88 0.2-0.24 0.24-0.6 0.12-0.92-0.32-0.68-0.2-1.64-0.040-2.28 0.56 0.080 1.4 0.32 2.28 1.080 0.2 0.2 0.48 0.24 0.76 0.2 1.24-0.32 2.92-0.4 3.2-0.4 0.24 0 1.96 0.080 3.2 0.4 0.28 0.080 0.56 0 0.76-0.2 0.88-0.76 1.76-1 2.28-1.080 0.16 0.6 0.28 1.56-0.040 2.28-0.12 0.28-0.080 0.64 0.12 0.92 0.8 0.96 1.52 2.16 0.96 4.88-0.72 3.32-4.48 3.52-4.92 3.56-0.4 0-0.72 0.28-0.8 0.64s0.080 0.76 0.4 0.96c0.48 0.4 0.68 3.24 0.44 6-0.040 0.48 0.32 0.88 0.76 0.92 0.040 0 0.040 0 0.080 0 0.44 0 0.8-0.32 0.84-0.76 0.16-1.76 0.28-4.48-0.28-6.2 2.32-0.48 4.56-2.040 5.16-4.76 0.64-3-0.040-4.68-1-5.96z"></path>{' '}
+                  </g>
+                </svg>
+              </a>
+
+              <a
+                href="https://reactqueryrewind.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#00bfff] hover:text-black"
+              >
+                <svg
+                  id="icon"
+                  viewBox="0 0 32 32"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-8 w-8 fill-current"
+                  style={{ cursor: 'pointer' }}
+                >
+                  <rect
+                    height="2"
+                    transform="translate(-10.63 14.34) rotate(-45)"
+                    width="11.31"
+                    x="6.34"
+                    y="19"
+                  />
+                  <path d="M17,30a1,1,0,0,1-.37-.07,1,1,0,0,1-.62-.79l-1-7,2-.28.75,5.27L21,24.52V17a1,1,0,0,1,.29-.71l4.07-4.07A8.94,8.94,0,0,0,28,5.86V4H26.14a8.94,8.94,0,0,0-6.36,2.64l-4.07,4.07A1,1,0,0,1,15,11H7.48L4.87,14.26l5.27.75-.28,2-7-1a1,1,0,0,1-.79-.62,1,1,0,0,1,.15-1l4-5A1,1,0,0,1,7,9h7.59l3.77-3.78A10.92,10.92,0,0,1,26.14,2H28a2,2,0,0,1,2,2V5.86a10.92,10.92,0,0,1-3.22,7.78L23,17.41V25a1,1,0,0,1-.38.78l-5,4A1,1,0,0,1,17,30Z" />
+                </svg>
+              </a>
+            </div>
+          </div>
 
           <div className="flex flex-wrap">
             {technologyBadges.map((badge, index) => (
@@ -181,31 +320,31 @@ export default function ProjectOne() {
           <div className="flex">
             <div className="mr-10 w-[500px]">
               <p className="text-left text-lg text-white">
-                Briefly introduce yourself here. Mention your{' '}
+                Briefly introduce yourself here. Mention your
                 <span className="font-bold text-[#00bfff]">
                   professional background
                 </span>
-                , what you're{' '}
+                , what you're
                 <span className="font-bold text-[#00bfff]">
                   passionate about
                 </span>
                 , and a personal note. Keep it engaging and concise. Not too
-                long and not too short, just the{' '}
+                long and not too short, just the
                 <span className="font-bold text-[#00bfff]">perfect amount</span>
                 .
               </p>
 
               <p className="mt-4 text-left text-lg text-white">
-                Briefly introduce yourself here. Mention your{' '}
+                Briefly introduce yourself here. Mention your
                 <span className="font-bold text-[#00bfff]">
                   professional background
                 </span>
-                , what you're{' '}
+                , what you're
                 <span className="font-bold text-[#00bfff]">
                   passionate about
                 </span>
                 , and a personal note. Keep it engaging and concise. Not too
-                long and not too short, just the{' '}
+                long and not too short, just the
                 <span className="font-bold text-[#00bfff]">perfect amount</span>
                 .
               </p>
