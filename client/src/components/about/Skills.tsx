@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../state/store';
 
 export type TechnologyBadge = {
   src: string;
@@ -195,13 +197,15 @@ const miscBadges: TechnologyBadge[] = [
 ];
 
 function Skills() {
+  const { isTransitioning } = useSelector((state: RootState) => state.app);
+
   // Animation variants for each skill section
   const frontendVariants = {
     hidden: { y: 100, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { delay: 0.1, type: 'spring', stiffness: 100 },
+      transition: { delay: 0.2, type: 'spring', stiffness: 100 },
     },
   };
 
@@ -210,7 +214,7 @@ function Skills() {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { delay: 0.3, type: 'spring', stiffness: 100 },
+      transition: { delay: 0.4, type: 'spring', stiffness: 100 },
     },
   };
 
@@ -219,7 +223,7 @@ function Skills() {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { delay: 0.5, type: 'spring', stiffness: 100 },
+      transition: { delay: 0.6, type: 'spring', stiffness: 100 },
     },
   };
 
@@ -273,7 +277,7 @@ function Skills() {
       <motion.div
         className="flex flex-col space-y-4 rounded-3xl bg-gray-900 bg-opacity-80 p-5"
         initial="hidden"
-        animate="visible"
+        animate={!isTransitioning ? 'visible' : 'hidden'}
         variants={frontendVariants}
       >
         <h2 className="text-xl text-white">Frontend</h2>
@@ -287,7 +291,7 @@ function Skills() {
       <motion.div
         className="flex flex-col space-y-4 rounded-3xl bg-gray-900 bg-opacity-80 p-5"
         initial="hidden"
-        animate="visible"
+        animate={!isTransitioning ? 'visible' : 'hidden'}
         variants={backendVariants}
       >
         <h2 className="text-xl text-white">Backend</h2>
@@ -301,7 +305,7 @@ function Skills() {
       <motion.div
         className="flex flex-col space-y-4 rounded-3xl bg-gray-900 bg-opacity-80 p-5"
         initial="hidden"
-        animate="visible"
+        animate={!isTransitioning ? 'visible' : 'hidden'}
         variants={miscVariants}
       >
         <h2 className="text-xl text-white">Misc</h2>

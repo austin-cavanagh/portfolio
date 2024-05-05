@@ -1,8 +1,33 @@
+import { useSelector } from 'react-redux';
 import portrait from '../../assets/portrait.jpeg';
+import { motion } from 'framer-motion';
+import { RootState } from '../../state/store';
 
 function ProfileCard() {
+  const { isTransitioning } = useSelector((state: RootState) => state.app);
+
+  console.log(isTransitioning);
+
+  const profileCardVariants = {
+    hidden: { y: 50, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 120,
+        delay: 0.0,
+      },
+    },
+  };
+
   return (
-    <div className="flex flex-col items-center space-y-3 rounded-3xl bg-gray-900 bg-opacity-80 p-5 text-white">
+    <motion.div
+      initial="hidden"
+      animate={!isTransitioning ? 'visible' : 'hidden'}
+      variants={profileCardVariants}
+      className="flex flex-col items-center space-y-3 rounded-3xl bg-gray-900 bg-opacity-80 p-5 text-white"
+    >
       <img
         src={portrait}
         alt="Austin Cavanagh"
@@ -22,7 +47,7 @@ function ProfileCard() {
         short, just the{' '}
         <span className="font-bold text-[#00bfff]">perfect amount</span>.
       </p>
-    </div>
+    </motion.div>
   );
 }
 
