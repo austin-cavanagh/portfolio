@@ -235,7 +235,7 @@ function Navbar() {
                       <ul className="rounded-lg border-2 border-[#00bfff] bg-gray-900 bg-opacity-80 py-1 text-left text-[#00bfff]">
                         <li>
                           <div
-                            onClick={() => handleNavigation('Mars')}
+                            onClick={() => handleNavigation('Saturn')}
                             className="block px-4 py-2 text-base hover:text-white"
                           >
                             1. React Query Rewind
@@ -243,7 +243,7 @@ function Navbar() {
                         </li>
                         <li>
                           <div
-                            onClick={() => handleNavigation('Venus')}
+                            onClick={() => handleNavigation('Jupiter')}
                             className="block px-4 py-2 text-base hover:text-white"
                           >
                             2. B2C eCommerce Site
@@ -251,10 +251,10 @@ function Navbar() {
                         </li>
                         <li>
                           <div
-                            onClick={() => handleNavigation('Jupiter')}
+                            onClick={() => handleNavigation('Mars')}
                             className="block px-4 py-2 text-base hover:text-white"
                           >
-                            3. Threejs Solar System
+                            3. Solar System Portfolio
                           </div>
                         </li>
                       </ul>

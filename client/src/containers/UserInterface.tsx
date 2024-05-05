@@ -28,6 +28,14 @@ function UserInterface({}: UserInterfaceProps) {
     },
   };
 
+  const projectExitVariant = {
+    exit: {
+      opacity: 0,
+      y: 100,
+      transition: { duration: 0.5 },
+    },
+  };
+
   const renderContent = () => {
     switch (currentPlanet) {
       case 'Earth':
@@ -44,21 +52,39 @@ function UserInterface({}: UserInterfaceProps) {
         );
       case 'Saturn':
         return (
-          <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
-            <ReactQueryRewind />;
-          </div>
+          <motion.div
+            key="saturn"
+            initial="hidden"
+            exit="exit"
+            variants={projectExitVariant}
+            className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto"
+          >
+            <ReactQueryRewind />
+          </motion.div>
         );
       case 'Jupiter':
         return (
-          <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
-            <B2CEcommerceWebsite />;
-          </div>
+          <motion.div
+            key="saturn"
+            initial="hidden"
+            exit="exit"
+            variants={projectExitVariant}
+            className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto"
+          >
+            <B2CEcommerceWebsite />
+          </motion.div>
         );
       case 'Mars':
         return (
-          <div className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto">
-            <SolarSystemPorfolio />;
-          </div>
+          <motion.div
+            key="saturn"
+            initial="hidden"
+            exit="exit"
+            variants={projectExitVariant}
+            className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto"
+          >
+            <SolarSystemPorfolio />
+          </motion.div>
         );
       // case 'Saturn':
       //   return <Contact />;

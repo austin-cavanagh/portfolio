@@ -93,7 +93,7 @@ export default function B2CEcommerceWebsite() {
         <div className="flex h-full flex-col justify-center space-y-6 font-poppins">
           <div className="flex w-full justify-between">
             <h2 className="text-[28pt] font-semibold text-[#00bfff]">
-              eCommerce Website
+              B2C eCommerce Website
             </h2>
 
             <div className="flex items-center justify-center space-x-6">
