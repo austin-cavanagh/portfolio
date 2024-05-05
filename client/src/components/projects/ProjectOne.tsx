@@ -148,50 +148,27 @@ export default function ProjectOne() {
       </div> */}
       <div className="flex w-[1200px] rounded-3xl bg-gray-900 bg-opacity-80 p-10">
         <div className="flex h-full flex-col justify-center space-y-6 font-poppins">
-          {/* <h2 className="text-3xl font-semibold text-[#00bfff]"> */}
           <div className="flex w-full justify-between">
             <h2 className="text-3xl font-semibold text-white">
               React Query Rewind
             </h2>
 
-            <div className="flex items-center justify-center space-x-4">
+            <div className="flex items-center justify-center space-x-6">
               <a
                 href="https://reactqueryrewind.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#00bfff] hover:text-black"
+                className="text-[#00bfff] hover:text-white"
               >
                 <svg
                   viewBox="0 0 48 48"
                   xmlns="http://www.w3.org/2000/svg"
-                  fill="#00bfff"
-                  className="h-6 w-6"
+                  className="h-10 w-10 fill-current"
                 >
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g
-                    id="SVGRepo_tracerCarrier"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  ></g>
-                  <g id="SVGRepo_iconCarrier">
-                    <title>npm</title>
-                    <g id="Layer_2" data-name="Layer 2">
-                      <g id="invisible_box" data-name="invisible box">
-                        <rect width="48" height="48" fill="none"></rect>
-                      </g>
-                      <g id="Q3_icons" data-name="Q3 icons">
-                        <g>
-                          <rect
-                            x="21.6"
-                            y="19.9"
-                            width="2.4"
-                            height="4.84"
-                          ></rect>
-                          <path d="M2,15V29.7H14.2v2.5H24V29.7H46V15ZM14.2,27.2H11.8V19.9H9.3v7.3H4.5V17.5h9.7Zm12.3,0H21.6v2.5H16.7V17.5h9.8Zm17.1,0H41.2V19.9H38.7v7.3H36.2V19.9H33.8v7.3H28.9V17.5H43.6Z"></path>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
+                  <title>npm</title>
+                  <rect width="48" height="48" fill="none"></rect>
+                  <rect x="21.6" y="19.9" width="2.4" height="4.84" />
+                  <path d="M2,15V29.7H14.2v2.5H24V29.7H46V15ZM14.2,27.2H11.8V19.9H9.3v7.3H4.5V17.5h9.7Zm12.3,0H21.6v2.5H16.7V17.5h9.8Zm17.1,0H41.2V19.9H38.7v7.3H36.2V19.9H33.8v7.3H28.9V17.5H43.6Z"></path>
                 </svg>
               </a>
 
@@ -199,57 +176,22 @@ export default function ProjectOne() {
                 href="https://reactqueryrewind.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#00bfff] hover:text-black"
+                className="text-[#00bfff] hover:text-white"
               >
                 <svg
                   viewBox="0 0 24 24"
-                  fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8"
+                  className="h-8 w-8 stroke-current"
+                  fill="none"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g
-                    id="SVGRepo_tracerCarrier"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  ></g>
-                  <g id="SVGRepo_iconCarrier">
-                    <path
-                      d="M12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22Z"
-                      stroke="#00bfff"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path>
-                    <path
-                      d="M12 16C14.21 16 16 14.21 16 12C16 9.79 14.21 8 12 8C9.79 8 8 9.79 8 12C8 14.21 9.79 16 12 16Z"
-                      stroke="#00bfff"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path>
-                    <path
-                      d="M21.17 8C18.15 7.34 15.02 7.34 12 8"
-                      stroke="#00bfff"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path>
-                    <path
-                      d="M3.95001 6.06006L3.97001 6.12006C4.98001 9.01006 6.53001 11.6901 8.54001 14.0001"
-                      stroke="#00bfff"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path>
-                    <path
-                      d="M10.88 21.94C12.94 19.67 14.49 16.99 15.43 14.08L15.46 14"
-                      stroke="#00bfff"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path>
-                  </g>
+                  <path d="M12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22Z"></path>
+                  <path d="M12 16C14.21 16 16 14.21 16 12C16 9.79 14.21 8 12 8C9.79 8 8 9.79 8 12C8 14.21 9.79 16 12 16Z"></path>
+                  <path d="M21.17 8C18.15 7.34 15.02 7.34 12 8"></path>
+                  <path d="M3.95001 6.06006L3.97001 6.12006C4.98001 9.01006 6.53001 11.6901 8.54001 14.0001"></path>
+                  <path d="M10.88 21.94C12.94 19.67 14.49 16.99 15.43 14.08L15.46 14"></path>
                 </svg>
               </a>
 
@@ -257,7 +199,7 @@ export default function ProjectOne() {
                 href="https://github.com/oslabs-beta/react-query-rewind"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#00bfff] hover:text-black"
+                className="text-[#00bfff] hover:text-white"
               >
                 <svg
                   fill="#00bfff"
@@ -266,11 +208,11 @@ export default function ProjectOne() {
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-10 w-10"
                 >
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                   <g
                     id="SVGRepo_tracerCarrier"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   ></g>
                   <g id="SVGRepo_iconCarrier">
                     {' '}
@@ -284,7 +226,7 @@ export default function ProjectOne() {
                 href="https://reactqueryrewind.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#00bfff] hover:text-black"
+                className="text-[#00bfff] hover:text-white"
               >
                 <svg
                   id="icon"
