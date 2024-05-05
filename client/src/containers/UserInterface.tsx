@@ -16,9 +16,7 @@ import SolarSystemPorfolio from '../components/projects/SolarSystemPortfolio';
 type UserInterfaceProps = {};
 
 function UserInterface({}: UserInterfaceProps) {
-  const { currentPlanet, isTransitioning } = useSelector(
-    (state: RootState) => state.app,
-  );
+  const { currentPlanet } = useSelector((state: RootState) => state.app);
 
   const exitVariants = {
     exit: {
@@ -32,7 +30,7 @@ function UserInterface({}: UserInterfaceProps) {
     exit: {
       opacity: 0,
       y: 100,
-      transition: { duration: 0.5 },
+      transition: { duration: 0.25 },
     },
   };
 

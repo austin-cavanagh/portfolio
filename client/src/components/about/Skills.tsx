@@ -36,6 +36,9 @@ const frontendBadges: TechnologyBadge[] = [
     src: 'https://img.shields.io/badge/Redux-774abc?style=for-the-badge&logo=redux&logoColor=white',
     alt: 'Redux',
   },
+
+  // Redux Toolkit
+
   {
     src: 'https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=ReactQuery&logoColor=white',
     alt: 'React Query',
@@ -112,8 +115,8 @@ const backendBadges: TechnologyBadge[] = [
     alt: 'Docker',
   },
   {
-    src: 'https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white',
-    alt: 'Amazon AWS',
+    src: 'https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white',
+    alt: 'AWS',
   },
   {
     src: 'https://img.shields.io/badge/Google_Cloud-e94234?style=for-the-badge&logo=google-cloud&logoColor=white',

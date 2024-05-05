@@ -36,54 +36,44 @@ const technologyBadges: TechnologyBadge[] = [
     src: 'https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB',
     alt: 'React',
   },
-  // {
-  //   src: 'https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D',
-  //   alt: 'Vue.js',
-  // },
-  // {
-  //   src: 'https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00',
-  //   alt: 'Svelte',
-  // },
   {
-    src: 'https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white',
-    alt: 'React Router',
+    src: 'https://img.shields.io/badge/Express-f3de1e?style=for-the-badge&logo=express&logoColor=black',
+    alt: 'Express',
   },
   {
-    src: 'https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=ReactQuery&logoColor=white',
-    alt: 'React Query',
+    src: 'https://img.shields.io/badge/Tailwind_CSS-4f45e4?style=for-the-badge&logo=tailwind-css&logoColor=white',
+    alt: 'Tailwind',
+  },
+
+  // GLSL
+
+  {
+    src: 'https://img.shields.io/badge/Redux-774abc?style=for-the-badge&logo=redux&logoColor=white',
+    alt: 'Redux',
+  },
+
+  // Redux Toolkit
+
+  {
+    src: 'https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E',
+    alt: 'Vite',
   },
   {
-    src: 'https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white',
-    alt: 'Material UI',
+    src: 'https://img.shields.io/badge/Docker-1e63ee?style=for-the-badge&logo=docker&logoColor=white',
+    alt: 'Docker',
   },
   {
-    src: 'https://img.shields.io/badge/Webpack-1b79c1?style=for-the-badge&logo=Webpack&logoColor=white',
-    alt: 'Webpack',
+    src: 'https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white',
+    alt: 'AWS',
   },
+
+  // EC2
+  // ECR
+
   {
-    src: 'https://img.shields.io/badge/rollup-EC4A3F?style=for-the-badge&logo=rollup.js&logoColor=white',
-    alt: 'Rollup',
+    src: 'https://img.shields.io/badge/ThreeJs-black?style=for-the-badge&logo=three.js&logoColor=white',
+    alt: 'Three.js',
   },
-  // {
-  //   src: 'https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E',
-  //   alt: 'Vite',
-  // },
-  {
-    src: 'https://img.shields.io/badge/Chrome_Extension-4285F4?style=for-the-badge&logo=Google-chrome&logoColor=white',
-    alt: 'Chrome Extension',
-  },
-  {
-    src: 'https://img.shields.io/badge/NPM_Package-CB3837?style=for-the-badge&logo=npm&logoColor=white',
-    alt: 'NPM Package',
-  },
-  {
-    src: 'https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white',
-    alt: 'Jest',
-  },
-  // {
-  //   src: 'https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white',
-  //   alt: 'Cypress',
-  // },
 ];
 
 export default function SolarSystemPorfolio() {
@@ -97,47 +87,6 @@ export default function SolarSystemPorfolio() {
             </h2>
 
             <div className="flex items-center justify-center space-x-6">
-              <a
-                href="https://reactqueryrewind.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#00bfff] hover:text-white"
-              >
-                <svg
-                  viewBox="0 0 48 48"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-10 w-10 fill-current"
-                >
-                  <title>npm</title>
-                  <rect width="48" height="48" fill="none"></rect>
-                  <rect x="21.6" y="19.9" width="2.4" height="4.84" />
-                  <path d="M2,15V29.7H14.2v2.5H24V29.7H46V15ZM14.2,27.2H11.8V19.9H9.3v7.3H4.5V17.5h9.7Zm12.3,0H21.6v2.5H16.7V17.5h9.8Zm17.1,0H41.2V19.9H38.7v7.3H36.2V19.9H33.8v7.3H28.9V17.5H43.6Z"></path>
-                </svg>
-              </a>
-
-              <a
-                href="https://reactqueryrewind.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#00bfff] hover:text-white"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8 stroke-current"
-                  fill="none"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22Z"></path>
-                  <path d="M12 16C14.21 16 16 14.21 16 12C16 9.79 14.21 8 12 8C9.79 8 8 9.79 8 12C8 14.21 9.79 16 12 16Z"></path>
-                  <path d="M21.17 8C18.15 7.34 15.02 7.34 12 8"></path>
-                  <path d="M3.95001 6.06006L3.97001 6.12006C4.98001 9.01006 6.53001 11.6901 8.54001 14.0001"></path>
-                  <path d="M10.88 21.94C12.94 19.67 14.49 16.99 15.43 14.08L15.46 14"></path>
-                </svg>
-              </a>
-
               <a
                 href="https://github.com/oslabs-beta/react-query-rewind"
                 target="_blank"
@@ -158,9 +107,8 @@ export default function SolarSystemPorfolio() {
                     strokeLinejoin="round"
                   ></g>
                   <g id="SVGRepo_iconCarrier">
-                    {' '}
-                    <title>github</title>{' '}
-                    <path d="M18.36 9.28c0.48-1.72-0.24-3.6-0.28-3.72-0.12-0.28-0.4-0.52-0.72-0.52-0.080 0-1.92-0.16-3.76 1.24-1.44-0.28-3.080-0.36-3.16-0.36-0.040 0-0.040 0-0.080 0-0.080 0-1.72 0.080-3.16 0.36-1.84-1.4-3.68-1.24-3.76-1.24-0.32 0.040-0.6 0.24-0.72 0.52-0.040 0.080-0.8 2-0.28 3.72-0.92 1.28-1.64 2.96-1 5.96 0.6 2.72 2.84 4.24 5.16 4.76-0.2 0.56-0.28 1.24-0.36 1.96-0.96 0.040-1.56-0.52-2.4-1.4-0.72-0.76-1.52-1.64-2.84-1.92-0.44-0.12-0.88 0.16-1 0.64-0.080 0.48 0.2 0.92 0.68 1 0.76 0.16 1.28 0.72 1.92 1.4 0.84 0.88 1.8 1.96 3.52 1.96 0 0 0.040 0 0.040 0 0 0.92 0.080 1.8 0.12 2.52 0.040 0.48 0.44 0.8 0.92 0.76s0.8-0.44 0.76-0.92c-0.24-2.72-0.040-5.6 0.4-6 0.32-0.2 0.52-0.56 0.4-0.96-0.080-0.36-0.4-0.64-0.8-0.64-0.36 0-4.12-0.2-4.84-3.52-0.6-2.72 0.16-3.92 0.96-4.88 0.2-0.24 0.24-0.6 0.12-0.92-0.32-0.68-0.2-1.64-0.040-2.28 0.56 0.080 1.4 0.32 2.28 1.080 0.2 0.2 0.48 0.24 0.76 0.2 1.24-0.32 2.92-0.4 3.2-0.4 0.24 0 1.96 0.080 3.2 0.4 0.28 0.080 0.56 0 0.76-0.2 0.88-0.76 1.76-1 2.28-1.080 0.16 0.6 0.28 1.56-0.040 2.28-0.12 0.28-0.080 0.64 0.12 0.92 0.8 0.96 1.52 2.16 0.96 4.88-0.72 3.32-4.48 3.52-4.92 3.56-0.4 0-0.72 0.28-0.8 0.64s0.080 0.76 0.4 0.96c0.48 0.4 0.68 3.24 0.44 6-0.040 0.48 0.32 0.88 0.76 0.92 0.040 0 0.040 0 0.080 0 0.44 0 0.8-0.32 0.84-0.76 0.16-1.76 0.28-4.48-0.28-6.2 2.32-0.48 4.56-2.040 5.16-4.76 0.64-3-0.040-4.68-1-5.96z"></path>{' '}
+                    <title>github</title>
+                    <path d="M18.36 9.28c0.48-1.72-0.24-3.6-0.28-3.72-0.12-0.28-0.4-0.52-0.72-0.52-0.080 0-1.92-0.16-3.76 1.24-1.44-0.28-3.080-0.36-3.16-0.36-0.040 0-0.040 0-0.080 0-0.080 0-1.72 0.080-3.16 0.36-1.84-1.4-3.68-1.24-3.76-1.24-0.32 0.040-0.6 0.24-0.72 0.52-0.040 0.080-0.8 2-0.28 3.72-0.92 1.28-1.64 2.96-1 5.96 0.6 2.72 2.84 4.24 5.16 4.76-0.2 0.56-0.28 1.24-0.36 1.96-0.96 0.040-1.56-0.52-2.4-1.4-0.72-0.76-1.52-1.64-2.84-1.92-0.44-0.12-0.88 0.16-1 0.64-0.080 0.48 0.2 0.92 0.68 1 0.76 0.16 1.28 0.72 1.92 1.4 0.84 0.88 1.8 1.96 3.52 1.96 0 0 0.040 0 0.040 0 0 0.92 0.080 1.8 0.12 2.52 0.040 0.48 0.44 0.8 0.92 0.76s0.8-0.44 0.76-0.92c-0.24-2.72-0.040-5.6 0.4-6 0.32-0.2 0.52-0.56 0.4-0.96-0.080-0.36-0.4-0.64-0.8-0.64-0.36 0-4.12-0.2-4.84-3.52-0.6-2.72 0.16-3.92 0.96-4.88 0.2-0.24 0.24-0.6 0.12-0.92-0.32-0.68-0.2-1.64-0.040-2.28 0.56 0.080 1.4 0.32 2.28 1.080 0.2 0.2 0.48 0.24 0.76 0.2 1.24-0.32 2.92-0.4 3.2-0.4 0.24 0 1.96 0.080 3.2 0.4 0.28 0.080 0.56 0 0.76-0.2 0.88-0.76 1.76-1 2.28-1.080 0.16 0.6 0.28 1.56-0.040 2.28-0.12 0.28-0.080 0.64 0.12 0.92 0.8 0.96 1.52 2.16 0.96 4.88-0.72 3.32-4.48 3.52-4.92 3.56-0.4 0-0.72 0.28-0.8 0.64s0.080 0.76 0.4 0.96c0.48 0.4 0.68 3.24 0.44 6-0.040 0.48 0.32 0.88 0.76 0.92 0.040 0 0.040 0 0.080 0 0.44 0 0.8-0.32 0.84-0.76 0.16-1.76 0.28-4.48-0.28-6.2 2.32-0.48 4.56-2.040 5.16-4.76 0.64-3-0.040-4.68-1-5.96z"></path>
                   </g>
                 </svg>
               </a>
