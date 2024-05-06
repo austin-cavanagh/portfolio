@@ -84,16 +84,16 @@ const backendBadges: TechnologyBadge[] = [
     alt: 'Express',
   },
   {
-    src: 'https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white',
-    alt: 'Postman',
+    src: 'https://img.shields.io/badge/Python-blue?style=for-the-badge&logo=python&logoColor=FFD43B',
+    alt: 'Python',
   },
   {
     src: 'https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white',
     alt: 'Pandas',
   },
   {
-    src: 'https://img.shields.io/badge/Python-blue?style=for-the-badge&logo=python&logoColor=FFD43B',
-    alt: 'Python',
+    src: 'https://img.shields.io/badge/Postman-ff6c38?style=for-the-badge&logo=Postman&logoColor=white',
+    alt: 'Postman',
   },
   {
     src: 'https://img.shields.io/badge/MongoDB-07ab4e?style=for-the-badge&logo=mongodb&logoColor=white',
@@ -104,7 +104,7 @@ const backendBadges: TechnologyBadge[] = [
     alt: 'PostgreSQL',
   },
   {
-    src: 'https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white',
+    src: 'https://img.shields.io/badge/Prisma-04364e?style=for-the-badge&logo=Prisma&logoColor=white',
     alt: 'Prisma',
   },
   {
@@ -112,28 +112,56 @@ const backendBadges: TechnologyBadge[] = [
     alt: 'Docker',
   },
   {
-    src: 'https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white',
-    alt: 'AWS',
+    src: 'https://img.shields.io/badge/kubernetes-326ce5.svg?&style=for-the-badge&logo=kubernetes&logoColor=white',
+    alt: 'Kubernetes',
   },
   {
-    src: 'https://img.shields.io/badge/Google_Cloud-e94234?style=for-the-badge&logo=google-cloud&logoColor=white',
+    src: 'https://img.shields.io/badge/Google_Cloud-E03526?style=for-the-badge&logo=google-cloud&logoColor=white',
     alt: 'Google Cloud',
+  },
+  {
+    src: 'https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white',
+    alt: 'Amazon AWS',
+  },
+  {
+    src: 'https://img.shields.io/badge/EC2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white',
+    alt: 'AWS EC2',
+  },
+  {
+    src: 'https://img.shields.io/badge/ECR-FF9900?style=for-the-badge&logo=amazonecs&logoColor=white',
+    alt: 'AWS ECR',
+  },
+  {
+    src: 'https://img.shields.io/badge/RDS-3E50D3?style=for-the-badge&logo=amazonrds&logoColor=white',
+    alt: 'AWS RDS',
+  },
+  {
+    src: 'https://img.shields.io/badge/SES-3E50D3?style=for-the-badge&logo=amazonsimpleemailservice&logoColor=white',
+    alt: 'AWS SES',
+  },
+  {
+    src: 'https://img.shields.io/badge/S3-498A29?style=for-the-badge&logo=amazons3&logoColor=white',
+    alt: 'AWS S3',
+  },
+  {
+    src: 'https://img.shields.io/badge/Secrets_Manager-DC3133?style=for-the-badge&logo=awssecretsmanager&logoColor=white',
+    alt: 'AWS Secrets Manager',
   },
   // {
   //   src: 'https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white',
   //   alt: 'MySQL',
   // },
-  // {
-  //   src: '',
-  //   alt: '',
-  // },
 ];
 
 const miscBadges: TechnologyBadge[] = [
-  // {
-  //   src: 'https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white',
-  //   alt: 'Git',
-  // },
+  {
+    src: 'https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white',
+    alt: 'Git',
+  },
+  {
+    src: 'https://img.shields.io/badge/next-000000?style=for-the-badge&logo=nextdotjs&logoColor=white',
+    alt: 'Next JS',
+  },
   {
     src: 'https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white',
     alt: 'Jest',
@@ -141,10 +169,6 @@ const miscBadges: TechnologyBadge[] = [
   {
     src: 'https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white',
     alt: 'Cypress',
-  },
-  {
-    src: 'https://img.shields.io/badge/next-000000?style=for-the-badge&logo=nextdotjs&logoColor=white',
-    alt: 'Next JS',
   },
   {
     src: 'https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white',

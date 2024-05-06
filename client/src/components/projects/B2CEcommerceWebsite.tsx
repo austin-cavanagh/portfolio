@@ -53,11 +53,11 @@ const technologyBadges: TechnologyBadge[] = [
   //   alt: 'HTML5',
   // },
   {
-    src: 'https://img.shields.io/badge/NextAuth-1e63ee?style=for-the-badge&logo=nextdns&logoColor=white',
+    src: 'https://img.shields.io/badge/NextAuth-8125D9?style=for-the-badge&logo=nextdns&logoColor=white',
     alt: 'NextAuth',
   },
   {
-    src: 'https://img.shields.io/badge/OAuth-E03526?style=for-the-badge&logo=Google-chrome&logoColor=white',
+    src: 'https://img.shields.io/badge/OAuth-E03526?style=for-the-badge&logo=google&logoColor=white',
     alt: 'Google OAuth',
   },
   {
