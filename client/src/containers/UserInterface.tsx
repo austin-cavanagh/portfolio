@@ -7,7 +7,7 @@ import BottomBar from '../components/user-interface/Footer';
 
 import About from './About';
 
-import ReactQueryRewind from '../components/projects/ReactQueryRewing';
+import ReactQueryRewind from '../components/projects/ReactQueryRewind';
 import B2CEcommerceWebsite from '../components/projects/B2CEcommerceWebsite';
 import SolarSystemPorfolio from '../components/projects/SolarSystemPortfolio';
 

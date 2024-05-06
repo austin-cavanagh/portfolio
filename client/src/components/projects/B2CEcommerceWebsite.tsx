@@ -16,22 +16,30 @@ const images = [
 ];
 
 const technologyBadges: TechnologyBadge[] = [
-  {
-    src: 'https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E',
-    alt: 'JavaScript',
-  },
+  // {
+  //   src: 'https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E',
+  //   alt: 'JavaScript',
+  // },
   {
     src: 'https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white',
     alt: 'TypeScript',
   },
   {
-    src: 'https://img.shields.io/badge/CSS3-214ce5?style=for-the-badge&logo=css3&logoColor=white',
-    alt: 'CSS3',
+    src: 'https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white',
+    alt: 'PostgreSQL',
   },
   {
-    src: 'https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white',
-    alt: 'HTML5',
+    src: 'https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white',
+    alt: 'Prisma',
   },
+  // {
+  //   src: 'https://img.shields.io/badge/CSS3-214ce5?style=for-the-badge&logo=css3&logoColor=white',
+  //   alt: 'CSS3',
+  // },
+  // {
+  //   src: 'https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white',
+  //   alt: 'HTML5',
+  // },
   {
     src: 'https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB',
     alt: 'React',
@@ -53,11 +61,11 @@ const technologyBadges: TechnologyBadge[] = [
     alt: 'NextAuth',
   },
   {
-    src: 'https://img.shields.io/badge/Google_OAuth-4285F4?style=for-the-badge&logo=Google-chrome&logoColor=white',
+    src: 'https://img.shields.io/badge/OAuth-4285F4?style=for-the-badge&logo=Google-chrome&logoColor=white',
     alt: 'Google OAuth',
   },
   {
-    src: 'https://img.shields.io/badge/Facebook_OAuth-1877F2?style=for-the-badge&logo=facebook&logoColor=white',
+    src: 'https://img.shields.io/badge/OAuth-1877F2?style=for-the-badge&logo=facebook&logoColor=white',
     alt: 'Facebook OAuth',
   },
   {
@@ -69,48 +77,40 @@ const technologyBadges: TechnologyBadge[] = [
     alt: 'Cookies',
   },
   {
-    src: 'https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white',
-    alt: 'AWS',
-  },
-  {
-    src: 'https://img.shields.io/badge/EC2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white',
-    alt: 'AWS EC2',
-  },
-  {
-    src: 'https://img.shields.io/badge/ECR-FF9900?style=for-the-badge&logo=amazonecs&logoColor=white',
-    alt: 'AWS ECR',
-  },
-  {
-    src: 'https://img.shields.io/badge/RDS-FF9900?style=for-the-badge&logo=amazonrds&logoColor=white',
-    alt: 'AWS RDS',
-  },
-  {
-    src: 'https://img.shields.io/badge/S3-FF9900?style=for-the-badge&logo=amazons3&logoColor=white',
-    alt: 'AWS S3',
-  },
-  {
-    src: 'https://img.shields.io/badge/SES-FF9900?style=for-the-badge&logo=amazonsimpleemailservice&logoColor=white',
-    alt: 'AWS SES',
-  },
-  {
-    src: 'https://img.shields.io/badge/SES-FF9900?style=for-the-badge&logo=awssecretsmanager&logoColor=white',
-    alt: 'AWS Secrets Manager',
-  },
-  {
-    src: 'https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white',
-    alt: 'PostgreSQL',
-  },
-  {
-    src: 'https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white',
-    alt: 'Prisma',
-  },
-  {
     src: 'https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white',
     alt: 'PayPal',
   },
   {
     src: 'https://img.shields.io/badge/Stripe-626CD9?style=for-the-badge&logo=Stripe&logoColor=white',
     alt: 'Stripe',
+  },
+  {
+    src: 'https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white',
+    alt: 'AWS',
+  },
+  {
+    src: 'https://img.shields.io/badge/RDS-3E50D3?style=for-the-badge&logo=amazonrds&logoColor=white',
+    alt: 'AWS RDS',
+  },
+  {
+    src: 'https://img.shields.io/badge/EC2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white',
+    alt: 'AWS EC2',
+  },
+  {
+    src: 'https://img.shields.io/badge/S3-498A29?style=for-the-badge&logo=amazons3&logoColor=white',
+    alt: 'AWS S3',
+  },
+  {
+    src: 'https://img.shields.io/badge/ECR-FF9900?style=for-the-badge&logo=amazonecs&logoColor=white',
+    alt: 'AWS ECR',
+  },
+  {
+    src: 'https://img.shields.io/badge/SES-3E50D3?style=for-the-badge&logo=amazonsimpleemailservice&logoColor=white',
+    alt: 'AWS SES',
+  },
+  {
+    src: 'https://img.shields.io/badge/SES-FF9900?style=for-the-badge&logo=awssecretsmanager&logoColor=white',
+    alt: 'AWS Secrets Manager',
   },
 ];
 
