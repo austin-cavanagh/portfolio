@@ -25,36 +25,40 @@ const technologyBadges: TechnologyBadge[] = [
     alt: 'TypeScript',
   },
   {
-    src: 'https://img.shields.io/badge/CSS3-214ce5?style=for-the-badge&logo=css3&logoColor=white',
-    alt: 'CSS3',
-  },
-  {
     src: 'https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white',
     alt: 'HTML5',
   },
   {
+    src: 'https://img.shields.io/badge/CSS3-214ce5?style=for-the-badge&logo=css3&logoColor=white',
+    alt: 'CSS3',
+  },
+  {
     src: 'https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB',
     alt: 'React',
-  },
-  // {
-  //   src: 'https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D',
-  //   alt: 'Vue.js',
-  // },
-  // {
-  //   src: 'https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00',
-  //   alt: 'Svelte',
-  // },
-  {
-    src: 'https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white',
-    alt: 'React Router',
   },
   {
     src: 'https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=ReactQuery&logoColor=white',
     alt: 'React Query',
   },
   {
-    src: 'https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white',
-    alt: 'Material UI',
+    src: 'https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white',
+    alt: 'React Router',
+  },
+  {
+    src: 'https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D',
+    alt: 'Vue.js',
+  },
+  {
+    src: 'https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00',
+    alt: 'Svelte',
+  },
+  {
+    src: 'https://img.shields.io/badge/Chrome_Extension-DF3124?style=for-the-badge&logo=Google-chrome&logoColor=white',
+    alt: 'Chrome Extension',
+  },
+  {
+    src: 'https://img.shields.io/badge/NPM_Package-CB3837?style=for-the-badge&logo=npm&logoColor=white',
+    alt: 'NPM Package',
   },
   {
     src: 'https://img.shields.io/badge/Webpack-1b79c1?style=for-the-badge&logo=Webpack&logoColor=white',
@@ -64,26 +68,18 @@ const technologyBadges: TechnologyBadge[] = [
     src: 'https://img.shields.io/badge/rollup-EC4A3F?style=for-the-badge&logo=rollup.js&logoColor=white',
     alt: 'Rollup',
   },
-  // {
-  //   src: 'https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E',
-  //   alt: 'Vite',
-  // },
-  {
-    src: 'https://img.shields.io/badge/Chrome_Extension-4285F4?style=for-the-badge&logo=Google-chrome&logoColor=white',
-    alt: 'Chrome Extension',
-  },
-  {
-    src: 'https://img.shields.io/badge/NPM_Package-CB3837?style=for-the-badge&logo=npm&logoColor=white',
-    alt: 'NPM Package',
-  },
   {
     src: 'https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white',
     alt: 'Jest',
   },
-  // {
-  //   src: 'https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white',
-  //   alt: 'Cypress',
-  // },
+  {
+    src: 'https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white',
+    alt: 'Cypress',
+  },
+  {
+    src: 'https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white',
+    alt: 'Material UI',
+  },
 ];
 
 export default function ReactQueryRewind() {
