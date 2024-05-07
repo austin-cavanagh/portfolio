@@ -16,7 +16,9 @@ import SolarSystemPorfolio from '../components/projects/SolarSystemPortfolio';
 type UserInterfaceProps = {};
 
 function UserInterface({}: UserInterfaceProps) {
-  const { currentPlanet } = useSelector((state: RootState) => state.app);
+  const { currentPlanet, isTransitioning } = useSelector(
+    (state: RootState) => state.app,
+  );
 
   const exitVariants = {
     exit: {
@@ -30,7 +32,7 @@ function UserInterface({}: UserInterfaceProps) {
     exit: {
       opacity: 0,
       y: 100,
-      transition: { duration: 0.25 },
+      transition: { duration: 0.5 },
     },
   };
 
@@ -63,7 +65,7 @@ function UserInterface({}: UserInterfaceProps) {
       case 'Jupiter':
         return (
           <motion.div
-            key="saturn"
+            key="jupiter"
             initial="hidden"
             exit="exit"
             variants={projectExitVariant}
@@ -75,7 +77,7 @@ function UserInterface({}: UserInterfaceProps) {
       case 'Mars':
         return (
           <motion.div
-            key="saturn"
+            key="mars"
             initial="hidden"
             exit="exit"
             variants={projectExitVariant}
@@ -93,7 +95,9 @@ function UserInterface({}: UserInterfaceProps) {
     <div className="pointer-events-none absolute left-0 top-0 flex h-screen w-screen flex-col justify-between">
       <Navbar />
 
-      <AnimatePresence>{renderContent()}</AnimatePresence>
+      <AnimatePresence>
+        {!isTransitioning ? renderContent() : <></>}
+      </AnimatePresence>
 
       <BottomBar />
     </div>

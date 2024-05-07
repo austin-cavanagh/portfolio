@@ -6,8 +6,6 @@ import { RootState } from '../../state/store';
 function ProfileCard() {
   const { isTransitioning } = useSelector((state: RootState) => state.app);
 
-  console.log(isTransitioning);
-
   const profileCardVariants = {
     hidden: { y: 50, opacity: 0 },
     visible: {
