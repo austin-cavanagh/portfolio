@@ -84,8 +84,6 @@ function UserInterface({}: UserInterfaceProps) {
             <SolarSystemPorfolio />
           </motion.div>
         );
-      // case 'Saturn':
-      //   return <Contact />;
       default:
         return <></>;
     }
