@@ -25,37 +25,37 @@ const technologyBadges: TechnologyBadge[] = [
     alt: 'TypeScript',
   },
   {
+    src: 'https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white',
+    alt: 'HTML5',
+  },
+  {
     src: 'https://img.shields.io/badge/CSS3-214ce5?style=for-the-badge&logo=css3&logoColor=white',
     alt: 'CSS3',
   },
   {
-    src: 'https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white',
-    alt: 'HTML5',
+    src: 'https://img.shields.io/badge/Tailwind-4f45e4?style=for-the-badge&logo=tailwind-css&logoColor=white',
+    alt: 'Tailwind',
   },
   {
     src: 'https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB',
     alt: 'React',
   },
-  {
-    src: 'https://img.shields.io/badge/Express-f3de1e?style=for-the-badge&logo=express&logoColor=black',
-    alt: 'Express',
-  },
-  {
-    src: 'https://img.shields.io/badge/Tailwind_CSS-4f45e4?style=for-the-badge&logo=tailwind-css&logoColor=white',
-    alt: 'Tailwind',
-  },
-  {
-    src: 'https://img.shields.io/badge/GLSL-774abc?style=for-the-badge&logo=opengl&logoColor=white',
-    alt: 'GLSL',
-  },
+  // {
+  //   src: 'https://img.shields.io/badge/Express-f3de1e?style=for-the-badge&logo=express&logoColor=black',
+  //   alt: 'Express',
+  // },
   {
     src: 'https://img.shields.io/badge/Redux-774abc?style=for-the-badge&logo=redux&logoColor=white',
     alt: 'Redux',
   },
   {
-    src: 'https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E',
-    alt: 'Vite',
+    src: 'https://img.shields.io/badge/Toolkit-774abc?style=for-the-badge&logo=redux&logoColor=white',
+    alt: 'Redux Toolkit',
   },
+  // {
+  //   src: 'https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E',
+  //   alt: 'Vite',
+  // },
   {
     src: 'https://img.shields.io/badge/Docker-1e63ee?style=for-the-badge&logo=docker&logoColor=white',
     alt: 'Docker',
@@ -75,6 +75,10 @@ const technologyBadges: TechnologyBadge[] = [
   {
     src: 'https://img.shields.io/badge/ThreeJs-black?style=for-the-badge&logo=three.js&logoColor=white',
     alt: 'Three.js',
+  },
+  {
+    src: 'https://img.shields.io/badge/GLSL-774abc?style=for-the-badge&logo=opengl&logoColor=white',
+    alt: 'GLSL',
   },
 ];
 
