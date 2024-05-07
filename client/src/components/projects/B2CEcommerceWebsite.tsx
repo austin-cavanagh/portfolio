@@ -7,6 +7,10 @@ import screenshotFour from '../../assets/project1/screenshotFour.png';
 import screenshotFive from '../../assets/project1/screenshotFive.png';
 import { TechnologyBadge } from '../about/Skills';
 
+import { motion } from 'framer-motion';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../state/store';
+
 const images = [
   screenshotOne,
   screenshotTwo,
@@ -114,9 +118,29 @@ const technologyBadges: TechnologyBadge[] = [
   },
 ];
 
+const projectCardVariant = {
+  hidden: { y: 50, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 120,
+      delay: 0.0,
+    },
+  },
+};
+
 export default function B2CEcommerceWebsite() {
+  const { isTransitioning } = useSelector((state: RootState) => state.app);
+
   return (
-    <section className="flex h-full w-full flex-col items-center justify-center px-4 py-5 sm:p-6">
+    <motion.section
+      initial="hidden"
+      animate={!isTransitioning ? 'visible' : 'hidden'}
+      variants={projectCardVariant}
+      className="flex h-full w-full flex-col items-center justify-center px-4 py-5 sm:p-6"
+    >
       <div className="flex w-[1200px] rounded-3xl bg-gray-900 bg-opacity-80 px-14 pb-14 pt-10">
         <div className="flex h-full flex-col justify-center space-y-6 font-poppins">
           <div className="flex w-full justify-between">
@@ -227,6 +251,6 @@ export default function B2CEcommerceWebsite() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
