@@ -25,28 +25,24 @@ const frontendBadges: TechnologyBadge[] = [
     alt: 'CSS3',
   },
   {
-    src: 'https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB',
-    alt: 'React',
-  },
-  {
-    src: 'https://img.shields.io/badge/Tailwind_CSS-4f45e4?style=for-the-badge&logo=tailwind-css&logoColor=white',
+    src: 'https://img.shields.io/badge/Tailwind-4f45e4?style=for-the-badge&logo=tailwind-css&logoColor=white',
     alt: 'Tailwind',
   },
   {
-    src: 'https://img.shields.io/badge/Redux-774abc?style=for-the-badge&logo=redux&logoColor=white',
-    alt: 'Redux',
+    src: 'https://img.shields.io/badge/ThreeJs-black?style=for-the-badge&logo=three.js&logoColor=white',
+    alt: 'Three.js',
   },
   {
-    src: 'https://img.shields.io/badge/Toolkit-774abc?style=for-the-badge&logo=redux&logoColor=white',
-    alt: 'Redux Toolkit',
+    src: 'https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB',
+    alt: 'React',
   },
   {
     src: 'https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=ReactQuery&logoColor=white',
     alt: 'React Query',
   },
   {
-    src: 'https://img.shields.io/badge/ThreeJs-black?style=for-the-badge&logo=three.js&logoColor=white',
-    alt: 'Three.js',
+    src: 'https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white',
+    alt: 'React Router',
   },
   {
     src: 'https://img.shields.io/badge/Webpack-1b79c1?style=for-the-badge&logo=Webpack&logoColor=white',
@@ -57,21 +53,25 @@ const frontendBadges: TechnologyBadge[] = [
     alt: 'Rollup',
   },
   {
+    src: 'https://img.shields.io/badge/Redux-774abc?style=for-the-badge&logo=redux&logoColor=white',
+    alt: 'Redux',
+  },
+  {
+    src: 'https://img.shields.io/badge/Toolkit-774abc?style=for-the-badge&logo=redux&logoColor=white',
+    alt: 'Redux Toolkit',
+  },
+  {
     src: 'https://img.shields.io/badge/Chart%20js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white',
     alt: 'Chart JS',
   },
-  // {
-  //   src: 'https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white',
-  //   alt: 'React Router',
-  // },
-  // {
-  //   src: 'https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D',
-  //   alt: 'Vue.js',
-  // },
-  // {
-  //   src: 'https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00',
-  //   alt: 'Svelte',
-  // },
+  {
+    src: 'https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D',
+    alt: 'Vue.js',
+  },
+  {
+    src: 'https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00',
+    alt: 'Svelte',
+  },
 ];
 
 const backendBadges: TechnologyBadge[] = [
@@ -207,16 +207,8 @@ const miscBadges: TechnologyBadge[] = [
   //   alt: 'NPM',
   // },
   // {
-  //   src: 'https://img.shields.io/badge/kubernetes-326ce5.svg?&style=for-the-badge&logo=kubernetes&logoColor=white',
-  //   alt: 'Kubernetes',
-  // },
-  // {
   //   src: 'https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white',
   //   alt: 'Cloudflare',
-  // },
-  // {
-  //   src: '',
-  //   alt: '',
   // },
 ];
 
