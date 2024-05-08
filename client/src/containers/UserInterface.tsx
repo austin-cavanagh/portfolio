@@ -16,9 +16,8 @@ import SolarSystemPorfolio from '../components/projects/SolarSystemPortfolio';
 type UserInterfaceProps = {};
 
 function UserInterface({}: UserInterfaceProps) {
-  const { currentPlanet, isTransitioning, isLoading } = useSelector(
-    (state: RootState) => state.app,
-  );
+  const { currentPlanet, isTransitioning, isLoading, showContent } =
+    useSelector((state: RootState) => state.app);
 
   const exitVariants = {
     exit: {
@@ -97,7 +96,7 @@ function UserInterface({}: UserInterfaceProps) {
       {/* <Navbar /> */}
 
       <AnimatePresence>
-        {!isTransitioning ? renderContent() : <></>}
+        {!isTransitioning && showContent ? renderContent() : <></>}
       </AnimatePresence>
 
       {!isLoading && <BottomBar />}

@@ -191,8 +191,10 @@ export default function CameraController({}: CameraControllerProps) {
     <OrbitControls
       ref={orbitControlsRef}
       enablePan={false}
-      enableZoom={!showContent && !isTransitioning}
-      enableRotate={!showContent && !isTransitioning}
+      // enableZoom={!showContent && !isTransitioning}
+      // enableRotate={!showContent && !isTransitioning}
+      enableZoom={!isTransitioning}
+      enableRotate={!isTransitioning}
     />
   );
 }

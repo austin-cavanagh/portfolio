@@ -3,13 +3,18 @@ import { RootState } from '../../state/store';
 import DateTimeDisplay from './DateTimeDisplay';
 
 function Footer() {
-  const { currentPlanet } = useSelector((state: RootState) => state.app);
+  const { currentPlanet, showContent } = useSelector(
+    (state: RootState) => state.app,
+  );
 
   return (
     <footer className="flex w-full items-end justify-center font-medium text-white">
       {/* Current Planet */}
       <div className="h-[70px] border-t-2 border-[#00bfff] bg-gray-900 p-6 text-xl text-[#00bfff] opacity-80">
-        {currentPlanet}
+        <span>{currentPlanet}</span>
+        <button className="ml-4 rounded-lg border border-link-blue px-2 py-1 text-link-blue transition duration-300 ease-in-out hover:border-white hover:text-white">
+          {showContent ? 'Hide Content' : 'Show Content'}
+        </button>
       </div>
 
       {/* Left Diagonal */}
