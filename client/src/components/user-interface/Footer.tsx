@@ -1,11 +1,18 @@
-import { useSelector } from 'react-redux';
-import { RootState } from '../../state/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../state/store';
 import DateTimeDisplay from './DateTimeDisplay';
+import { setShowContent } from '../../state/appSlice';
 
 function Footer() {
   const { currentPlanet, showContent } = useSelector(
     (state: RootState) => state.app,
   );
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  const toggleShowContent = () => {
+    dispatch(setShowContent(!showContent));
+  };
 
   return (
     <footer className="pointer-events-auto flex w-full items-end justify-center font-medium text-white">
@@ -14,13 +21,14 @@ function Footer() {
         <span>{currentPlanet}</span>
 
         <div className="ml-6 flex items-center justify-center">
-          <span className="mr-2">Hide Content</span>
+          <span className="mr-2">Show Content</span>
           <div className="relative">
             <input
               id="comments"
               type="checkbox"
               className="hidden"
-              checked={!showContent}
+              checked={showContent}
+              onChange={toggleShowContent}
             />
             <label
               htmlFor="comments"
