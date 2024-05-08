@@ -117,8 +117,9 @@ export default function SolarSystemPorfolio() {
             </h2>
 
             <div className="flex items-center justify-center space-x-6">
+              {/* GitHub Repository Link */}
               <a
-                href="https://github.com/oslabs-beta/react-query-rewind"
+                href="https://github.com/austin-cavanagh/portfolio"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#00bfff] hover:text-white"
@@ -143,8 +144,9 @@ export default function SolarSystemPorfolio() {
                 </svg>
               </a>
 
+              {/* Live Demo Link */}
               <a
-                href="https://reactqueryrewind.com/"
+                href="https://austincavanagh.me/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#00bfff] hover:text-white"

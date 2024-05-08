@@ -149,8 +149,9 @@ export default function B2CEcommerceWebsite() {
             </h2>
 
             <div className="flex items-center justify-center space-x-6">
+              {/* GitHub Repository Link */}
               <a
-                href="https://github.com/oslabs-beta/react-query-rewind"
+                href="https://github.com/austin-cavanagh/b2c-ecommerce-website"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#00bfff] hover:text-white"
@@ -175,8 +176,9 @@ export default function B2CEcommerceWebsite() {
                 </svg>
               </a>
 
+              {/* Live Demo Link */}
               <a
-                href="https://reactqueryrewind.com/"
+                href="https://craftsbyjules.org/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#00bfff] hover:text-white"

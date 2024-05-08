@@ -117,8 +117,9 @@ export default function ReactQueryRewind() {
             </h2>
 
             <div className="flex items-center justify-center space-x-6">
+              {/* NPM Package Link */}
               <a
-                href="https://reactqueryrewind.com/"
+                href="https://www.npmjs.com/package/react-query-rewind"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#00bfff] hover:text-white"
@@ -135,8 +136,9 @@ export default function ReactQueryRewind() {
                 </svg>
               </a>
 
+              {/* Chrome Extension Link */}
               <a
-                href="https://reactqueryrewind.com/"
+                href="https://chromewebstore.google.com/detail/rqrewind/jfljppnfglpckkgkpmdpgagnffloboel"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#00bfff] hover:text-white"
@@ -158,6 +160,7 @@ export default function ReactQueryRewind() {
                 </svg>
               </a>
 
+              {/* GitHub Repository Link */}
               <a
                 href="https://github.com/oslabs-beta/react-query-rewind"
                 target="_blank"
@@ -185,6 +188,7 @@ export default function ReactQueryRewind() {
                 </svg>
               </a>
 
+              {/* Live Demo Link */}
               <a
                 href="https://reactqueryrewind.com/"
                 target="_blank"
