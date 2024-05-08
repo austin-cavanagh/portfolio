@@ -1,32 +1,42 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../state/store';
 import DateTimeDisplay from './DateTimeDisplay';
-import { Switch } from '@headlessui/react';
-import { useState } from 'react';
 
 function Footer() {
   const { currentPlanet, showContent } = useSelector(
     (state: RootState) => state.app,
   );
 
-  const [enabled, setEnabled] = useState(false);
-
   return (
     <footer className="pointer-events-auto flex w-full items-end justify-center font-medium text-white">
-      {/* Current Planet */}
+      {/* Current Planet & Display Content Checkbox */}
       <div className="flex h-[70px] items-center justify-center border-t-2 border-[#00bfff] bg-gray-900 p-6 text-xl text-[#00bfff] opacity-80">
         <span>{currentPlanet}</span>
 
         <div className="ml-6 flex items-center justify-center">
-          <span className="mr-2">Display Content</span>
-          <div className="flex h-6 items-center">
+          <span className="mr-2">Hide Content</span>
+          <div className="relative">
             <input
               id="comments"
-              aria-describedby="comments-description"
-              name="comments"
               type="checkbox"
-              className="h-4 w-4 rounded border-2 border-[#00bfff] bg-transparent text-[#00bfff] checked:bg-transparent focus:border-[#00bfff] focus:ring-[#00bfff]"
+              className="hidden"
+              checked={!showContent}
             />
+            <label
+              htmlFor="comments"
+              className="block h-4 w-4 cursor-pointer rounded border border-[#00bfff] bg-transparent focus-within:border-[#00bfff]"
+            >
+              <svg
+                className="hidden h-full w-full fill-current text-[#00bfff]"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                stroke="#00bfff"
+                stroke-width="1"
+              >
+                <path d="M7.629 14.571L4.357 11.3a1 1 0 011.414-1.414L7.9 12.043l5.95-5.95a1 1 0 111.414 1.414l-6.667 6.667a1 1 0 01-1.414 0z" />
+              </svg>
+            </label>
           </div>
         </div>
       </div>

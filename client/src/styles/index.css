@@ -156,3 +156,15 @@ html {
   background-repeat: no-repeat;
   animation: expandGradient 3s ease-in-out infinite;
 }
+
+/* Display Content Checkbox */
+
+input[type='checkbox']:checked + label svg {
+  display: block; /* Show checkmark when checked */
+}
+
+input[type='checkbox']:focus + label {
+  box-shadow:
+    0 0 0 2px white,
+    0 0 0 4px #00bfff; /* Focus ring around the checkbox */
+}
