@@ -15,6 +15,9 @@ import SolarSystemPorfolio from '../components/projects/SolarSystemPortfolio';
 
 type UserInterfaceProps = {};
 
+// Planets that should display or hide the content
+const contentPlanets = ['Earth', 'Saturn', 'Jupiter', 'Mars'];
+
 function UserInterface({}: UserInterfaceProps) {
   const { currentPlanet, isTransitioning, isLoading, showContent } =
     useSelector((state: RootState) => state.app);
@@ -96,7 +99,14 @@ function UserInterface({}: UserInterfaceProps) {
       {/* <Navbar /> */}
 
       <AnimatePresence>
-        {!isTransitioning && showContent ? renderContent() : <></>}
+        {/* {!isTransitioning && showContent ? renderContent() : <></>} */}
+        {!isTransitioning &&
+        contentPlanets.includes(currentPlanet) &&
+        showContent ? (
+          renderContent()
+        ) : (
+          <></>
+        )}
       </AnimatePresence>
 
       {!isLoading && <BottomBar />}

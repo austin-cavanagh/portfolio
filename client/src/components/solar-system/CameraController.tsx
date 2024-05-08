@@ -32,7 +32,7 @@ export default function CameraController({}: CameraControllerProps) {
 
   const { camera } = useThree();
 
-  const { currentPlanet, showContent, isTransitioning } = useSelector(
+  const { currentPlanet, isTransitioning } = useSelector(
     (state: RootState) => state.app,
   );
 
