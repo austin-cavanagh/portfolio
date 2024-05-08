@@ -1,4 +1,4 @@
-<a name="readme-top"></a>
+<div id="readme-top"></div>
 
 <!-- PROJECT LOGO -->
 <br />
@@ -12,7 +12,7 @@
   <p align="center">
     <!-- An awesome README template to jumpstart your projects! -->
     <!-- <br /> -->
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Live Site »</strong></a>
+    <a href="https://austincavanagh.me"><strong>Visit Portfolio »</strong></a>
     <br />
     <br />
     <!-- <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
@@ -28,11 +28,12 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#overview">Overview</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#highlights">Highlights</a></li>
       </ul>
     </li>
+    <li><a href="#built-with">Built With</a></li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
@@ -40,12 +41,9 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#license">License</a></li>
   </ol>
 </details>
 
@@ -53,7 +51,9 @@
 
 ## Overview
 
-[![Project Name Screen Shot][product-screenshot]](https://yourliveprojectlink.com)
+![Screenshot of the planet earth 3d element](/assets/screenshots/earth-screenshot.png)
+
+![Screenshot displaying an overview of the solar system](/assets/screenshots/overview-screenshot.png)
 
 Welcome to my portfolio, designed as an interactive solar system to reflect my interest in space and talents as a developer.
 
