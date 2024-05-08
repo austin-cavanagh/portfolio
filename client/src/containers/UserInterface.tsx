@@ -16,7 +16,7 @@ import SolarSystemPorfolio from '../components/projects/SolarSystemPortfolio';
 type UserInterfaceProps = {};
 
 function UserInterface({}: UserInterfaceProps) {
-  const { currentPlanet, isTransitioning } = useSelector(
+  const { currentPlanet, isTransitioning, isLoading } = useSelector(
     (state: RootState) => state.app,
   );
 
@@ -93,13 +93,15 @@ function UserInterface({}: UserInterfaceProps) {
 
   return (
     <div className="pointer-events-none absolute left-0 top-0 flex h-screen w-screen flex-col justify-between">
-      <Navbar />
+      {!isLoading && <Navbar />}
+      {/* <Navbar /> */}
 
       <AnimatePresence>
         {!isTransitioning ? renderContent() : <></>}
       </AnimatePresence>
 
-      <BottomBar />
+      {!isLoading && <BottomBar />}
+      {/* <BottomBar /> */}
     </div>
   );
 }
