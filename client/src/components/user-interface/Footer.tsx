@@ -4,10 +4,6 @@ import DateTimeDisplay from './DateTimeDisplay';
 import { Switch } from '@headlessui/react';
 import { useState } from 'react';
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
-
 function Footer() {
   const { currentPlanet, showContent } = useSelector(
     (state: RootState) => state.app,
@@ -22,24 +18,16 @@ function Footer() {
         <span>{currentPlanet}</span>
 
         <div className="ml-6 flex items-center justify-center">
-          <span>Display Content</span>
-          <Switch
-            checked={enabled}
-            onChange={setEnabled}
-            className={classNames(
-              enabled ? 'bg-indigo-600' : 'bg-gray-200',
-              'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2',
-            )}
-          >
-            <span className="sr-only">Use setting</span>
-            <span
-              aria-hidden="true"
-              className={classNames(
-                enabled ? 'translate-x-5' : 'translate-x-0',
-                'pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out',
-              )}
+          <span className="mr-2">Display Content</span>
+          <div className="flex h-6 items-center">
+            <input
+              id="comments"
+              aria-describedby="comments-description"
+              name="comments"
+              type="checkbox"
+              className="h-4 w-4 rounded border-2 border-[#00bfff] bg-transparent text-[#00bfff] checked:bg-transparent focus:border-[#00bfff] focus:ring-[#00bfff]"
             />
-          </Switch>
+          </div>
         </div>
       </div>
 
