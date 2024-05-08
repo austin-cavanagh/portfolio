@@ -123,6 +123,7 @@ export default function SolarSystemPorfolio() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#00bfff] hover:text-white"
+                style={{ position: 'relative', display: 'inline-block' }}
               >
                 <svg
                   fill="#00bfff"
@@ -130,6 +131,7 @@ export default function SolarSystemPorfolio() {
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-10 w-10"
+                  style={{ fill: 'currentcolor' }}
                 >
                   <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                   <g
