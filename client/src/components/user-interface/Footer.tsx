@@ -1,20 +1,46 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../state/store';
 import DateTimeDisplay from './DateTimeDisplay';
+import { Switch } from '@headlessui/react';
+import { useState } from 'react';
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ');
+}
 
 function Footer() {
   const { currentPlanet, showContent } = useSelector(
     (state: RootState) => state.app,
   );
 
+  const [enabled, setEnabled] = useState(false);
+
   return (
     <footer className="pointer-events-auto flex w-full items-end justify-center font-medium text-white">
       {/* Current Planet */}
-      <div className="h-[70px] border-t-2 border-[#00bfff] bg-gray-900 p-6 text-xl text-[#00bfff] opacity-80">
+      <div className="flex h-[70px] items-center justify-center border-t-2 border-[#00bfff] bg-gray-900 p-6 text-xl text-[#00bfff] opacity-80">
         <span>{currentPlanet}</span>
-        {/* <button className="ml-3 rounded-lg border border-link-blue px-2 py-1 text-link-blue transition duration-300 ease-in-out hover:border-white hover:text-white">
-          {showContent ? 'Hide Content' : 'Show Content'}
-        </button> */}
+
+        <div className="ml-6 flex items-center justify-center">
+          <span>Display Content</span>
+          <Switch
+            checked={enabled}
+            onChange={setEnabled}
+            className={classNames(
+              enabled ? 'bg-indigo-600' : 'bg-gray-200',
+              'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2',
+            )}
+          >
+            <span className="sr-only">Use setting</span>
+            <span
+              aria-hidden="true"
+              className={classNames(
+                enabled ? 'translate-x-5' : 'translate-x-0',
+                'pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out',
+              )}
+            />
+          </Switch>
+        </div>
       </div>
 
       {/* Left Diagonal */}
@@ -39,23 +65,6 @@ function Footer() {
 
       {/* Middle */}
       <div className="h-[10px] flex-grow border-t-2 border-[#00bfff] bg-gray-900 opacity-80"></div>
-
-      {/* Central Tab */}
-      <div
-        className="absolute bottom-[10px] left-1/2 h-[30px] w-[200px] -translate-x-1/2 transform bg-[#00bfff] opacity-80"
-        style={{
-          clipPath: 'polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%)',
-        }}
-      >
-        <button
-          onClick={() => {
-            console.log('Toggle View');
-          }}
-          className="h-full w-full font-bold text-white"
-        >
-          Toggle View
-        </button>
-      </div>
 
       {/* Right Diagonal */}
       <div className="relative h-full w-10 bg-transparent">
