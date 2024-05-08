@@ -3,19 +3,13 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <!-- <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a> -->
 
-  <h3 align="center">Portfolio</h3>
+  <h3 align="center">B2C eCommerce Website</h3>
 
-  <p align="center">
-    <!-- An awesome README template to jumpstart your projects! -->
-    <!-- <br /> -->
+<a href="https://austincavanagh.me" target="_blank"><strong>Visit Online Store »</strong></a>
 
-<a href="https://austincavanagh.me" target="_blank"><strong>Visit Portfolio »</strong></a>
 <br />
-<br />
+
 <!-- <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
 ·
 <a href="https://github.com/othneildrew/Best-README-Template/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
@@ -54,8 +48,6 @@
 ## Overview
 
 ![Screenshot displaying an overview of the solar system](/assets/screenshots/overview-screenshot.png)
-
-<!-- ![Screenshot of the planet earth 3d element](/assets/screenshots/earth-screenshot.png) -->
 
 Welcome to my portfolio, designed as an interactive solar system to reflect my interest in space and talents as a developer.
 
