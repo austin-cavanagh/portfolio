@@ -218,35 +218,51 @@ export default function B2CEcommerceWebsite() {
 
           <div className="flex">
             <div className="mr-10 w-[500px]">
-              <p className="text-left text-lg text-white">
-                Briefly introduce yourself here. Mention your
-                <span className="font-bold text-[#00bfff]">
-                  professional background
-                </span>
-                , what you're
-                <span className="font-bold text-[#00bfff]">
-                  passionate about
-                </span>
-                , and a personal note. Keep it engaging and concise. Not too
-                long and not too short, just the
-                <span className="font-bold text-[#00bfff]">perfect amount</span>
-                .
-              </p>
+              <div className="mt-4 text-left text-lg text-white">
+                <p>
+                  Developed a robust{' '}
+                  <span className="font-bold text-[#00bfff]">
+                    eCommerce website
+                  </span>{' '}
+                  to showcase and sell my mom's unique{' '}
+                  <span className="font-bold text-[#00bfff]">
+                    handcrafted items
+                  </span>
+                  , enhancing both our{' '}
+                  <span className="font-bold text-[#00bfff]">
+                    digital footprint
+                  </span>{' '}
+                  and{' '}
+                  <span className="font-bold text-[#00bfff]">
+                    business operations
+                  </span>
+                  .
+                </p>
 
-              <p className="mt-4 text-left text-lg text-white">
-                Briefly introduce yourself here. Mention your
-                <span className="font-bold text-[#00bfff]">
-                  professional background
-                </span>
-                , what you're
-                <span className="font-bold text-[#00bfff]">
-                  passionate about
-                </span>
-                , and a personal note. Keep it engaging and concise. Not too
-                long and not too short, just the
-                <span className="font-bold text-[#00bfff]">perfect amount</span>
-                .
-              </p>
+                <ul className="mt-2 list-disc pl-5">
+                  <li>
+                    <span className="font-bold text-[#00bfff]">
+                      Secure Authentication:
+                    </span>{' '}
+                    Integrates NextAuth for streamlined logins using OAuth with
+                    Google, Facebook, or traditional email/password methods.
+                  </li>
+                  <li>
+                    <span className="font-bold text-[#00bfff]">
+                      Flexible Payment Solutions:
+                    </span>{' '}
+                    Supports multiple payment options including Stripe and
+                    PayPal to ensure secure and convenient transactions.
+                  </li>
+                  <li>
+                    <span className="font-bold text-[#00bfff]">
+                      Cloud-Hosted Infrastructure:
+                    </span>{' '}
+                    Utilizes AWS services such as EC2 and RDS for scalable
+                    hosting and reliable data management.
+                  </li>
+                </ul>
+              </div>
             </div>
 
             <div className="border border-4 border-[#00bfff]">

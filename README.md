@@ -6,7 +6,7 @@
 
   <h3 align="center">Portfolio</h3>
 
-<a href="https://austincavanagh.me" target="_blank"><strong>Visit Portfolio »</strong></a>
+<a href="https://austincavanagh.me" target="_blank"><strong>Explore Portfolio »</strong></a>
 
 <!-- <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a> -->
 <!-- · -->
@@ -87,11 +87,11 @@ I hope you enjoy exploring my portfilio as much as I enjoyed creating it!
 
 ## Getting Started
 
-This section provides instructions on how to get a local copy of the portfolio website up and running.
+This section provides instructions on how to get a local copy of the portfolio up and running.
 
 ### Prerequisites
 
-Before installing the project, make sure you have the following tools installed:
+Before installing, make sure you have the following tools installed:
 
 - **Node.js**: The runtime environment for executing JavaScript code server-side. You can download it from [Node.js official website](https://nodejs.org/en/download/).
 
@@ -109,7 +109,7 @@ To get a local copy up and running follow these simple steps.
    Begin by cloning the repository to your local machine:
 
    ```sh
-   git clone https://github.com/your_username/portfolio.git
+   git clone https://github.com/austin-cavanagh/portfolio.git
    ```
 
 2. **Navigate to the project directory**
@@ -140,10 +140,10 @@ To get a local copy up and running follow these simple steps.
    npm run build
    ```
 
-   After building, preview the production build by running:
+   After building, run the production build by using:
 
    ```sh
-   npm run preview
+   npm start
    ```
 
 6. **Happy coding!**
