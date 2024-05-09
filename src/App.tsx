@@ -19,7 +19,6 @@ function App() {
     // Here you would typically initialize SolarSystem or load resources
     setTimeout(() => {
       setReadyToShow(true); // Signal that resources are ready
-      console.log('load content!');
       setTimeout(() => {
         // setLoading(false); // After a slight delay, hide the loading screen
         dispatch(setIsLoading(false));
