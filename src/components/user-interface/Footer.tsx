@@ -43,7 +43,7 @@ function Footer() {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   stroke="#00bfff"
-                  stroke-width="1"
+                  strokeWidth="1"
                 >
                   <path d="M7.629 14.571L4.357 11.3a1 1 0 011.414-1.414L7.9 12.043l5.95-5.95a1 1 0 111.414 1.414l-6.667 6.667a1 1 0 01-1.414 0z" />
                 </svg>

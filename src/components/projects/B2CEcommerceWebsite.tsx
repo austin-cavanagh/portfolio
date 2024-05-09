@@ -141,10 +141,11 @@ export default function B2CEcommerceWebsite() {
       variants={projectCardVariant}
       className="flex h-full w-full flex-col items-center justify-center px-4 py-5 sm:p-6"
     >
-      <div className="flex w-[1200px] rounded-3xl bg-gray-900 bg-opacity-80 px-14 pb-14 pt-10">
-        <div className="flex h-full flex-col justify-center space-y-6 font-poppins">
-          <div className="flex w-full justify-between">
-            <h2 className="text-[28pt] font-semibold text-[#00bfff]">
+      <div className="flex max-w-[1200px] rounded-3xl bg-gray-900 bg-opacity-80 px-14 pb-14 pt-10">
+        <div className="flex h-full flex-col justify-center font-poppins">
+          {/* Title Section */}
+          <div className="mb-4 flex w-full justify-between">
+            <h2 className="text-[28pt] font-semibold text-white">
               B2C eCommerce Website
             </h2>
 
@@ -154,7 +155,7 @@ export default function B2CEcommerceWebsite() {
                 href="https://github.com/austin-cavanagh/b2c-ecommerce-website"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#00bfff] hover:text-white"
+                className="text-white hover:text-white"
                 style={{ position: 'relative', display: 'inline-block' }}
               >
                 <svg
@@ -183,7 +184,7 @@ export default function B2CEcommerceWebsite() {
                 href="https://craftsbyjules.org/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#00bfff] hover:text-white"
+                className="text-white hover:text-white"
               >
                 <svg
                   id="icon"
@@ -205,7 +206,8 @@ export default function B2CEcommerceWebsite() {
             </div>
           </div>
 
-          <div className="flex flex-wrap">
+          {/* Technologies Section */}
+          <div className="mb-6 flex flex-wrap">
             {technologyBadges.map((badge, index) => (
               <img
                 key={index}
@@ -216,56 +218,56 @@ export default function B2CEcommerceWebsite() {
             ))}
           </div>
 
+          {/* Description & Images Section */}
           <div className="flex">
-            <div className="mr-10 w-[500px]">
-              <div className="mt-4 text-left text-lg text-white">
-                <p>
-                  Developed a robust{' '}
-                  <span className="font-bold text-[#00bfff]">
-                    eCommerce website
-                  </span>{' '}
-                  to showcase and sell my mom's unique{' '}
-                  <span className="font-bold text-[#00bfff]">
-                    handcrafted items
-                  </span>
-                  , enhancing both our{' '}
-                  <span className="font-bold text-[#00bfff]">
-                    digital footprint
-                  </span>{' '}
-                  and{' '}
-                  <span className="font-bold text-[#00bfff]">
-                    business operations
-                  </span>
-                  .
-                </p>
+            <div className="mr-10 w-[500px] space-y-3 text-left text-lg text-white">
+              <p>
+                Developed a robust{' '}
+                <span className="font-bold text-[#00bfff]">
+                  eCommerce website
+                </span>{' '}
+                to showcase and sell my mom's unique{' '}
+                <span className="font-bold text-[#00bfff]">
+                  handcrafted items
+                </span>
+                , enhancing both our{' '}
+                <span className="font-bold text-[#00bfff]">
+                  digital footprint
+                </span>{' '}
+                and{' '}
+                <span className="font-bold text-[#00bfff]">
+                  business operations
+                </span>
+                .
+              </p>
 
-                <ul className="mt-2 list-disc pl-5">
-                  <li>
-                    <span className="font-bold text-[#00bfff]">
-                      Secure Authentication:
-                    </span>{' '}
-                    Integrates NextAuth for streamlined logins using OAuth with
-                    Google, Facebook, or traditional email/password methods.
-                  </li>
-                  <li>
-                    <span className="font-bold text-[#00bfff]">
-                      Flexible Payment Solutions:
-                    </span>{' '}
-                    Supports multiple payment options including Stripe and
-                    PayPal to ensure secure and convenient transactions.
-                  </li>
-                  <li>
-                    <span className="font-bold text-[#00bfff]">
-                      Cloud-Hosted Infrastructure:
-                    </span>{' '}
-                    Utilizes AWS services such as EC2 and RDS for scalable
-                    hosting and reliable data management.
-                  </li>
-                </ul>
-              </div>
+              <ul className="list-disc space-y-3 pl-6">
+                <li className="pl-3">
+                  <span className="font-bold text-[#00bfff]">
+                    Secure Authentication:
+                  </span>{' '}
+                  Integrates NextAuth for streamlined logins using OAuth with
+                  Google, Facebook, or traditional email/password methods.
+                </li>
+                <li className="pl-3">
+                  <span className="font-bold text-[#00bfff]">
+                    Flexible Payment Solutions:
+                  </span>{' '}
+                  Supports multiple payment options including Stripe and PayPal
+                  to ensure secure and convenient transactions.
+                </li>
+                <li className="pl-3">
+                  <span className="font-bold text-[#00bfff]">
+                    Cloud-Hosted Infrastructure:
+                  </span>{' '}
+                  Utilizes AWS services such as EC2 and RDS for scalable hosting
+                  and reliable data management.
+                </li>
+              </ul>
             </div>
 
-            <div className="border border-4 border-[#00bfff]">
+            {/* <div className="border border-4 border-[#00bfff]"> */}
+            <div className="flex flex-1 items-center justify-center">
               <ImagesCarousel images={images} />
             </div>
           </div>
