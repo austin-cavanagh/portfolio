@@ -1,122 +1,10 @@
 import ImagesCarousel from './ImagesCarousel';
 
-import screenshotOne from '../../assets/project1/screenshotOne.png';
-import screenshotTwo from '../../assets/project1/screenshotTwo.png';
-import screenshotThree from '../../assets/project1/screenshotThree.png';
-import screenshotFour from '../../assets/project1/screenshotFour.png';
-import screenshotFive from '../../assets/project1/screenshotFive.png';
-import { TechnologyBadge } from '../about/Skills';
-
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../state/store';
-
-const images = [
-  screenshotOne,
-  screenshotTwo,
-  screenshotThree,
-  screenshotFour,
-  screenshotFive,
-];
-
-const technologyBadges: TechnologyBadge[] = [
-  // {
-  //   src: 'https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E',
-  //   alt: 'JavaScript',
-  // },
-  {
-    src: 'https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white',
-    alt: 'TypeScript',
-  },
-  {
-    src: 'https://img.shields.io/badge/Tailwind_CSS-4f45e4?style=for-the-badge&logo=tailwind-css&logoColor=white',
-    alt: 'Tailwind',
-  },
-  {
-    src: 'https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB',
-    alt: 'React',
-  },
-  {
-    src: 'https://img.shields.io/badge/Next-000000?style=for-the-badge&logo=nextdotjs&logoColor=white',
-    alt: 'Next JS',
-  },
-  {
-    src: 'https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white',
-    alt: 'PostgreSQL',
-  },
-  {
-    src: 'https://img.shields.io/badge/Prisma-04364e?style=for-the-badge&logo=Prisma&logoColor=white',
-    alt: 'Prisma',
-  },
-  // {
-  //   src: 'https://img.shields.io/badge/CSS3-214ce5?style=for-the-badge&logo=css3&logoColor=white',
-  //   alt: 'CSS3',
-  // },
-  // {
-  //   src: 'https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white',
-  //   alt: 'HTML5',
-  // },
-  {
-    src: 'https://img.shields.io/badge/NextAuth-8125D9?style=for-the-badge&logo=nextdns&logoColor=white',
-    alt: 'NextAuth',
-  },
-  {
-    src: 'https://img.shields.io/badge/OAuth-E03526?style=for-the-badge&logo=google&logoColor=white',
-    alt: 'Google OAuth',
-  },
-  {
-    src: 'https://img.shields.io/badge/OAuth-0666FE?style=for-the-badge&logo=facebook&logoColor=white',
-    alt: 'Facebook OAuth',
-  },
-  {
-    src: 'https://img.shields.io/badge/Docker-1e63ee?style=for-the-badge&logo=docker&logoColor=white',
-    alt: 'Docker',
-  },
-  {
-    src: 'https://img.shields.io/badge/JST-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white',
-    alt: 'JWT',
-  },
-  // {
-  //   src: 'https://img.shields.io/badge/Cookies-FF9900?style=for-the-badge&logo=cookiecutter&logoColor=white',
-  //   alt: 'Cookies',
-  // },
-  {
-    src: 'https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white',
-    alt: 'PayPal',
-  },
-  {
-    src: 'https://img.shields.io/badge/Stripe-626CD9?style=for-the-badge&logo=Stripe&logoColor=white',
-    alt: 'Stripe',
-  },
-  {
-    src: 'https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white',
-    alt: 'AWS',
-  },
-  {
-    src: 'https://img.shields.io/badge/EC2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white',
-    alt: 'AWS EC2',
-  },
-  {
-    src: 'https://img.shields.io/badge/ECR-FF9900?style=for-the-badge&logo=amazonecs&logoColor=white',
-    alt: 'AWS ECR',
-  },
-  {
-    src: 'https://img.shields.io/badge/RDS-3E50D3?style=for-the-badge&logo=amazonrds&logoColor=white',
-    alt: 'AWS RDS',
-  },
-  {
-    src: 'https://img.shields.io/badge/SES-3E50D3?style=for-the-badge&logo=amazonsimpleemailservice&logoColor=white',
-    alt: 'AWS SES',
-  },
-  {
-    src: 'https://img.shields.io/badge/S3-498A29?style=for-the-badge&logo=amazons3&logoColor=white',
-    alt: 'AWS S3',
-  },
-  {
-    src: 'https://img.shields.io/badge/Secrets_Manager-DC3133?style=for-the-badge&logo=awssecretsmanager&logoColor=white',
-    alt: 'AWS Secrets Manager',
-  },
-];
+import { b2cEcommerceWebsiteBadges } from '../../data/technollogyBadges';
+import { b2cEcommerceWebsiteScreenshot } from '../../data/projectScreenshots';
 
 const projectCardVariant = {
   hidden: { y: 50, opacity: 0 },
@@ -208,7 +96,7 @@ export default function B2CEcommerceWebsite() {
 
           {/* Technologies Section */}
           <div className="mb-6 flex flex-wrap">
-            {technologyBadges.map((badge, index) => (
+            {b2cEcommerceWebsiteBadges.map((badge, index) => (
               <img
                 key={index}
                 src={badge.src}
@@ -222,53 +110,42 @@ export default function B2CEcommerceWebsite() {
           <div className="flex">
             <div className="mr-10 w-[500px] space-y-3 text-left text-lg text-white">
               <p>
-                Developed a robust{' '}
+                Developed an{' '}
                 <span className="font-bold text-[#00bfff]">
                   eCommerce website
                 </span>{' '}
-                to showcase and sell my mom's unique{' '}
-                <span className="font-bold text-[#00bfff]">
-                  handcrafted items
-                </span>
-                , enhancing both our{' '}
-                <span className="font-bold text-[#00bfff]">
-                  digital footprint
-                </span>{' '}
-                and{' '}
-                <span className="font-bold text-[#00bfff]">
-                  business operations
-                </span>
-                .
+                to showcase and sell my mom's{' '}
+                <span className="font-bold text-[#00bfff]">custom crafts</span>
               </p>
 
-              <ul className="list-disc space-y-3 pl-6">
+              <ul className="list-disc space-y-2 pl-6">
+                <li className="pl-3">
+                  <span className="font-bold text-[#00bfff]">
+                    Stripe & PayPal:
+                  </span>{' '}
+                  Supports checkout with Stripe and PayPal to ensure secure and
+                  convenient transactions
+                </li>
                 <li className="pl-3">
                   <span className="font-bold text-[#00bfff]">
                     Secure Authentication:
                   </span>{' '}
-                  Integrates NextAuth for streamlined logins using OAuth with
-                  Google, Facebook, or traditional email/password methods.
+                  Integrates NextAuth for logins using OAuth with Google,
+                  Facebook, or traditional email/password methods
                 </li>
                 <li className="pl-3">
                   <span className="font-bold text-[#00bfff]">
-                    Flexible Payment Solutions:
+                    Robust AWS Infrastructure:
                   </span>{' '}
-                  Supports multiple payment options including Stripe and PayPal
-                  to ensure secure and convenient transactions.
-                </li>
-                <li className="pl-3">
-                  <span className="font-bold text-[#00bfff]">
-                    Cloud-Hosted Infrastructure:
-                  </span>{' '}
-                  Utilizes AWS services such as EC2 and RDS for scalable hosting
-                  and reliable data management.
+                  Utilizes AWS services such as EC2, ECR, RDS, SES, and S3 for
+                  scalable hosting and reliable data management
                 </li>
               </ul>
             </div>
 
             {/* <div className="border border-4 border-[#00bfff]"> */}
             <div className="flex flex-1 items-center justify-center">
-              <ImagesCarousel images={images} />
+              <ImagesCarousel images={b2cEcommerceWebsiteScreenshot} />
             </div>
           </div>
         </div>
