@@ -24,7 +24,7 @@ function ProfileCard() {
       initial="hidden"
       animate={!isTransitioning ? 'visible' : 'hidden'}
       variants={profileCardVariants}
-      className="flex flex-col items-center space-y-3 rounded-3xl bg-gray-900 bg-opacity-80 p-5 text-white"
+      className="flex flex-col items-center space-y-4 rounded-3xl bg-gray-900 bg-opacity-80 p-5 text-white"
     >
       <img
         src={portrait}
@@ -32,19 +32,36 @@ function ProfileCard() {
         className="h-56 w-56 rounded-full border-2 border-blue-500"
       />
       <h1 className="text-2xl font-bold">Austin Cavanagh</h1>
-      <h2 className="text-xl">Software Engineer</h2>
-      <h2 className="mt-5 text-xl">San Francisco, CA</h2>
-      <p className="max-w-md text-left text-lg">
-        Briefly introduce yourself here. Mention your{' '}
-        <span className="font-bold text-[#00bfff]">
-          professional background
-        </span>
-        , what you're{' '}
-        <span className="font-bold text-[#00bfff]">passionate about</span>, and
-        a personal note. Keep it engaging and concise. Not too long and not too
-        short, just the{' '}
-        <span className="font-bold text-[#00bfff]">perfect amount</span>.
-      </p>
+
+      <div className="text-xl">
+        <span>Full Stack Developer</span>
+        <span className="mx-4">|</span>
+        <span>San Francisco, CA</span>
+      </div>
+
+      <div className="max-w-md space-y-4 text-left text-lg">
+        <p>
+          Hello, I'm Austin, a{' '}
+          <span className="font-bold text-[#00bfff]">Full Stack Developer</span>{' '}
+          with a background in{' '}
+          <span className="font-bold text-[#00bfff]">
+            operations consulting
+          </span>{' '}
+          for the aviation industry.
+        </p>
+        <p>
+          I enjoy the unique challenges of{' '}
+          <span className="font-bold text-[#00bfff]">frontend</span> and{' '}
+          <span className="font-bold text-[#00bfff]">backend development</span>{' '}
+          , and am eager to learn new skills and knowledge to enhance my
+          professional capabilities.
+        </p>
+        <p>
+          Explore my <span className="font-bold text-[#00bfff]">portfolio</span>{' '}
+          to see my work and achievements, and connect with me on LinkedIn or
+          via email.
+        </p>
+      </div>
     </motion.div>
   );
 }

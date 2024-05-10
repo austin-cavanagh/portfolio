@@ -212,6 +212,33 @@ const miscBadges: TechnologyBadge[] = [
   // },
 ];
 
+// const interestsBadges: TechnologyBadge[] = [
+//   {
+//     src: 'https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white',
+//     alt: 'Git',
+//   },
+//   {
+//     src: 'https://img.shields.io/badge/next-000000?style=for-the-badge&logo=nextdotjs&logoColor=white',
+//     alt: 'Next JS',
+//   },
+//   {
+//     src: 'https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white',
+//     alt: 'Jest',
+//   },
+//   {
+//     src: 'https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white',
+//     alt: 'Cypress',
+//   },
+//   {
+//     src: 'https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white',
+//     alt: 'Figma',
+//   },
+//   {
+//     src: 'https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white',
+//     alt: 'PayPal',
+//   },
+// ];
+
 function Skills() {
   const { isTransitioning } = useSelector((state: RootState) => state.app);
 
@@ -242,6 +269,15 @@ function Skills() {
       transition: { delay: 0.6, type: 'spring', stiffness: 100 },
     },
   };
+
+  // const interestsVariants = {
+  //   hidden: { y: 100, opacity: 0 },
+  //   visible: {
+  //     y: 0,
+  //     opacity: 1,
+  //     transition: { delay: 0.8, type: 'spring', stiffness: 100 },
+  //   },
+  // };
 
   return (
     <div className="space-y-6">
@@ -331,6 +367,20 @@ function Skills() {
           ))}
         </div>
       </motion.div>
+
+      {/* <motion.div
+        className="flex flex-col space-y-4 rounded-3xl bg-gray-900 bg-opacity-80 p-5"
+        initial="hidden"
+        animate={!isTransitioning ? 'visible' : 'hidden'}
+        variants={interestsVariants}
+      >
+        <h2 className="text-xl text-white">Misc</h2>
+        <div className="flex max-w-[700px] flex-wrap">
+          {interestsBadges.map((badge, index) => (
+            <img key={index} src={badge.src} alt={badge.alt} className="p-1" />
+          ))}
+        </div>
+      </motion.div> */}
     </div>
   );
 }
