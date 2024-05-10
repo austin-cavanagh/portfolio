@@ -29,14 +29,13 @@ function ProfileCard() {
       <img
         src={portrait}
         alt="Austin Cavanagh"
-        className="h-56 w-56 rounded-full border-2 border-blue-500"
+        className="h-56 w-56 rounded-full border-2 border-[#00bfff]"
       />
-      <h1 className="text-2xl font-bold">Austin Cavanagh</h1>
 
-      <div className="text-xl">
-        <span>Full Stack Developer</span>
-        <span className="mx-4">|</span>
-        <span>San Francisco, CA</span>
+      <div className="items-cetner mx-auto flex flex-col justify-center space-y-1">
+        <h1 className="text-2xl font-bold">Austin Cavanagh</h1>
+        {/* <h2 className="text-center text-xl">Full Stack Developer</h2> */}
+        <h2 className="text-center text-xl">San Francisco, CA</h2>
       </div>
 
       <div className="max-w-md space-y-4 text-left text-lg">

@@ -47,7 +47,7 @@ function UserInterface({}: UserInterfaceProps) {
             initial="hidden"
             exit="exit"
             variants={exitVariants}
-            className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto"
+            className="pointer-events-auto flex flex-1 items-start justify-center overflow-auto"
           >
             <About />
           </motion.div>
