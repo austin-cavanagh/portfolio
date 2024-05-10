@@ -29,7 +29,7 @@ function ProfileCard() {
       <img
         src={portrait}
         alt="Austin Cavanagh"
-        className="h-56 w-56 rounded-full border-2 border-[#00bfff]"
+        className="h-52 w-52 rounded-full border-2 border-[#00bfff]"
       />
 
       <div className="items-cetner mx-auto flex flex-col justify-center space-y-1">
