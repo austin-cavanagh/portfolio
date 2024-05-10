@@ -3,6 +3,40 @@ import { AppDispatch, RootState } from '../../state/store';
 import { setCurrentPlanet } from '../../state/appSlice';
 import { MouseEvent, useEffect, useRef, useState } from 'react';
 
+import { Fragment } from 'react';
+import { Popover, Transition } from '@headlessui/react';
+import { ChevronDownIcon } from '@heroicons/react/20/solid';
+
+const solutions = [
+  {
+    name: 'Blog',
+    description: 'Learn about tips, product updates and company culture',
+    href: '#',
+  },
+  {
+    name: 'Help center',
+    description:
+      'Get all of your questions answered in our forums of contact support',
+    href: '#',
+  },
+  {
+    name: 'Guides',
+    description: 'Learn how to maximize our platform to get the most out of it',
+    href: '#',
+  },
+  {
+    name: 'Events',
+    description:
+      'Check out webinars with experts and learn about our annual conference',
+    href: '#',
+  },
+  {
+    name: 'Security',
+    description: 'Understand how we take your privacy seriously',
+    href: '#',
+  },
+];
+
 function Navbar() {
   const { currentPlanet, isTransitioning } = useSelector(
     (state: RootState) => state.app,
@@ -63,7 +97,7 @@ function Navbar() {
   return (
     <nav className="pointer-events-auto flex items-start justify-between text-xl font-medium text-[#00bfff]">
       {/* Left */}
-      <div className="flex h-[70px] items-center space-x-5 border-b-2 border-[#00bfff] bg-gray-900 bg-opacity-80  p-4">
+      <div className="flex h-[70px] w-full items-center justify-around space-x-5 border-b-2 border-[#00bfff] bg-gray-900 bg-opacity-80 p-4 sm:w-auto sm:justify-between">
         {/* Resume */}
         <a
           href="/resume.pdf"
@@ -135,88 +169,156 @@ function Navbar() {
             </g>
           </svg>
         </a>
-      </div>
 
-      {/* Left Diagonal */}
-      <div className="relative h-[70px] w-10 bg-transparent">
-        {/* Blue background that appears as diagonal */}
-        <div
-          className="absolute left-0 top-0 h-full w-full bg-[00bfff] bg-opacity-80"
-          style={{
-            backgroundColor: '#00bfff',
-            clipPath: 'polygon(0 67.5px, 100% 7.5px, 100% 10px, 0 100%)',
-          }}
-        ></div>
-
-        {/* Gray background that appears on top of the blue element above */}
-        <div
-          className="absolute left-0 top-0 h-full w-full bg-gray-900 bg-opacity-80"
-          style={{
-            clipPath: 'polygon(0 0, 100% 0, 100% 7.5px, 0 67.5px)',
-          }}
-        ></div>
-      </div>
-
-      {/* Middle */}
-      <div className="h-[10px] flex-grow border-b-2 border-[#00bfff] bg-gray-900 bg-opacity-80"></div>
-
-      {/* Right Diagonal */}
-      <div className="relative h-[70px] w-10 bg-transparent">
-        {/* Blue background that appears as diagonal */}
-        <div
-          className="absolute left-0 top-0 h-full w-full bg-[#00bfff]"
-          style={{
-            clipPath: 'polygon(0 7.5px, 100% 67.5px, 100% 100%, 0 10px)',
-          }}
-        ></div>
-
-        {/* Gray background that appears on top of the blue element above */}
-        <div
-          className="absolute left-0 top-0 h-[70px] w-full bg-gray-900 bg-opacity-80"
-          style={{
-            clipPath: 'polygon(0 0, 100% 0, 100% 67.5px, 0 8px)',
-          }}
-        ></div>
-      </div>
-
-      {/* Right */}
-      <div className="bg-gray-90 flex h-[70px] space-x-5 border-b-2 border-[#00bfff] bg-gray-900 bg-opacity-80 p-4 px-6">
-        {navItems.map(item => {
-          const isActive =
-            item.name === 'Projects'
-              ? ['Jupiter', 'Saturn', 'Mars'].includes(currentPlanet)
-              : currentPlanet === item.value;
-          return (
-            <div
-              key={item.value}
-              className="group relative flex items-center justify-center"
-              ref={item.name === 'Projects' ? dropdownRef : null}
+        <Popover className="justify-cente relative flex sm:hidden">
+          <Popover.Button className="inline-flex items-center text-[#00bfff]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="h-9 w-9"
             >
-              <button
-                className="inline-flex items-center px-3 py-2 text-[#00bfff] focus:outline-none"
-                onClick={event => handlePageClick(event, item.value, item.name)}
-              >
-                {item.name}
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          </Popover.Button>
 
-                {/* Chevron Up */}
-                {item.name === 'Projects' && !projectOptionsOpen && (
-                  <svg
-                    className="ml-1 h-4 w-4"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
+          <Transition
+            as={Fragment}
+            enter="transition ease-out duration-200"
+            enterFrom="opacity-0 translate-y-1"
+            enterTo="opacity-100 translate-y-0"
+            leave="transition ease-in duration-150"
+            leaveFrom="opacity-100 translate-y-0"
+            leaveTo="opacity-0 translate-y-1"
+          >
+            <Popover.Panel className="absolute left-1/2 z-10 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4">
+              <div className="w-screen max-w-sm flex-auto rounded-3xl bg-white p-4 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
+                {solutions.map(item => (
+                  <div
+                    key={item.name}
+                    className="relative rounded-lg p-4 hover:bg-gray-50"
                   >
-                    <path
-                      fillRule="evenodd"
-                      d="M3.293 13.707a1 1 0 011.414 0L10 8.414l5.293 5.293a1 1 0 001.414-1.414l-6-6a1 1 0 00-1.414 0l-6 6a1 1 0 010 1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                )}
+                    <a href={item.href} className="font-semibold text-gray-900">
+                      {item.name}
+                      <span className="absolute inset-0" />
+                    </a>
+                    <p className="mt-1 text-gray-600">{item.description}</p>
+                  </div>
+                ))}
+              </div>
+            </Popover.Panel>
+          </Transition>
+        </Popover>
+      </div>
 
-                {/* Chevron Down */}
-                {item.name === 'Projects' && projectOptionsOpen && (
-                  <>
+      {/* Mobile Menu Icon */}
+      {/* <Popover className="bg-gray-90 relative flex h-[70px] flex-grow space-x-5 border-b-2 border-[#00bfff] bg-gray-900 bg-opacity-80 p-4 px-6 sm:hidden">
+        <Popover.Button className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-white">
+          <span>Nav</span>
+          <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
+        </Popover.Button>
+
+        <Transition
+          as={Fragment}
+          enter="transition ease-out duration-200"
+          enterFrom="opacity-0 translate-y-1"
+          enterTo="opacity-100 translate-y-0"
+          leave="transition ease-in duration-150"
+          leaveFrom="opacity-100 translate-y-0"
+          leaveTo="opacity-0 translate-y-1"
+        >
+          <Popover.Panel className="absolute left-1/2 z-10 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4">
+            <div className="w-screen max-w-sm flex-auto rounded-3xl bg-white p-4 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
+              {solutions.map(item => (
+                <div
+                  key={item.name}
+                  className="relative rounded-lg p-4 hover:bg-gray-50"
+                >
+                  <a href={item.href} className="font-semibold text-gray-900">
+                    {item.name}
+                    <span className="absolute inset-0" />
+                  </a>
+                  <p className="mt-1 text-gray-600">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </Popover.Panel>
+        </Transition>
+      </Popover> */}
+
+      {/* Hidden on Mobile */}
+      <div className="hidden sm:flex sm:flex-grow sm:items-start">
+        {/* Left Diagonal */}
+        <div className="relative h-[70px] w-10 bg-transparent">
+          {/* Blue background that appears as diagonal */}
+          <div
+            className="absolute left-0 top-0 h-full w-full bg-[00bfff] bg-opacity-80"
+            style={{
+              backgroundColor: '#00bfff',
+              clipPath: 'polygon(0 67.5px, 100% 7.5px, 100% 10px, 0 100%)',
+            }}
+          ></div>
+
+          {/* Gray background that appears on top of the blue element above */}
+          <div
+            className="absolute left-0 top-0 h-full w-full bg-gray-900 bg-opacity-80"
+            style={{
+              clipPath: 'polygon(0 0, 100% 0, 100% 7.5px, 0 67.5px)',
+            }}
+          ></div>
+        </div>
+
+        {/* Middle */}
+        <div className="h-[10px] flex-grow border-b-2 border-[#00bfff] bg-gray-900 bg-opacity-80"></div>
+
+        {/* Right Diagonal */}
+        <div className="relative h-[70px] w-10 bg-transparent">
+          {/* Blue background that appears as diagonal */}
+          <div
+            className="absolute left-0 top-0 h-full w-full bg-[#00bfff]"
+            style={{
+              clipPath: 'polygon(0 7.5px, 100% 67.5px, 100% 100%, 0 10px)',
+            }}
+          ></div>
+
+          {/* Gray background that appears on top of the blue element above */}
+          <div
+            className="absolute left-0 top-0 h-[70px] w-full bg-gray-900 bg-opacity-80"
+            style={{
+              clipPath: 'polygon(0 0, 100% 0, 100% 67.5px, 0 8px)',
+            }}
+          ></div>
+        </div>
+
+        {/* Right */}
+        <div className="bg-gray-90 flex h-[70px] space-x-5 border-b-2 border-[#00bfff] bg-gray-900 bg-opacity-80 p-4 px-6">
+          {navItems.map(item => {
+            const isActive =
+              item.name === 'Projects'
+                ? ['Jupiter', 'Saturn', 'Mars'].includes(currentPlanet)
+                : currentPlanet === item.value;
+            return (
+              <div
+                key={item.value}
+                className="group relative flex items-center justify-center"
+                ref={item.name === 'Projects' ? dropdownRef : null}
+              >
+                <button
+                  className="inline-flex items-center px-3 py-2 text-[#00bfff] focus:outline-none"
+                  onClick={event =>
+                    handlePageClick(event, item.value, item.name)
+                  }
+                >
+                  {item.name}
+
+                  {/* Chevron Up */}
+                  {item.name === 'Projects' && !projectOptionsOpen && (
                     <svg
                       className="ml-1 h-4 w-4"
                       xmlns="http://www.w3.org/2000/svg"
@@ -225,50 +327,68 @@ function Navbar() {
                     >
                       <path
                         fillRule="evenodd"
-                        d="M3.293 6.293a1 1 0 011.414 0L10 11.586l5.293-5.293a1 1 0 011.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414z"
+                        d="M3.293 13.707a1 1 0 011.414 0L10 8.414l5.293 5.293a1 1 0 001.414-1.414l-6-6a1 1 0 00-1.414 0l-6 6a1 1 0 010 1.414z"
                         clipRule="evenodd"
                       />
                     </svg>
+                  )}
 
-                    {/* Dropdown Menu */}
-                    <div className="absolute right-0 top-full mt-8 flex w-56 items-center justify-center shadow-lg">
-                      <ul className="rounded-lg border-2 border-[#00bfff] bg-gray-900 bg-opacity-80 py-1 text-left text-[#00bfff]">
-                        <li>
-                          <div
-                            onClick={() => handleNavigation('Saturn')}
-                            className="block px-4 py-2 text-base hover:text-white"
-                          >
-                            1. React Query Rewind
-                          </div>
-                        </li>
-                        <li>
-                          <div
-                            onClick={() => handleNavigation('Jupiter')}
-                            className="block px-4 py-2 text-base hover:text-white"
-                          >
-                            2. B2C eCommerce Site
-                          </div>
-                        </li>
-                        <li>
-                          <div
-                            onClick={() => handleNavigation('Mars')}
-                            className="block px-4 py-2 text-base hover:text-white"
-                          >
-                            3. Solar System Portfolio
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </>
-                )}
-              </button>
+                  {/* Chevron Down */}
+                  {item.name === 'Projects' && projectOptionsOpen && (
+                    <>
+                      <svg
+                        className="ml-1 h-4 w-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M3.293 6.293a1 1 0 011.414 0L10 11.586l5.293-5.293a1 1 0 011.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
 
-              <div
-                className={`absolute bottom-0 left-0 right-0 mx-auto h-0.5 bg-[#00bfff] transition-all duration-300 ease-out ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}
-              />
-            </div>
-          );
-        })}
+                      {/* Dropdown Menu */}
+                      <div className="absolute right-0 top-full mt-8 flex w-56 items-center justify-center shadow-lg">
+                        <ul className="rounded-lg border-2 border-[#00bfff] bg-gray-900 bg-opacity-80 py-1 text-left text-[#00bfff]">
+                          <li>
+                            <div
+                              onClick={() => handleNavigation('Saturn')}
+                              className="block px-4 py-2 text-base hover:text-white"
+                            >
+                              1. React Query Rewind
+                            </div>
+                          </li>
+                          <li>
+                            <div
+                              onClick={() => handleNavigation('Jupiter')}
+                              className="block px-4 py-2 text-base hover:text-white"
+                            >
+                              2. B2C eCommerce Site
+                            </div>
+                          </li>
+                          <li>
+                            <div
+                              onClick={() => handleNavigation('Mars')}
+                              className="block px-4 py-2 text-base hover:text-white"
+                            >
+                              3. Solar System Portfolio
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </>
+                  )}
+                </button>
+
+                <div
+                  className={`absolute bottom-0 left-0 right-0 mx-auto h-0.5 bg-[#00bfff] transition-all duration-300 ease-out ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </nav>
   );
