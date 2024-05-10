@@ -5,35 +5,27 @@ import { MouseEvent, useEffect, useRef, useState } from 'react';
 
 import { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/20/solid';
 
 const solutions = [
   {
-    name: 'Blog',
-    description: 'Learn about tips, product updates and company culture',
-    href: '#',
+    name: '1. Overview',
+    planet: 'Overview',
   },
   {
-    name: 'Help center',
-    description:
-      'Get all of your questions answered in our forums of contact support',
-    href: '#',
+    name: '2. About',
+    planet: 'Earth',
   },
   {
-    name: 'Guides',
-    description: 'Learn how to maximize our platform to get the most out of it',
-    href: '#',
+    name: '3. React Query Rewind',
+    planet: 'Saturn',
   },
   {
-    name: 'Events',
-    description:
-      'Check out webinars with experts and learn about our annual conference',
-    href: '#',
+    name: '4. B2C eCommerce Website',
+    planet: 'Jupiter',
   },
   {
-    name: 'Security',
-    description: 'Understand how we take your privacy seriously',
-    href: '#',
+    name: '5. Solar System Portfolio',
+    planet: 'Mars',
   },
 ];
 
@@ -41,10 +33,9 @@ function Navbar() {
   const { currentPlanet, isTransitioning } = useSelector(
     (state: RootState) => state.app,
   );
+  const [projectOptionsOpen, setProjectOptionsOpen] = useState(false);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
-
-  const [projectOptionsOpen, setProjectOptionsOpen] = useState(false);
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -170,7 +161,8 @@ function Navbar() {
           </svg>
         </a>
 
-        <Popover className="justify-cente relative flex sm:hidden">
+        {/* Menu Popover - Mobile */}
+        <Popover className="relative flex justify-end sm:hidden">
           <Popover.Button className="inline-flex items-center text-[#00bfff]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -197,18 +189,21 @@ function Navbar() {
             leaveFrom="opacity-100 translate-y-0"
             leaveTo="opacity-0 translate-y-1"
           >
-            <Popover.Panel className="absolute left-1/2 z-10 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4">
-              <div className="w-screen max-w-sm flex-auto rounded-3xl bg-white p-4 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
+            <Popover.Panel className="absolute right-0 z-10 mt-20 flex w-screen max-w-max">
+              <div className="max-w-sm flex-auto rounded-2xl border-2 border-[#00bfff] bg-gray-900 px-2 text-left text-base leading-6 opacity-80 shadow-lg ring-1 ring-gray-900/5">
                 {solutions.map(item => (
                   <div
                     key={item.name}
-                    className="relative rounded-lg p-4 hover:bg-gray-50"
+                    // className="relative rounded-lg p-4 hover:bg-gray-50"
+                    className="relative rounded-lg p-4 hover:bg-gray-700"
                   >
-                    <a href={item.href} className="font-semibold text-gray-900">
+                    <Popover.Button
+                      as="button"
+                      className="font-semibold text-[#00bfff]"
+                      onClick={() => handleNavigation(item.planet)}
+                    >
                       {item.name}
-                      <span className="absolute inset-0" />
-                    </a>
-                    <p className="mt-1 text-gray-600">{item.description}</p>
+                    </Popover.Button>
                   </div>
                 ))}
               </div>
@@ -216,41 +211,6 @@ function Navbar() {
           </Transition>
         </Popover>
       </div>
-
-      {/* Mobile Menu Icon */}
-      {/* <Popover className="bg-gray-90 relative flex h-[70px] flex-grow space-x-5 border-b-2 border-[#00bfff] bg-gray-900 bg-opacity-80 p-4 px-6 sm:hidden">
-        <Popover.Button className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-white">
-          <span>Nav</span>
-          <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
-        </Popover.Button>
-
-        <Transition
-          as={Fragment}
-          enter="transition ease-out duration-200"
-          enterFrom="opacity-0 translate-y-1"
-          enterTo="opacity-100 translate-y-0"
-          leave="transition ease-in duration-150"
-          leaveFrom="opacity-100 translate-y-0"
-          leaveTo="opacity-0 translate-y-1"
-        >
-          <Popover.Panel className="absolute left-1/2 z-10 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4">
-            <div className="w-screen max-w-sm flex-auto rounded-3xl bg-white p-4 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
-              {solutions.map(item => (
-                <div
-                  key={item.name}
-                  className="relative rounded-lg p-4 hover:bg-gray-50"
-                >
-                  <a href={item.href} className="font-semibold text-gray-900">
-                    {item.name}
-                    <span className="absolute inset-0" />
-                  </a>
-                  <p className="mt-1 text-gray-600">{item.description}</p>
-                </div>
-              ))}
-            </div>
-          </Popover.Panel>
-        </Transition>
-      </Popover> */}
 
       {/* Hidden on Mobile */}
       <div className="hidden sm:flex sm:flex-grow sm:items-start">
