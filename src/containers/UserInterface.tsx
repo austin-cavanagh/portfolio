@@ -71,7 +71,8 @@ function UserInterface({}: UserInterfaceProps) {
             initial="hidden"
             exit="exit"
             variants={projectExitVariant}
-            className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto"
+            // className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto"
+            className="pointer-events-auto flex flex-1 items-start justify-center overflow-auto sm:items-center"
           >
             <B2CEcommerceWebsite />
           </motion.div>

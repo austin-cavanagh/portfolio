@@ -1,14 +1,7 @@
-import ImagesCarousel from './ImagesCarousel';
-
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../state/store';
 import { b2cEcommerceWebsiteBadges } from '../../data/technollogyBadges';
-import { b2cEcommerceWebsiteScreenshot } from '../../data/projectScreenshots';
-
-import firstVideo from '../../assets/first-gif.mov';
-import firstGif from '../../assets/test-gif.gif';
-import secondGif from '../../assets/second-gif.gif';
 import ImageSlider from './ImageSlider';
 
 const projectCardVariant = {
@@ -32,13 +25,13 @@ export default function B2CEcommerceWebsite() {
       initial="hidden"
       animate={!isTransitioning ? 'visible' : 'hidden'}
       variants={projectCardVariant}
-      className="flex h-full w-full flex-col items-center justify-center px-4 py-5 sm:p-6"
+      className="flex h-auto w-full flex-col items-center justify-start p-6 sm:justify-center"
     >
-      <div className="flex max-w-[1200px] rounded-3xl bg-gray-900 bg-opacity-80 px-14 pb-14 pt-10">
+      <div className="flex h-auto max-w-[1250px] rounded-3xl bg-gray-900 bg-opacity-80 p-7 sm:p-12">
         <div className="flex h-full flex-col justify-center font-poppins">
           {/* Title Section */}
           <div className="mb-4 flex w-full justify-between">
-            <h2 className="text-[28pt] font-semibold text-white">
+            <h2 className="text-[10pt] font-semibold text-white md:text-[28pt]">
               B2C eCommerce Website
             </h2>
 
@@ -111,12 +104,12 @@ export default function B2CEcommerceWebsite() {
             ))}
           </div>
 
-          {/* Description & Images Section */}
-          <div className="flex h-full flex-col justify-center font-poppins lg:flex-row">
+          {/* Description & Images Section - PC */}
+          <div className="hidden h-full justify-center font-poppins lg:flex">
             {/* Description Section */}
             <div
-              className="mr-8 flex min-w-0 flex-1"
-              style={{ flexBasis: '45%' }}
+              className="mr-10 flex min-w-0 flex-1"
+              style={{ flexBasis: '40%' }}
             >
               {' '}
               {/* Adjust the flex-basis as needed */}
@@ -159,10 +152,64 @@ export default function B2CEcommerceWebsite() {
             </div>
 
             {/* Images Section */}
-            <div className="" style={{ flexBasis: '55%' }}>
-              {/* <ImagesCarousel images={b2cEcommerceWebsiteScreenshot} /> */}
-              {/* <img src={secondGif} alt="Your GIF" /> */}
+            <div
+              className="my-auto h-[350px] w-full"
+              style={{ flexBasis: '60%' }}
+            >
               <ImageSlider />
+            </div>
+            {/* <div className="h-100% w-full bg-red-500"></div> */}
+          </div>
+
+          {/* Description & Images Section - Mobile*/}
+          <div className="h-full justify-center font-poppins lg:hidden">
+            {/* Images Section */}
+            <div className="my-auto h-full w-full" style={{ flexBasis: '60%' }}>
+              <ImageSlider />
+            </div>
+
+            {/* Description Section */}
+            <div
+              className="mr-10 flex min-w-0 flex-1"
+              style={{ flexBasis: '40%' }}
+            >
+              {' '}
+              <div className="space-y-3 text-left text-base text-white sm:text-lg">
+                <p>
+                  Developed an{' '}
+                  <span className="font-bold text-[#00bfff]">
+                    eCommerce website
+                  </span>{' '}
+                  to showcase and sell my mom's{' '}
+                  <span className="font-bold text-[#00bfff]">
+                    custom crafts
+                  </span>
+                </p>
+
+                <ul className="list-disc space-y-2 pl-6">
+                  <li className="pl-3">
+                    <span className="font-bold text-[#00bfff]">
+                      Stripe & PayPal:
+                    </span>{' '}
+                    Supports checkout with Stripe and PayPal to ensure secure
+                    and convenient transactions
+                  </li>
+                  <li className="pl-3">
+                    <span className="font-bold text-[#00bfff]">
+                      Secure Authentication:
+                    </span>{' '}
+                    Integrates NextAuth for logins using OAuth with Google,
+                    Facebook, or traditional email/password methods
+                  </li>
+                  <li className="pl-3">
+                    <span className="font-bold text-[#00bfff]">
+                      Robust AWS Infrastructure:
+                    </span>{' '}
+                    Utilizes AWS services such as EC2, ECR, RDS, SES, and S3 for
+                    scalable hosting and reliable data management
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
