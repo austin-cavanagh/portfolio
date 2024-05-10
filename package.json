@@ -18,6 +18,8 @@
     "@reduxjs/toolkit": "^2.1.0",
     "@tweenjs/tween.js": "^23.1.1",
     "autoprefixer": "^10.4.17",
+    "flowbite": "^2.3.0",
+    "flowbite-react": "^0.9.0",
     "framer-motion": "^11.1.7",
     "postcss": "^8.4.33",
     "react": "^18.2.0",

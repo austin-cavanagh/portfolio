@@ -59,7 +59,7 @@ function ImagesCarousel({ images }: ImagesCarouselProps) {
 
   return (
     <div
-      className="relative w-full max-w-xl overflow-hidden"
+      className="relative w-full overflow-hidden"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

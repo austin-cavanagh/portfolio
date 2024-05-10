@@ -5,6 +5,7 @@ import LoadingScreen from './components/solar-system/LoadingScreen';
 // import { Suspense } from 'react';
 import { useEffect, useState } from 'react';
 import { setIsLoading } from './state/appSlice';
+import 'flowbite';
 
 function App() {
   const { isLoading } = useSelector((state: RootState) => state.app);

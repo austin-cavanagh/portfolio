@@ -24,7 +24,7 @@ function ProfileCard() {
       initial="hidden"
       animate={!isTransitioning ? 'visible' : 'hidden'}
       variants={profileCardVariants}
-      className="flex flex-col items-center space-y-4 rounded-3xl bg-gray-900 bg-opacity-80 p-5 text-white"
+      className="flex w-full max-w-xl flex-col items-center space-y-4 rounded-3xl bg-gray-900 bg-opacity-80 p-8 text-white"
     >
       <img
         src={portrait}
@@ -38,9 +38,9 @@ function ProfileCard() {
         <h2 className="text-center text-xl">San Francisco, CA</h2>
       </div>
 
-      <div className="max-w-md space-y-4 text-left text-lg">
+      <div className="space-y-4 text-left text-lg">
         <p>
-          Hello, I'm Austin, a{' '}
+          I'm Austin, a{' '}
           <span className="font-bold text-[#00bfff]">Full Stack Developer</span>{' '}
           with a background in{' '}
           <span className="font-bold text-[#00bfff]">

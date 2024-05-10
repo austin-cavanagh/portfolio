@@ -6,6 +6,11 @@ import { RootState } from '../../state/store';
 import { b2cEcommerceWebsiteBadges } from '../../data/technollogyBadges';
 import { b2cEcommerceWebsiteScreenshot } from '../../data/projectScreenshots';
 
+import firstVideo from '../../assets/first-gif.mov';
+import firstGif from '../../assets/test-gif.gif';
+import secondGif from '../../assets/second-gif.gif';
+import ImageSlider from './ImageSlider';
+
 const projectCardVariant = {
   hidden: { y: 50, opacity: 0 },
   visible: {
@@ -107,45 +112,57 @@ export default function B2CEcommerceWebsite() {
           </div>
 
           {/* Description & Images Section */}
-          <div className="flex">
-            <div className="mr-10 w-[500px] space-y-3 text-left text-lg text-white">
-              <p>
-                Developed an{' '}
-                <span className="font-bold text-[#00bfff]">
-                  eCommerce website
-                </span>{' '}
-                to showcase and sell my mom's{' '}
-                <span className="font-bold text-[#00bfff]">custom crafts</span>
-              </p>
+          <div className="flex h-full flex-col justify-center font-poppins lg:flex-row">
+            {/* Description Section */}
+            <div
+              className="mr-8 flex min-w-0 flex-1"
+              style={{ flexBasis: '45%' }}
+            >
+              {' '}
+              {/* Adjust the flex-basis as needed */}
+              <div className="space-y-3 text-left text-lg text-white">
+                <p>
+                  Developed an{' '}
+                  <span className="font-bold text-[#00bfff]">
+                    eCommerce website
+                  </span>{' '}
+                  to showcase and sell my mom's{' '}
+                  <span className="font-bold text-[#00bfff]">
+                    custom crafts
+                  </span>
+                </p>
 
-              <ul className="list-disc space-y-2 pl-6">
-                <li className="pl-3">
-                  <span className="font-bold text-[#00bfff]">
-                    Stripe & PayPal:
-                  </span>{' '}
-                  Supports checkout with Stripe and PayPal to ensure secure and
-                  convenient transactions
-                </li>
-                <li className="pl-3">
-                  <span className="font-bold text-[#00bfff]">
-                    Secure Authentication:
-                  </span>{' '}
-                  Integrates NextAuth for logins using OAuth with Google,
-                  Facebook, or traditional email/password methods
-                </li>
-                <li className="pl-3">
-                  <span className="font-bold text-[#00bfff]">
-                    Robust AWS Infrastructure:
-                  </span>{' '}
-                  Utilizes AWS services such as EC2, ECR, RDS, SES, and S3 for
-                  scalable hosting and reliable data management
-                </li>
-              </ul>
+                <ul className="list-disc space-y-2 pl-6">
+                  <li className="pl-3">
+                    <span className="font-bold text-[#00bfff]">
+                      Stripe & PayPal:
+                    </span>{' '}
+                    Supports checkout with Stripe and PayPal to ensure secure
+                    and convenient transactions
+                  </li>
+                  <li className="pl-3">
+                    <span className="font-bold text-[#00bfff]">
+                      Secure Authentication:
+                    </span>{' '}
+                    Integrates NextAuth for logins using OAuth with Google,
+                    Facebook, or traditional email/password methods
+                  </li>
+                  <li className="pl-3">
+                    <span className="font-bold text-[#00bfff]">
+                      Robust AWS Infrastructure:
+                    </span>{' '}
+                    Utilizes AWS services such as EC2, ECR, RDS, SES, and S3 for
+                    scalable hosting and reliable data management
+                  </li>
+                </ul>
+              </div>
             </div>
 
-            {/* <div className="border border-4 border-[#00bfff]"> */}
-            <div className="flex flex-1 items-center justify-center">
-              <ImagesCarousel images={b2cEcommerceWebsiteScreenshot} />
+            {/* Images Section */}
+            <div className="" style={{ flexBasis: '55%' }}>
+              {/* <ImagesCarousel images={b2cEcommerceWebsiteScreenshot} /> */}
+              {/* <img src={secondGif} alt="Your GIF" /> */}
+              <ImageSlider />
             </div>
           </div>
         </div>

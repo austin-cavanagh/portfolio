@@ -246,7 +246,7 @@ function Skills() {
   return (
     <div className="space-y-6">
       <motion.div
-        className="flex flex-col space-y-4 rounded-3xl bg-gray-900 bg-opacity-80 p-5"
+        className="flex flex-col space-y-4 rounded-3xl bg-gray-900 bg-opacity-80 p-6"
         initial="hidden"
         animate={!isTransitioning ? 'visible' : 'hidden'}
         variants={frontendVariants}
@@ -260,7 +260,7 @@ function Skills() {
       </motion.div>
 
       <motion.div
-        className="flex flex-col space-y-4 rounded-3xl bg-gray-900 bg-opacity-80 p-5"
+        className="flex flex-col space-y-4 rounded-3xl bg-gray-900 bg-opacity-80 p-6"
         initial="hidden"
         animate={!isTransitioning ? 'visible' : 'hidden'}
         variants={backendVariants}
@@ -274,7 +274,7 @@ function Skills() {
       </motion.div>
 
       <motion.div
-        className="flex flex-col space-y-4 rounded-3xl bg-gray-900 bg-opacity-80 p-5"
+        className="flex flex-col space-y-4 rounded-3xl bg-gray-900 bg-opacity-80 p-6"
         initial="hidden"
         animate={!isTransitioning ? 'visible' : 'hidden'}
         variants={miscVariants}
