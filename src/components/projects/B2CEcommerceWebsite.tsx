@@ -109,7 +109,7 @@ export default function B2CEcommerceWebsite() {
             {/* Description Section */}
             <div
               className="mr-10 flex min-w-0 flex-1"
-              style={{ flexBasis: '40%' }}
+              style={{ flexBasis: '45%' }}
             >
               {' '}
               {/* Adjust the flex-basis as needed */}
@@ -153,8 +153,8 @@ export default function B2CEcommerceWebsite() {
 
             {/* Images Section */}
             <div
-              className="my-auto h-[350px] w-full"
-              style={{ flexBasis: '60%' }}
+              className="h-100% my-auto h-[350px] w-full"
+              style={{ flexBasis: '55%' }}
             >
               <ImageSlider />
             </div>
