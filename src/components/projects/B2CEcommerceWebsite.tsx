@@ -30,7 +30,7 @@ export default function B2CEcommerceWebsite() {
       <div className="flex h-auto max-w-[1250px] rounded-3xl bg-gray-900 bg-opacity-80 p-7 sm:p-12">
         <div className="flex h-full flex-col justify-center font-poppins">
           {/* Title Section */}
-          <div className="mb-4 flex w-full justify-between">
+          <div className="mb-5 flex w-full justify-between">
             <h2 className="text-[10pt] font-semibold text-white md:text-[28pt]">
               B2C eCommerce Website
             </h2>
@@ -93,7 +93,7 @@ export default function B2CEcommerceWebsite() {
           </div>
 
           {/* Technologies Section */}
-          <div className="mb-6 flex flex-wrap">
+          <div className="mb-7 flex flex-wrap">
             {b2cEcommerceWebsiteBadges.map((badge, index) => (
               <img
                 key={index}
