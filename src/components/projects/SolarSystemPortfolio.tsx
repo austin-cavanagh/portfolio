@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../state/store';
-import { b2cEcommerceWebsiteBadges } from '../../data/technollogyBadges';
+import { solarSystemPortfolioBadges } from '../../data/technollogyBadges';
 import ImageSlider from './ImageSlider';
 
 const projectCardVariant = {
@@ -38,7 +38,7 @@ export default function SolarSystemPorfolio() {
             <div className="hidden items-center justify-center space-x-6 sm:flex">
               {/* GitHub Repository Link */}
               <a
-                href="https://github.com/austin-cavanagh/b2c-ecommerce-website"
+                href="https://github.com/austin-cavanagh/portfolio"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-white"
@@ -67,7 +67,7 @@ export default function SolarSystemPorfolio() {
 
               {/* Live Demo Link */}
               <a
-                href="https://craftsbyjules.org/"
+                href="https://austincavanagh.me/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-white"
@@ -94,7 +94,7 @@ export default function SolarSystemPorfolio() {
 
           {/* Technologies Section */}
           <div className="mb-4 flex flex-wrap sm:mb-6">
-            {b2cEcommerceWebsiteBadges.map((badge, index) => (
+            {solarSystemPortfolioBadges.map((badge, index) => (
               <img
                 key={index}
                 src={badge.src}
@@ -115,37 +115,36 @@ export default function SolarSystemPorfolio() {
               {/* Adjust the flex-basis as needed */}
               <div className="space-y-3 text-left text-lg text-white">
                 <p>
-                  Developed an{' '}
-                  <span className="font-bold text-[#00bfff]">
-                    eCommerce website
-                  </span>{' '}
-                  to showcase and sell my mom's{' '}
-                  <span className="font-bold text-[#00bfff]">
+                  This is my{' '}
+                  <span className="font-bold text-[#00bfff]">portfolio</span>{' '}
+                  designed as an interactive solar system to reflect my interest
+                  in space and talents as a developer.{' '}
+                  {/* <span className="font-bold text-[#00bfff]">
                     custom crafts
-                  </span>
+                  </span> */}
                 </p>
 
                 <ul className="list-disc space-y-2 pl-6">
                   <li className="pl-3">
                     <span className="font-bold text-[#00bfff]">
-                      Stripe & PayPal:
+                      Interactive 3D Models:
                     </span>{' '}
-                    Supports checkout with Stripe and PayPal to ensure secure
-                    and convenient transactions
+                    Navigate a detailed environment showcasing realistic models
+                    of planets in our solar system
                   </li>
                   <li className="pl-3">
                     <span className="font-bold text-[#00bfff]">
-                      Secure Authentication:
+                      Responsive Design:
                     </span>{' '}
-                    Integrates NextAuth for logins using OAuth with Google,
-                    Facebook, or traditional email/password methods
+                    Designed to provide a seamless and visually consistent
+                    experience across all devices
                   </li>
                   <li className="pl-3">
                     <span className="font-bold text-[#00bfff]">
-                      Robust AWS Infrastructure:
+                      Engaging User Interface:
                     </span>{' '}
-                    Utilizes AWS services such as EC2, ECR, RDS, SES, and S3 for
-                    scalable hosting and reliable data management
+                    Utilize dynamic, user-friendly controls that allow for easy
+                    navigation and interaction with the solar system.
                   </li>
                 </ul>
               </div>
@@ -218,7 +217,7 @@ export default function SolarSystemPorfolio() {
             <div className="mt-4 flex items-center justify-center space-x-6">
               {/* GitHub Repository Link */}
               <a
-                href="https://github.com/austin-cavanagh/b2c-ecommerce-website"
+                href="https://github.com/austin-cavanagh/portfolio"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-white"
@@ -247,7 +246,7 @@ export default function SolarSystemPorfolio() {
 
               {/* Live Demo Link */}
               <a
-                href="https://craftsbyjules.org/"
+                href="https://austincavanagh.me/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-white"
