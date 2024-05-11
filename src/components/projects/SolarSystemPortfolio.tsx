@@ -41,7 +41,7 @@ export default function SolarSystemPorfolio() {
                 href="https://github.com/austin-cavanagh/portfolio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-white"
+                className="text-white hover:text-[#00bfff]"
                 style={{ position: 'relative', display: 'inline-block' }}
               >
                 <svg
@@ -70,7 +70,7 @@ export default function SolarSystemPorfolio() {
                 href="https://austincavanagh.me/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-white"
+                className="text-white hover:text-[#00bfff]"
               >
                 <svg
                   id="icon"
@@ -117,8 +117,8 @@ export default function SolarSystemPorfolio() {
                 <p>
                   This is my{' '}
                   <span className="font-bold text-[#00bfff]">portfolio</span>{' '}
-                  designed as an interactive solar system to reflect my interest
-                  in space and talents as a developer
+                  designed as an interactive solar system to reflect my
+                  interests and talents as a developer
                 </p>
 
                 <ul className="list-disc space-y-2 pl-6">
@@ -162,24 +162,24 @@ export default function SolarSystemPorfolio() {
             {/* Images Section */}
             <div
               className="my-auto mb-4 h-[200px] w-full"
-              style={{ flexBasis: '60%' }}
+              // style={{ flexBasis: '60%' }}
             >
               <ImageSlider />
             </div>
 
             {/* Description Section */}
             <div
-              className="mr-10 flex min-w-0 flex-1"
-              style={{ flexBasis: '45%' }}
+              className="mr-10 flex w-full min-w-0 flex-1"
+              // style={{ flexBasis: '45%' }}
             >
               {' '}
               {/* Adjust the flex-basis as needed */}
-              <div className="space-y-3 text-left text-lg text-white">
+              <div className="space-y-3 text-left text-base text-white">
                 <p>
                   This is my{' '}
                   <span className="font-bold text-[#00bfff]">portfolio</span>{' '}
-                  designed as an interactive solar system to reflect my interest
-                  in space and talents as a developer
+                  designed as an interactive solar system to reflect my
+                  interests and talents as a developer
                 </p>
 
                 <ul className="list-disc space-y-2 pl-6">

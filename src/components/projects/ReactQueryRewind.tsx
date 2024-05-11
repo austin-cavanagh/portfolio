@@ -228,7 +228,7 @@ export default function ReactQueryRewind() {
             >
               {' '}
               {/* Adjust the flex-basis as needed */}
-              <div className="space-y-3 text-left text-lg text-white">
+              <div className="space-y-3 text-left text-base text-white">
                 <p>
                   Open-source project for{' '}
                   <span className="font-bold text-[#00bfff]">React Query</span>{' '}

@@ -41,7 +41,7 @@ export default function B2CEcommerceWebsite() {
                 href="https://github.com/austin-cavanagh/b2c-ecommerce-website"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-white"
+                className="text-white hover:text-[#00bfff]"
                 style={{ position: 'relative', display: 'inline-block' }}
               >
                 <svg
@@ -70,7 +70,7 @@ export default function B2CEcommerceWebsite() {
                 href="https://craftsbyjules.org/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-white"
+                className="text-white hover:text-[#00bfff]"
               >
                 <svg
                   id="icon"
@@ -166,15 +166,15 @@ export default function B2CEcommerceWebsite() {
             {/* Images Section */}
             <div
               className="my-auto mb-4 h-[200px] w-full"
-              style={{ flexBasis: '60%' }}
+              // style={{ flexBasis: '60%' }}
             >
               <ImageSlider />
             </div>
 
             {/* Description Section */}
             <div
-              className="mr-10 flex min-w-0 flex-1"
-              style={{ flexBasis: '40%' }}
+              className="mr-10 flex w-full min-w-0 flex-1"
+              // style={{ flexBasis: '40%' }}
             >
               {' '}
               <div className="space-y-3 text-left text-base text-white sm:text-lg">
