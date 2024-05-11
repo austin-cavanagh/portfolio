@@ -30,12 +30,12 @@ export default function SolarSystemPorfolio() {
       <div className="flex h-auto max-w-[1250px] rounded-3xl bg-gray-900 bg-opacity-80 p-7 sm:p-12">
         <div className="flex h-full flex-col justify-center font-poppins">
           {/* Title Section */}
-          <div className="mb-2 flex w-full justify-between">
+          <div className="mb-2 w-full justify-between sm:mb-4 sm:flex">
             <h2 className="text-[18pt] font-semibold text-white md:text-[28pt]">
               Solar System Portfolio
             </h2>
 
-            <div className="flex items-center justify-center space-x-6">
+            <div className="hidden items-center justify-center space-x-6 sm:flex">
               {/* GitHub Repository Link */}
               <a
                 href="https://github.com/austin-cavanagh/b2c-ecommerce-website"
@@ -93,7 +93,7 @@ export default function SolarSystemPorfolio() {
           </div>
 
           {/* Technologies Section */}
-          <div className="mb-4 flex flex-wrap">
+          <div className="mb-4 flex flex-wrap sm:mb-6">
             {b2cEcommerceWebsiteBadges.map((badge, index) => (
               <img
                 key={index}
