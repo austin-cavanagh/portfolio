@@ -159,37 +159,43 @@ export default function ReactQueryRewind() {
               {/* Adjust the flex-basis as needed */}
               <div className="space-y-3 text-left text-lg text-white">
                 <p>
-                  Developed an{' '}
+                  Open-source project for{' '}
+                  <span className="font-bold text-[#00bfff]">React Query</span>{' '}
+                  that utalizes an
                   <span className="font-bold text-[#00bfff]">
-                    eCommerce website
+                    {' '}
+                    NPM Package
                   </span>{' '}
-                  to showcase and sell my mom's{' '}
+                  and a{' '}
                   <span className="font-bold text-[#00bfff]">
-                    custom crafts
-                  </span>
+                    {' '}
+                    Chrome DevTool Extension
+                  </span>{' '}
+                  to enhance state management and debugging
                 </p>
 
                 <ul className="list-disc space-y-2 pl-6">
                   <li className="pl-3">
                     <span className="font-bold text-[#00bfff]">
-                      Stripe & PayPal:
+                      Time-Travel Debugging:
                     </span>{' '}
-                    Supports checkout with Stripe and PayPal to ensure secure
-                    and convenient transactions
+                    Navigate through historical state changes to enhance
+                    debugging efficiency and precision
                   </li>
                   <li className="pl-3">
                     <span className="font-bold text-[#00bfff]">
-                      Secure Authentication:
+                      State Diff Visualization:
                     </span>{' '}
-                    Integrates NextAuth for logins using OAuth with Google,
-                    Facebook, or traditional email/password methods
+                    Utilizes a diff feature to enable developers to quickly
+                    identify and address state changes, enhancing
+                    problem-solving speed
                   </li>
                   <li className="pl-3">
                     <span className="font-bold text-[#00bfff]">
-                      Robust AWS Infrastructure:
+                      React Component Tree:
                     </span>{' '}
-                    Utilizes AWS services such as EC2, ECR, RDS, SES, and S3 for
-                    scalable hosting and reliable data management
+                    Comprehensive visualization of the component hierarchy,
+                    improving clarity and insight into its design
                   </li>
                 </ul>
               </div>
@@ -210,50 +216,57 @@ export default function ReactQueryRewind() {
             {/* Images Section */}
             <div
               className="my-auto mb-4 h-[200px] w-full"
-              style={{ flexBasis: '60%' }}
+              // style={{ flexBasis: '60%' }}
             >
               <ImageSlider />
             </div>
 
             {/* Description Section */}
             <div
-              className="mr-10 flex min-w-0 flex-1"
-              style={{ flexBasis: '40%' }}
+              className="mr-10 flex w-full min-w-0 flex-1"
+              // style={{ flexBasis: '45%' }}
             >
               {' '}
-              <div className="space-y-3 text-left text-base text-white sm:text-lg">
+              {/* Adjust the flex-basis as needed */}
+              <div className="space-y-3 text-left text-lg text-white">
                 <p>
-                  Developed an{' '}
+                  Open-source project for{' '}
+                  <span className="font-bold text-[#00bfff]">React Query</span>{' '}
+                  that utalizes an
                   <span className="font-bold text-[#00bfff]">
-                    eCommerce website
+                    {' '}
+                    NPM Package
                   </span>{' '}
-                  to showcase and sell my mom's{' '}
+                  and a{' '}
                   <span className="font-bold text-[#00bfff]">
-                    custom crafts
-                  </span>
+                    {' '}
+                    Chrome DevTool Extension
+                  </span>{' '}
+                  to enhance state management and debugging
                 </p>
 
                 <ul className="list-disc space-y-2 pl-6">
                   <li className="pl-3">
                     <span className="font-bold text-[#00bfff]">
-                      Stripe & PayPal:
+                      Time-Travel Debugging:
                     </span>{' '}
-                    Supports checkout with Stripe and PayPal to ensure secure
-                    and convenient transactions
+                    Navigate through historical state changes to enhance
+                    debugging efficiency and precision
                   </li>
                   <li className="pl-3">
                     <span className="font-bold text-[#00bfff]">
-                      Secure Authentication:
+                      State Diff Visualization:
                     </span>{' '}
-                    Integrates NextAuth for logins using OAuth with Google,
-                    Facebook, or traditional email/password methods
+                    Utilizes a diff feature to enable developers to quickly
+                    identify and address state changes, enhancing
+                    problem-solving speed
                   </li>
                   <li className="pl-3">
                     <span className="font-bold text-[#00bfff]">
-                      Robust AWS Infrastructure:
+                      React Component Tree:
                     </span>{' '}
-                    Utilizes AWS services such as EC2, ECR, RDS, SES, and S3 for
-                    scalable hosting and reliable data management
+                    Comprehensive visualization of the component hierarchy,
+                    improving clarity and insight into its design
                   </li>
                 </ul>
               </div>
