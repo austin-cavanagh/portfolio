@@ -118,10 +118,7 @@ export default function SolarSystemPorfolio() {
                   This is my{' '}
                   <span className="font-bold text-[#00bfff]">portfolio</span>{' '}
                   designed as an interactive solar system to reflect my interest
-                  in space and talents as a developer.{' '}
-                  {/* <span className="font-bold text-[#00bfff]">
-                    custom crafts
-                  </span> */}
+                  in space and talents as a developer
                 </p>
 
                 <ul className="list-disc space-y-2 pl-6">
@@ -173,42 +170,39 @@ export default function SolarSystemPorfolio() {
             {/* Description Section */}
             <div
               className="mr-10 flex min-w-0 flex-1"
-              style={{ flexBasis: '40%' }}
+              style={{ flexBasis: '45%' }}
             >
               {' '}
-              <div className="space-y-3 text-left text-base text-white sm:text-lg">
+              {/* Adjust the flex-basis as needed */}
+              <div className="space-y-3 text-left text-lg text-white">
                 <p>
-                  Developed an{' '}
-                  <span className="font-bold text-[#00bfff]">
-                    eCommerce website
-                  </span>{' '}
-                  to showcase and sell my mom's{' '}
-                  <span className="font-bold text-[#00bfff]">
-                    custom crafts
-                  </span>
+                  This is my{' '}
+                  <span className="font-bold text-[#00bfff]">portfolio</span>{' '}
+                  designed as an interactive solar system to reflect my interest
+                  in space and talents as a developer
                 </p>
 
                 <ul className="list-disc space-y-2 pl-6">
                   <li className="pl-3">
                     <span className="font-bold text-[#00bfff]">
-                      Stripe & PayPal:
+                      Interactive 3D Models:
                     </span>{' '}
-                    Supports checkout with Stripe and PayPal to ensure secure
-                    and convenient transactions
+                    Navigate a detailed environment showcasing realistic models
+                    of planets in our solar system
                   </li>
                   <li className="pl-3">
                     <span className="font-bold text-[#00bfff]">
-                      Secure Authentication:
+                      Responsive Design:
                     </span>{' '}
-                    Integrates NextAuth for logins using OAuth with Google,
-                    Facebook, or traditional email/password methods
+                    Designed to provide a seamless and visually consistent
+                    experience across all devices
                   </li>
                   <li className="pl-3">
                     <span className="font-bold text-[#00bfff]">
-                      Robust AWS Infrastructure:
+                      Engaging User Interface:
                     </span>{' '}
-                    Utilizes AWS services such as EC2, ECR, RDS, SES, and S3 for
-                    scalable hosting and reliable data management
+                    Utilize dynamic, user-friendly controls that allow for easy
+                    navigation and interaction with the solar system.
                   </li>
                 </ul>
               </div>
