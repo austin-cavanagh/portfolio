@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './state/store';
 import LoadingScreen from './components/solar-system/LoadingScreen';
 // import { Suspense } from 'react';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { setIsLoading } from './state/appSlice';
 import 'flowbite';
 
@@ -24,7 +24,7 @@ function App() {
         // setLoading(false); // After a slight delay, hide the loading screen
         dispatch(setIsLoading(false));
       }, 500); // Give some time for the user to recognize the loaded state
-    }, 2000); // Simulate a loading process
+    }, 2500); // Simulate a loading process
   }, [dispatch]);
 
   return (
@@ -38,8 +38,6 @@ function App() {
       <div className="relative h-full w-full">
         {isLoading && <LoadingScreen />}
         {readyToShow && <SolarSystem />}
-
-        {/* <SolarSystem /> */}
 
         {/* <Suspense fallback={<LoadingScreen />}>{<SolarSystem />}</Suspense> */}
       </div>

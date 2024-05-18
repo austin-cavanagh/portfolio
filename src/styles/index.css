@@ -13,6 +13,7 @@ body,
 html {
   margin: 0;
   padding: 0;
+  background-color: rgba(26, 32, 44, 1); /* gray-900 with 80% opacity */
   /* font-family: 'Poppins', sans-serif; */
 }
 

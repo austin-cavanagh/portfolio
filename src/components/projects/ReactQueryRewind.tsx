@@ -54,7 +54,7 @@ export default function ReactQueryRewind() {
         <div className="flex h-full flex-col justify-center font-poppins">
           {/* Title Section */}
           <div className="mb-2 w-full justify-between sm:mb-4 sm:flex">
-            <h2 className="text-[18pt] font-semibold text-[#00bfff] md:text-[28pt]">
+            <h2 className="text-[18pt] font-semibold text-white md:text-[28pt]">
               React Query Rewind
             </h2>
 
@@ -192,7 +192,7 @@ export default function ReactQueryRewind() {
                   and a{' '}
                   <span className="font-bold text-[#00bfff]">
                     {' '}
-                    Chrome DevTool Extension
+                    Chrome DevTool
                   </span>{' '}
                   to enhance state management and debugging
                 </p>
@@ -263,7 +263,7 @@ export default function ReactQueryRewind() {
                   and a{' '}
                   <span className="font-bold text-[#00bfff]">
                     {' '}
-                    Chrome DevTool Extension
+                    Chrome DevTool
                   </span>{' '}
                   to enhance state management and debugging
                 </p>

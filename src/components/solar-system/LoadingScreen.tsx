@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-
 import spaceBackground from '../../data/space-background.webp';
 
 type LoadingScreenProps = {};
@@ -13,28 +12,30 @@ const LoadingScreen = ({}: LoadingScreenProps) => {
     Math.ceil(screenWidth / squareSize) * Math.ceil(screenHeight / squareSize);
 
   // Initialize colors for each square
-  const [squareColors, setSquareColors] = useState<Array<string>>(
-    Array(numSquares).fill('#0D1B2A'),
+  const [squareColors] = useState<Array<string>>(
+    Array(numSquares).fill('rgba(26, 32, 44, 0.8)'),
   );
 
+  // State to track if the image is loaded
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      const newColors = squareColors.map(() =>
-        // 15% chance to be a light square otherwise stay the same
-        Math.random() < 0.15 ? '#22334B' : '#1B263B',
-      );
+    // Preload the background image
+    const img = new Image();
+    img.src = spaceBackground;
+    img.onload = () => {
+      setIsImageLoaded(true);
+    };
+  }, []);
 
-      setSquareColors(newColors);
-    }, 100); // Adjust interval to control blinking speed
-
-    // Cleanup interval on component unmount
-    return () => clearInterval(intervalId);
-  }, [squareColors]);
+  if (!isImageLoaded) {
+    // Optionally render a loading spinner or placeholder
+    return <div className="loading-spinner">Loading...</div>;
+  }
 
   return (
     <div
       className="absolute inset-0 z-10 flex h-screen w-screen items-center justify-center overflow-hidden"
-      // className="flex h-screen w-full items-center justify-center overflow-hidden"
       style={{
         backgroundImage: `url(${spaceBackground})`,
         backgroundSize: 'cover',
