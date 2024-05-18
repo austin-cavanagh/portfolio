@@ -54,7 +54,7 @@ export default function ReactQueryRewind() {
         <div className="flex h-full flex-col justify-center font-poppins">
           {/* Title Section */}
           <div className="mb-2 w-full justify-between sm:mb-4 sm:flex">
-            <h2 className="text-[18pt] font-semibold text-white md:text-[28pt]">
+            <h2 className="text-[18pt] font-semibold text-[#00bfff] md:text-[28pt]">
               React Query Rewind
             </h2>
 
@@ -182,9 +182,9 @@ export default function ReactQueryRewind() {
               {/* Adjust the flex-basis as needed */}
               <div className="space-y-3 text-left text-lg text-white">
                 <p>
-                  Open-source project for{' '}
+                  Open-source community project for{' '}
                   <span className="font-bold text-[#00bfff]">React Query</span>{' '}
-                  that utalizes an
+                  utalizing an
                   <span className="font-bold text-[#00bfff]">
                     {' '}
                     NPM Package
@@ -253,7 +253,7 @@ export default function ReactQueryRewind() {
               {/* Adjust the flex-basis as needed */}
               <div className="space-y-3 text-left text-base text-white">
                 <p>
-                  Open-source project for{' '}
+                  Open-source community project for{' '}
                   <span className="font-bold text-[#00bfff]">React Query</span>{' '}
                   that utalizes an
                   <span className="font-bold text-[#00bfff]">
