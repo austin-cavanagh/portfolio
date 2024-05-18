@@ -23,8 +23,8 @@ function App() {
       setTimeout(() => {
         // setLoading(false); // After a slight delay, hide the loading screen
         dispatch(setIsLoading(false));
-      }, 500); // Give some time for the user to recognize the loaded state
-    }, 2500); // Simulate a loading process
+      }, 2000); // Give some time for the user to recognize the loaded state
+    }, 1000); // Simulate a loading process
   }, [dispatch]);
 
   return (
