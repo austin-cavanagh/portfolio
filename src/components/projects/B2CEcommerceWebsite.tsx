@@ -17,6 +17,29 @@ const projectCardVariant = {
   },
 };
 
+const b2cScreenshots = [
+  {
+    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/b2c-screenshot-1.png',
+    alt: 'Description',
+  },
+  {
+    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/b2c-screenshot-2.png',
+    alt: 'Description',
+  },
+  {
+    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/b2c-screenshot-3.png',
+    alt: 'Description',
+  },
+  {
+    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/b2c-screenshot-4.png',
+    alt: 'Description',
+  },
+  {
+    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/b2c-screenshot-5.png',
+    alt: 'Description',
+  },
+];
+
 export default function B2CEcommerceWebsite() {
   const { isTransitioning } = useSelector((state: RootState) => state.app);
 
@@ -156,7 +179,7 @@ export default function B2CEcommerceWebsite() {
               className="h-100% my-auto h-[350px] w-full"
               style={{ flexBasis: '55%' }}
             >
-              <ImageSlider />
+              <ImageSlider screenshots={b2cScreenshots} />
             </div>
             {/* <div className="h-100% w-full bg-red-500"></div> */}
           </div>
@@ -168,7 +191,7 @@ export default function B2CEcommerceWebsite() {
               className="my-auto mb-4 h-[200px] w-full"
               // style={{ flexBasis: '60%' }}
             >
-              <ImageSlider />
+              <ImageSlider screenshots={b2cScreenshots} />
             </div>
 
             {/* Description Section */}

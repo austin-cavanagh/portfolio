@@ -1,5 +1,4 @@
 import { Carousel } from 'flowbite-react';
-import { b2cEcommerceWebsiteScreenshots } from '../../assets/projectScreenshots';
 
 const customTheme = {
   // root: {
@@ -23,11 +22,20 @@ const customTheme = {
   },
 };
 
-export default function Component() {
+export type ScreenshotLink = {
+  src: string;
+  alt: string;
+};
+
+export type ImageSliderProps = {
+  screenshots: ScreenshotLink[];
+};
+
+export default function ImageSlider({ screenshots }: ImageSliderProps) {
   return (
     <div className="h-full w-full">
       <Carousel theme={customTheme} pauseOnHover>
-        {b2cEcommerceWebsiteScreenshots.map((image, index) => {
+        {screenshots.map((image, index) => {
           return (
             <img
               key={index}

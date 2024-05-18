@@ -17,6 +17,29 @@ const projectCardVariant = {
   },
 };
 
+const portfolioScreenshots = [
+  {
+    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/portfolio-screenshot-1.png',
+    alt: 'Description',
+  },
+  {
+    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/portfolio-screenshot-2.png',
+    alt: 'Description',
+  },
+  {
+    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/portfolio-screenshot-3.png',
+    alt: 'Description',
+  },
+  {
+    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/portfolio-screenshot-4.png',
+    alt: 'Description',
+  },
+  {
+    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/portfolio-screenshot-5.png',
+    alt: 'Description',
+  },
+];
+
 export default function SolarSystemPorfolio() {
   const { isTransitioning } = useSelector((state: RootState) => state.app);
 
@@ -152,7 +175,7 @@ export default function SolarSystemPorfolio() {
               className="h-100% my-auto h-[350px] w-full"
               style={{ flexBasis: '55%' }}
             >
-              <ImageSlider />
+              <ImageSlider screenshots={portfolioScreenshots} />
             </div>
             {/* <div className="h-100% w-full bg-red-500"></div> */}
           </div>
@@ -164,7 +187,7 @@ export default function SolarSystemPorfolio() {
               className="my-auto mb-4 h-[200px] w-full"
               // style={{ flexBasis: '60%' }}
             >
-              <ImageSlider />
+              <ImageSlider screenshots={portfolioScreenshots} />
             </div>
 
             {/* Description Section */}
