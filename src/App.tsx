@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './state/store';
 import LoadingScreen from './components/solar-system/LoadingScreen';
 // import { Suspense } from 'react';
-import { Suspense, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { setIsLoading } from './state/appSlice';
 import 'flowbite';
 

@@ -68,10 +68,10 @@ export const reactQueryRewindBadges: TechnologyBadge[] = [
 ];
 
 export const b2cEcommerceWebsiteBadges: TechnologyBadge[] = [
-  // {
-  //   src: 'https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E',
-  //   alt: 'JavaScript',
-  // },
+  {
+    src: 'https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E',
+    alt: 'JavaScript',
+  },
   {
     src: 'https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white',
     alt: 'TypeScript',
@@ -222,6 +222,10 @@ export const solarSystemPortfolioBadges: TechnologyBadge[] = [
   {
     src: 'https://img.shields.io/badge/ECR-FF9900?style=for-the-badge&logo=amazonecs&logoColor=white',
     alt: 'AWS ECR',
+  },
+  {
+    src: 'https://img.shields.io/badge/S3-498A29?style=for-the-badge&logo=amazons3&logoColor=white',
+    alt: 'AWS S3',
   },
   {
     src: 'https://img.shields.io/badge/ThreeJs-black?style=for-the-badge&logo=three.js&logoColor=white',
