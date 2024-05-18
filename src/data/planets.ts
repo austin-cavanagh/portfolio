@@ -1,12 +1,9 @@
-// import sunColor from '../assets/planets/sun/2k_sun.jpg';
-
 import mercuryColor from '../assets/planets/mercury/mercury-color-2k.jpg';
 
 import venusColor from '../assets/planets/venus/venus-color-2k.jpg';
 
 import earthColor from '../assets/planets/earth/earth-color-2k.jpg';
 import earthBump from '../assets/planets/earth/earth-bump-2k.jpg';
-
 import earthLights from '../assets/planets/earth/earth-lights-2k.jpg';
 import earthClouds from '../assets/planets/earth/earth-clouds.jpg';
 import earthCloudsTransparency from '../assets/planets/earth/earth-clouds-transparency-inverted.jpg';
