@@ -150,7 +150,7 @@ export default function Bullflow() {
                 <ul className="list-disc space-y-2 pl-6">
                   <li className="pl-3">
                     <span className="font-bold text-[#00bfff]">
-                      Real-time Stock Data:
+                      Real-Time Stock Data:
                     </span>{' '}
                     Leveraged APIs to retrieve real-time stock market data and
                     options order flow during market hours

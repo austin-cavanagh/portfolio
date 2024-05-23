@@ -37,12 +37,12 @@ const frontendBadges: TechnologyBadge[] = [
     alt: 'React',
   },
   {
-    src: 'https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=ReactQuery&logoColor=white',
-    alt: 'React Query',
+    src: 'https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D',
+    alt: 'Vue.js',
   },
   {
-    src: 'https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white',
-    alt: 'React Router',
+    src: 'https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00',
+    alt: 'Svelte',
   },
   {
     src: 'https://img.shields.io/badge/Webpack-1b79c1?style=for-the-badge&logo=Webpack&logoColor=white',
@@ -56,22 +56,14 @@ const frontendBadges: TechnologyBadge[] = [
     src: 'https://img.shields.io/badge/Redux-774abc?style=for-the-badge&logo=redux&logoColor=white',
     alt: 'Redux',
   },
-  {
-    src: 'https://img.shields.io/badge/Toolkit-774abc?style=for-the-badge&logo=redux&logoColor=white',
-    alt: 'Redux Toolkit',
-  },
-  {
-    src: 'https://img.shields.io/badge/Chart%20js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white',
-    alt: 'Chart JS',
-  },
-  {
-    src: 'https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D',
-    alt: 'Vue.js',
-  },
-  {
-    src: 'https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00',
-    alt: 'Svelte',
-  },
+  // {
+  //   src: 'https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=ReactQuery&logoColor=white',
+  //   alt: 'React Query',
+  // },
+  // {
+  //   src: 'https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white',
+  //   alt: 'React Router',
+  // },
 ];
 
 const backendBadges: TechnologyBadge[] = [
@@ -115,38 +107,38 @@ const backendBadges: TechnologyBadge[] = [
     src: 'https://img.shields.io/badge/kubernetes-326ce5.svg?&style=for-the-badge&logo=kubernetes&logoColor=white',
     alt: 'Kubernetes',
   },
-  {
-    src: 'https://img.shields.io/badge/Google_Cloud-E03526?style=for-the-badge&logo=google-cloud&logoColor=white',
-    alt: 'Google Cloud',
-  },
+  // {
+  //   src: 'https://img.shields.io/badge/Google_Cloud-E03526?style=for-the-badge&logo=google-cloud&logoColor=white',
+  //   alt: 'Google Cloud',
+  // },
   {
     src: 'https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white',
     alt: 'Amazon AWS',
   },
-  {
-    src: 'https://img.shields.io/badge/EC2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white',
-    alt: 'AWS EC2',
-  },
-  {
-    src: 'https://img.shields.io/badge/ECR-FF9900?style=for-the-badge&logo=amazonecs&logoColor=white',
-    alt: 'AWS ECR',
-  },
-  {
-    src: 'https://img.shields.io/badge/RDS-3E50D3?style=for-the-badge&logo=amazonrds&logoColor=white',
-    alt: 'AWS RDS',
-  },
-  {
-    src: 'https://img.shields.io/badge/SES-3E50D3?style=for-the-badge&logo=amazonsimpleemailservice&logoColor=white',
-    alt: 'AWS SES',
-  },
-  {
-    src: 'https://img.shields.io/badge/S3-498A29?style=for-the-badge&logo=amazons3&logoColor=white',
-    alt: 'AWS S3',
-  },
-  {
-    src: 'https://img.shields.io/badge/Secrets_Manager-DC3133?style=for-the-badge&logo=awssecretsmanager&logoColor=white',
-    alt: 'AWS Secrets Manager',
-  },
+  // {
+  //   src: 'https://img.shields.io/badge/EC2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white',
+  //   alt: 'AWS EC2',
+  // },
+  // {
+  //   src: 'https://img.shields.io/badge/ECR-FF9900?style=for-the-badge&logo=amazonecs&logoColor=white',
+  //   alt: 'AWS ECR',
+  // },
+  // {
+  //   src: 'https://img.shields.io/badge/RDS-3E50D3?style=for-the-badge&logo=amazonrds&logoColor=white',
+  //   alt: 'AWS RDS',
+  // },
+  // {
+  //   src: 'https://img.shields.io/badge/SES-3E50D3?style=for-the-badge&logo=amazonsimpleemailservice&logoColor=white',
+  //   alt: 'AWS SES',
+  // },
+  // {
+  //   src: 'https://img.shields.io/badge/S3-498A29?style=for-the-badge&logo=amazons3&logoColor=white',
+  //   alt: 'AWS S3',
+  // },
+  // {
+  //   src: 'https://img.shields.io/badge/Secrets_Manager-DC3133?style=for-the-badge&logo=awssecretsmanager&logoColor=white',
+  //   alt: 'AWS Secrets Manager',
+  // },
   // {
   //   src: 'https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white',
   //   alt: 'MySQL',
@@ -251,7 +243,7 @@ function Skills() {
         animate={!isTransitioning ? 'visible' : 'hidden'}
         variants={frontendVariants}
       >
-        <h2 className="text-xl text-white">Frontend</h2>
+        <h2 className="text-xl font-semibold text-white">Frontend</h2>
         <div className="flex max-w-[700px] flex-wrap">
           {frontendBadges.map((badge, index) => (
             <img key={index} src={badge.src} alt={badge.alt} className="p-1" />
@@ -265,7 +257,7 @@ function Skills() {
         animate={!isTransitioning ? 'visible' : 'hidden'}
         variants={backendVariants}
       >
-        <h2 className="text-xl text-white">Backend</h2>
+        <h2 className="text-xl font-semibold text-white">Backend</h2>
         <div className="flex max-w-[700px] flex-wrap">
           {backendBadges.map((badge, index) => (
             <img key={index} src={badge.src} alt={badge.alt} className="p-1" />
@@ -279,7 +271,7 @@ function Skills() {
         animate={!isTransitioning ? 'visible' : 'hidden'}
         variants={miscVariants}
       >
-        <h2 className="text-xl text-white">Misc</h2>
+        <h2 className="text-xl font-semibold text-white">Misc</h2>
         <div className="flex max-w-[700px] flex-wrap">
           {miscBadges.map((badge, index) => (
             <img key={index} src={badge.src} alt={badge.alt} className="p-1" />

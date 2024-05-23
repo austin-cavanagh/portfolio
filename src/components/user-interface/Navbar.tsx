@@ -16,15 +16,15 @@ const mobileOptions = [
     planet: 'Earth',
   },
   {
-    name: '3. React Query Rewind',
+    name: '3. Bullflow.io',
     planet: 'Saturn',
   },
   {
-    name: '4. B2C eCommerce Website',
+    name: '4. eCommerce Website',
     planet: 'Jupiter',
   },
   {
-    name: '5. Solar System Portfolio',
+    name: '5. React Query Rewind',
     planet: 'Mars',
   },
 ];
