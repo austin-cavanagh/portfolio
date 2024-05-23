@@ -30,7 +30,8 @@ const LoadingScreen = ({}: LoadingScreenProps) => {
 
   if (!isImageLoaded) {
     // Optionally render a loading spinner or placeholder
-    return <div className="loading-spinner">Loading...</div>;
+    // return <div className="loading-spinner">Loading...</div>;
+    return <></>;
   }
 
   return (
