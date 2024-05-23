@@ -54,7 +54,7 @@ export default function ReactQueryRewind() {
         <div className="flex h-full flex-col justify-center font-poppins">
           {/* Title Section */}
           <div className="mb-2 w-full justify-between sm:mb-4 sm:flex">
-            <h2 className="text-[18pt] font-semibold text-white md:text-[28pt]">
+            <h2 className="text-[18pt] font-semibold text-[#00bfff] md:text-[28pt]">
               React Query Rewind
             </h2>
 
@@ -64,7 +64,7 @@ export default function ReactQueryRewind() {
                 href="https://www.npmjs.com/package/react-query-rewind"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-[#00bfff]"
+                className="text-[#00bfff] hover:text-white"
               >
                 <svg
                   viewBox="0 0 48 48"
@@ -83,7 +83,7 @@ export default function ReactQueryRewind() {
                 href="https://chromewebstore.google.com/detail/rqrewind/jfljppnfglpckkgkpmdpgagnffloboel"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-[#00bfff]"
+                className="text-[#00bfff] hover:text-white"
               >
                 <svg
                   viewBox="0 0 24 24"
@@ -107,7 +107,7 @@ export default function ReactQueryRewind() {
                 href="https://github.com/oslabs-beta/react-query-rewind"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-[#00bfff]"
+                className="text-[#00bfff] hover:text-white"
                 style={{ position: 'relative', display: 'inline-block' }}
               >
                 <svg
@@ -137,7 +137,7 @@ export default function ReactQueryRewind() {
                 href="https://reactqueryrewind.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-[#00bfff]"
+                className="text-[#00bfff] hover:text-white"
               >
                 <svg
                   id="icon"

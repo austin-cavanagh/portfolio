@@ -54,7 +54,7 @@ export default function B2CEcommerceWebsite() {
         <div className="flex h-full flex-col justify-center font-poppins">
           {/* Title Section */}
           <div className="mb-2 w-full justify-between sm:mb-4 sm:flex">
-            <h2 className="text-[18pt] font-semibold text-white md:text-[28pt]">
+            <h2 className="text-[18pt] font-semibold text-[#00bfff] md:text-[28pt]">
               eCommerce Website
             </h2>
 
@@ -64,7 +64,7 @@ export default function B2CEcommerceWebsite() {
                 href="https://github.com/austin-cavanagh/b2c-ecommerce-website"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-[#00bfff]"
+                className="text-[#00bfff] hover:text-white"
                 style={{ position: 'relative', display: 'inline-block' }}
               >
                 <svg
@@ -93,7 +93,7 @@ export default function B2CEcommerceWebsite() {
                 href="https://craftsbyjules.org/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-[#00bfff]"
+                className="text-[#00bfff] hover:text-white"
               >
                 <svg
                   id="icon"
