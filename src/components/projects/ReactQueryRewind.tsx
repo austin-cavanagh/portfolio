@@ -182,19 +182,14 @@ export default function ReactQueryRewind() {
               {/* Adjust the flex-basis as needed */}
               <div className="space-y-3 text-left text-lg text-white">
                 <p>
-                  Open-source community project for{' '}
-                  <span className="font-bold text-[#00bfff]">React Query</span>{' '}
-                  utalizing an
+                  Developed{' '}
                   <span className="font-bold text-[#00bfff]">
-                    {' '}
-                    NPM Package
-                  </span>{' '}
-                  and a{' '}
-                  <span className="font-bold text-[#00bfff]">
-                    {' '}
-                    Chrome DevTool
-                  </span>{' '}
-                  to enhance state management and debugging
+                    React Query Rewind
+                  </span>
+                  , an open-source community project for{' '}
+                  <span className="font-bold text-[#00bfff]">React Query</span>,
+                  through the tech accelerator{' '}
+                  <span className="font-bold text-[#00bfff]">OS Labs</span>
                 </p>
 
                 <ul className="list-disc space-y-2 pl-6">
@@ -253,19 +248,14 @@ export default function ReactQueryRewind() {
               {/* Adjust the flex-basis as needed */}
               <div className="space-y-3 text-left text-base text-white">
                 <p>
-                  Open-source community project for{' '}
-                  <span className="font-bold text-[#00bfff]">React Query</span>{' '}
-                  that utalizes an
+                  Developed{' '}
                   <span className="font-bold text-[#00bfff]">
-                    {' '}
-                    NPM Package
-                  </span>{' '}
-                  and a{' '}
-                  <span className="font-bold text-[#00bfff]">
-                    {' '}
-                    Chrome DevTool
-                  </span>{' '}
-                  to enhance state management and debugging
+                    React Query Rewind
+                  </span>
+                  , an open-source community project for{' '}
+                  <span className="font-bold text-[#00bfff]">React Query</span>,
+                  through the tech accelerator{' '}
+                  <span className="font-bold text-[#00bfff]">OS Labs</span>
                 </p>
 
                 <ul className="list-disc space-y-2 pl-6">

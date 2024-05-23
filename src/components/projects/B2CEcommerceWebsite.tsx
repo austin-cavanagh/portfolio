@@ -207,10 +207,11 @@ export default function B2CEcommerceWebsite() {
                   <span className="font-bold text-[#00bfff]">
                     eCommerce website
                   </span>{' '}
-                  to showcase and sell my mom's{' '}
+                  to showcase and sell{' '}
                   <span className="font-bold text-[#00bfff]">
-                    custom crafts
+                    custom crafts{' '}
                   </span>
+                  for a small business
                 </p>
 
                 <ul className="list-disc space-y-2 pl-6">
