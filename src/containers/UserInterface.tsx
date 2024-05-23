@@ -9,8 +9,8 @@ import About from './About';
 
 import ReactQueryRewind from '../components/projects/ReactQueryRewind';
 import B2CEcommerceWebsite from '../components/projects/B2CEcommerceWebsite';
-import SolarSystemPorfolio from '../components/projects/SolarSystemPortfolio';
 import Bullflow from '../components/projects/Bullflow';
+// import SolarSystemPorfolio from '../components/projects/SolarSystemPortfolio';
 
 // import Contact from './Contact';
 

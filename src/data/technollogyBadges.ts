@@ -22,14 +22,6 @@ export const reactQueryRewindBadges: TechnologyBadge[] = [
     alt: 'React',
   },
   {
-    src: 'https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=ReactQuery&logoColor=white',
-    alt: 'React Query',
-  },
-  {
-    src: 'https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white',
-    alt: 'React Router',
-  },
-  {
     src: 'https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D',
     alt: 'Vue.js',
   },
@@ -38,12 +30,8 @@ export const reactQueryRewindBadges: TechnologyBadge[] = [
     alt: 'Svelte',
   },
   {
-    src: 'https://img.shields.io/badge/Chrome_Extension-DF3124?style=for-the-badge&logo=Google-chrome&logoColor=white',
-    alt: 'Chrome Extension',
-  },
-  {
-    src: 'https://img.shields.io/badge/NPM_Package-CB3837?style=for-the-badge&logo=npm&logoColor=white',
-    alt: 'NPM Package',
+    src: 'https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=ReactQuery&logoColor=white',
+    alt: 'React Query',
   },
   {
     src: 'https://img.shields.io/badge/Webpack-1b79c1?style=for-the-badge&logo=Webpack&logoColor=white',
@@ -52,6 +40,18 @@ export const reactQueryRewindBadges: TechnologyBadge[] = [
   {
     src: 'https://img.shields.io/badge/rollup-EC4A3F?style=for-the-badge&logo=rollup.js&logoColor=white',
     alt: 'Rollup',
+  },
+  // {
+  //   src: 'https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white',
+  //   alt: 'React Router',
+  // },
+  {
+    src: 'https://img.shields.io/badge/Chrome_Extension-DF3124?style=for-the-badge&logo=Google-chrome&logoColor=white',
+    alt: 'Chrome Extension',
+  },
+  {
+    src: 'https://img.shields.io/badge/NPM_Package-CB3837?style=for-the-badge&logo=npm&logoColor=white',
+    alt: 'NPM Package',
   },
   {
     src: 'https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white',
@@ -77,7 +77,7 @@ export const b2cEcommerceWebsiteBadges: TechnologyBadge[] = [
     alt: 'TypeScript',
   },
   {
-    src: 'https://img.shields.io/badge/Tailwind_CSS-4f45e4?style=for-the-badge&logo=tailwind-css&logoColor=white',
+    src: 'https://img.shields.io/badge/Tailwind-4f45e4?style=for-the-badge&logo=tailwind-css&logoColor=white',
     alt: 'Tailwind',
   },
   {
@@ -121,7 +121,7 @@ export const b2cEcommerceWebsiteBadges: TechnologyBadge[] = [
     alt: 'Docker',
   },
   {
-    src: 'https://img.shields.io/badge/JST-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white',
+    src: 'https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white',
     alt: 'JWT',
   },
   // {
@@ -191,10 +191,6 @@ export const solarSystemPortfolioBadges: TechnologyBadge[] = [
     src: 'https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB',
     alt: 'React',
   },
-  // {
-  //   src: 'https://img.shields.io/badge/Express-f3de1e?style=for-the-badge&logo=express&logoColor=black',
-  //   alt: 'Express',
-  // },
   {
     src: 'https://img.shields.io/badge/Redux-774abc?style=for-the-badge&logo=redux&logoColor=white',
     alt: 'Redux',
@@ -203,10 +199,6 @@ export const solarSystemPortfolioBadges: TechnologyBadge[] = [
     src: 'https://img.shields.io/badge/Toolkit-774abc?style=for-the-badge&logo=redux&logoColor=white',
     alt: 'Redux Toolkit',
   },
-  // {
-  //   src: 'https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E',
-  //   alt: 'Vite',
-  // },
   {
     src: 'https://img.shields.io/badge/Docker-1e63ee?style=for-the-badge&logo=docker&logoColor=white',
     alt: 'Docker',
@@ -234,5 +226,40 @@ export const solarSystemPortfolioBadges: TechnologyBadge[] = [
   {
     src: 'https://img.shields.io/badge/GLSL-774abc?style=for-the-badge&logo=opengl&logoColor=white',
     alt: 'GLSL',
+  },
+];
+
+export const bullflowBadges: TechnologyBadge[] = [
+  {
+    src: 'https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E',
+    alt: 'JavaScript',
+  },
+  {
+    src: 'https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white',
+    alt: 'TypeScript',
+  },
+  {
+    src: 'https://img.shields.io/badge/Tailwind-4f45e4?style=for-the-badge&logo=tailwind-css&logoColor=white',
+    alt: 'Tailwind',
+  },
+  {
+    src: 'https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB',
+    alt: 'React',
+  },
+  {
+    src: 'https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white',
+    alt: 'PostgreSQL',
+  },
+  {
+    src: 'https://img.shields.io/badge/CSS3-214ce5?style=for-the-badge&logo=css3&logoColor=white',
+    alt: 'CSS3',
+  },
+  {
+    src: 'https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white',
+    alt: 'HTML5',
+  },
+  {
+    src: 'https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white',
+    alt: 'AWS',
   },
 ];

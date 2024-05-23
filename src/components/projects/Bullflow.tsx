@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../state/store';
-import { b2cEcommerceWebsiteBadges } from '../../data/technollogyBadges';
+import { bullflowBadges } from '../../data/technollogyBadges';
 import ImageSlider from './ImageSlider';
 
 const projectCardVariant = {
@@ -117,7 +117,7 @@ export default function Bullflow() {
 
           {/* Technologies Section */}
           <div className="mb-4 flex flex-wrap sm:mb-6">
-            {b2cEcommerceWebsiteBadges.map((badge, index) => (
+            {bullflowBadges.map((badge, index) => (
               <img
                 key={index}
                 src={badge.src}
