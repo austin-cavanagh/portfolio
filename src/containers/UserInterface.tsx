@@ -63,7 +63,7 @@ function UserInterface({}: UserInterfaceProps) {
             // className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto"
             className="pointer-events-auto flex flex-1 items-start justify-center overflow-auto sm:items-center"
           >
-            <ReactQueryRewind />
+            <Bullflow />
           </motion.div>
         );
       case 'Jupiter':
@@ -90,7 +90,8 @@ function UserInterface({}: UserInterfaceProps) {
             className="pointer-events-auto flex flex-1 items-start justify-center overflow-auto sm:items-center"
           >
             {/* <SolarSystemPorfolio /> */}
-            <Bullflow />
+
+            <ReactQueryRewind />
           </motion.div>
         );
       default:

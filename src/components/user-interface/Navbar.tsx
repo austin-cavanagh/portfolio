@@ -317,7 +317,8 @@ function Navbar() {
                               onClick={() => handleNavigation('Saturn')}
                               className="block px-4 py-2 text-base hover:text-white"
                             >
-                              1. React Query Rewind
+                              {/* 1. React Query Rewind */}
+                              1. Bullflow.io
                             </div>
                           </li>
                           <li>
@@ -325,6 +326,7 @@ function Navbar() {
                               onClick={() => handleNavigation('Jupiter')}
                               className="block px-4 py-2 text-base hover:text-white"
                             >
+                              {/* 2. eCommerce Site */}
                               2. eCommerce Site
                             </div>
                           </li>
@@ -334,7 +336,7 @@ function Navbar() {
                               className="block px-4 py-2 text-base hover:text-white"
                             >
                               {/* 3. Solar System Portfolio */}
-                              3. Bullflow.io
+                              3. React Query Rewind
                             </div>
                           </li>
                         </ul>
