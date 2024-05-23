@@ -19,23 +19,23 @@ const projectCardVariant = {
 
 const b2cScreenshots = [
   {
-    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/b2c-screenshot-1.png',
+    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/bullflow-screenshot-1.png',
     alt: 'Description',
   },
   {
-    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/b2c-screenshot-2.png',
+    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/bullflow-screenshot-2.png',
     alt: 'Description',
   },
   {
-    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/b2c-screenshot-3.png',
+    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/bullflow-screenshot-3.png',
     alt: 'Description',
   },
   {
-    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/b2c-screenshot-4.png',
+    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/bullflow-screenshot-4.png',
     alt: 'Description',
   },
   {
-    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/b2c-screenshot-5.png',
+    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/bullflow-screenshot-5.png',
     alt: 'Description',
   },
 ];
@@ -54,13 +54,13 @@ export default function Bullflow() {
         <div className="flex h-full flex-col justify-center font-poppins">
           {/* Title Section */}
           <div className="mb-2 w-full justify-between sm:mb-4 sm:flex">
-            <h2 className="text-[18pt] font-semibold text-white md:text-[28pt]">
+            <h2 className="text-[18pt] font-semibold text-[#00bfff] md:text-[28pt]">
               Bullflow.io
             </h2>
 
             <div className="hidden items-center justify-center space-x-6 sm:flex">
               {/* GitHub Repository Link */}
-              <a
+              {/* <a
                 href="https://github.com/austin-cavanagh/b2c-ecommerce-website"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -86,14 +86,14 @@ export default function Bullflow() {
                     <path d="M18.36 9.28c0.48-1.72-0.24-3.6-0.28-3.72-0.12-0.28-0.4-0.52-0.72-0.52-0.080 0-1.92-0.16-3.76 1.24-1.44-0.28-3.080-0.36-3.16-0.36-0.040 0-0.040 0-0.080 0-0.080 0-1.72 0.080-3.16 0.36-1.84-1.4-3.68-1.24-3.76-1.24-0.32 0.040-0.6 0.24-0.72 0.52-0.040 0.080-0.8 2-0.28 3.72-0.92 1.28-1.64 2.96-1 5.96 0.6 2.72 2.84 4.24 5.16 4.76-0.2 0.56-0.28 1.24-0.36 1.96-0.96 0.040-1.56-0.52-2.4-1.4-0.72-0.76-1.52-1.64-2.84-1.92-0.44-0.12-0.88 0.16-1 0.64-0.080 0.48 0.2 0.92 0.68 1 0.76 0.16 1.28 0.72 1.92 1.4 0.84 0.88 1.8 1.96 3.52 1.96 0 0 0.040 0 0.040 0 0 0.92 0.080 1.8 0.12 2.52 0.040 0.48 0.44 0.8 0.92 0.76s0.8-0.44 0.76-0.92c-0.24-2.72-0.040-5.6 0.4-6 0.32-0.2 0.52-0.56 0.4-0.96-0.080-0.36-0.4-0.64-0.8-0.64-0.36 0-4.12-0.2-4.84-3.52-0.6-2.72 0.16-3.92 0.96-4.88 0.2-0.24 0.24-0.6 0.12-0.92-0.32-0.68-0.2-1.64-0.040-2.28 0.56 0.080 1.4 0.32 2.28 1.080 0.2 0.2 0.48 0.24 0.76 0.2 1.24-0.32 2.92-0.4 3.2-0.4 0.24 0 1.96 0.080 3.2 0.4 0.28 0.080 0.56 0 0.76-0.2 0.88-0.76 1.76-1 2.28-1.080 0.16 0.6 0.28 1.56-0.040 2.28-0.12 0.28-0.080 0.64 0.12 0.92 0.8 0.96 1.52 2.16 0.96 4.88-0.72 3.32-4.48 3.52-4.92 3.56-0.4 0-0.72 0.28-0.8 0.64s0.080 0.76 0.4 0.96c0.48 0.4 0.68 3.24 0.44 6-0.040 0.48 0.32 0.88 0.76 0.92 0.040 0 0.040 0 0.080 0 0.44 0 0.8-0.32 0.84-0.76 0.16-1.76 0.28-4.48-0.28-6.2 2.32-0.48 4.56-2.040 5.16-4.76 0.64-3-0.040-4.68-1-5.96z"></path>
                   </g>
                 </svg>
-              </a>
+              </a> */}
 
               {/* Live Demo Link */}
               <a
-                href="https://craftsbyjules.org/"
+                href="https://bullflow.io/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-[#00bfff]"
+                className="text-[#00bfff] hover:text-white"
               >
                 <svg
                   id="icon"
@@ -138,37 +138,36 @@ export default function Bullflow() {
               {/* Adjust the flex-basis as needed */}
               <div className="space-y-3 text-left text-lg text-white">
                 <p>
-                  Developed an{' '}
+                  Developer for{' '}
+                  <span className="font-bold text-[#00bfff]">Bullflow.io</span>,
+                  a platform that provides retail investors with real-time
+                  insights into{' '}
                   <span className="font-bold text-[#00bfff]">
-                    eCommerce website
+                    options order flow
                   </span>{' '}
-                  to showcase and sell my mom's{' '}
-                  <span className="font-bold text-[#00bfff]">
-                    custom crafts
-                  </span>
                 </p>
 
                 <ul className="list-disc space-y-2 pl-6">
                   <li className="pl-3">
                     <span className="font-bold text-[#00bfff]">
-                      Stripe & PayPal:
+                      Real-time Stock Data:
                     </span>{' '}
-                    Supports checkout with Stripe and PayPal to ensure secure
-                    and convenient transactions
+                    Leveraged APIs to retrieve real-time stock market data and
+                    options order flow during market hours
                   </li>
                   <li className="pl-3">
                     <span className="font-bold text-[#00bfff]">
-                      Secure Authentication:
+                      Advanced Trade Detection:
                     </span>{' '}
-                    Integrates NextAuth for logins using OAuth with Google,
-                    Facebook, or traditional email/password methods
+                    Developed algorithms to detect trade types (blocks, splits,
+                    sweeps), providing insights into institutional activity
                   </li>
                   <li className="pl-3">
                     <span className="font-bold text-[#00bfff]">
-                      Robust AWS Infrastructure:
+                      Comprehensive Testing:
                     </span>{' '}
-                    Utilizes AWS services such as EC2, ECR, RDS, SES, and S3 for
-                    scalable hosting and reliable data management
+                    Developed Jest and Cypress testing suites for unit,
+                    integration, and system tests, achieving 80% coverage
                   </li>
                 </ul>
               </div>
