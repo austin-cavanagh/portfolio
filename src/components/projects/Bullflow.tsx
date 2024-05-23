@@ -17,7 +17,7 @@ const projectCardVariant = {
   },
 };
 
-const b2cScreenshots = [
+const bullflowScreenshots = [
   {
     src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/bullflow-screenshot-1.png',
     alt: 'Description',
@@ -178,7 +178,7 @@ export default function Bullflow() {
               className="h-100% my-auto h-[350px] w-full"
               style={{ flexBasis: '55%' }}
             >
-              <ImageSlider screenshots={b2cScreenshots} />
+              <ImageSlider screenshots={bullflowScreenshots} />
             </div>
             {/* <div className="h-100% w-full bg-red-500"></div> */}
           </div>
@@ -190,7 +190,7 @@ export default function Bullflow() {
               className="my-auto mb-4 h-[200px] w-full"
               // style={{ flexBasis: '60%' }}
             >
-              <ImageSlider screenshots={b2cScreenshots} />
+              <ImageSlider screenshots={bullflowScreenshots} />
             </div>
 
             {/* Description Section */}
@@ -201,37 +201,36 @@ export default function Bullflow() {
               {' '}
               <div className="space-y-3 text-left text-base text-white sm:text-lg">
                 <p>
-                  Developed an{' '}
+                  Developer for{' '}
+                  <span className="font-bold text-[#00bfff]">Bullflow.io</span>,
+                  a platform that provides retail investors with real-time
+                  insights into{' '}
                   <span className="font-bold text-[#00bfff]">
-                    eCommerce website
+                    options order flow
                   </span>{' '}
-                  to showcase and sell my mom's{' '}
-                  <span className="font-bold text-[#00bfff]">
-                    custom crafts
-                  </span>
                 </p>
 
                 <ul className="list-disc space-y-2 pl-6">
                   <li className="pl-3">
                     <span className="font-bold text-[#00bfff]">
-                      Stripe & PayPal:
+                      Real-Time Stock Data:
                     </span>{' '}
-                    Supports checkout with Stripe and PayPal to ensure secure
-                    and convenient transactions
+                    Leveraged APIs to retrieve real-time stock market data and
+                    options order flow during market hours
                   </li>
                   <li className="pl-3">
                     <span className="font-bold text-[#00bfff]">
-                      Secure Authentication:
+                      Advanced Trade Detection:
                     </span>{' '}
-                    Integrates NextAuth for logins using OAuth with Google,
-                    Facebook, or traditional email/password methods
+                    Developed algorithms to detect trade types (blocks, splits,
+                    sweeps), providing insights into institutional activity
                   </li>
                   <li className="pl-3">
                     <span className="font-bold text-[#00bfff]">
-                      Robust AWS Infrastructure:
+                      Comprehensive Testing:
                     </span>{' '}
-                    Utilizes AWS services such as EC2, ECR, RDS, SES, and S3 for
-                    scalable hosting and reliable data management
+                    Developed Jest and Cypress testing suites for unit,
+                    integration, and system tests, achieving 80% coverage
                   </li>
                 </ul>
               </div>
