@@ -6,7 +6,7 @@ import { MouseEvent, useEffect, useRef, useState } from 'react';
 import { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 
-const solutions = [
+const mobileOptions = [
   {
     name: '1. Overview',
     planet: 'Overview',
@@ -191,7 +191,7 @@ function Navbar() {
           >
             <Popover.Panel className="absolute right-0 z-10 mt-20 flex w-screen max-w-max">
               <div className="max-w-sm flex-auto rounded-2xl border-2 border-[#00bfff] bg-gray-900 px-2 text-left text-base leading-6 opacity-80 shadow-lg ring-1 ring-gray-900/5">
-                {solutions.map(item => (
+                {mobileOptions.map(item => (
                   <div
                     key={item.name}
                     // className="relative rounded-lg p-4 hover:bg-gray-50"
@@ -325,7 +325,7 @@ function Navbar() {
                               onClick={() => handleNavigation('Jupiter')}
                               className="block px-4 py-2 text-base hover:text-white"
                             >
-                              2. B2C eCommerce Site
+                              2. eCommerce Site
                             </div>
                           </li>
                           <li>
@@ -333,7 +333,8 @@ function Navbar() {
                               onClick={() => handleNavigation('Mars')}
                               className="block px-4 py-2 text-base hover:text-white"
                             >
-                              3. Solar System Portfolio
+                              {/* 3. Solar System Portfolio */}
+                              3. Bullflow.io
                             </div>
                           </li>
                         </ul>

@@ -10,6 +10,7 @@ import About from './About';
 import ReactQueryRewind from '../components/projects/ReactQueryRewind';
 import B2CEcommerceWebsite from '../components/projects/B2CEcommerceWebsite';
 import SolarSystemPorfolio from '../components/projects/SolarSystemPortfolio';
+import Bullflow from '../components/projects/Bullflow';
 
 // import Contact from './Contact';
 
@@ -88,7 +89,8 @@ function UserInterface({}: UserInterfaceProps) {
             // className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto"
             className="pointer-events-auto flex flex-1 items-start justify-center overflow-auto sm:items-center"
           >
-            <SolarSystemPorfolio />
+            {/* <SolarSystemPorfolio /> */}
+            <Bullflow />
           </motion.div>
         );
       default:

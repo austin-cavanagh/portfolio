@@ -40,7 +40,7 @@ const b2cScreenshots = [
   },
 ];
 
-export default function B2CEcommerceWebsite() {
+export default function Bullflow() {
   const { isTransitioning } = useSelector((state: RootState) => state.app);
 
   return (
@@ -55,7 +55,7 @@ export default function B2CEcommerceWebsite() {
           {/* Title Section */}
           <div className="mb-2 w-full justify-between sm:mb-4 sm:flex">
             <h2 className="text-[18pt] font-semibold text-white md:text-[28pt]">
-              B2C eCommerce Website
+              Bullflow.io
             </h2>
 
             <div className="hidden items-center justify-center space-x-6 sm:flex">
