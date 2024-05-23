@@ -64,11 +64,11 @@ function Navbar() {
 
     event.stopPropagation();
 
-    if (option === 'Projects') {
+    if (option === 'Experience') {
       setProjectOptionsOpen(!projectOptionsOpen);
     }
 
-    if (option !== 'Projects') {
+    if (option !== 'Experience') {
       dispatch(setCurrentPlanet(page));
     }
   };
@@ -81,7 +81,7 @@ function Navbar() {
   const navItems = [
     { name: 'Overview', value: 'Overview' },
     { name: 'About', value: 'Earth' },
-    { name: 'Projects', value: 'Jupiter' || 'Saturn' || 'Mars' },
+    { name: 'Experience', value: 'Jupiter' || 'Saturn' || 'Mars' },
     // { name: 'Contact', value: 'Saturn' },
   ];
 
@@ -260,14 +260,14 @@ function Navbar() {
         <div className="bg-gray-90 flex h-[70px] space-x-5 border-b-2 border-[#00bfff] bg-gray-900 bg-opacity-80 p-4 px-6">
           {navItems.map(item => {
             const isActive =
-              item.name === 'Projects'
+              item.name === 'Experience'
                 ? ['Jupiter', 'Saturn', 'Mars'].includes(currentPlanet)
                 : currentPlanet === item.value;
             return (
               <div
                 key={item.value}
                 className="group relative flex items-center justify-center"
-                ref={item.name === 'Projects' ? dropdownRef : null}
+                ref={item.name === 'Experience' ? dropdownRef : null}
               >
                 <button
                   className="inline-flex items-center px-3 py-2 text-[#00bfff] focus:outline-none"
@@ -278,7 +278,7 @@ function Navbar() {
                   {item.name}
 
                   {/* Chevron Up */}
-                  {item.name === 'Projects' && !projectOptionsOpen && (
+                  {item.name === 'Experience' && !projectOptionsOpen && (
                     <svg
                       className="ml-1 h-4 w-4"
                       xmlns="http://www.w3.org/2000/svg"
@@ -294,7 +294,7 @@ function Navbar() {
                   )}
 
                   {/* Chevron Down */}
-                  {item.name === 'Projects' && projectOptionsOpen && (
+                  {item.name === 'Experience' && projectOptionsOpen && (
                     <>
                       <svg
                         className="ml-1 h-4 w-4"
