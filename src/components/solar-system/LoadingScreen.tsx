@@ -3,7 +3,7 @@ import spaceBackground from '../../assets/space-background.webp';
 
 type LoadingScreenProps = {};
 
-const LoadingScreen = ({}: LoadingScreenProps) => {
+function LoadingScreen({}: LoadingScreenProps) {
   const squareSize = 14;
   const gapSize = 1.5;
   const screenHeight = window.innerHeight;
@@ -30,7 +30,6 @@ const LoadingScreen = ({}: LoadingScreenProps) => {
 
   if (!isImageLoaded) {
     // Optionally render a loading spinner or placeholder
-    // return <div className="loading-spinner">Loading...</div>;
     return <></>;
   }
 
@@ -80,6 +79,6 @@ const LoadingScreen = ({}: LoadingScreenProps) => {
       </div>
     </div>
   );
-};
+}
 
 export default LoadingScreen;

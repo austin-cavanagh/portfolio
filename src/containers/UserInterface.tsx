@@ -6,13 +6,10 @@ import Navbar from '../components/user-interface/Navbar';
 import BottomBar from '../components/user-interface/Footer';
 
 import About from './About';
-
 import ReactQueryRewind from '../components/projects/ReactQueryRewind';
 import B2CEcommerceWebsite from '../components/projects/B2CEcommerceWebsite';
 import Bullflow from '../components/projects/Bullflow';
 // import SolarSystemPorfolio from '../components/projects/SolarSystemPortfolio';
-
-// import Contact from './Contact';
 
 type UserInterfaceProps = {};
 
@@ -39,6 +36,7 @@ function UserInterface({}: UserInterfaceProps) {
     },
   };
 
+  // Function that renders content determined by the planet location
   const renderContent = () => {
     switch (currentPlanet) {
       case 'Earth':
@@ -60,7 +58,6 @@ function UserInterface({}: UserInterfaceProps) {
             initial="hidden"
             exit="exit"
             variants={projectExitVariant}
-            // className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto"
             className="pointer-events-auto flex flex-1 items-start justify-center overflow-auto sm:items-center"
           >
             <Bullflow />
@@ -73,7 +70,6 @@ function UserInterface({}: UserInterfaceProps) {
             initial="hidden"
             exit="exit"
             variants={projectExitVariant}
-            // className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto"
             className="pointer-events-auto flex flex-1 items-start justify-center overflow-auto sm:items-center"
           >
             <B2CEcommerceWebsite />
@@ -86,11 +82,8 @@ function UserInterface({}: UserInterfaceProps) {
             initial="hidden"
             exit="exit"
             variants={projectExitVariant}
-            // className="pointer-events-auto flex flex-1 items-center justify-center overflow-auto"
             className="pointer-events-auto flex flex-1 items-start justify-center overflow-auto sm:items-center"
           >
-            {/* <SolarSystemPorfolio /> */}
-
             <ReactQueryRewind />
           </motion.div>
         );
@@ -102,10 +95,8 @@ function UserInterface({}: UserInterfaceProps) {
   return (
     <div className="pointer-events-none absolute left-0 top-0 flex h-screen w-screen flex-col justify-between">
       {!isLoading && <Navbar />}
-      {/* <Navbar /> */}
 
       <AnimatePresence>
-        {/* {!isTransitioning && showContent ? renderContent() : <></>} */}
         {!isTransitioning &&
         contentPlanets.includes(currentPlanet) &&
         showContent ? (
@@ -116,7 +107,6 @@ function UserInterface({}: UserInterfaceProps) {
       </AnimatePresence>
 
       {!isLoading && <BottomBar />}
-      {/* <BottomBar /> */}
     </div>
   );
 }
