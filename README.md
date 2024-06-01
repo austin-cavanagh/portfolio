@@ -46,7 +46,7 @@
 
 ## Overview
 
-![Screenshot displaying an overview of the solar system](/assets/screenshots/overview-screenshot.png)
+![Screenshot displaying an overview of the solar system](https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/overview-screenshot.png)
 
 Welcome to my portfolio, designed as an interactive solar system to reflect my interest in space and talents as a developer.
 
