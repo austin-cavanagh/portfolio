@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import spaceBackground from '../../data/space-background.webp';
+import spaceBackground from '../../assets/space-background.webp';
 
 type LoadingScreenProps = {};
 
