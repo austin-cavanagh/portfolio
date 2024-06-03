@@ -34,14 +34,13 @@ function ProfileCard() {
 
       <div className="items-cetner mx-auto flex flex-col justify-center space-y-1">
         <h1 className="text-2xl font-bold">Austin Cavanagh</h1>
-        {/* <h2 className="text-center text-xl">Full Stack Developer</h2> */}
         <h2 className="text-center text-xl">San Francisco, CA</h2>
       </div>
 
       <div className="space-y-4 text-left text-lg">
         <p>
           I'm Austin, a{' '}
-          <span className="font-bold text-[#00bfff]">Full Stack Developer</span>{' '}
+          <span className="font-bold text-[#00bfff]">Software Engineer</span>{' '}
           with a background in{' '}
           <span className="font-bold text-[#00bfff]">
             operations consulting
