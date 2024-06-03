@@ -9,6 +9,9 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
+    env:
+      VERSION: 5.0.0-prod # Set your version here
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -27,10 +30,13 @@ jobs:
       - name: Build, tag, and push image to ECR
         run: |
           # Build the Docker image
-          docker build --platform linux/amd64 -t portfolio:5.0.0-prod -f Dockerfile.prod .
+          docker build --platform linux/amd64 -t portfolio:$VERSION -f Dockerfile.prod .
+
+          # Debug: Verify the contents of the image
+          docker run --rm portfolio:$VERSION ls -la /usr/share/nginx/html
 
           # Tag the Docker image
-          docker tag portfolio:5.0.0-prod ${{ secrets.ECR_REPOSITORY_URI }}:5.0.0-prod
+          docker tag portfolio:$VERSION ${{ secrets.ECR_REPOSITORY_URI }}:$VERSION
 
           # Push the Docker image to ECR
-          docker push ${{ secrets.ECR_REPOSITORY_URI }}:5.0.0-prod
+          docker push ${{ secrets.ECR_REPOSITORY_URI }}:$VERSION
