@@ -19,20 +19,18 @@ jobs:
       - name: Log in to Amazon ECR
         id: ecr-login
         uses: aws-actions/amazon-ecr-login@v1
-        with:
-          region: ${{ secrets.AWS_REGION }}
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
 
       - name: Build, tag, and push image to ECR
         run: |
-          VERSION=$(cat VERSION)
           # Build the Docker image
-          docker build --platform linux/amd64 -t portfolio:${VERSION}-prod -f Dockerfile.prod .
+          docker build --platform linux/amd64 -t portfolio:5.0.0-prod -f Dockerfile.prod .
 
           # Tag the Docker image
-          docker tag portfolio:${VERSION}-prod ${{ secrets.ECR_REPOSITORY_URI }}:${VERSION}-prod
+          docker tag portfolio:5.0.0-prod ${{ secrets.ECR_REPOSITORY_URI }}:5.0.0-prod
 
           # Push the Docker image to ECR
-          docker push ${{ secrets.ECR_REPOSITORY_URI }}:${VERSION}-prod
+          docker push ${{ secrets.ECR_REPOSITORY_URI }}:5.0.0-prod
