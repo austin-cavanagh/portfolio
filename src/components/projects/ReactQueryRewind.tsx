@@ -172,7 +172,7 @@ export default function ReactQueryRewind() {
           </div>
 
           {/* Description & Images Section - PC */}
-          <div className="hidden h-full justify-center font-poppins lg:flex">
+          <div className="hidden h-full items-center justify-center font-poppins lg:flex">
             {/* Description Section */}
             <div
               className="mr-10 flex min-w-0 flex-1"
@@ -180,7 +180,7 @@ export default function ReactQueryRewind() {
             >
               {' '}
               {/* Adjust the flex-basis as needed */}
-              <div className="space-y-3 text-left text-lg text-white">
+              <div className="space-y-3 text-left text-base text-white xl:text-lg">
                 <p>
                   Developed{' '}
                   <span className="font-bold text-[#00bfff]">
