@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      VERSION: 6.0.5-prod # Set your version here
+      VERSION: 6.0.6-prod # Set your version here
 
     steps:
       - name: Checkout code
