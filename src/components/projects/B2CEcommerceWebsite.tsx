@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../state/store';
 import { b2cEcommerceWebsiteBadges } from '../../data/technollogyBadges';
 import ImageSlider from './ImageSlider';
+import { b2cEcommerceWebsiteScreenshots } from '../../data/projectScreenshots';
 
 const projectCardVariant = {
   hidden: { y: 50, opacity: 0 },
@@ -16,29 +17,6 @@ const projectCardVariant = {
     },
   },
 };
-
-const b2cScreenshots = [
-  {
-    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/b2c-screenshot-1.png',
-    alt: 'Description',
-  },
-  {
-    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/b2c-screenshot-2.png',
-    alt: 'Description',
-  },
-  {
-    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/b2c-screenshot-3.png',
-    alt: 'Description',
-  },
-  {
-    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/b2c-screenshot-4.png',
-    alt: 'Description',
-  },
-  {
-    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/b2c-screenshot-5.png',
-    alt: 'Description',
-  },
-];
 
 export default function B2CEcommerceWebsite() {
   const { isTransitioning } = useSelector((state: RootState) => state.app);
@@ -180,7 +158,7 @@ export default function B2CEcommerceWebsite() {
               className="h-100% my-auto h-[350px] w-full"
               style={{ flexBasis: '55%' }}
             >
-              <ImageSlider screenshots={b2cScreenshots} />
+              <ImageSlider screenshots={b2cEcommerceWebsiteScreenshots} />
             </div>
           </div>
 
@@ -188,7 +166,7 @@ export default function B2CEcommerceWebsite() {
           <div className="h-full justify-center font-poppins lg:hidden">
             {/* Images Section */}
             <div className="my-auto mb-4 h-[200px] w-full">
-              <ImageSlider screenshots={b2cScreenshots} />
+              <ImageSlider screenshots={b2cEcommerceWebsiteScreenshots} />
             </div>
 
             {/* Description Section */}

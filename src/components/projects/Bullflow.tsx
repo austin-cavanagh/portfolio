@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../state/store';
 import { bullflowBadges } from '../../data/technollogyBadges';
 import ImageSlider from './ImageSlider';
+import { bullflowScreenshots } from '../../data/projectScreenshots';
 
 const projectCardVariant = {
   hidden: { y: 50, opacity: 0 },
@@ -16,29 +17,6 @@ const projectCardVariant = {
     },
   },
 };
-
-const bullflowScreenshots = [
-  {
-    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/bullflow-screenshot-1.png',
-    alt: 'Description',
-  },
-  {
-    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/bullflow-screenshot-2.png',
-    alt: 'Description',
-  },
-  {
-    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/bullflow-screenshot-3.png',
-    alt: 'Description',
-  },
-  {
-    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/bullflow-screenshot-4.png',
-    alt: 'Description',
-  },
-  {
-    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/bullflow-screenshot-5.png',
-    alt: 'Description',
-  },
-];
 
 export default function Bullflow() {
   const { isTransitioning } = useSelector((state: RootState) => state.app);

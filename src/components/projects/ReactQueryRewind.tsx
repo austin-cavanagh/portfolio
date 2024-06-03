@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../state/store';
 import ImageSlider from './ImageSlider';
 import { reactQueryRewindBadges } from '../../data/technollogyBadges';
+import { reactQueryRewindScreenshots } from '../../data/projectScreenshots';
 
 const projectCardVariant = {
   hidden: { y: 50, opacity: 0 },
@@ -16,29 +17,6 @@ const projectCardVariant = {
     },
   },
 };
-
-const rqrScreenshots = [
-  {
-    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/rqr-screenshot-1.png',
-    alt: 'Description',
-  },
-  {
-    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/rqr-screenshot-2.png',
-    alt: 'Description',
-  },
-  {
-    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/rqr-screenshot-3.png',
-    alt: 'Description',
-  },
-  {
-    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/rqr-screenshot-4.png',
-    alt: 'Description',
-  },
-  {
-    src: 'https://portfolio-screenshots-bucket.s3.us-west-1.amazonaws.com/rqr-screenshot-5.png',
-    alt: 'Description',
-  },
-];
 
 export default function ReactQueryRewind() {
   const { isTransitioning } = useSelector((state: RootState) => state.app);
@@ -224,7 +202,7 @@ export default function ReactQueryRewind() {
               className="h-100% my-auto h-[350px] w-full"
               style={{ flexBasis: '55%' }}
             >
-              <ImageSlider screenshots={rqrScreenshots} />
+              <ImageSlider screenshots={reactQueryRewindScreenshots} />
             </div>
           </div>
 
@@ -232,7 +210,7 @@ export default function ReactQueryRewind() {
           <div className="h-full justify-center font-poppins lg:hidden">
             {/* Images Section */}
             <div className="my-auto mb-4 h-[200px] w-full">
-              <ImageSlider screenshots={rqrScreenshots} />
+              <ImageSlider screenshots={reactQueryRewindScreenshots} />
             </div>
 
             {/* Description Section */}
