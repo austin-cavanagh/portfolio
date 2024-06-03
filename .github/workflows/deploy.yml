@@ -28,10 +28,10 @@ jobs:
       - name: Build, tag, and push image to ECR
         run: |
           # Build the Docker image
-          docker build -t my-app:latest .
+          docker build -t portfolio:latest .
 
           # Tag the Docker image
-          docker tag my-app:latest ${{ secrets.ECR_REPOSITORY_URI }}:latest
+          docker tag portfolio:latest ${{ secrets.ECR_REPOSITORY_URI }}:latest
 
           # Push the Docker image to ECR
           docker push ${{ secrets.ECR_REPOSITORY_URI }}:latest
