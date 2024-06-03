@@ -140,7 +140,7 @@ export const b2cEcommerceWebsiteBadges: TechnologyBadge[] = [
     alt: 'Stripe',
   },
   {
-    src: 'https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white',
+    src: 'https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazon&logoColor=white',
     alt: 'AWS',
   },
   {
@@ -262,7 +262,7 @@ export const bullflowBadges: TechnologyBadge[] = [
     alt: 'HTML5',
   },
   {
-    src: 'https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white',
+    src: 'https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazon&logoColor=white',
     alt: 'AWS',
   },
 ];
@@ -364,8 +364,8 @@ export const backendBadges: TechnologyBadge[] = [
   //   alt: 'Google Cloud',
   // },
   {
-    src: 'https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white',
-    alt: 'Amazon AWS',
+    src: 'https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazon&logoColor=white',
+    alt: 'AWS',
   },
 ];
 
