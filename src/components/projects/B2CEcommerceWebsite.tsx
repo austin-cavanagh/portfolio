@@ -182,24 +182,17 @@ export default function B2CEcommerceWebsite() {
             >
               <ImageSlider screenshots={b2cScreenshots} />
             </div>
-            {/* <div className="h-100% w-full bg-red-500"></div> */}
           </div>
 
           {/* Description & Images Section - Mobile*/}
           <div className="h-full justify-center font-poppins lg:hidden">
             {/* Images Section */}
-            <div
-              className="my-auto mb-4 h-[200px] w-full"
-              // style={{ flexBasis: '60%' }}
-            >
+            <div className="my-auto mb-4 h-[200px] w-full">
               <ImageSlider screenshots={b2cScreenshots} />
             </div>
 
             {/* Description Section */}
-            <div
-              className="mr-10 flex w-full min-w-0 flex-1"
-              // style={{ flexBasis: '40%' }}
-            >
+            <div className="mr-10 flex w-full min-w-0 flex-1">
               {' '}
               <div className="space-y-3 text-left text-base text-white sm:text-lg">
                 <p>

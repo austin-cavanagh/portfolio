@@ -69,8 +69,6 @@ export default function CameraController({}: CameraControllerProps) {
       const endTarget = new Vector3(0, 0, 0); // Position of the new planet
       const endPosition = new Vector3(-350, 400, 600); // End position of the camera
 
-      // const cameraPosition: [number, number, number] = [-350, 400, 600];
-
       // Position Transition
       new TWEEN.Tween(startPosition)
         .to(endPosition, 2500)
@@ -191,8 +189,6 @@ export default function CameraController({}: CameraControllerProps) {
     <OrbitControls
       ref={orbitControlsRef}
       enablePan={false}
-      // enableZoom={!showContent && !isTransitioning}
-      // enableRotate={!showContent && !isTransitioning}
       enableZoom={!isTransitioning}
       enableRotate={!isTransitioning}
     />
