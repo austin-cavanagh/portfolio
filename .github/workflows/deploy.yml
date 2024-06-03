@@ -27,11 +27,12 @@ jobs:
 
       - name: Build, tag, and push image to ECR
         run: |
+          VERSION=$(cat VERSION)
           # Build the Docker image
-          docker build -t portfolio:latest .
+          docker build --platform linux/amd64 -t portfolio:${VERSION}-prod -f Dockerfile.prod .
 
           # Tag the Docker image
-          docker tag portfolio:latest ${{ secrets.ECR_REPOSITORY_URI }}:latest
+          docker tag portfolio:${VERSION}-prod ${{ secrets.ECR_REPOSITORY_URI }}:${VERSION}-prod
 
           # Push the Docker image to ECR
-          docker push ${{ secrets.ECR_REPOSITORY_URI }}:latest
+          docker push ${{ secrets.ECR_REPOSITORY_URI }}:${VERSION}-prod
