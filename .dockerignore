@@ -9,10 +9,6 @@ logs
 bower_components
 jspm_packages
 
-# Ignore build directories
-dist
-build
-
 # Ignore environment variables
 .env
 .env.local
