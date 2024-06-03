@@ -1,41 +1,41 @@
-# Ignore node_modules
-node_modules
+# # Ignore node_modules
+# node_modules
 
-# Ignore logs
-logs
-*.log
+# # Ignore logs
+# logs
+# *.log
 
-# Ignore dependency directories
-bower_components
-jspm_packages
+# # Ignore dependency directories
+# bower_components
+# jspm_packages
 
-# Ignore environment variables
-.env
-.env.local
-.env.development
-.env.test
-.env.production
+# # Ignore environment variables
+# .env
+# .env.local
+# .env.development
+# .env.test
+# .env.production
 
-# Ignore test files and directories
-coverage
-__tests__
-__mocks__
+# # Ignore test files and directories
+# coverage
+# __tests__
+# __mocks__
 
-# Ignore README and other documentation files
-README.md
-README.txt
-*.md
+# # Ignore README and other documentation files
+# README.md
+# README.txt
+# *.md
 
-# Ignore configuration files used by version control systems
-.git
-.gitignore
-.gitattributes
-.idea
+# # Ignore configuration files used by version control systems
+# .git
+# .gitignore
+# .gitattributes
+# .idea
 
-# Ignore Docker files
-Dockerfile
-docker-compose.yml
+# # Ignore Docker files
+# Dockerfile
+# docker-compose.yml
 
-# Ignore other unnecessary files and directories
-.DS_Store
-Thumbs.db
+# # Ignore other unnecessary files and directories
+# .DS_Store
+# Thumbs.db
