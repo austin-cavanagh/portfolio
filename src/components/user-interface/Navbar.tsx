@@ -15,18 +15,26 @@ const mobileOptions = [
     name: '2. About',
     planet: 'Earth',
   },
+  // {
+  //   name: '3. Bullflow.io',
+  //   planet: 'Saturn',
+  // },
+  // {
+  //   name: '3. Solar System Portfolio',
+  //   planet: 'Saturn',
+  // },
   {
-    name: '3. Bullflow.io',
+    name: '3. React Query Rewind',
     planet: 'Saturn',
   },
   {
     name: '4. eCommerce Website',
     planet: 'Jupiter',
   },
-  {
-    name: '5. React Query Rewind',
-    planet: 'Mars',
-  },
+  // {
+  //   name: '5. React Query Rewind',
+  //   planet: 'Mars',
+  // },
 ];
 
 function Navbar() {
@@ -317,8 +325,8 @@ function Navbar() {
                               onClick={() => handleNavigation('Saturn')}
                               className="block px-4 py-2 text-base hover:text-white"
                             >
-                              {/* 1. React Query Rewind */}
-                              1. Bullflow.io
+                              1. React Query Rewind
+                              {/* 1. Bullflow.io */}
                             </div>
                           </li>
                           <li>
@@ -330,15 +338,15 @@ function Navbar() {
                               2. eCommerce Site
                             </div>
                           </li>
-                          <li>
+                          {/* <li>
                             <div
                               onClick={() => handleNavigation('Mars')}
                               className="block px-4 py-2 text-base hover:text-white"
                             >
-                              {/* 3. Solar System Portfolio */}
+                              3. Solar System Portfolio
                               3. React Query Rewind
                             </div>
-                          </li>
+                          </li> */}
                         </ul>
                       </div>
                     </>

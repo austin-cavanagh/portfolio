@@ -8,7 +8,7 @@ import BottomBar from '../components/user-interface/Footer';
 import About from './About';
 import ReactQueryRewind from '../components/projects/ReactQueryRewind';
 import B2CEcommerceWebsite from '../components/projects/B2CEcommerceWebsite';
-import Bullflow from '../components/projects/Bullflow';
+// import Bullflow from '../components/projects/Bullflow';
 // import SolarSystemPorfolio from '../components/projects/SolarSystemPortfolio';
 
 type UserInterfaceProps = {};
@@ -60,7 +60,9 @@ function UserInterface({}: UserInterfaceProps) {
             variants={projectExitVariant}
             className="pointer-events-auto flex flex-1 items-start justify-center overflow-auto sm:items-center"
           >
-            <Bullflow />
+            {/* <Bullflow /> */}
+            {/* <SolarSystemPorfolio /> */}
+            <ReactQueryRewind />
           </motion.div>
         );
       case 'Jupiter':
@@ -75,18 +77,18 @@ function UserInterface({}: UserInterfaceProps) {
             <B2CEcommerceWebsite />
           </motion.div>
         );
-      case 'Mars':
-        return (
-          <motion.div
-            key="mars"
-            initial="hidden"
-            exit="exit"
-            variants={projectExitVariant}
-            className="pointer-events-auto flex flex-1 items-start justify-center overflow-auto sm:items-center"
-          >
-            <ReactQueryRewind />
-          </motion.div>
-        );
+      // case 'Mars':
+      //   return (
+      //     <motion.div
+      //       key="mars"
+      //       initial="hidden"
+      //       exit="exit"
+      //       variants={projectExitVariant}
+      //       className="pointer-events-auto flex flex-1 items-start justify-center overflow-auto sm:items-center"
+      //     >
+      //       <ReactQueryRewind />
+      //     </motion.div>
+      //   );
       default:
         return <></>;
     }
